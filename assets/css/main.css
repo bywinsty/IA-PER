@@ -154,6 +154,7 @@ h6 {
 
 .header .logo {
   line-height: 1;
+  gap: 10px;
 }
 
 .header .logo img {
@@ -182,6 +183,15 @@ h6 {
   max-width: none;
   max-height: none;
   margin: 0;
+}
+
+.header .logo .site-name {
+  color: var(--heading-color);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .header .logo h1 {
