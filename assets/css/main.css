@@ -782,6 +782,17 @@ h6 {
   position: relative;
 }
 
+/* Keep starter-page content visible below the fixed header. */
+.starter-page-page .page-title {
+  padding-top: 95px;
+}
+
+@media (max-width: 1199px) {
+  .starter-page-page .page-title {
+    padding-top: 85px;
+  }
+}
+
 .page-title h1 {
   font-size: 28px;
   font-weight: 700;
