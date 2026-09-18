@@ -870,6 +870,21 @@ section,
   font-weight: 600;
 }
 
+.hero .hero-brand-logo {
+  width: min(100%, 540px);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+}
+
+.hero .hero-brand-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .hero .btn-get-started {
   color: var(--contrast-color);
   background: var(--accent-color);
@@ -920,6 +935,12 @@ section,
   .hero h1 {
     font-size: 28px;
     line-height: 36px;
+  }
+
+  .hero .hero-brand-logo {
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border-radius: 16px;
   }
 
   .hero p {
