@@ -25,3 +25,5 @@ dist/
 build/
 coverage/
 graphify-out/
+test-results/
+playwright-report/

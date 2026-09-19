@@ -697,12 +697,17 @@ h6 {
 # Preloader
 --------------------------------------------------------------*/
 #preloader {
+  display: none;
   position: fixed;
   inset: 0;
   z-index: 999999;
   overflow: hidden;
   background: var(--background-color);
   transition: all 0.6s ease-out;
+}
+
+html.preloader-active #preloader {
+  display: block;
 }
 
 #preloader:before {
@@ -767,7 +772,35 @@ h6 {
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
-    transition-delay: 0 !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# AOS visibility and motion preferences
+--------------------------------------------------------------*/
+/* Animations are an enhancement: missing JS must never hide page content.
+   Important overrides are intentionally limited to AOS nodes, not FAQ/menu state. */
+html:not(.aos-ready) [data-aos],
+html [data-aos].aos-focus-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  html [data-aos] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    transition: none !important;
   }
 }
 
