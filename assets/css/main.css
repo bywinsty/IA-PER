@@ -64,6 +64,7 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+  overflow-x: hidden;
 }
 
 a {
@@ -1055,27 +1056,132 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Clients Section
+# Partners and funding Section
 --------------------------------------------------------------*/
-.clients {
-  padding: 12px 0;
+.partners {
+  padding: 64px 0;
 }
 
-.clients .swiper {
-  padding: 10px 0;
+.partners .section-title {
+  padding-bottom: 24px;
 }
 
-.clients .swiper-wrapper {
-  height: auto;
+.partners .section-title p {
+  margin: 0 auto;
+  max-width: 760px;
 }
 
-.clients .swiper-slide img {
-  transition: 0.3s;
-  padding: 0 10px;
+.partner-group {
+  margin: 0 auto 36px;
+  max-width: 1120px;
 }
 
-.clients .swiper-slide img:hover {
-  transform: scale(1.1);
+.partner-group:last-child {
+  margin-bottom: 0;
+}
+
+.partner-group h3 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.partner-logo-grid {
+  align-items: stretch;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.partner-logo-grid--owner,
+.partner-logo-grid--funding {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.partner-logo-card {
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(55, 81, 126, 0.12);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  min-height: 112px;
+  padding: 18px 22px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partner-logo-card:hover,
+.partner-logo-card:focus-visible {
+  border-color: rgba(71, 178, 228, 0.65);
+  box-shadow: 0 8px 22px rgba(50, 70, 100, 0.1);
+}
+
+.partner-logo-card img {
+  display: block;
+  max-height: 72px;
+  max-width: 100%;
+  object-fit: contain;
+  width: auto;
+}
+
+.partner-logo-card--owner {
+  min-height: 132px;
+}
+
+.partner-logo-card--owner img {
+  max-height: 94px;
+}
+
+.partner-logo-card--dark {
+  background: #1f2f55;
+}
+
+.partner-logo-card--dark img {
+  max-height: 60px;
+}
+
+.partner-logo-card--funding {
+  min-height: 96px;
+}
+
+.partner-logo-card--funding img {
+  max-height: 58px;
+}
+
+.partner-funding-note {
+  color: var(--default-color);
+  font-size: 14px;
+  margin: 12px auto 0;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .partner-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .partners {
+    padding: 48px 0;
+  }
+
+  .partner-logo-grid {
+    gap: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  .partner-logo-card {
+    min-height: 96px;
+    padding: 16px 18px;
+  }
+
+  .partner-logo-card img {
+    max-height: 64px;
+  }
 }
 
 /*--------------------------------------------------------------

@@ -51,6 +51,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Accueil</a></li>
+          <li><a href="#partners">Partenaires</a></li>
           <li><a href="#about">À propos</a></li>
           <li><a href="#services">Thématiques</a></li>
           <li><a href="#team">Team</a></li>
@@ -91,65 +92,68 @@
 
     </section><!-- /Hero Section -->
 
-    <!-- Clients Section -->
-    <section id="clients" class="clients section light-background">
+    <!-- Partners and funding Section -->
+    <section id="partners" class="partners section light-background" aria-labelledby="partners-title">
 
-      <div class="container" data-aos="zoom-in">
+      <div class="container">
 
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 120
-                },
-                "1200": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/CF2M.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/bxlformation-1.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/SG1060.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/actiris_logo.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/cocof-1.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/Digitalcity-fond.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/FSE.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/youstart.webp" class="img-fluid" alt=""></div>
+        <div class="section-title" data-aos="fade-up">
+          <h2 id="partners-title">Partenaires et soutiens</h2>
+          <p>Ce projet est porté par le CF2M avec le soutien de partenaires institutionnels et financiers.</p>
+        </div>
 
+        <div class="partner-group" data-aos="fade-up" data-aos-delay="100">
+          <h3>Projet porté par</h3>
+          <div class="partner-logo-grid partner-logo-grid--owner">
+            <a class="partner-logo-card partner-logo-card--owner" href="https://www.cf2m.be/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/clients/CF2M.webp" class="img-fluid" alt="CF2M — Centre de formation 2 mille" loading="eager">
+            </a>
           </div>
+        </div>
+
+        <div class="partner-group" data-aos="fade-up" data-aos-delay="150">
+          <h3>Partenaires institutionnels</h3>
+          <div class="partner-logo-grid">
+            <a class="partner-logo-card" href="https://www.actiris.brussels/fr/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/actiris.png" class="img-fluid" alt="Actiris" loading="lazy">
+            </a>
+            <a class="partner-logo-card" href="https://www.bruxellesformation.brussels/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/bruxelles-formation.png" class="img-fluid" alt="Bruxelles Formation" loading="lazy">
+            </a>
+            <a class="partner-logo-card" href="https://ccf.brussels/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/cocof.png" class="img-fluid" alt="Commission communautaire française — Francophones Bruxelles" loading="lazy">
+            </a>
+            <a class="partner-logo-card" href="https://stgilles.brussels/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/clients/SG1060.webp" class="img-fluid" alt="Commune de Saint-Gilles — 1060" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="partner-group" data-aos="fade-up" data-aos-delay="200">
+          <h3>Partenaires du projet</h3>
+          <div class="partner-logo-grid">
+            <a class="partner-logo-card" href="https://digitalcity.brussels/fr" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/digitalcity.png" class="img-fluid" alt="Digitalcity.brussels" loading="lazy">
+            </a>
+            <a class="partner-logo-card partner-logo-card--dark" href="https://youthstart.be/fr/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/youthstart-white.png" class="img-fluid" alt="YouthStart" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="partner-group partner-group--funding" data-aos="fade-up" data-aos-delay="250">
+          <h3>Financement</h3>
+          <div class="partner-logo-grid partner-logo-grid--funding">
+            <a class="partner-logo-card partner-logo-card--funding" href="https://commission.europa.eu/funding-tenders/managing-your-project/communicating-and-raising-eu-visibility_en" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/eu-cofinanced-fr.jpg" class="img-fluid" alt="Cofinancé par l’Union européenne" loading="lazy">
+            </a>
+          </div>
+          <p class="partner-funding-note">Cofinancé par l’Union européenne.</p>
         </div>
 
       </div>
 
-    </section><!-- /Clients Section -->
+    </section><!-- /Partners and funding Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
