@@ -1,0 +1,2 @@
+# Keep vendored checksums stable on Windows checkouts.
+assets/vendor/aos/* text eol=lf
