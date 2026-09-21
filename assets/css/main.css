@@ -143,13 +143,14 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: transparent;
+  --background-color: #37517e;
   --heading-color: #ffffff;
   color: var(--default-color);
-  background-color: transparent;
+  background-color: #37517e;
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .header .logo {
@@ -247,7 +248,7 @@ h6 {
 /* Index Page Header on Scroll
 ------------------------------*/
 .index-page.scrolled .header {
-  --background-color: rgba(40, 58, 90, 0.9);
+  --background-color: #37517e;
 }
 
 /*--------------------------------------------------------------
@@ -816,8 +817,31 @@ html [data-aos].aos-focus-visible {
 }
 
 /* Keep starter-page content visible below the fixed header. */
-.starter-page-page .page-title {
-  padding-top: 95px;
+/* ==========================================
+   IA-PER - Pages thématiques
+   ========================================== */
+
+.starter-page-page .header {
+  background: #37517e;
+}
+
+.starter-page-page .logo .site-name {
+  background: #37517e;
+}
+
+.starter-page-page .navmenu a,
+.starter-page-page .navmenu a:focus {
+  background: #37517e;
+}
+
+.starter-page-page .navmenu a:hover,
+.starter-page-page .navmenu .active {
+  background: #37517e;
+}
+
+.starter-page-page .btn-getstarted {
+  background: #47b2e4;
+  color: #ffffff;
 }
 
 @media (max-width: 1199px) {
@@ -951,25 +975,15 @@ section,
   width: min(100%, 540px);
   padding: 16px 20px;
   margin-bottom: 24px;
-<<<<<<< Updated upstream
   background: #ffffff;
-=======
-  background: transparent;
->>>>>>> Stashed changes
   border-radius: 22px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
 }
 
 .hero .hero-brand-logo img {
   display: block;
-<<<<<<< Updated upstream
   width: 100%;
   height: auto;
-=======
-  width: 90%;
-  height: auto;
-  background: transparent;
-
 }
 
 .hero .hero-img {
@@ -980,7 +994,6 @@ section,
   background: transparent;
   display: block;
   max-width: 100%;
->>>>>>> Stashed changes
 }
 
 .hero .hero-title {
@@ -988,10 +1001,6 @@ section,
   margin: 0 0 14px;
   font-size: clamp(30px, 3.4vw, 44px);
   line-height: 1.12;
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 }
 
 .hero .btn-get-started {
@@ -1029,9 +1038,8 @@ section,
 }
 
 .hero .btn-watch-video:hover {
-  
-    background: transparent;
-color: var(--accent-color);
+  background: transparent;
+  color: var(--accent-color);
 }
 
 .hero .btn-watch-video:hover i {
@@ -1053,35 +1061,26 @@ color: var(--accent-color);
     padding: 12px 14px;
     margin-bottom: 20px;
     border-radius: 16px;
-<<<<<<< Updated upstream
-=======
-      background: transparent;
-
->>>>>>> Stashed changes
+    background: transparent;
   }
 
   .hero .hero-title {
     font-size: 28px;
     line-height: 1.2;
-<<<<<<< Updated upstream
-=======
-      background: transparent;
-
->>>>>>> Stashed changes
+    background: transparent;
   }
 
   .hero p {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
-      background: transparent;
-
+    background: transparent;
   }
 
   .hero .btn-get-started,
   .hero .btn-watch-video {
     font-size: 13px;
-      background: transparent;
+    background: transparent;
 
   }
 }
