@@ -1101,6 +1101,12 @@ section,
   grid-template-columns: minmax(0, 1fr);
 }
 
+.partner-logo-grid--project {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 560px;
+}
+
 .partner-logo-card {
   align-items: center;
   background: #fff;
@@ -1171,6 +1177,10 @@ section,
 
   .partner-logo-grid {
     gap: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  .partner-logo-grid--project {
     grid-template-columns: 1fr;
   }
 
