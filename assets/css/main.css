@@ -19,11 +19,11 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --background-color: transparent; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #37517e; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #47b2e4; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --surface-color: transparent; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
@@ -62,7 +62,7 @@
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: transparent;
   font-family: var(--default-font);
 }
 
@@ -143,10 +143,10 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #3d4d6a;
+  --background-color: transparent;
   --heading-color: #ffffff;
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: transparent;
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
@@ -951,15 +951,36 @@ section,
   width: min(100%, 540px);
   padding: 16px 20px;
   margin-bottom: 24px;
+<<<<<<< Updated upstream
   background: #ffffff;
+=======
+  background: transparent;
+>>>>>>> Stashed changes
   border-radius: 22px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
 }
 
 .hero .hero-brand-logo img {
   display: block;
+<<<<<<< Updated upstream
   width: 100%;
   height: auto;
+=======
+  width: 90%;
+  height: auto;
+  background: transparent;
+
+}
+
+.hero .hero-img {
+  background: transparent;
+}
+
+.hero .hero-img img {
+  background: transparent;
+  display: block;
+  max-width: 100%;
+>>>>>>> Stashed changes
 }
 
 .hero .hero-title {
@@ -967,6 +988,10 @@ section,
   margin: 0 0 14px;
   font-size: clamp(30px, 3.4vw, 44px);
   line-height: 1.12;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }
 
 .hero .btn-get-started {
@@ -1004,7 +1029,9 @@ section,
 }
 
 .hero .btn-watch-video:hover {
-  color: var(--accent-color);
+  
+    background: transparent;
+color: var(--accent-color);
 }
 
 .hero .btn-watch-video:hover i {
@@ -1012,6 +1039,7 @@ section,
 }
 
 .hero .animated {
+  background: transparent;
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 
@@ -1025,22 +1053,36 @@ section,
     padding: 12px 14px;
     margin-bottom: 20px;
     border-radius: 16px;
+<<<<<<< Updated upstream
+=======
+      background: transparent;
+
+>>>>>>> Stashed changes
   }
 
   .hero .hero-title {
     font-size: 28px;
     line-height: 1.2;
+<<<<<<< Updated upstream
+=======
+      background: transparent;
+
+>>>>>>> Stashed changes
   }
 
   .hero p {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
+      background: transparent;
+
   }
 
   .hero .btn-get-started,
   .hero .btn-watch-video {
     font-size: 13px;
+      background: transparent;
+
   }
 }
 
@@ -3397,7 +3439,7 @@ section,
 # Starter Section Section
 --------------------------------------------------------------*/
 .starter-section {
-  /* Add your styles here */
+ color: var(--default-color); 
 }
 
 /*--------------------------------------------------------------
