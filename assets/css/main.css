@@ -667,7 +667,7 @@ h6 {
   color: var(--accent-color);
 }
 
-.footer .footer-about a {
+.footer .footer-about > a {
   color: var(--heading-color);
   font-size: 28px;
   font-weight: 600;
@@ -677,6 +677,15 @@ h6 {
 
 .footer .footer-contact p {
   margin-bottom: 5px;
+}
+
+.footer .footer-contact a {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.footer .footer-contact strong {
+  font-weight: 700;
 }
 
 .footer .copyright {
@@ -1665,6 +1674,30 @@ section,
 .call-to-action .cta-btn:hover {
   background: var(--accent-color);
   border: 2px solid var(--accent-color);
+}
+
+.call-to-action .social-links {
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.call-to-action .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 16px;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  transition: 0.3s;
+}
+
+.call-to-action .social-links a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
 }
 
 /*--------------------------------------------------------------
