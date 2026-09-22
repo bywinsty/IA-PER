@@ -39,28 +39,26 @@
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <div class="container-fluid position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto" aria-label="IA-PER">
-        <span class="site-mark" aria-hidden="true">
-          <img src="assets/img/ia-per-progres-enjeux-responsabilites.png" alt="">
-        </span>
-        <span class="site-name">IA-PER</span>
+        <img
+          src="assets/img/ia-per-progres-enjeux-responsabilites.png"
+          class="site-logo"
+          width="150"
+          height="75"
+          alt="IA-PER — Progrès, Enjeux et Responsabilités">
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Accueil</a></li>
-          <li><a href="#about">À propos</a></li>
           <li><a href="#services">Thématiques</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#partners">Partenaires</a></li>
+          <li><a class="btn-getstarted" href="#about">Démarrer</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-      <a class="btn-getstarted" href="#about">Démarrer</a>
 
     </div>
   </header>
@@ -72,84 +70,21 @@
 
       <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-            <div class="hero-brand-logo">
-              <img src="assets/img/ia-per-progres-enjeux-responsabilites.png" class="img-fluid" alt="IA-PER — Progrès, Enjeux et Responsabilités">
-            </div>
+          <div class="col-lg-6 order-1 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
             <h1 class="hero-title">Comprendre l’impact de l’intelligence artificielle</h1>
             <p>Au travail, dans l’environnement et dans la société. Comprendre, questionner, choisir.</p>
             <div class="d-flex">
               <a href="#about" class="btn-get-started">Démarrer</a>
-              <a href="" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Regarder les vidéo</span></a>
+              <a href="" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Regarder la vidéo</span></a>
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <div class="col-lg-6 order-2 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
             <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
 
     </section><!-- /Hero Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients section light-background">
-
-      <div class="container" data-aos="zoom-in">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 120
-                },
-                "1200": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/CF2M.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/bxlformation-1.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/SG1060.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/actiris_logo.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/cocof-1.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/Digitalcity-fond.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/FSE.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/youstart.webp" class="img-fluid" alt=""></div>
-
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -184,6 +119,106 @@
       </div>
 
     </section><!-- /About Section -->
+
+    <!-- Thématiques Section -->
+    <section id="services" class="work-process section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Thématiques</h2>
+        <p>Abordons les différentes thématiques liées à l'usage de l'intelligence artificielle</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="steps-item">
+              <div class="steps-image">
+                <img src="assets/img/steps/iaenviro.png" alt="Step 1" class="img-fluid" loading="lazy">
+              </div>
+              <div class="steps-content">
+                <div class="steps-number">01</div>
+                <h4><a href="environnement.html" class="stretched-link">Environnement</a></h4>
+                <p>IA environnement</p>
+                <div class="steps-features">
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Accueil</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Interview</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Questions</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Steps Item -->
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="steps-item">
+              <div class="steps-image">
+                <img src="assets/img/steps/iaprof.webp" alt="Step 2" class="img-fluid" loading="lazy">
+              </div>
+              <div class="steps-content">
+                <div class="steps-number">02</div>
+                <h4><a href="professionnel.html" class="stretched-link">Professionnel</a></h4>
+                <p>IA professionnel</p>
+                <div class="steps-features">
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Accueil</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Interview</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Questions</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Steps Item -->
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="steps-item">
+              <div class="steps-image">
+                <img src="assets/img/steps/iasocietal.jpg" alt="Step 3" class="img-fluid" loading="lazy">
+              </div>
+              <div class="steps-content">
+                <div class="steps-number">03</div>
+                <h4><a href="societe.html" class="stretched-link">Société</a></h4>
+                <p>IA Sociétal</p>
+                <div class="steps-features">
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Accueil</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Interview</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Questions</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Steps Item -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Thématiques Section -->
 
     <!-- Why Us Section -->
     <section id="why-us" class="section why-us light-background" data-builder="section">
@@ -305,149 +340,6 @@
 
     </section><!-- /Skills Section -->
 
-    <!-- Services Section -->
-    <section id="services" class="services section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Thématiques</h2>
-        <p>Abordons les différentes thématiques liées à l'usage de l'intelligence artificielle</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-leaf"></i></div>
-              <h4><a href="environnement.html" class="stretched-link">Environnement</a></h4>
-              <p>iA sur l'environnement.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-briefcase"></i></div>
-              <h4><a href="professionnel.html" class="stretched-link">Professionnel</a></h4>
-              <p>iA dans le monde professionnel.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-people-fill"></i></div>
-              <h4><a href="societe.html" class="stretched-link">Société</a></h4>
-              <p>iA dans la vie au quotidien.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Work Process Section -->
-    <section id="work-process" class="work-process section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Thématiques</h2>
-        <p>Abordons les différentes thématiques liées à l'usage de l'intelligence artificielle</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iaenviro.png" alt="Step 1" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">01</div>
-                <h4><a href="environnement.html" class="stretched-link">Environnement</a></h4>
-                <p>IA environnement</p>
-                <div class="steps-features">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Accueil</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Interview</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iaprof.webp" alt="Step 2" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">02</div>
-                <h4><a href="professionnel.html" class="stretched-link">Professionnel</a></h4>
-                <p>IA professionnel</p>
-                <div class="steps-features">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Accueil</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Interview</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iasocietal.jpg" alt="Step 3" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">03</div>
-                <h4><a href="societe.html" class="stretched-link">Société</a></h4>
-                <p>IA Sociétal</p>
-                <div class="steps-features">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Accueil</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Interview</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Work Process Section -->
-
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section dark-background">
 
@@ -461,15 +353,21 @@
             <p>Partagez avec nous votre différents avis sur l'intelligence artificielle</p>
           </div>
           <div class="col-xl-3 cta-btn-container text-center">
-            <p class="cta-btn align-middle">Rejoignez-nous sur nos réseaux sociaux pouvoir cliquer étre renvoyer sur les RSocieaux</p>
-            <p>Abonnez-vous</p>
-            <div class="social-links d-flex"> 
-            <a class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100" href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <p class="cta-social-text">Rejoignez-nous sur les réseaux sociaux</p>
+            <div class="social-links d-flex justify-content-center" aria-label="Réseaux sociaux de CF2M">
+              <a href="" aria-label="X">
+                <i class="bi bi-twitter-x" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.facebook.com/centredeformation2mille/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="bi bi-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="" aria-label="Instagram">
+                <i class="bi bi-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.linkedin.com/school/cf2m-formation-bruxelles/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="bi bi-linkedin" aria-hidden="true"></i>
+              </a>
             </div>
-       
 
           </div>
         </div>
@@ -795,7 +693,7 @@
     </section><!-- /Subscribe Section -->
 
     <!-- Recent Blog Postst Section -->
-    <section id="recent-blog-postst" class="recent-blog-postst section light-background">
+    <section id="recent-blog-posts" class="recent-blog-postst section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -927,7 +825,7 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3> Adresse</h3>
-                  <p>87-89 Avenue du Parc 1060 St-Gilles</p>
+                  <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Avenue+du+Parc+87-89%2C+1060+Saint-Gilles%2C+Belgium" target="_blank" rel="noopener noreferrer">Avenue du Parc 87-89, 1060 Saint-Gilles</a></p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -993,6 +891,69 @@
 
     </section><!-- /Contact Section -->
 
+    <!-- Partners and funding Section -->
+    <section id="partners" class="partners section light-background" aria-labelledby="partners-title">
+
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2 id="partners-title">Partenaires et soutiens</h2>
+          <p>Ce projet est porté par le CF2M avec le soutien de partenaires institutionnels et financiers.</p>
+        </div>
+
+        <div class="partner-group" data-aos="fade-up" data-aos-delay="100">
+          <h3>Projet porté par</h3>
+          <div class="partner-logo-grid partner-logo-grid--owner">
+            <a class="partner-logo-card partner-logo-card--owner" href="https://www.cf2m.be/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/clients/CF2M.webp" class="img-fluid" alt="CF2M — Centre de formation 2 mille" loading="eager">
+            </a>
+          </div>
+        </div>
+
+        <div class="partner-group" data-aos="fade-up" data-aos-delay="150">
+          <h3>Partenaires institutionnels</h3>
+          <div class="partner-logo-grid">
+            <a class="partner-logo-card" href="https://www.actiris.brussels/fr/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/actiris.png" class="img-fluid" alt="Actiris" loading="lazy">
+            </a>
+            <a class="partner-logo-card" href="https://www.bruxellesformation.brussels/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/bruxelles-formation.png" class="img-fluid" alt="Bruxelles Formation" loading="lazy">
+            </a>
+            <a class="partner-logo-card" href="https://ccf.brussels/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/cocof.png" class="img-fluid" alt="Commission communautaire française — Francophones Bruxelles" loading="lazy">
+            </a>
+            <a class="partner-logo-card" href="https://stgilles.brussels/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/clients/SG1060.webp" class="img-fluid" alt="Commune de Saint-Gilles — 1060" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="partner-group" data-aos="fade-up" data-aos-delay="200">
+          <h3>Partenaires du projet</h3>
+          <div class="partner-logo-grid partner-logo-grid--project">
+            <a class="partner-logo-card" href="https://digitalcity.brussels/fr" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/digitalcity.png" class="img-fluid" alt="Digitalcity.brussels" loading="lazy">
+            </a>
+            <a class="partner-logo-card partner-logo-card--dark" href="https://youthstart.be/fr/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/youthstart-white.png" class="img-fluid" alt="YouthStart" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="partner-group partner-group--funding" data-aos="fade-up" data-aos-delay="250">
+          <h3>Financement</h3>
+          <div class="partner-logo-grid partner-logo-grid--funding">
+            <a class="partner-logo-card partner-logo-card--funding" href="https://commission.europa.eu/funding-tenders/managing-your-project/communicating-and-raising-eu-visibility_en" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/eu-cofinanced-fr.jpg" class="img-fluid" alt="Cofinancé par l’Union européenne" loading="lazy">
+            </a>
+          </div>
+          <p class="partner-funding-note">Cofinancé par l’Union européenne.</p>
+        </div>
+
+      </div>
+
+    </section><!-- /Partners and funding Section -->
+
   </main>
 
   
@@ -1005,37 +966,38 @@
             <span class="sitename">IA-PER</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>Adresse:</p>
-            <p>87-89 Avenue du Parc </p>
-            <p>1060 St-Gilles</p>
-            <p class="mt-3"><strong>Phone:</strong> <span><a href="tel:+02 538 20 83" target="_blank" rel="noopener noreferrer"> +02 538 20 83</a></span></p>
-            <p><strong>Email:</strong> <span><a href="IA-PER@cf2000.onmicrosoft.com" target="_blank" rel="noopener noreferrer">IA-PER@cf2000.onmicrosoft.com</a></span></p>
+            <p><strong>Email :</strong> <span><a href="mailto:IA-PER@cf2000.onmicrosoft.com">IA-PER@cf2000.onmicrosoft.com</a></span></p>
+            <p><strong>Téléphone :</strong> <span><a href="tel:+3225382083">02 538 20 83</a></span></p>
+            <p class="mt-3"><strong>Adresse :</strong></p>
+            <p><a class="footer-address" href="https://www.google.com/maps/search/?api=1&amp;query=Avenue+du+Parc+87-89%2C+1060+Saint-Gilles%2C+Belgium" target="_blank" rel="noopener noreferrer">Avenue du Parc 87-89<br>1060 Saint-Gilles</a></p>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Liens utiles</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Accueil</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">À propos</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Questions fréquemment posées</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#hero">Accueil</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#about">À propos</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#faq-2">Questions fréquemment posées</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Thématiques</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Environnement</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Professionnel</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Sociétal</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="environnement.html">Environnement</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="professionnel.html">Professionnel</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="societe.html">Sociétal</a></li>
           </ul>
         </div>
-         <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+        <div class="col-lg-4 col-md-6 footer-social">
+          <div class="social-links d-flex" aria-label="Réseaux sociaux de CF2M">
+                  <a href="" aria-label="X"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+                  <a href="https://www.facebook.com/centredeformation2mille/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                  <a href="" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/school/cf2m-formation-bruxelles/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          </div>
          </div>
       
 
@@ -1043,13 +1005,13 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">IA-PER</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">IA-PER</strong> <span>Tous droits réservés</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <p>Section Aventure digitale</p>  
+        Conçu par <span>Section Aventure digitale</span><br>
         <a href="https://www.cf2m.be/">CF2M</a>
       </div>
     </div>
