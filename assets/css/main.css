@@ -27,14 +27,9 @@
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Header navigation color. */
 :root {
-  --nav-color: #ffffff;  /* The default color of the main navmenu links */
-  --nav-hover-color: #47b2e4; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #47b2e4; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #ffffff;
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -153,7 +148,6 @@ h6 {
   --background-color: rgba(255, 255, 255, 0.92);
   --heading-color: #111b3d;
   --nav-color: #111b3d;
-  --nav-hover-color: #168dcc;
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 10px 0;
@@ -187,6 +181,125 @@ h6 {
   box-shadow: none;
 }
 
+/* Header breadcrumbs: keep the current page visible next to the brand. */
+.header-brand {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.header-brand .logo {
+  flex: 0 0 auto;
+}
+
+.header-breadcrumbs {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: min(42vw, 440px);
+  margin-left: 18px;
+  padding-left: 18px;
+  border-left: 1px solid rgba(17, 27, 61, 0.16);
+  color: var(--nav-color);
+}
+
+.header-breadcrumbs ol {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.header-breadcrumbs li {
+  min-width: 0;
+}
+
+.header-breadcrumbs li + li::before {
+  content: "/" / "";
+  display: inline-block;
+  padding: 0 9px;
+  color: color-mix(in srgb, var(--nav-color), transparent 58%);
+}
+
+.header-breadcrumbs a {
+  color: var(--nav-color);
+}
+
+.header-breadcrumbs a:hover,
+.header-breadcrumbs a:focus-visible {
+  color: #0b5f83;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Neutral button treatment for every header breadcrumb. */
+.header-breadcrumbs .breadcrumb-button {
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  border: 0;
+  border-radius: 4px;
+  margin: 0;
+  padding: 5px 7px;
+  background: transparent;
+  color: var(--nav-color);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    text-decoration-color 0.15s ease;
+}
+
+.header-breadcrumbs .breadcrumb-button:hover,
+.header-breadcrumbs .breadcrumb-button:focus-visible {
+  background: rgba(129, 139, 152, 0.10);
+  color: var(--nav-color);
+  text-decoration: none;
+}
+
+.header-breadcrumbs .breadcrumb-button:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent-color), transparent 35%);
+  outline-offset: 3px;
+}
+
+.header-breadcrumbs .breadcrumb-button.current {
+  color: var(--nav-color);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.header-breadcrumbs .breadcrumb-button.current::after {
+  content: "";
+  position: absolute;
+  right: 7px;
+  bottom: 1px;
+  left: 7px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent-color);
+}
+
+.header-breadcrumbs .breadcrumb-button.current:hover {
+  color: var(--nav-color);
+}
+
+.header-breadcrumbs .current {
+  overflow: hidden;
+  color: var(--nav-color);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media (max-width: 640px) {
   .header > .container-fluid {
     padding-left: 15px;
@@ -195,6 +308,16 @@ h6 {
 
   .header .logo .site-logo {
     width: 132px;
+  }
+
+  .header-breadcrumbs {
+    max-width: calc(100vw - 180px);
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+
+  .header-breadcrumbs ol {
+    font-size: 12px;
   }
 }
 
@@ -216,314 +339,11 @@ h6 {
   text-transform: uppercase;
 }
 
-@media (max-width: 1200px) {
-  .header .logo {
-    order: 1;
-  }
-
-  .header .navmenu {
-    order: 2;
-  }
-}
-
-@media (min-width: 1200px) {
-  .header .navmenu {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
 /* Header on Scroll
 ------------------------------*/
 .scrolled .header {
   --background-color: rgba(255, 255, 255, 0.98);
   box-shadow: 0 6px 20px rgba(17, 27, 61, 0.12);
-}
-
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-/* Desktop Navigation */
-@media (min-width: 1200px) {
-  .navmenu {
-    padding: 0;
-  }
-
-  .navmenu ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    align-items: center;
-  }
-
-  .navmenu li {
-    position: relative;
-  }
-
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-color);
-    padding: 18px 15px;
-    font-size: 15px;
-    font-family: var(--nav-font);
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    transition: 0.3s;
-  }
-
-  .navmenu li:last-child a {
-    padding-right: 0;
-  }
-
-  .navmenu li:hover>a,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-hover-color);
-  }
-
-  .navmenu .dropdown ul {
-    margin: 0;
-    padding: 10px 0;
-    background: var(--nav-dropdown-background-color);
-    display: block;
-    position: absolute;
-    visibility: hidden;
-    left: 14px;
-    top: 130%;
-    opacity: 0;
-    transition: 0.3s;
-    border-radius: 4px;
-    z-index: 99;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .navmenu .dropdown ul li {
-    min-width: 200px;
-  }
-
-  .navmenu .dropdown ul a {
-    padding: 10px 20px;
-    font-size: 15px;
-    text-transform: none;
-    color: var(--nav-dropdown-color);
-  }
-
-  .navmenu .dropdown ul a i {
-    font-size: 12px;
-  }
-
-  .navmenu .dropdown ul a:hover,
-  .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .dropdown:hover>ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-  }
-
-  .navmenu .dropdown .dropdown ul {
-    top: 0;
-    left: -90%;
-    visibility: hidden;
-  }
-
-  .navmenu .dropdown .dropdown:hover>ul {
-    opacity: 1;
-    top: 0;
-    left: -100%;
-    visibility: visible;
-  }
-
-  .navmenu .megamenu {
-    position: static;
-  }
-
-  .navmenu .megamenu ul {
-    margin: 0;
-    padding: 10px;
-    background: var(--nav-dropdown-background-color);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 130%;
-    left: 0;
-    right: 0;
-    visibility: hidden;
-    opacity: 0;
-    display: flex;
-    transition: 0.3s;
-    border-radius: 4px;
-    z-index: 99;
-  }
-
-  .navmenu .megamenu ul li {
-    flex: 1;
-  }
-
-  .navmenu .megamenu ul li a,
-  .navmenu .megamenu ul li:hover>a {
-    padding: 10px 20px;
-    font-size: 15px;
-    color: var(--nav-dropdown-color);
-  }
-
-  .navmenu .megamenu ul li a:hover,
-  .navmenu .megamenu ul li .active,
-  .navmenu .megamenu ul li .active:hover {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .megamenu:hover>ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-  }
-
-  .navmenu .dd-box-shadow {
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
-  }
-}
-
-/* Mobile Navigation */
-@media (max-width: 1199px) {
-  .mobile-nav-toggle {
-    color: var(--nav-color);
-    font-size: 28px;
-    line-height: 0;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: color 0.3s;
-  }
-
-  .navmenu {
-    padding: 0;
-    z-index: 9997;
-  }
-
-  .navmenu ul {
-    display: none;
-    list-style: none;
-    position: absolute;
-    inset: 60px 20px 20px 20px;
-    padding: 10px 0;
-    margin: 0;
-    border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
-    overflow-y: auto;
-    transition: 0.3s;
-    z-index: 9998;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-dropdown-color);
-    padding: 10px 20px;
-    font-family: var(--nav-font);
-    font-size: 17px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  }
-
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-  }
-
-  .navmenu a:hover,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .active i,
-  .navmenu .active:focus i {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: rotate(180deg);
-  }
-
-  .navmenu .dropdown ul {
-    position: static;
-    display: none;
-    z-index: 99;
-    padding: 10px 0;
-    margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    box-shadow: none;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .navmenu .dropdown ul ul {
-    background-color: rgba(33, 37, 41, 0.1);
-  }
-
-  .navmenu .dropdown>.dropdown-active {
-    display: block;
-    background-color: rgba(33, 37, 41, 0.03);
-  }
-
-  .mobile-nav-active {
-    overflow: hidden;
-  }
-
-  .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
-    position: absolute;
-    font-size: 32px;
-    top: 15px;
-    right: 15px;
-    margin-right: 0;
-    z-index: 9999;
-  }
-
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
-  }
-
-  .mobile-nav-active .navmenu>ul {
-    display: block;
-  }
 }
 
 /*--------------------------------------------------------------
@@ -832,26 +652,6 @@ html [data-aos].aos-focus-visible {
   margin: 0;
 }
 
-.page-title .breadcrumbs ol {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0 0 10px 0;
-  margin: 0;
-  font-size: 14px;
-}
-
-.page-title .breadcrumbs ol li+li {
-  padding-left: 10px;
-}
-
-.page-title .breadcrumbs ol li+li::before {
-  content: "/";
-  display: inline-block;
-  padding-right: 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
@@ -864,11 +664,21 @@ section,
   overflow: clip;
 }
 
+/* The thematic pages no longer use a separate page-title strip, so keep their
+   first visible content below the fixed header. */
+.thematic-page {
+  padding-top: 155px;
+}
+
 @media (max-width: 1199px) {
 
   section,
   .section {
     scroll-margin-top: 66px;
+  }
+
+  .thematic-page {
+    padding-top: 145px;
   }
 }
 
