@@ -1064,6 +1064,59 @@ section,
 }
 
 /*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about ul li {
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.about ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: var(--accent-color);
+}
+
+.about .read-more {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 8px 28px;
+  border-radius: 5px;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--heading-color);
+}
+
+.about .read-more i {
+  font-size: 18px;
+  margin-left: 5px;
+  line-height: 0;
+  transition: 0.3s;
+}
+
+.about .read-more:hover,
+.about .read-more:focus-visible {
+  background: var(--heading-color);
+  color: var(--contrast-color);
+}
+
+.about .read-more:hover i,
+.about .read-more:focus-visible i {
+  transform: translate(5px, 0);
+}
+
+/*--------------------------------------------------------------
 # Partners and funding Section
 --------------------------------------------------------------*/
 .partners {
