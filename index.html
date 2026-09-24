@@ -271,7 +271,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Questions fréquemment posées</h2>
-        <p>Reunir les questions que les gens nous ont posées </p>
+        <p>Retrouvez les questions qui reviennent le plus souvent.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -283,48 +283,68 @@
             <div class="faq-container">
 
               <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
-                <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
+                <h3>
+                  <button id="faq-question-1" class="faq-question" type="button" aria-expanded="true" aria-controls="faq-panel-1">
+                    Pourquoi s’intéresser à l’intelligence artificielle&nbsp;?
+                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="faq-panel-1" class="faq-content" role="region" aria-labelledby="faq-question-1" aria-hidden="false">
+                  <p>L’intelligence artificielle transforme déjà le travail, les services, l’information et la vie quotidienne. La comprendre permet d’identifier ses apports, ses limites et les choix collectifs qu’elle implique.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
+                <h3>
+                  <button id="faq-question-2" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-2">
+                    L’intelligence artificielle va-t-elle remplacer les métiers&nbsp;?
+                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="faq-panel-2" class="faq-content" role="region" aria-labelledby="faq-question-2" aria-hidden="true">
+                  <p>Elle transforme surtout les tâches et l’organisation du travail. Certains métiers évolueront, de nouvelles compétences seront nécessaires et le jugement humain restera important pour décider, coopérer et assumer les responsabilités.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
+                <h3>
+                  <button id="faq-question-3" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-3">
+                    Quel est l’impact environnemental de l’intelligence artificielle&nbsp;?
+                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="faq-panel-3" class="faq-content" role="region" aria-labelledby="faq-question-3" aria-hidden="true">
+                  <p>La conception, l’entraînement et l’utilisation des systèmes d’IA mobilisent des serveurs, de l’électricité et parfois de l’eau. Il est donc utile de questionner la nécessité d’un usage, sa fréquence et les ressources qu’il demande.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
+                <h3>
+                  <button id="faq-question-4" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-4">
+                    Pourquoi l’IA peut-elle produire des résultats discriminatoires&nbsp;?
+                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="faq-panel-4" class="faq-content" role="region" aria-labelledby="faq-question-4" aria-hidden="true">
+                  <p>Un système apprend à partir de données et de choix humains qui peuvent déjà contenir des déséquilibres. Les résultats doivent donc être vérifiés, discutés et corrigés, en particulier lorsqu’ils influencent l’accès à un emploi, à un service ou à un droit.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h3>
-                <div class="faq-content">
-                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
+                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
+                <h3>
+                  <button id="faq-question-5" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-5">
+                    Comment utiliser l’IA de manière responsable&nbsp;?
+                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="faq-panel-5" class="faq-content" role="region" aria-labelledby="faq-question-5" aria-hidden="true">
+                  <p>Il faut garder un regard critique, protéger les données personnelles, vérifier les informations produites et savoir quand demander un avis humain. L’outil doit rester au service d’un objectif clair et compréhensible.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
             </div>

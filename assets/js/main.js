@@ -236,9 +236,20 @@
   /**
    * Frequently Asked Questions Toggle
    */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
+  document.querySelectorAll('.faq-item .faq-question').forEach((faqQuestion) => {
+    const faqItem = faqQuestion.closest('.faq-item');
+    const faqPanel = document.getElementById(faqQuestion.getAttribute('aria-controls'));
+
+    const syncFaqState = () => {
+      const isExpanded = faqItem.classList.contains('faq-active');
+      faqQuestion.setAttribute('aria-expanded', String(isExpanded));
+      faqPanel?.setAttribute('aria-hidden', String(!isExpanded));
+    };
+
+    syncFaqState();
+    faqQuestion.addEventListener('click', () => {
+      faqItem.classList.toggle('faq-active');
+      syncFaqState();
       scheduleAosRefresh();
     });
   });

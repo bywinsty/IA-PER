@@ -1926,17 +1926,35 @@ section,
   font-size: 18px;
   line-height: 24px;
   margin: 0 30px 0 32px;
-  transition: 0.3s;
+}
+
+.faq-2 .faq-container .faq-item h3 .faq-question {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.faq-2 .faq-container .faq-item h3 .faq-question:hover,
+.faq-2 .faq-container .faq-item h3 .faq-question:focus-visible {
+  color: var(--accent-color);
+}
+
+.faq-2 .faq-container .faq-item h3 .faq-question:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent-color), white 35%);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .faq-2 .faq-container .faq-item h3 span {
   color: var(--accent-color);
   padding-right: 5px;
-}
-
-.faq-2 .faq-container .faq-item h3:hover {
-  color: var(--accent-color);
 }
 
 .faq-2 .faq-container .faq-item .faq-content {
@@ -1977,6 +1995,10 @@ section,
 }
 
 .faq-2 .faq-container .faq-active h3 {
+  color: var(--accent-color);
+}
+
+.faq-2 .faq-container .faq-active h3 .faq-question {
   color: var(--accent-color);
 }
 
