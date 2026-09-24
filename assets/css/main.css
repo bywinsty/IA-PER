@@ -44,6 +44,11 @@
   --surface-color: #ffffff;
 }
 
+/* FAQ text needs a darker interactive color than the decorative accent. */
+.faq-2 {
+  --faq-interactive-color: #176b91;
+}
+
 .dark-background {
   --background-color: #111B3D ;
   --default-color: #ffffff;
@@ -211,36 +216,13 @@ h6 {
   text-transform: uppercase;
 }
 
-.header .btn-getstarted,
-.header .btn-getstarted:focus {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  font-size: 14px;
-  padding: 8px 25px;
-  margin: 0 0 0 30px;
-  border-radius: 50px;
-  transition: 0.3s;
-}
-
-.header .btn-getstarted:hover,
-.header .btn-getstarted:focus:hover {
-  color: var(--contrast-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 15%);
-}
-
 @media (max-width: 1200px) {
   .header .logo {
     order: 1;
   }
 
-  .header .btn-getstarted {
-    order: 2;
-    margin: 0 15px 0 0;
-    padding: 6px 15px;
-  }
-
   .header .navmenu {
-    order: 3;
+    order: 2;
   }
 }
 
@@ -302,7 +284,7 @@ h6 {
     transition: 0.3s;
   }
 
-  .navmenu li:last-child a:not(.btn-getstarted) {
+  .navmenu li:last-child a {
     padding-right: 0;
   }
 
@@ -1943,11 +1925,11 @@ section,
 
 .faq-2 .faq-container .faq-item h3 .faq-question:hover,
 .faq-2 .faq-container .faq-item h3 .faq-question:focus-visible {
-  color: var(--accent-color);
+  color: var(--faq-interactive-color);
 }
 
 .faq-2 .faq-container .faq-item h3 .faq-question:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--accent-color), white 35%);
+  outline: 3px solid var(--faq-interactive-color);
   outline-offset: 4px;
   border-radius: 2px;
 }
@@ -1991,15 +1973,15 @@ section,
 }
 
 .faq-2 .faq-container .faq-item .faq-toggle:hover {
-  color: var(--accent-color);
+  color: var(--faq-interactive-color);
 }
 
 .faq-2 .faq-container .faq-active h3 {
-  color: var(--accent-color);
+  color: var(--faq-interactive-color);
 }
 
 .faq-2 .faq-container .faq-active h3 .faq-question {
-  color: var(--accent-color);
+  color: var(--faq-interactive-color);
 }
 
 .faq-2 .faq-container .faq-active .faq-content {
@@ -2011,7 +1993,7 @@ section,
 
 .faq-2 .faq-container .faq-active .faq-toggle {
   transform: rotate(90deg);
-  color: var(--accent-color);
+  color: var(--faq-interactive-color);
 }
 
 /*--------------------------------------------------------------
