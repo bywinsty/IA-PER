@@ -25,3 +25,7 @@ dist/
 build/
 coverage/
 graphify-out/
+
+# Codex local project integration
+AGENTS.md
+.codex/
