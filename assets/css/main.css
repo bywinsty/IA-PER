@@ -55,6 +55,7 @@
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 /*--------------------------------------------------------------
@@ -144,13 +145,19 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #3d4d6a;
-  --heading-color: #ffffff;
+  --background-color: rgba(255, 255, 255, 0.92);
+  --heading-color: #111b3d;
+  --nav-color: #111b3d;
+  --nav-hover-color: #168dcc;
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 10px 0;
   transition: all 0.5s;
   z-index: 997;
+  border-bottom: 1px solid rgba(17, 27, 61, 0.08);
+  box-shadow: 0 4px 18px rgba(17, 27, 61, 0.08);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  backdrop-filter: blur(12px) saturate(120%);
 }
 
 .header .logo {
@@ -245,22 +252,9 @@ h6 {
   }
 }
 
-/* Index Page Header
+/* Header on Scroll
 ------------------------------*/
-.index-page .header {
-  --background-color: rgba(255, 255, 255, 0.92);
-  --heading-color: #111b3d;
-  --nav-color: #111b3d;
-  --nav-hover-color: #168dcc;
-  border-bottom: 1px solid rgba(17, 27, 61, 0.08);
-  box-shadow: 0 4px 18px rgba(17, 27, 61, 0.08);
-  -webkit-backdrop-filter: blur(12px) saturate(120%);
-  backdrop-filter: blur(12px) saturate(120%);
-}
-
-/* Index Page Header on Scroll
-------------------------------*/
-.index-page.scrolled .header {
+.scrolled .header {
   --background-color: rgba(255, 255, 255, 0.98);
   box-shadow: 0 6px 20px rgba(17, 27, 61, 0.12);
 }
@@ -839,13 +833,13 @@ html [data-aos].aos-focus-visible {
   position: relative;
 }
 
-/* Keep starter-page content visible below the fixed header. */
-.starter-page-page .page-title {
+/* Keep every internal page title visible below the fixed header. */
+.page-title {
   padding-top: 95px;
 }
 
 @media (max-width: 1199px) {
-  .starter-page-page .page-title {
+  .page-title {
     padding-top: 85px;
   }
 }
@@ -1243,11 +1237,11 @@ section,
 .about ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: var(--accent-color);
+  color: #1f6f94;
 }
 
 .about .read-more {
-  color: var(--accent-color);
+  color: #1f6f94;
   font-family: var(--heading-font);
   font-weight: 500;
   font-size: 16px;
@@ -1258,7 +1252,7 @@ section,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--accent-color);
+  border: 2px solid #1f6f94;
 }
 
 .about .read-more i {
@@ -1269,7 +1263,7 @@ section,
 }
 
 .about .read-more:hover {
-  background: var(--accent-color);
+  background: #1f6f94;
   color: var(--contrast-color);
 }
 
@@ -1500,6 +1494,8 @@ section,
   background: var(--surface-color);
   border-radius: 20px;
   height: 100%;
+  --steps-image-height: 280px;
+  position: relative;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 5px 20px color-mix(in srgb, var(--default-color), transparent 92%);
 }
@@ -1515,7 +1511,7 @@ section,
 }
 
 .work-process .steps-item:hover .steps-number {
-  background: var(--accent-color);
+  background: #16536f;
   color: var(--contrast-color);
 }
 
@@ -1546,7 +1542,7 @@ section,
   top: -30px;
   width: 60px;
   height: 60px;
-  background: var(--accent-color);
+  background: #1f6f94;
   color: var(--contrast-color);
   border-radius: 50%;
   font-family: var(--heading-font);
@@ -1562,6 +1558,25 @@ section,
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 15px;
+}
+
+.work-process .steps-content h3 a {
+  color: #1f6f94;
+}
+
+.work-process .steps-content h3 a::after {
+  top: calc(-1 * var(--steps-image-height));
+  height: calc(100% + var(--steps-image-height));
+}
+
+.work-process .steps-content h3 a:hover,
+.work-process .steps-content h3 a:focus-visible {
+  color: #16536f;
+}
+
+.work-process .steps-content h3 a:focus-visible {
+  outline: 3px solid #16536f;
+  outline-offset: 4px;
 }
 
 .work-process .steps-content p {
@@ -1581,9 +1596,15 @@ section,
 }
 
 .work-process .steps-features .feature-item i {
-  color: var(--accent-color);
+  color: #1f6f94;
   font-size: 18px;
   margin-right: 10px;
+}
+
+.work-process .steps-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .work-process .steps-features .feature-item span {
@@ -1594,6 +1615,10 @@ section,
 @media (max-width: 1199px) {
   .work-process .steps-image {
     height: 240px;
+  }
+
+  .work-process .steps-item {
+    --steps-image-height: 240px;
   }
 
   .work-process .steps-content {
@@ -1612,6 +1637,10 @@ section,
 
   .work-process .steps-image {
     height: 220px;
+  }
+
+  .work-process .steps-item {
+    --steps-image-height: 220px;
   }
 
   .work-process .steps-content {
@@ -3570,6 +3599,110 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/*--------------------------------------------------------------
+# Thematic Pages
+--------------------------------------------------------------*/
+.thematic-page {
+  background: var(--background-color);
+}
+
+.thematic-copy {
+  max-width: 680px;
+}
+
+.thematic-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #1f6f94;
+  font-family: var(--heading-font);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.thematic-copy h2 {
+  margin-bottom: 18px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.thematic-copy p {
+  color: color-mix(in srgb, var(--default-color), transparent 12%);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.thematic-copy .thematic-lead {
+  color: var(--heading-color);
+  font-size: 21px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.thematic-image {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--default-color), transparent 88%);
+}
+
+.thematic-card {
+  padding: 28px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  border-radius: 16px;
+  background: var(--surface-color);
+  box-shadow: 0 5px 20px color-mix(in srgb, var(--default-color), transparent 94%);
+}
+
+.thematic-card h3 {
+  margin-bottom: 12px;
+  color: var(--heading-color);
+  font-size: 22px;
+}
+
+.thematic-card p {
+  margin: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 12%);
+  line-height: 1.65;
+}
+
+.thematic-back {
+  margin-top: 42px;
+  text-align: center;
+}
+
+.thematic-back a {
+  color: #1f6f94;
+  font-family: var(--heading-font);
+  font-weight: 600;
+}
+
+.thematic-back a:hover,
+.thematic-back a:focus-visible {
+  color: #16536f;
+}
+
+.thematic-back a:focus-visible {
+  outline: 3px solid #16536f;
+  outline-offset: 4px;
+}
+
+@media (max-width: 767px) {
+  .thematic-copy h2 {
+    font-size: 30px;
+  }
+
+  .thematic-copy .thematic-lead {
+    font-size: 18px;
+  }
+
+  .thematic-image {
+    max-height: 260px;
+  }
 }
 
 /*--------------------------------------------------------------
