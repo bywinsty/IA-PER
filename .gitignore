@@ -25,6 +25,8 @@ dist/
 build/
 coverage/
 graphify-out/
+.graphifyignore
+docs/GRAPHIFY.md
 
 # Codex local project integration
 AGENTS.md
