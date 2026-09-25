@@ -22,7 +22,6 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -41,25 +40,23 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto" aria-label="IA-PER">
-        <img
-          src="assets/img/ia-per-progres-enjeux-responsabilites.png"
-          class="site-logo"
-          width="150"
-          height="75"
-          alt="IA-PER — Progrès, Enjeux et Responsabilités">
-      </a>
+      <div class="header-brand d-flex align-items-center me-auto">
+        <a href="index.html" class="logo d-flex align-items-center" aria-label="IA-PER">
+          <img
+            src="assets/img/ia-per-progres-enjeux-responsabilites.png"
+            class="site-logo"
+            width="150"
+            height="75"
+            alt="IA-PER — Progrès, Enjeux et Responsabilités">
+        </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Accueil</a></li>
-          <li><a href="#services">Thématiques</a></li>
-          <li><a href="#partners">Partenaires</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+        <nav class="header-breadcrumbs" aria-label="Fil d’Ariane">
+          <ol>
+            <li><a href="index.html" class="breadcrumb-button current" aria-current="page">Accueil</a></li>
+          </ol>
+        </nav>
+      </div>
 
-      <a class="btn-getstarted" href="#about">Démarrer</a>
 
     </div>
   </header>
@@ -221,328 +218,13 @@
 
     </section><!-- /Thématiques Section -->
 
-    <!-- Why Us Section -->
-    <section id="why-us" class="section why-us light-background" data-builder="section">
-
-      <div class="container-fluid">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
-
-            <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-              <h3><span>Différentes questions </span> </h3>
-              <h3><strong>Un panel de personnes Expert, citoyens, étudiants</strong></h3>
-              <p>
-                Des vastes questions sur les avantages et les inconvénients de l'intelligence artificielle sur les différentes thématiques.
-              </p>
-            </div>
-
-            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="faq-item faq-active">
-
-                <h3><span>01</span> Environnement </h3>
-                <div class="faq-content">
-                  <p>blablalal?</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span>02</span>Professionnel</h3>
-                <div class="faq-content">
-                  <p>blablalal?</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span>03</span>Sociétal</h3>
-                <div class="faq-content">
-                  <p>blablalal?</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-5 order-1 order-lg-2 why-us-img">
-            <img src="assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Why Us Section -->
-
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section dark-background">
-
-      <img src="assets/img/bg/bg-8.webp" alt="">
-
-      <div class="container">
-
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-9 text-center text-xl-start">
-            <h3>Call To Action</h3>
-            <p>Partagez avec nous votre différents avis sur l'intelligence artificielle</p>
-          </div>
-          <div class="col-xl-3 cta-btn-container text-center">
-            <p class="cta-social-text">Rejoignez-nous sur les réseaux sociaux</p>
-            <div class="social-links d-flex justify-content-center" aria-label="Réseaux sociaux de CF2M">
-              <a href="" aria-label="X">
-                <i class="bi bi-twitter-x" aria-hidden="true"></i>
-              </a>
-              <a href="https://www.facebook.com/centredeformation2mille/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <i class="bi bi-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="" aria-label="Instagram">
-                <i class="bi bi-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="https://www.linkedin.com/school/cf2m-formation-bruxelles/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <i class="bi bi-linkedin" aria-hidden="true"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Call To Action Section -->
-
-
-
-    <!-- Team Section -->
-    <section id="team" class="team section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/person/person-m-7.webp" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Anatolii VEREHA </h4>
-                <span>Stagiaire</span>
-                <p>Participe à l’étude des impacts de l’intelligence artificielle.</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/person/person-f-8.webp" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Thien An DANG</h4>
-                <span>Stagiaire</span>
-                <p>Contribue à l’analyse des usages et des enjeux liés à l’intelligence artificielle.</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/person/person-m-6.webp" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Guenael Bruno PEA ELEE</h4>
-                <span>Stagiaire</span>
-                <p>S’intéresse aux effets de l’intelligence artificielle dans la vie quotidienne.</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/person/person-f-4.webp" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Rebecca KABUO</h4>
-                <span>Stagiaire</span>
-                <p>Participe à la collecte et à l’analyse des témoignages.</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/person/person-m-13.webp" class="img-fluid" alt="Yassin BELGHITI"></div>
-              <div class="member-info">
-                <h4>Yassin BELGHITI</h4>
-                <span>Stagiaire</span>
-                <p>Contribue à la réflexion sur les avantages et les limites de l’intelligence artificielle.</p>
-                <div class="social" aria-label="Réseaux sociaux de Yassin BELGHITI">
-                  <a href="" aria-label="X"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
-                  <a href="" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
-                  <a href="" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
-                  <a href="" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Team Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Temoignages</h2>
-        <p>Reprendre les phrases pertinents sur les différents interviews voir si les experts ou les gens veulent afficher leur tête.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/person/person-m-9.webp" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/person/person-f-5.webp" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/person/person-f-12.webp" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/person/person-m-12.webp" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/person/person-m-13.webp" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
     <!-- Faq 2 Section -->
     <section id="faq-2" class="faq-2 section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Questions fréquemment posées</h2>
-        <p>Reunir les questions que les gens nous ont posées </p>
+        <p>Retrouvez les questions qui reviennent le plus souvent.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -554,48 +236,68 @@
             <div class="faq-container">
 
               <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
-                <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
+                <h3>
+                  <button id="faq-question-1" class="faq-question" type="button" aria-expanded="true" aria-controls="faq-panel-1">
+                    Pourquoi s’intéresser à l’intelligence artificielle&nbsp;?
+                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="faq-panel-1" class="faq-content" role="region" aria-labelledby="faq-question-1" aria-hidden="false">
+                  <p>L’intelligence artificielle transforme déjà le travail, les services, l’information et la vie quotidienne. La comprendre permet d’identifier ses apports, ses limites et les choix collectifs qu’elle implique.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
+                <h3>
+                  <button id="faq-question-2" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-2">
+                    L’intelligence artificielle va-t-elle remplacer les métiers&nbsp;?
+                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="faq-panel-2" class="faq-content" role="region" aria-labelledby="faq-question-2" aria-hidden="true">
+                  <p>Elle transforme surtout les tâches et l’organisation du travail. Certains métiers évolueront, de nouvelles compétences seront nécessaires et le jugement humain restera important pour décider, coopérer et assumer les responsabilités.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
+                <h3>
+                  <button id="faq-question-3" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-3">
+                    Quel est l’impact environnemental de l’intelligence artificielle&nbsp;?
+                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="faq-panel-3" class="faq-content" role="region" aria-labelledby="faq-question-3" aria-hidden="true">
+                  <p>La conception, l’entraînement et l’utilisation des systèmes d’IA mobilisent des serveurs, de l’électricité et parfois de l’eau. Il est donc utile de questionner la nécessité d’un usage, sa fréquence et les ressources qu’il demande.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
+                <h3>
+                  <button id="faq-question-4" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-4">
+                    Pourquoi l’IA peut-elle produire des résultats discriminatoires&nbsp;?
+                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="faq-panel-4" class="faq-content" role="region" aria-labelledby="faq-question-4" aria-hidden="true">
+                  <p>Un système apprend à partir de données et de choix humains qui peuvent déjà contenir des déséquilibres. Les résultats doivent donc être vérifiés, discutés et corrigés, en particulier lorsqu’ils influencent l’accès à un emploi, à un service ou à un droit.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h3>
-                <div class="faq-content">
-                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
+                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
+                <h3>
+                  <button id="faq-question-5" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-5">
+                    Comment utiliser l’IA de manière responsable&nbsp;?
+                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="faq-panel-5" class="faq-content" role="region" aria-labelledby="faq-question-5" aria-hidden="true">
+                  <p>Il faut garder un regard critique, protéger les données personnelles, vérifier les informations produites et savoir quand demander un avis humain. L’outil doit rester au service d’un objectif clair et compréhensible.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
             </div>
@@ -608,34 +310,84 @@
 
     </section><!-- /Faq 2 Section -->
 
-    <!-- Subscribe Section -->
-    <section id="subscribe" class="subscribe section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4 justify-content-between align-items-center">
-          <div class="col-lg-6">
-            <div class="cta-content" data-aos="fade-up" data-aos-delay="200">
-              <h2>Abonnez-vous à notre newsletter</h2>
-              <p>Pour recevoir des news sur l'iA.</p>
-              <form action="forms/newsletter.php" method="post" class="php-email-form cta-form" data-aos="fade-up" data-aos-delay="300">
-                <div class="input-group mb-3">
-                  <input type="email" class="form-control" placeholder="Email address..." aria-label="Email address" aria-describedby="button-subscribe">
-                  <button class="btn btn-primary" type="submit" id="button-subscribe">Subscribe</button>
-                </div>
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-              </form>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="cta-image" data-aos="zoom-out" data-aos-delay="200">
-              <img src="assets/img/cta/cta-1.webp" alt="" class="img-fluid">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- /Subscribe Section -->
+    <!-- Team Section -->
+    <section id="team" class="team section" aria-labelledby="team-title">
 
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 id="team-title">Équipe du projet</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="team-hierarchy">
+
+          <div class="team-lead-wrap" data-aos="fade-up" data-aos-delay="100">
+            <article class="team-member team-lead">
+              <div class="pic"><img src="assets/img/person/person-m-6.webp" class="img-fluid" alt="Guenael Bruno PEA ELEE"></div>
+              <div class="member-info">
+                <h4>Guenael Bruno PEA ELEE</h4>
+                <span class="team-role team-role--lead">Chef de projet</span>
+                <p>Coordonne le projet et analyse les impacts négatifs de l’IA dans le monde professionnel.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="team-connector-layer" aria-hidden="true">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false">
+              <path class="team-connector-desktop" d="M50 0 V45 M12.5 45 H87.5 M12.5 45 V100 M37.5 45 V100 M62.5 45 V100 M87.5 45 V100"></path>
+              <path class="team-connector-mobile" d="M50 0 V45 H2 V100"></path>
+              <circle class="team-connector-desktop" cx="12.5" cy="45" r="1.5"></circle>
+              <circle class="team-connector-desktop" cx="37.5" cy="45" r="1.5"></circle>
+              <circle class="team-connector-desktop" cx="50" cy="45" r="1.5"></circle>
+              <circle class="team-connector-desktop" cx="62.5" cy="45" r="1.5"></circle>
+              <circle class="team-connector-desktop" cx="87.5" cy="45" r="1.5"></circle>
+            </svg>
+          </div>
+
+          <div class="team-members">
+            <article class="team-member" data-aos="fade-up" data-aos-delay="200">
+              <div class="pic"><img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="Anatolii VEREHA"></div>
+              <div class="member-info">
+                <h4>Anatolii VEREHA</h4>
+                <span class="team-role">Responsable communication</span>
+                <p>Présente la campagne et analyse les avantages de l’IA dans le monde professionnel.</p>
+              </div>
+            </article>
+
+            <article class="team-member" data-aos="fade-up" data-aos-delay="300">
+              <div class="pic"><img src="assets/img/person/person-f-8.webp" class="img-fluid" alt="Thien An DANG"></div>
+              <div class="member-info">
+                <h4>Thien An DANG</h4>
+                <span class="team-role">Secrétaire</span>
+                <p>Documente le projet et étudie les avantages de l’IA dans la société.</p>
+              </div>
+            </article>
+
+            <article class="team-member" data-aos="fade-up" data-aos-delay="400">
+              <div class="pic"><img src="assets/img/person/person-f-4.webp" class="img-fluid" alt="Rebecca KABUO"></div>
+              <div class="member-info">
+                <h4>Rebecca KABUO</h4>
+                <span class="team-role">Responsable planification</span>
+                <p>Planifie la campagne et étudie les avantages de l’IA pour l’environnement.</p>
+              </div>
+            </article>
+
+            <article class="team-member" data-aos="fade-up" data-aos-delay="500">
+              <div class="pic"><img src="assets/img/person/person-m-13.webp" class="img-fluid" alt="Yassin BELGHITI"></div>
+              <div class="member-info">
+                <h4>Yassin BELGHITI</h4>
+                <span class="team-role">Médiateur</span>
+                <p>Fait le lien avec le public et analyse les impacts négatifs de l’IA dans la société.</p>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Team Section -->
 
     <!-- Partners and funding Section -->
     <section id="partners" class="partners section light-background" aria-labelledby="partners-title">
@@ -680,8 +432,8 @@
             <a class="partner-logo-card" href="https://digitalcity.brussels/fr" target="_blank" rel="noopener noreferrer">
               <img src="assets/img/partners/digitalcity.png" class="img-fluid" alt="Digitalcity.brussels" loading="lazy">
             </a>
-            <a class="partner-logo-card partner-logo-card--dark" href="https://youthstart.be/fr/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/youthstart-white.png" class="img-fluid" alt="YouthStart" loading="lazy">
+            <a class="partner-logo-card partner-logo-card--project" href="https://youthstart.be/fr/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/youthstart.png" class="img-fluid" alt="YouthStart" loading="lazy">
             </a>
           </div>
         </div>
@@ -724,6 +476,7 @@
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="#hero">Accueil</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#about">À propos</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">Thématiques</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#faq-2">Questions fréquemment posées</a></li>
           </ul>
         </div>
@@ -773,7 +526,6 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>

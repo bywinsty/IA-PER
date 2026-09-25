@@ -41,50 +41,35 @@
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto" aria-label="IA-PER">
+      <div class="header-brand d-flex align-items-center me-auto">
+        <a href="index.html" class="logo d-flex align-items-center" aria-label="IA-PER">
         <img
           src="assets/img/ia-per-progres-enjeux-responsabilites.png"
           class="site-logo"
           width="150"
           height="75"
           alt="IA-PER — Progrès, Enjeux et Responsabilités">
-      </a>
+        </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#hero">Accueil</a></li>
-          <li><a href="index.html#services" class="active">Thématiques</a></li>
-          <li><a href="index.html#partners">Partenaires</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="index.html#about">Démarrer</a>
+        <nav class="header-breadcrumbs" aria-label="Fil d’Ariane">
+          <ol>
+            <li><a href="index.html" class="breadcrumb-button">Accueil</a></li>
+            <li><a href="societe.html" class="breadcrumb-button current" aria-current="page">Société</a></li>
+          </ol>
+        </nav>
+      </div>
 
     </div>
   </header>
 
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title" data-aos="fade">
-      <div class="container">
-        <nav class="breadcrumbs" aria-label="Fil d’Ariane">
-          <ol>
-            <li><a href="index.html">Accueil</a></li>
-            <li class="current">Société</li>
-          </ol>
-        </nav>
-        <h1>Société</h1>
-      </div>
-    </div><!-- End Page Title -->
-
     <section id="thematic-content" class="thematic-page section" aria-labelledby="thematic-title">
       <div class="container">
+        <h1 class="visually-hidden">Société</h1>
         <div class="row gy-4 align-items-center">
           <div class="col-lg-7" data-aos="fade-up">
             <div class="thematic-copy">
-              <span class="thematic-kicker">Thématique 03</span>
               <h2 id="thematic-title">IA et société</h2>
               <p class="thematic-lead">Explorer les effets de l’intelligence artificielle sur la vie quotidienne et le collectif.</p>
               <p>Cette thématique examine la place de l’IA dans l’information, les services, la culture et les relations sociales, en laissant une place centrale aux expériences et aux questions des personnes concernées.</p>
@@ -122,6 +107,123 @@
       </div>
     </section><!-- /Thematic Section -->
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Temoignages</h2>
+        <p>Reprendre les phrases pertinents sur les différents interviews voir si les experts ou les gens veulent afficher leur tête.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/person/person-m-9.webp" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/person/person-f-5.webp" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/person/person-f-12.webp" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/person/person-m-12.webp" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Freelancer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/person/person-m-13.webp" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
   </main>
 
 <footer id="footer" class="footer">
@@ -144,7 +246,7 @@
           <h4>Liens utiles</h4>
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="index.html#hero">Accueil</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="index.html#about">À propos</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="index.html#services">Thématiques</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="index.html#faq-2">Questions fréquemment posées</a></li>
           </ul>
         </div>
