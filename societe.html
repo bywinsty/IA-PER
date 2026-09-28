@@ -1,196 +1,305 @@
-<!DOCTYPE html>
-<html lang="en">
+²<!DOCTYPE html>
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>IA-PER - Société</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="L'intelligence artificielle et la société">
+  <meta name="keywords" content="IA, intelligence artificielle, société">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Arsha
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Updated: Feb 22 2025 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+<style>
+/* Alignement navbar / cadre + occupation efficace du cadre */
+.environnement-page .starter-section,
+.societe-page .starter-section,
+.professionnel-page .starter-section {
+  padding-top: 68px !important;
+  padding-bottom: 8px !important;
+}
+
+.environnement-page .starter-section .container,
+.societe-page .starter-section .container,
+.professionnel-page .starter-section .container {
+  width: min(920px, calc(100% - 32px)) !important;
+  max-width: 920px !important;
+  padding: 12px 22px 14px !important;
+  margin: 0 auto !important;
+  border-radius: 18px !important;
+}
+
+/* Titre : proche du haut du cadre */
+.environnement-page .starter-section h1,
+.societe-page .starter-section h1,
+.professionnel-page .starter-section h1 {
+  font-size: 28px !important;
+  line-height: 1.15 !important;
+  margin: 0 0 8px !important;
+}
+
+/* Image : utilisée comme bandeau compact */
+.environnement-page .starter-section > .container > img,
+.societe-page .starter-section > .container > img,
+.professionnel-page .starter-section > .container > img {
+  display: block !important;
+  width: min(100%, 620px) !important;
+  height: 170px !important;
+  max-height: 170px !important;
+  object-fit: cover !important;
+  margin: 0 auto 9px !important;
+}
+
+/* Sections rapprochées : pas de trous inutiles */
+.environnement-page .starter-section h2,
+.societe-page .starter-section h2,
+.professionnel-page .starter-section h2 {
+  font-size: 19px !important;
+  line-height: 1.2 !important;
+  margin: 9px 0 4px !important;
+}
+
+.environnement-page .starter-section h3,
+.societe-page .starter-section h3,
+.professionnel-page .starter-section h3 {
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+  margin: 7px 0 3px !important;
+}
+
+.environnement-page .starter-section h5,
+.societe-page .starter-section h5,
+.professionnel-page .starter-section h5 {
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+  margin: 6px 0 3px !important;
+}
+
+.environnement-page .starter-section p,
+.societe-page .starter-section p,
+.professionnel-page .starter-section p {
+  font-size: 13px !important;
+  line-height: 1.42 !important;
+  margin: 0 0 5px !important;
+}
+
+.environnement-page .starter-section ul,
+.societe-page .starter-section ul,
+.professionnel-page .starter-section ul {
+  margin: 2px 0 6px !important;
+  padding-left: 19px !important;
+}
+
+.environnement-page .starter-section li,
+.societe-page .starter-section li,
+.professionnel-page .starter-section li {
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  margin: 0 0 2px !important;
+}
+
+.environnement-page .starter-section hr,
+.societe-page .starter-section hr,
+.professionnel-page .starter-section hr {
+  margin: 7px 0 !important;
+  opacity: .45 !important;
+}
+
+/* Vidéo : intégrée au cadre sans gros espace autour */
+.environnement-page .starter-section iframe,
+.societe-page .starter-section iframe,
+.professionnel-page .starter-section iframe {
+  display: block !important;
+  width: 100% !important;
+  max-width: 760px !important;
+  height: 250px !important;
+  max-height: 250px !important;
+  margin: 5px auto 0 !important;
+}
+
+/* Réduit aussi les marges Bootstrap éventuelles */
+.environnement-page .starter-section .row,
+.societe-page .starter-section .row,
+.professionnel-page .starter-section .row {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.environnement-page .starter-section [class*="col-"],
+.societe-page .starter-section [class*="col-"],
+.professionnel-page .starter-section [class*="col-"] {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .environnement-page .starter-section,
+  .societe-page .starter-section,
+  .professionnel-page .starter-section {
+    padding-top: 64px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .environnement-page .starter-section .container,
+  .societe-page .starter-section .container,
+  .professionnel-page .starter-section .container {
+    width: calc(100% - 18px) !important;
+    padding: 11px 13px 12px !important;
+    border-radius: 15px !important;
+  }
+
+  .environnement-page .starter-section > .container > img,
+  .societe-page .starter-section > .container > img,
+  .professionnel-page .starter-section > .container > img {
+    height: 150px !important;
+    max-height: 150px !important;
+    margin-bottom: 7px !important;
+  }
+
+  .environnement-page .starter-section iframe,
+  .societe-page .starter-section iframe,
+  .professionnel-page .starter-section iframe {
+    height: 205px !important;
+    max-height: 205px !important;
+  }
+}
+</style>
+
 </head>
 
-<body class="starter-page-page">
+<body class="starter-page-page societe-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <div class="container-fluid container-xl position-relative">
+      <div class="header-inner d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center" aria-label="IA-PER">
+          <span class="site-mark" aria-hidden="true">
+            <img src="assets/img/logoIa.png" alt="IA-PER">
+          </span>
+        </a>
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto" aria-label="IA-PER">
-        <span class="site-mark" aria-hidden="true">
-          <img src="assets/img/ia-per-progres-enjeux-responsabilites.png" alt="">
-        </span>
-        <span class="site-name">IA-PER</span>
-      </a>
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#services">Thématiques</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#hero" class="active">Accueil</a></li>
-          <li><a href="index.html#about">À propos</a></li>
-          <li><a href="index.html#services">Thématiques</a></li>
-          <li><a href="index.html#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="#starter-section">Démarrer</a>
-
+        <div class="header-brand-text">IA-PER</div>
+      </div>
     </div>
   </header>
 
   <main class="main">
+    <section id="starter-section" class="starter-section section">
+      <div class="container" data-aos="fade-up">
+        <h1>IA et Société</h1>
 
-  <section id="starter-section" class="starter-section section">
-    <div class="container" data-aos="fade-up">
+        <img src="assets/img/steps/iasocietal.jpg" class="img-fluid mb-4 rounded" alt="IA et société">
 
-      <h2 class="mb-4">IA et Société</h2>
+        <h2>Présentation</h2>
+        <p>
+          L'intelligence artificielle influence notre manière de communiquer, de nous informer,
+          d'apprendre et d'interagir avec les services numériques. Son développement apporte de nombreuses
+          opportunités mais soulève également des questions liées à la vie privée, aux biais algorithmiques
+          et à l'éthique.
+        </p>
 
-      <img src="assets/img/steps/iasociete.png"
-           class="img-fluid mb-4 rounded"
-           alt="IA et société">
+        <hr>
 
-      <h3>Présentation</h3>
+        <hr>
 
-        Elle influence notre manière de communiquer, de nous informer,
-        d'apprendre et d'interagir avec les services numériques.
-        Son développement apporte de nombreuses opportunités mais soulève
-        également des questions liées à la vie privée, aux biais
-        algorithmiques et à l'éthique.
-      </p>
+        <h2>Questions posées</h2>
+        <h3>Questions destinées à l'expert</h3>
+        <ul>
+          <li>Comment l'IA transforme-t-elle notre société ?</li>
+          <li>Quels sont les principaux avantages de l'IA pour les citoyens ?</li>
+          <li>Quels sont les risques liés à l'utilisation massive de l'IA ?</li>
+          <li>Comment peut-on limiter les biais algorithmiques ?</li>
+          <li>Comment développer une IA éthique et responsable ?</li>
+        </ul>
 
-      <hr>
+        <h3>Questions destinées au citoyen</h3>
+        <ul>
+          <li>Utilisez-vous l'intelligence artificielle dans votre quotidien ?</li>
+          <li>Pensez-vous que l'IA améliore la qualité de vie ?</li>
+          <li>Êtes-vous inquiet concernant l'évolution de l'IA ?</li>
+        </ul>
 
-      <h3>Interviews</h3>
+        <hr>
 
-      <p>
-        Retrouvez ici les interviews réalisées auprès d'experts et de citoyens
-        concernant l'impact de l'intelligence artificielle sur la société.
-      </p>
+        <h2>Interviews</h2>
+        <p>
+          Retrouvez ici les interviews réalisées auprès d'experts et de citoyens concernant l'impact de
+          l'intelligence artificielle sur la société.
+        </p>
+        <ul>
+          <li>Interview d'un expert</li>
+          <li>Interview d'un citoyen</li>
+        </ul>
 
-      <ul>
-        <li>Interview d'un expert</li>
-        <li>Interview d'un citoyen</li>
-      </ul>
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="IA et Société" allowfullscreen></iframe>
 
-      <hr>
 
-      <h3>Questions posées</h3>
-
-      <h5>Questions destinées à l'expert</h5>
-
-      <ul>
-        <li>Comment l'IA transforme-t-elle notre société ?</li>
-        <li>Quels sont les principaux avantages de l'IA pour les citoyens ?</li>
-        <li>Quels sont les risques liés à l'utilisation massive de l'IA ?</li>
-        <li>Comment peut-on limiter les biais algorithmiques ?</li>
-        <li>Comment développer une IA éthique et responsable ?</li>
-      </ul>
-
-      <h5>Questions destinées au citoyen</h5>
-
-      <ul>
-        <li>Utilisez-vous l'intelligence artificielle dans votre quotidien ?</li>
-        <li>Pensez-vous que l'IA améliore la qualité de vie ?</li>
-        <li>Êtes-vous inquiet concernant l'évolution de l'IA ?</li>
-      </ul>
-
-      <hr>
-
-      <h3>Vidéos</h3>
-
-      <iframe width="100%"
-              height="500"
-              src="https://www.youtube.com/embed/VIDEO_ID"
-              title="IA et Société"
-              frameborder="0"
-              allowfullscreen>
-      </iframe>
-
- 
-
-  <footer id="footer" class="footer">
-
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-            </form>
-          </div>
         </div>
       </div>
-    </div>
+    </section>
+  </main>
 
+  <footer id="footer" class="footer">
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">Arsha</span>
+            <span class="sitename">IA-PER</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p>Adresse:</p>
+            <p>87-89 Avenue du Parc </p>
+            <p>1060 St-Gilles</p>
+            <p class="mt-3"><strong>Phone:</strong> <span><a href="tel:+02 538 20 83" target="_blank"> +02 538 20 83</a></span></p>
+            <p><strong>Email:</strong> <span><a href="IA-PER@cf2000.onmicrosoft.com" target="_blank">IA-PER@cf2000.onmicrosoft.com</a></span></p>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
+          <h4>Liens utiles</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="index.html#hero">Accueil</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="index.html#about">À propos</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="index.html#ia-hub">Questions posées</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="index.html#contact">Contact</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+          <h4>Thématiques</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="environnement.html">Environnement</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="professionnel.html">Professionnel</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="societe.html">Sociétal</a></li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-12">
           <h4>Follow Us</h4>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
           <div class="social-links d-flex">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
@@ -198,21 +307,16 @@
             <a href=""><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Arsha</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">IA-PER</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+        Designed by <p>Section Aventure digitale</p>
+        <a href="https://www.cf2m.be/">CF2M</a>
       </div>
     </div>
-
   </footer>
 
   <!-- Scroll Top -->
@@ -233,6 +337,79 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
+<style>
+/* Correction finale : le cadre doit passer SOUS la navbar fixe */
+.environnement-page .starter-section,
+.societe-page .starter-section,
+.professionnel-page .starter-section {
+  padding-top: 108px !important;
+}
+
+/* Le haut du cadre reste compact malgré le décalage nécessaire */
+.environnement-page .starter-section .container,
+.societe-page .starter-section .container,
+.professionnel-page .starter-section .container {
+  margin-top: 0 !important;
+  padding-top: 12px !important;
+}
+
+@media (max-width: 1199px) {
+  .environnement-page .starter-section,
+  .societe-page .starter-section,
+  .professionnel-page .starter-section {
+    padding-top: 100px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .environnement-page .starter-section,
+  .societe-page .starter-section,
+  .professionnel-page .starter-section {
+    padding-top: 92px !important;
+  }
+}
+</style>
+
+
+<style>
+/* Vidéo prioritaire : toute la largeur utile du grand cadre */
+.environnement-page .starter-section iframe,
+.societe-page .starter-section iframe,
+.professionnel-page .starter-section iframe {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 420px !important;
+  max-height: 420px !important;
+  margin: 4px 0 10px !important;
+  border: 0 !important;
+}
+
+/* Interview directement sous la vidéo, sans espace vide */
+.environnement-page .starter-section iframe + h2,
+.environnement-page .starter-section iframe + h3,
+.environnement-page .starter-section iframe + h5,
+.societe-page .starter-section iframe + h2,
+.societe-page .starter-section iframe + h3,
+.societe-page .starter-section iframe + h5,
+.professionnel-page .starter-section iframe + h2,
+.professionnel-page .starter-section iframe + h3,
+.professionnel-page .starter-section iframe + h5 {
+  margin-top: 8px !important;
+}
+
+@media (max-width: 767px) {
+  .environnement-page .starter-section iframe,
+  .societe-page .starter-section iframe,
+  .professionnel-page .starter-section iframe {
+    height: 280px !important;
+    max-height: 280px !important;
+    margin-bottom: 8px !important;
+  }
+}
+</style>
 
 </body>
 
