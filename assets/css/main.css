@@ -55,7 +55,9 @@
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
-  scroll-padding-top: 112px;
+  --header-height: 96px;
+  --header-scroll-padding: 96px;
+  scroll-padding-top: var(--header-scroll-padding);
 }
 
 /*--------------------------------------------------------------
@@ -173,8 +175,8 @@ h6 {
   padding: 10px 0;
   transition: all 0.5s;
   z-index: 997;
-  border-bottom: 1px solid rgba(17, 27, 61, 0.08);
-  box-shadow: 0 4px 18px rgba(17, 27, 61, 0.08);
+  border-bottom: 0;
+  box-shadow: none;
   -webkit-backdrop-filter: blur(12px) saturate(120%);
   backdrop-filter: blur(12px) saturate(120%);
 }
@@ -227,46 +229,29 @@ h6 {
   display: flex;
   align-items: center;
   width: max-content;
-  padding: 2px 14px 4px 0;
+  padding: 4px 6px;
   color: var(--nav-color);
   font-family: var(--heading-font);
   font-size: 15px;
   font-weight: 700;
   line-height: 1.2;
   white-space: nowrap;
+  border-radius: 6px;
+  background-color: transparent;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .header-current-link:hover,
 .header-current-link:focus-visible {
-  color: var(--accent-color);
+  color: var(--nav-color);
+  background-color: rgba(101, 108, 118, 0.08);
 }
 
 .header-current-link:focus-visible,
-.header-section-links a:focus-visible,
-.header-nav-caption:focus-visible {
+.header-section-links a:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--accent-color), transparent 25%);
   outline-offset: 3px;
-}
-
-.header-nav-caption {
-  display: inline-flex;
-  position: relative;
-  align-items: center;
-  margin: 0 14px 0 0;
-  padding: 5px 0;
-  color: var(--nav-color);
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.25;
-  text-decoration: none;
-  transition: color 0.15s ease, transform 0.15s ease;
-  vertical-align: middle;
-}
-
-.header-nav-caption:hover,
-.header-nav-caption:focus-visible {
-  color: var(--accent-color);
-  transform: translateY(-1px);
 }
 
 .header-section-links {
@@ -285,19 +270,23 @@ h6 {
   position: relative;
   align-items: center;
   gap: 7px;
-  padding: 5px 0;
+  padding: 5px 6px;
   color: var(--nav-color);
   font-size: 13px;
   line-height: 1.25;
+  border-radius: 6px;
+  background-color: transparent;
   text-decoration: none;
   transition:
+    background-color 0.15s ease,
     color 0.15s ease,
     transform 0.15s ease;
 }
 
 .header-section-links a:hover,
 .header-section-links a:focus-visible {
-  color: var(--accent-color);
+  color: var(--nav-color);
+  background-color: rgba(101, 108, 118, 0.08);
   transform: translateY(-1px);
 }
 
@@ -333,28 +322,14 @@ h6 {
 }
 
 .header-section-links a.is-active {
-  color: var(--header-highlight);
+  /* Keep the orange brand cue in the underline while preserving text contrast. */
+  color: #8a5400;
   font-weight: 600;
 }
 
 .header-section-links a.is-active::after {
   opacity: 1;
   transform: scaleX(1);
-}
-
-.header-nav-caption::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 1px;
-  left: 0;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--header-highlight);
-  opacity: 0;
-  transform: scaleX(0.45);
-  transform-origin: left center;
-  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 @media (max-width: 1199px) {
@@ -368,6 +343,11 @@ h6 {
 }
 
 @media (max-width: 640px) {
+  :root {
+    --header-height: 120px;
+    --header-scroll-padding: 120px;
+  }
+
   .header > .container-fluid {
     padding-left: 15px;
     padding-right: 15px;
@@ -389,13 +369,6 @@ h6 {
     font-size: 13px;
   }
 
-  .header-nav-caption {
-    display: flex;
-    min-height: 24px;
-    margin: 0 0 2px;
-    padding: 3px 0;
-  }
-
   .header-section-links {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -410,6 +383,17 @@ h6 {
 
   .header > .container-fluid {
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-section-links {
+    grid-template-columns: 1fr;
+  }
+
+  /* Keep the hero content clear of the taller one-column header. */
+  .hero {
+    padding-top: max(140px, calc(var(--header-height, 96px) + 24px));
   }
 }
 
@@ -435,7 +419,7 @@ h6 {
 ------------------------------*/
 .scrolled .header {
   --background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 6px 20px rgba(17, 27, 61, 0.12);
+  box-shadow: none;
 }
 
 /*--------------------------------------------------------------
@@ -759,7 +743,6 @@ section,
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 60px 0;
-  scroll-margin-top: 112px;
   overflow: clip;
 }
 
@@ -773,7 +756,7 @@ section,
 
   section,
   .section {
-    scroll-margin-top: 104px;
+    scroll-margin-top: 0;
   }
 
   .thematic-page {
