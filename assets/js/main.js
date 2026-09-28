@@ -315,4 +315,104 @@
   onLoaded(navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Poll local storage
+   */
+  const pollStorageKey = 'poll';
+
+  function getPollState() {
+    const defaultState = { positif: 0, negatif: 0, neutre: 0 };
+
+    try {
+      const saved = localStorage.getItem(pollStorageKey);
+      if (!saved) {
+        localStorage.setItem(pollStorageKey, JSON.stringify(defaultState));
+        return { ...defaultState };
+      }
+
+      const parsed = JSON.parse(saved);
+      return {
+        positif: Number(parsed.positif) || 0,
+        negatif: Number(parsed.negatif) || 0,
+        neutre: Number(parsed.neutre) || 0
+      };
+    } catch (error) {
+      console.warn('Impossible de lire le sondage localStorage.', error);
+      return { ...defaultState };
+    }
+  }
+
+  function vote(choice) {
+    const poll = getPollState();
+    if (!poll[choice] && poll[choice] !== 0) return;
+
+    const hasVoted = localStorage.getItem('poll-voted') === 'true';
+    if (hasVoted) {
+      showResults();
+      return;
+    }
+
+    poll[choice] += 1;
+    localStorage.setItem(pollStorageKey, JSON.stringify(poll));
+    localStorage.setItem('poll-voted', 'true');
+    localStorage.setItem('poll-choice', choice);
+    showResults();
+  }
+
+  function showResults() {
+    const results = document.getElementById('results');
+    if (!results) return;
+
+    const poll = getPollState();
+    const total = poll.positif + poll.negatif + poll.neutre;
+    const pPos = total ? Math.round((poll.positif / total) * 100) : 0;
+    const pNeg = total ? Math.round((poll.negatif / total) * 100) : 0;
+    const pNeu = total ? Math.round((poll.neutre / total) * 100) : 0;
+
+    const positifBar = document.getElementById('positif-bar');
+    const negatifBar = document.getElementById('negatif-bar');
+    const neutreBar = document.getElementById('neutre-bar');
+    const positifVal = document.getElementById('positif-val');
+    const negatifVal = document.getElementById('negatif-val');
+    const neutreVal = document.getElementById('neutre-val');
+
+    if (positifBar) positifBar.style.width = pPos + '%';
+    if (negatifBar) negatifBar.style.width = pNeg + '%';
+    if (neutreBar) neutreBar.style.width = pNeu + '%';
+
+    if (positifVal) positifVal.innerText = pPos + '%';
+    if (negatifVal) negatifVal.innerText = pNeg + '%';
+    if (neutreVal) neutreVal.innerText = pNeu + '%';
+
+    const hasVoted = localStorage.getItem('poll-voted') === 'true';
+    results.style.display = hasVoted ? 'block' : 'none';
+
+    const voteMessage = document.getElementById('poll-vote-message');
+    if (voteMessage) {
+      voteMessage.style.display = hasVoted ? 'block' : 'none';
+      voteMessage.textContent = 'Votre vote a déjà été enregistré.';
+    }
+
+    const buttons = document.querySelectorAll('[data-vote]');
+    buttons.forEach(button => {
+      const disabled = hasVoted;
+      button.disabled = disabled;
+      button.setAttribute('aria-disabled', String(disabled));
+      if (disabled) {
+        button.classList.add('disabled');
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('[data-vote]');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        vote(button.dataset.vote);
+      });
+    });
+
+    showResults();
+  });
+
 })();
