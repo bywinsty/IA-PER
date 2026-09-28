@@ -1931,6 +1931,16 @@ section,
 /*--------------------------------------------------------------
 # Thematic Pages
 --------------------------------------------------------------*/
+.thematics-index {
+  padding-top: 155px;
+}
+
+@media (max-width: 1199px) {
+  .thematics-index {
+    padding-top: 145px;
+  }
+}
+
 .thematic-page {
   background: var(--background-color);
 }

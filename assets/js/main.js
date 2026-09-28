@@ -12,6 +12,20 @@
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
   const root = document.documentElement;
 
+  /**
+   * Preserve links shared before the thematic content moved to its own page.
+   * The redirect is intentionally limited to the homepage so normal hashes on
+   * other pages are never rewritten.
+   */
+  const legacyIndexAnchors = {
+    '#services': 'thematiques.html#themes',
+    '#faq-2': 'thematiques.html#faq'
+  };
+  if (document.body?.classList.contains('index-page')) {
+    const legacyTarget = legacyIndexAnchors[window.location.hash];
+    if (legacyTarget) window.location.replace(legacyTarget);
+  }
+
   function onLoaded(callback) {
     if (document.readyState === 'complete') queueMicrotask(callback);
     else window.addEventListener('load', callback, { once: true });
