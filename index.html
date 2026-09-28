@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>IA-PER - Accueil</title>
-  <meta name="description" content="">
+  <meta name="description" content="IA-PER explore l’impact de l’intelligence artificielle au travail, dans l’environnement et dans la société pour comprendre, questionner et choisir.">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
@@ -29,13 +29,15 @@
   <!-- =======================================================
   * Template Name: Arsha
   * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Updated: Feb 22 2025 with Bootstrap v5.3.3
+  * Updated: Feb 22 2025 with Bootstrap v5.3.8
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
 
 <body class="index-page">
+
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid position-relative d-flex align-items-center">
@@ -50,9 +52,27 @@
             alt="IA-PER — Progrès, Enjeux et Responsabilités">
         </a>
 
-        <nav class="header-breadcrumbs" aria-label="Fil d’Ariane">
-          <ol>
-            <li><a href="index.html" class="breadcrumb-button current" aria-current="page">Accueil</a></li>
+        <nav class="header-page-nav" aria-label="Navigation de la page d’accueil">
+          <a href="#hero" class="header-current-link" aria-current="page">
+            <span>Accueil</span>
+          </a>
+          <a href="#main-content" class="header-nav-caption">Sections de la page</a>
+          <ol class="header-section-links">
+            <li>
+              <a href="#about">
+                <span>À propos de l’étude</span>
+              </a>
+            </li>
+            <li>
+              <a href="#team">
+                <span>Équipe du projet</span>
+              </a>
+            </li>
+            <li>
+              <a href="#partners">
+                <span>Partenaires et soutiens</span>
+              </a>
+            </li>
           </ol>
         </nav>
       </div>
@@ -61,7 +81,7 @@
     </div>
   </header>
 
-  <main class="main">
+  <main id="main-content" class="main" tabindex="-1">
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
@@ -72,8 +92,8 @@
             <h1 class="hero-title">Comprendre l’impact de l’intelligence artificielle</h1>
             <p>Au travail, dans l’environnement et dans la société. Comprendre, questionner, choisir.</p>
             <div class="d-flex">
-              <a href="#about" class="btn-get-started">Démarrer</a>
-              <a href="" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Regarder la vidéo</span></a>
+              <a href="thematiques.html#themes" class="btn-get-started">Découvrir les thématiques</a>
+              <a href="#about" class="btn-about">Pourquoi ce projet&nbsp;?</a>
             </div>
           </div>
           <div class="col-lg-6 order-2 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
@@ -85,7 +105,7 @@
     </section><!-- /Hero Section -->
 
     <!-- About Section -->
-    <section id="about" class="about section" aria-labelledby="about-title">
+    <section id="about" class="about section light-background" aria-labelledby="about-title">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -98,18 +118,28 @@
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <p>
-              Nous avons mené une étude sur l’intelligence artificielle à partir de plusieurs entretiens avec des experts ainsi qu’avec des citoyennes et des citoyens. Nous avons abordé trois thématiques&nbsp;:
+              Cette étude de sensibilisation croise des recherches documentaires, des échanges avec des personnes concernées et des regards d’experts. Elle examine ce que l’intelligence artificielle permet, ce qu’elle transforme et les responsabilités qu’elle implique.
             </p>
-            <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Environnement</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Professionnel</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Sociétal</span></li>
+            <ul class="theme-list" aria-label="Thématiques étudiées">
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span><strong>Environnement</strong><small>Ressources, énergie et usages utiles.</small></span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span><strong>Professionnel</strong><small>Tâches, compétences et responsabilité humaine.</small></span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span><strong>Société</strong><small>Vie quotidienne, information, équité et vie privée.</small></span>
+              </li>
             </ul>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Ces questions vous aident à comprendre les avantages, les limites et les enjeux de l’intelligence artificielle.</p>
-            <a class="read-more" href="#services"><span>Découvrir les thématiques</span><i class="bi bi-arrow-right"></i></a>
+            <p class="about-lead">Notre objectif est de donner des repères simples pour comprendre l’IA et faire des choix plus éclairés.</p>
+            <p>Les trois thématiques mettent en regard ses bénéfices, ses limites et ses effets indirects. L’IA peut assister une personne, mais elle ne remplace ni son jugement ni sa responsabilité.</p>
+            <a class="read-more" href="thematiques.html#themes">Explorer les thématiques <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
 
         </div>
@@ -118,200 +148,8 @@
 
     </section><!-- /About Section -->
 
-    <!-- Thématiques Section -->
-    <section id="services" class="work-process section" aria-labelledby="services-title">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2 id="services-title">Thématiques</h2>
-        <p>Explorez les grands enjeux liés à l’usage de l’intelligence artificielle.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iaenviro.png" alt="L’intelligence artificielle et l’environnement" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">01</div>
-                <h3><a href="environnement.html" class="stretched-link">Environnement</a></h3>
-                <p>IA et environnement</p>
-                <ul class="steps-features">
-                  <li class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Contexte</span>
-                  </li>
-                  <li class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Usages</span>
-                  </li>
-                  <li class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions clés</span>
-                  </li>
-                </ul>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iaprof.webp" alt="L’intelligence artificielle dans le monde professionnel" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">02</div>
-                <h3><a href="professionnel.html" class="stretched-link">Professionnel</a></h3>
-                <p>IA dans le monde professionnel</p>
-                <ul class="steps-features">
-                  <li class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Contexte</span>
-                  </li>
-                  <li class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Usages</span>
-                  </li>
-                  <li class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions clés</span>
-                  </li>
-                </ul>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iasocietal.jpg" alt="L’intelligence artificielle dans la société" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">03</div>
-                <h3><a href="societe.html" class="stretched-link">Société</a></h3>
-                <p>IA et société</p>
-                <ul class="steps-features">
-                  <li class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Contexte</span>
-                  </li>
-                  <li class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Usages</span>
-                  </li>
-                  <li class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions clés</span>
-                  </li>
-                </ul>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Thématiques Section -->
-
-    <!-- Faq 2 Section -->
-    <section id="faq-2" class="faq-2 section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Questions fréquemment posées</h2>
-        <p>Retrouvez les questions qui reviennent le plus souvent.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row justify-content-center">
-
-          <div class="col-lg-10">
-
-            <div class="faq-container">
-
-              <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
-                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
-                <h3>
-                  <button id="faq-question-1" class="faq-question" type="button" aria-expanded="true" aria-controls="faq-panel-1">
-                    Pourquoi s’intéresser à l’intelligence artificielle&nbsp;?
-                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
-                  </button>
-                </h3>
-                <div id="faq-panel-1" class="faq-content" role="region" aria-labelledby="faq-question-1" aria-hidden="false">
-                  <p>L’intelligence artificielle transforme déjà le travail, les services, l’information et la vie quotidienne. La comprendre permet d’identifier ses apports, ses limites et les choix collectifs qu’elle implique.</p>
-                </div>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
-                <h3>
-                  <button id="faq-question-2" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-2">
-                    L’intelligence artificielle va-t-elle remplacer les métiers&nbsp;?
-                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
-                  </button>
-                </h3>
-                <div id="faq-panel-2" class="faq-content" role="region" aria-labelledby="faq-question-2" aria-hidden="true">
-                  <p>Elle transforme surtout les tâches et l’organisation du travail. Certains métiers évolueront, de nouvelles compétences seront nécessaires et le jugement humain restera important pour décider, coopérer et assumer les responsabilités.</p>
-                </div>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
-                <h3>
-                  <button id="faq-question-3" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-3">
-                    Quel est l’impact environnemental de l’intelligence artificielle&nbsp;?
-                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
-                  </button>
-                </h3>
-                <div id="faq-panel-3" class="faq-content" role="region" aria-labelledby="faq-question-3" aria-hidden="true">
-                  <p>La conception, l’entraînement et l’utilisation des systèmes d’IA mobilisent des serveurs, de l’électricité et parfois de l’eau. Il est donc utile de questionner la nécessité d’un usage, sa fréquence et les ressources qu’il demande.</p>
-                </div>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
-                <h3>
-                  <button id="faq-question-4" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-4">
-                    Pourquoi l’IA peut-elle produire des résultats discriminatoires&nbsp;?
-                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
-                  </button>
-                </h3>
-                <div id="faq-panel-4" class="faq-content" role="region" aria-labelledby="faq-question-4" aria-hidden="true">
-                  <p>Un système apprend à partir de données et de choix humains qui peuvent déjà contenir des déséquilibres. Les résultats doivent donc être vérifiés, discutés et corrigés, en particulier lorsqu’ils influencent l’accès à un emploi, à un service ou à un droit.</p>
-                </div>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
-                <i class="faq-icon bi bi-question-circle" aria-hidden="true"></i>
-                <h3>
-                  <button id="faq-question-5" class="faq-question" type="button" aria-expanded="false" aria-controls="faq-panel-5">
-                    Comment utiliser l’IA de manière responsable&nbsp;?
-                    <i class="faq-toggle bi bi-chevron-right" aria-hidden="true"></i>
-                  </button>
-                </h3>
-                <div id="faq-panel-5" class="faq-content" role="region" aria-labelledby="faq-question-5" aria-hidden="true">
-                  <p>Il faut garder un regard critique, protéger les données personnelles, vérifier les informations produites et savoir quand demander un avis humain. L’outil doit rester au service d’un objectif clair et compréhensible.</p>
-                </div>
-              </div><!-- End Faq item-->
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Faq 2 Section -->
-
     <!-- Team Section -->
-    <section id="team" class="team section" aria-labelledby="team-title">
+    <section id="team" class="team section light-background" aria-labelledby="team-title">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -324,9 +162,9 @@
 
           <div class="team-lead-wrap" data-aos="fade-up" data-aos-delay="100">
             <article class="team-member team-lead">
-              <div class="pic"><img src="assets/img/person/person-m-6.webp" class="img-fluid" alt="Guenael Bruno PEA ELEE"></div>
+              <div class="pic"><img src="assets/img/person/person-m-6.webp" width="1024" height="1024" loading="lazy" class="img-fluid" alt="Guenael Bruno PEA ELEE"></div>
               <div class="member-info">
-                <h4>Guenael Bruno PEA ELEE</h4>
+                <h3>Guenael Bruno PEA ELEE</h3>
                 <span class="team-role team-role--lead">Chef de projet</span>
                 <p>Coordonne le projet et analyse les impacts négatifs de l’IA dans le monde professionnel.</p>
               </div>
@@ -347,36 +185,36 @@
 
           <div class="team-members">
             <article class="team-member" data-aos="fade-up" data-aos-delay="200">
-              <div class="pic"><img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="Anatolii VEREHA"></div>
+              <div class="pic"><img src="assets/img/person/person-m-7.webp" width="1024" height="1024" loading="lazy" class="img-fluid" alt="Anatolii VEREHA"></div>
               <div class="member-info">
-                <h4>Anatolii VEREHA</h4>
+                <h3>Anatolii VEREHA</h3>
                 <span class="team-role">Responsable communication</span>
                 <p>Présente la campagne et analyse les avantages de l’IA dans le monde professionnel.</p>
               </div>
             </article>
 
             <article class="team-member" data-aos="fade-up" data-aos-delay="300">
-              <div class="pic"><img src="assets/img/person/person-f-8.webp" class="img-fluid" alt="Thien An DANG"></div>
+              <div class="pic"><img src="assets/img/person/person-f-8.webp" width="1024" height="1024" loading="lazy" class="img-fluid" alt="Thien An DANG"></div>
               <div class="member-info">
-                <h4>Thien An DANG</h4>
+                <h3>Thien An DANG</h3>
                 <span class="team-role">Secrétaire</span>
                 <p>Documente le projet et étudie les avantages de l’IA dans la société.</p>
               </div>
             </article>
 
             <article class="team-member" data-aos="fade-up" data-aos-delay="400">
-              <div class="pic"><img src="assets/img/person/person-f-4.webp" class="img-fluid" alt="Rebecca KABUO"></div>
+              <div class="pic"><img src="assets/img/person/person-f-4.webp" width="1024" height="1024" loading="lazy" class="img-fluid" alt="Rebecca KABUO"></div>
               <div class="member-info">
-                <h4>Rebecca KABUO</h4>
+                <h3>Rebecca KABUO</h3>
                 <span class="team-role">Responsable planification</span>
                 <p>Planifie la campagne et étudie les avantages de l’IA pour l’environnement.</p>
               </div>
             </article>
 
             <article class="team-member" data-aos="fade-up" data-aos-delay="500">
-              <div class="pic"><img src="assets/img/person/person-m-13.webp" class="img-fluid" alt="Yassin BELGHITI"></div>
+              <div class="pic"><img src="assets/img/person/person-m-13.webp" width="1024" height="1024" loading="lazy" class="img-fluid" alt="Yassin BELGHITI"></div>
               <div class="member-info">
-                <h4>Yassin BELGHITI</h4>
+                <h3>Yassin BELGHITI</h3>
                 <span class="team-role">Médiateur</span>
                 <p>Fait le lien avec le public et analyse les impacts négatifs de l’IA dans la société.</p>
               </div>
@@ -403,7 +241,7 @@
           <h3>Projet porté par</h3>
           <div class="partner-logo-grid partner-logo-grid--owner">
             <a class="partner-logo-card partner-logo-card--owner" href="https://www.cf2m.be/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/clients/CF2M.webp" class="img-fluid" alt="CF2M — Centre de formation 2 mille" loading="eager">
+              <img src="assets/img/clients/CF2M.webp" width="300" height="300" class="img-fluid" alt="CF2M — Centre de formation 2 mille" loading="lazy">
             </a>
           </div>
         </div>
@@ -412,16 +250,16 @@
           <h3>Partenaires institutionnels</h3>
           <div class="partner-logo-grid">
             <a class="partner-logo-card" href="https://www.actiris.brussels/fr/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/actiris.png" class="img-fluid" alt="Actiris" loading="lazy">
+              <img src="assets/img/partners/actiris.png" width="328" height="117" class="img-fluid" alt="Actiris" loading="lazy">
             </a>
             <a class="partner-logo-card" href="https://www.bruxellesformation.brussels/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/bruxelles-formation.png" class="img-fluid" alt="Bruxelles Formation" loading="lazy">
+              <img src="assets/img/partners/bruxelles-formation.png" width="3744" height="2969" class="img-fluid" alt="Bruxelles Formation" loading="lazy">
             </a>
             <a class="partner-logo-card" href="https://ccf.brussels/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/cocof.png" class="img-fluid" alt="Commission communautaire française — Francophones Bruxelles" loading="lazy">
+              <img src="assets/img/partners/cocof.png" width="2787" height="1535" class="img-fluid" alt="Commission communautaire française — Francophones Bruxelles" loading="lazy">
             </a>
             <a class="partner-logo-card" href="https://stgilles.brussels/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/clients/SG1060.webp" class="img-fluid" alt="Commune de Saint-Gilles — 1060" loading="lazy">
+              <img src="assets/img/clients/SG1060.webp" width="474" height="240" class="img-fluid" alt="Commune de Saint-Gilles — 1060" loading="lazy">
             </a>
           </div>
         </div>
@@ -430,10 +268,10 @@
           <h3>Partenaires du projet</h3>
           <div class="partner-logo-grid partner-logo-grid--project">
             <a class="partner-logo-card" href="https://digitalcity.brussels/fr" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/digitalcity.png" class="img-fluid" alt="Digitalcity.brussels" loading="lazy">
+              <img src="assets/img/partners/digitalcity.png" width="758" height="649" class="img-fluid" alt="Digitalcity.brussels" loading="lazy">
             </a>
             <a class="partner-logo-card partner-logo-card--project" href="https://youthstart.be/fr/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/youthstart.png" class="img-fluid" alt="YouthStart" loading="lazy">
+              <img src="assets/img/partners/youthstart.png" width="2741" height="839" class="img-fluid" alt="YouthStart" loading="lazy">
             </a>
           </div>
         </div>
@@ -442,7 +280,7 @@
           <h3>Financement</h3>
           <div class="partner-logo-grid partner-logo-grid--funding">
             <a class="partner-logo-card partner-logo-card--funding" href="https://commission.europa.eu/funding-tenders/managing-your-project/communicating-and-raising-eu-visibility_en" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/eu-cofinanced-fr.jpg" class="img-fluid" alt="Cofinancé par l’Union européenne" loading="lazy">
+              <img src="assets/img/partners/eu-cofinanced-fr.jpg" width="70" height="334" class="img-fluid" alt="Cofinancé par l’Union européenne" loading="lazy">
             </a>
           </div>
           <p class="partner-funding-note">Cofinancé par l’Union européenne.</p>
@@ -461,7 +299,7 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">IA-PER</span>
+            <img src="assets/img/ia-per-progres-enjeux-responsabilites.png" class="footer-logo" width="150" height="75" alt="IA-PER — Progrès, Enjeux et Responsabilités">
           </a>
           <div class="footer-contact pt-3">
             <p><strong>Email :</strong> <span><a href="mailto:IA-PER@cf2000.onmicrosoft.com">IA-PER@cf2000.onmicrosoft.com</a></span></p>
@@ -476,8 +314,8 @@
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="#hero">Accueil</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#about">À propos</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#services">Thématiques</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#faq-2">Questions fréquemment posées</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="thematiques.html#themes">Thématiques</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="thematiques.html#faq">Questions fréquemment posées</a></li>
           </ul>
         </div>
 
@@ -486,7 +324,7 @@
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="environnement.html">Environnement</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="professionnel.html">Professionnel</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="societe.html">Sociétal</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="societe.html">Société</a></li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-6 footer-social">
@@ -516,7 +354,7 @@
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Retour en haut"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
