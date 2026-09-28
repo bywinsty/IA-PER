@@ -37,6 +37,8 @@
 
 <body class="index-page">
 
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid position-relative d-flex align-items-center">
 
@@ -50,9 +52,27 @@
             alt="IA-PER — Progrès, Enjeux et Responsabilités">
         </a>
 
-        <nav class="header-breadcrumbs" aria-label="Fil d’Ariane">
-          <ol>
-            <li><a href="index.html" class="breadcrumb-button current" aria-current="page">Accueil</a></li>
+        <nav class="header-page-nav" aria-label="Navigation de la page d’accueil">
+          <a href="#hero" class="header-current-link" aria-current="page">
+            <span>Accueil</span>
+          </a>
+          <a href="#main-content" class="header-nav-caption">Sections de la page</a>
+          <ol class="header-section-links">
+            <li>
+              <a href="#about">
+                <span>À propos de l’étude</span>
+              </a>
+            </li>
+            <li>
+              <a href="#team">
+                <span>Équipe du projet</span>
+              </a>
+            </li>
+            <li>
+              <a href="#partners">
+                <span>Partenaires et soutiens</span>
+              </a>
+            </li>
           </ol>
         </nav>
       </div>
@@ -61,7 +81,7 @@
     </div>
   </header>
 
-  <main class="main">
+  <main id="main-content" class="main" tabindex="-1">
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
