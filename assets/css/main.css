@@ -386,17 +386,6 @@ h6 {
   }
 }
 
-@media (max-width: 380px) {
-  .header-section-links {
-    grid-template-columns: 1fr;
-  }
-
-  /* Keep the hero content clear of the taller one-column header. */
-  .hero {
-    padding-top: max(140px, calc(var(--header-height, 96px) + 24px));
-  }
-}
-
 .header .logo .site-name {
   color: var(--heading-color);
   font-size: 30px;
@@ -939,6 +928,19 @@ section,
   .hero .btn-get-started,
   .hero .btn-about {
     font-size: 13px;
+  }
+}
+
+/* The one-column mobile navigation makes the header taller than the default
+   small-screen hero spacing, so this override must come after the max-width
+   640px hero rule above. */
+@media (max-width: 380px) {
+  .header-section-links {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: max(140px, calc(var(--header-height, 96px) + 24px));
   }
 }
 
