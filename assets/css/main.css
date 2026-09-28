@@ -1,7 +1,7 @@
 /**
 * Template Name: Arsha
 * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-* Updated: Feb 22 2025 with Bootstrap v5.3.3
+* Updated: Feb 22 2025 with Bootstrap v5.3.8
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
@@ -22,7 +22,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #37517e; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #47b2e4; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #176b91; /* Accessible accent for buttons, links, focus states, and decorative highlights */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -792,7 +792,7 @@ section,
 }
 
 .hero .btn-get-started {
-  color: #111b3d;
+  color: #ffffff;
   background: var(--accent-color);
   font-family: var(--heading-font);
   font-weight: 700;
@@ -805,7 +805,7 @@ section,
 }
 
 .hero .btn-get-started:hover {
-  color: #111b3d;
+  color: #ffffff;
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
@@ -999,7 +999,7 @@ section,
 
 .partner-logo-card:hover,
 .partner-logo-card:focus-visible {
-  border-color: rgba(71, 178, 228, 0.65);
+  border-color: var(--accent-color);
   box-shadow: 0 8px 22px rgba(50, 70, 100, 0.1);
 }
 
@@ -1318,6 +1318,10 @@ section,
 }
 
 .team .team-member .pic img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   transition: ease-in-out 0.3s;
 }
 
@@ -1331,7 +1335,7 @@ section,
 }
 
 .team .team-lead {
-  --team-lead-accent: #f2b632;
+  --team-lead-accent: #f8c84a;
   width: min(100%, 390px);
   display: flex;
   flex-direction: column;
@@ -1370,7 +1374,7 @@ section,
   padding-left: 0;
 }
 
-.team .team-member h4 {
+.team .team-member h3 {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 20px;
@@ -1534,7 +1538,7 @@ section,
     padding-left: 16px;
   }
 
-  .team .team-member h4 {
+  .team .team-member h3 {
     font-size: 18px;
   }
 }
