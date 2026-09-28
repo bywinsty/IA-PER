@@ -12,6 +12,20 @@
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
   const root = document.documentElement;
 
+  /**
+   * Preserve links shared before the thematic content moved to its own page.
+   * The redirect is intentionally limited to the homepage so normal hashes on
+   * other pages are never rewritten.
+   */
+  const legacyIndexAnchors = {
+    '#services': 'thematiques.html#themes',
+    '#faq-2': 'thematiques.html#faq'
+  };
+  if (document.body?.classList.contains('index-page')) {
+    const legacyTarget = legacyIndexAnchors[window.location.hash];
+    if (legacyTarget) window.location.replace(legacyTarget);
+  }
+
   function onLoaded(callback) {
     if (document.readyState === 'complete') queueMicrotask(callback);
     else window.addEventListener('load', callback, { once: true });
@@ -38,44 +52,6 @@
 
   document.addEventListener('scroll', toggleScrolled);
   onLoaded(toggleScrolled);
-
-  /**
-   * Mobile nav toggle
-   */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-  }
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
-    });
-
-  });
-
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
-    });
-  });
 
   /**
    * Preloader
@@ -150,6 +126,104 @@
     });
   }
 
+  /**
+   * Highlight only the homepage section currently crossing the reading line.
+   * Accueil remains the page-level link and keeps its own default styling.
+   */
+  function initPageNavigation() {
+    const navigation = document.querySelector('.header-section-links');
+    if (!navigation) return;
+
+    const entries = Array.from(navigation.querySelectorAll('a[href^="#"]'))
+      .map(link => ({ link, section: hashTarget(link.getAttribute('href')) }))
+      .filter(entry => entry.section);
+    if (!entries.length) return;
+
+    let activeSection = null;
+    let framePending = false;
+    let pendingHashSection = null;
+    let pendingHashTimer = 0;
+
+    function setActiveSection(section) {
+      if (activeSection === section) return;
+      activeSection = section;
+      entries.forEach(({ link, section: target }) => {
+        const isActive = target === section;
+        link.classList.toggle('is-active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }
+
+    function clearPendingHash() {
+      pendingHashSection = null;
+      if (pendingHashTimer) {
+        clearTimeout(pendingHashTimer);
+        pendingHashTimer = 0;
+      }
+    }
+
+    function finishHashNavigation() {
+      if (!pendingHashSection) return;
+      clearPendingHash();
+      updateActiveSection();
+    }
+
+    function trackHashNavigation(section) {
+      clearPendingHash();
+      pendingHashSection = section;
+      if (!section) return;
+
+      // Keep the hash target active while smooth scrolling/history restoration
+      // is still moving the viewport. Older browsers use the timer fallback.
+      pendingHashTimer = window.setTimeout(
+        finishHashNavigation,
+        motionPreference.matches ? 0 : 1500
+      );
+    }
+
+    function updateActiveSection() {
+      if (pendingHashSection) {
+        setActiveSection(pendingHashSection);
+        return;
+      }
+      if (framePending) return;
+      framePending = true;
+      requestAnimationFrame(() => {
+        framePending = false;
+        const header = document.querySelector('#header');
+        const readingLine = (header?.getBoundingClientRect().bottom || 0) + 24;
+        const visibleEntries = entries
+          .map(entry => ({ ...entry, bounds: entry.section.getBoundingClientRect() }))
+          .filter(({ bounds }) => bounds.bottom > readingLine && bounds.top < window.innerHeight);
+        const visibleEntry = visibleEntries.reduce((closest, entry) => {
+          if (!closest) return entry;
+          const distance = Math.abs(entry.bounds.top - readingLine);
+          const closestDistance = Math.abs(closest.bounds.top - readingLine);
+          return distance < closestDistance ? entry : closest;
+        }, null);
+        setActiveSection(visibleEntry?.section || null);
+      });
+    }
+
+    function activateFromHash() {
+      const target = hashTarget(window.location.hash);
+      const entry = entries.find(({ section }) => section === target);
+      trackHashNavigation(entry?.section || null);
+      if (entry) setActiveSection(entry.section);
+      updateActiveSection();
+    }
+
+    document.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
+    window.addEventListener('hashchange', activateFromHash);
+    window.addEventListener('pageshow', activateFromHash);
+    if ('onscrollend' in document) {
+      document.addEventListener('scrollend', finishHashNavigation, { passive: true });
+    }
+    activateFromHash();
+  }
+
   function startAnimations() {
     if (pageStarted) return;
     pageStarted = true;
@@ -174,6 +248,7 @@
   }
 
   // Register before optional widgets, so a widget failure cannot cancel AOS startup.
+  onLoaded(initPageNavigation);
   onLoaded(startAnimations);
   window.addEventListener('pageshow', scheduleAosRefresh);
   window.addEventListener('hashchange', scheduleAosRefresh);
@@ -236,83 +311,22 @@
   /**
    * Frequently Asked Questions Toggle
    */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
+  document.querySelectorAll('.faq-item .faq-question').forEach((faqQuestion) => {
+    const faqItem = faqQuestion.closest('.faq-item');
+    const faqPanel = document.getElementById(faqQuestion.getAttribute('aria-controls'));
+
+    const syncFaqState = () => {
+      const isExpanded = faqItem.classList.contains('faq-active');
+      faqQuestion.setAttribute('aria-expanded', String(isExpanded));
+      faqPanel?.setAttribute('aria-hidden', String(!isExpanded));
+    };
+
+    syncFaqState();
+    faqQuestion.addEventListener('click', () => {
+      faqItem.classList.toggle('faq-active');
+      syncFaqState();
       scheduleAosRefresh();
     });
   });
-
-  /**
-   * Animate the skills items on reveal
-   */
-  let skillsAnimation = document.querySelectorAll('.skills-animation');
-  skillsAnimation.forEach((item) => {
-    new Waypoint({
-      element: item,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = item.querySelectorAll('.progress .progress-bar');
-        progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
-        });
-      }
-    });
-  });
-
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-      initIsotope.on('arrangeComplete', scheduleAosRefresh);
-      scheduleAosRefresh();
-    });
-
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        if (!initIsotope) return;
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-      }, false);
-    });
-
-  });
-
-  /**
-   * Navmenu Scrollspy
-   */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
-
-  function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = hashTarget(navmenulink.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
-      } else {
-        navmenulink.classList.remove('active');
-      }
-    })
-  }
-  onLoaded(navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
 
 })();

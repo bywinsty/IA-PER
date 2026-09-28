@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>IA-PER - Accueil</title>
-  <meta name="description" content="">
+  <meta name="description" content="IA-PER explore l’impact de l’intelligence artificielle au travail, dans l’environnement et dans la société pour comprendre, questionner et choisir.">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
@@ -22,7 +22,6 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -30,7 +29,7 @@
   <!-- =======================================================
   * Template Name: Arsha
   * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Updated: Feb 22 2025 with Bootstrap v5.3.3
+  * Updated: Feb 22 2025 with Bootstrap v5.3.8
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
@@ -38,52 +37,66 @@
 
 <body class="index-page">
 
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <div class="container-fluid position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto" aria-label="IA-PER">
-        <span class="site-mark" aria-hidden="true">
-          <img src="assets/img/ia-per-progres-enjeux-responsabilites.png" alt="">
-        </span>
-        <span class="site-name">IA-PER</span>
-      </a>
+      <div class="header-brand d-flex align-items-center me-auto">
+        <a href="index.html" class="logo d-flex align-items-center" aria-label="IA-PER">
+          <img
+            src="assets/img/ia-per-progres-enjeux-responsabilites.png"
+            class="site-logo"
+            width="150"
+            height="75"
+            alt="IA-PER — Progrès, Enjeux et Responsabilités">
+        </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Accueil</a></li>
-          <li><a href="#about">À propos</a></li>
-          <li><a href="#services">Thématiques</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+        <nav class="header-page-nav" aria-label="Navigation de la page d’accueil">
+          <a href="#hero" class="header-current-link" aria-current="page">
+            <span>Accueil</span>
+          </a>
+          <a href="#main-content" class="header-nav-caption">Sections de la page</a>
+          <ol class="header-section-links">
+            <li>
+              <a href="#about">
+                <span>À propos de l’étude</span>
+              </a>
+            </li>
+            <li>
+              <a href="#team">
+                <span>Équipe du projet</span>
+              </a>
+            </li>
+            <li>
+              <a href="#partners">
+                <span>Partenaires et soutiens</span>
+              </a>
+            </li>
+          </ol>
+        </nav>
+      </div>
 
-      <a class="btn-getstarted" href="#about">Démarrer</a>
 
     </div>
   </header>
 
-  <main class="main">
+  <main id="main-content" class="main" tabindex="-1">
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
       <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-            <div class="hero-brand-logo">
-              <img src="assets/img/ia-per-progres-enjeux-responsabilites.png" class="img-fluid" alt="IA-PER — Progrès, Enjeux et Responsabilités">
-            </div>
+          <div class="col-lg-6 order-1 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
             <h1 class="hero-title">Comprendre l’impact de l’intelligence artificielle</h1>
             <p>Au travail, dans l’environnement et dans la société. Comprendre, questionner, choisir.</p>
             <div class="d-flex">
-              <a href="#about" class="btn-get-started">Démarrer</a>
-              <a href="" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Regarder les vidéo</span></a>
+              <a href="thematiques.html#themes" class="btn-get-started">Découvrir les thématiques</a>
+              <a href="#about" class="btn-about">Pourquoi ce projet&nbsp;?</a>
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <div class="col-lg-6 order-2 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
             <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
           </div>
         </div>
@@ -91,72 +104,12 @@
 
     </section><!-- /Hero Section -->
 
-    <!-- Clients Section -->
-    <section id="clients" class="clients section light-background">
-
-      <div class="container" data-aos="zoom-in">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 120
-                },
-                "1200": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/CF2M.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/bxlformation-1.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/SG1060.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/actiris_logo.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/cocof-1.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/Digitalcity-fond.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/FSE.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/youstart.webp" class="img-fluid" alt=""></div>
-
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
     <!-- About Section -->
-    <section id="about" class="about section">
+    <section id="about" class="about section light-background" aria-labelledby="about-title">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>À propos</h2>
+        <h2 id="about-title">À propos de l’étude</h2>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -165,18 +118,28 @@
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <p>
-              Nous avons fait un travail sur iA. Nous avons récolté plusieurs interviews. On a questionné des experts et des citoyens normales sur les différents thématiques:
+              Cette étude de sensibilisation croise des recherches documentaires, des échanges avec des personnes concernées et des regards d’experts. Elle examine ce que l’intelligence artificielle permet, ce qu’elle transforme et les responsabilités qu’elle implique.
             </p>
-            <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Environnement</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Professionnel</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Sociétal</span></li>
+            <ul class="theme-list" aria-label="Thématiques étudiées">
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span><strong>Environnement</strong><small>Ressources, énergie et usages utiles.</small></span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span><strong>Professionnel</strong><small>Tâches, compétences et responsabilité humaine.</small></span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span><strong>Société</strong><small>Vie quotidienne, information, équité et vie privée.</small></span>
+              </li>
             </ul>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Nos questions sont pour vous informer sur les avantages et les inconvénient de l'IA. </p>
-            <a href="#services"><span>Thématiques Read More</span><i class="bi bi-arrow-right"></i></a>
+            <p class="about-lead">Notre objectif est de donner des repères simples pour comprendre l’IA et faire des choix plus éclairés.</p>
+            <p>Les trois thématiques mettent en regard ses bénéfices, ses limites et ses effets indirects. L’IA peut assister une personne, mais elle ne remplace ni son jugement ni sa responsabilité.</p>
+            <a class="read-more" href="thematiques.html#themes">Explorer les thématiques <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
 
         </div>
@@ -185,391 +148,78 @@
 
     </section><!-- /About Section -->
 
-    <!-- Why Us Section -->
-    <section id="why-us" class="section why-us light-background" data-builder="section">
-
-      <div class="container-fluid">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
-
-            <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-              <h3><span>Différentes questions </span> </h3>
-              <h3><strong>Un panel de personnes Expert, citoyens, étudiants</strong></h3>
-              <p>
-                Des vastes questions sur les avantages et les inconvénients de l'intelligence artificielle sur les différentes thématiques.
-              </p>
-            </div>
-
-            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="faq-item faq-active">
-
-                <h3><span>01</span> Environnement </h3>
-                <div class="faq-content">
-                  <p>blablalal?</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span>02</span>Professionnel</h3>
-                <div class="faq-content">
-                  <p>blablalal?</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span>03</span>Sociétal</h3>
-                <div class="faq-content">
-                  <p>blablalal?</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-5 order-1 order-lg-2 why-us-img">
-            <img src="assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Why Us Section -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row">
-
-          <div class="col-lg-6 d-flex align-items-center">
-            <img src="assets/img/illustration/illustration-10.webp" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-6 pt-4 pt-lg-0 content">
-
-            <h3>Statistiques</h3>
-            <p class="fst-italic">
-              Faire un sondage avec les gens qui clique dessus 
-            </p>
-
-            <div class="skills-content skills-animation">
-
-              <div class="progress">
-                <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div><!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div><!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"><span>JavaScript</span> <i class="val">25%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div><!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"><span>Photoshop</span> <i class="val">55%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div><!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"><span>Nouveau</span> <i class="val">48%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div><!-- End Skills Item -->              
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Skills Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Thématiques</h2>
-        <p>Abordons les différentes thématiques liées à l'usage de l'intelligence artificielle</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-leaf"></i></div>
-              <h4><a href="environnement.html" class="stretched-link">Environnement</a></h4>
-              <p>iA sur l'environnement.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-briefcase"></i></div>
-              <h4><a href="professionnel.html" class="stretched-link">Professionnel</a></h4>
-              <p>iA dans le monde professionnel.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-people-fill"></i></div>
-              <h4><a href="societe.html" class="stretched-link">Société</a></h4>
-              <p>iA dans la vie au quotidien.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Work Process Section -->
-    <section id="work-process" class="work-process section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Thématiques</h2>
-        <p>Abordons les différentes thématiques liées à l'usage de l'intelligence artificielle</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iaenviro.png" alt="Step 1" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">01</div>
-                <h4><a href="environnement.html" class="stretched-link">Environnement</a></h4>
-                <p>IA environnement</p>
-                <div class="steps-features">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Accueil</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Interview</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iaprof.webp" alt="Step 2" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">02</div>
-                <h4><a href="professionnel.html" class="stretched-link">Professionnel</a></h4>
-                <p>IA professionnel</p>
-                <div class="steps-features">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Accueil</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Interview</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iasocietal.jpg" alt="Step 3" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">03</div>
-                <h4><a href="societe.html" class="stretched-link">Société</a></h4>
-                <p>IA Sociétal</p>
-                <div class="steps-features">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Accueil</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Interview</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Work Process Section -->
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section dark-background">
-
-      <img src="assets/img/bg/bg-8.webp" alt="">
-
-      <div class="container">
-
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-9 text-center text-xl-start">
-            <h3>Call To Action</h3>
-            <p>Partagez avec nous votre différents avis sur l'intelligence artificielle</p>
-          </div>
-          <div class="col-xl-3 cta-btn-container text-center">
-            <p class="cta-btn align-middle">Rejoignez-nous sur nos réseaux sociaux pouvoir cliquer étre renvoyer sur les RSocieaux</p>
-            <p>Abonnez-vous</p>
-            <div class="social-links d-flex"> 
-            <a class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100" href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-       
-
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Call To Action Section -->
-
-
-
     <!-- Team Section -->
-    <section id="team" class="team section">
+    <section id="team" class="team section light-background" aria-labelledby="team-title">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>modifier </p>
+        <h2 id="team-title">Équipe du projet</h2>
       </div><!-- End Section Title -->
 
       <div class="container">
 
-        <div class="row gy-4">
+        <div class="team-hierarchy">
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/person/person-m-7.webp" class="img-fluid" alt=""></div>
+          <div class="team-lead-wrap" data-aos="fade-up" data-aos-delay="100">
+            <article class="team-member team-lead">
+              <div class="pic"><img src="assets/img/person/person-m-6.webp" width="1024" height="1024" loading="lazy" class="img-fluid" alt="Guenael Bruno PEA ELEE"></div>
               <div class="member-info">
-                <h4>Anatolii VEREHA </h4>
-                <span>Stagiaire</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
+                <h3>Guenael Bruno PEA ELEE</h3>
+                <span class="team-role team-role--lead">Chef de projet</span>
+                <p>Coordonne le projet et analyse les impacts négatifs de l’IA dans le monde professionnel.</p>
               </div>
-            </div>
-          </div><!-- End Team Member -->
+            </article>
+          </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/person/person-f-8.webp" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Thien An DANG</h4>
-                <span>Stagiairer</span>
-                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
+          <div class="team-connector-layer" aria-hidden="true">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false">
+              <path class="team-connector-desktop" d="M50 0 V45 M12.5 45 H87.5 M12.5 45 V100 M37.5 45 V100 M62.5 45 V100 M87.5 45 V100"></path>
+              <path class="team-connector-mobile" d="M50 0 V45 H2 V100"></path>
+              <circle class="team-connector-desktop" cx="12.5" cy="45" r="1.5"></circle>
+              <circle class="team-connector-desktop" cx="37.5" cy="45" r="1.5"></circle>
+              <circle class="team-connector-desktop" cx="50" cy="45" r="1.5"></circle>
+              <circle class="team-connector-desktop" cx="62.5" cy="45" r="1.5"></circle>
+              <circle class="team-connector-desktop" cx="87.5" cy="45" r="1.5"></circle>
+            </svg>
+          </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/person/person-m-6.webp" class="img-fluid" alt=""></div>
+          <div class="team-members">
+            <article class="team-member" data-aos="fade-up" data-aos-delay="200">
+              <div class="pic"><img src="assets/img/person/person-m-7.webp" width="1024" height="1024" loading="lazy" class="img-fluid" alt="Anatolii VEREHA"></div>
               <div class="member-info">
-                <h4>Guenael Bruno PEA ELEE</h4>
-                <span>Stagiaire</span>
-                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
+                <h3>Anatolii VEREHA</h3>
+                <span class="team-role">Responsable communication</span>
+                <p>Présente la campagne et analyse les avantages de l’IA dans le monde professionnel.</p>
               </div>
-            </div>
-          </div><!-- End Team Member -->
+            </article>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/person/person-f-4.webp" class="img-fluid" alt=""></div>
+            <article class="team-member" data-aos="fade-up" data-aos-delay="300">
+              <div class="pic"><img src="assets/img/person/person-f-8.webp" width="1024" height="1024" loading="lazy" class="img-fluid" alt="Thien An DANG"></div>
               <div class="member-info">
-                <h4>Rebecca KABUO</h4>
-                <span>Stagiaire</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
+                <h3>Thien An DANG</h3>
+                <span class="team-role">Secrétaire</span>
+                <p>Documente le projet et étudie les avantages de l’IA dans la société.</p>
               </div>
-            </div>
-          </div><!-- End Team Member -->
+            </article>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="team-member d-flex align-items-start">
+            <article class="team-member" data-aos="fade-up" data-aos-delay="400">
+              <div class="pic"><img src="assets/img/person/person-f-4.webp" width="1024" height="1024" loading="lazy" class="img-fluid" alt="Rebecca KABUO"></div>
               <div class="member-info">
-                <h4>Yassin BELGHITI</h4>
-                <span>Stagiaire</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                
+                <h3>Rebecca KABUO</h3>
+                <span class="team-role">Responsable planification</span>
+                <p>Planifie la campagne et étudie les avantages de l’IA pour l’environnement.</p>
               </div>
-            </div>
-          </div><!-- End Team Member -->
+            </article>
+
+            <article class="team-member" data-aos="fade-up" data-aos-delay="500">
+              <div class="pic"><img src="assets/img/person/person-m-13.webp" width="1024" height="1024" loading="lazy" class="img-fluid" alt="Yassin BELGHITI"></div>
+              <div class="member-info">
+                <h3>Yassin BELGHITI</h3>
+                <span class="team-role">Médiateur</span>
+                <p>Fait le lien avec le public et analyse les impacts négatifs de l’IA dans la société.</p>
+              </div>
+            </article>
+          </div>
 
         </div>
 
@@ -577,421 +227,68 @@
 
     </section><!-- /Team Section -->
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Temoignages</h2>
-        <p>Reprendre les phrases pertinents sur les différents interviews voir si les experts ou les gens veulent afficher leur tête.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/person/person-m-9.webp" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/person/person-f-5.webp" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/person/person-f-12.webp" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/person/person-m-12.webp" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/person/person-m-13.webp" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Faq 2 Section -->
-    <section id="faq-2" class="faq-2 section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Questions fréquemment posées</h2>
-        <p>Reunir les questions que les gens nous ont posées </p>
-      </div><!-- End Section Title -->
+    <!-- Partners and funding Section -->
+    <section id="partners" class="partners section light-background" aria-labelledby="partners-title">
 
       <div class="container">
 
-        <div class="row justify-content-center">
+        <div class="section-title" data-aos="fade-up">
+          <h2 id="partners-title">Partenaires et soutiens</h2>
+          <p>Ce projet est porté par le CF2M avec le soutien de partenaires institutionnels et financiers.</p>
+        </div>
 
-          <div class="col-lg-10">
-
-            <div class="faq-container">
-
-              <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
-                <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h3>
-                <div class="faq-content">
-                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-            </div>
-
+        <div class="partner-group" data-aos="fade-up" data-aos-delay="100">
+          <h3>Projet porté par</h3>
+          <div class="partner-logo-grid partner-logo-grid--owner">
+            <a class="partner-logo-card partner-logo-card--owner" href="https://www.cf2m.be/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/clients/CF2M.webp" width="300" height="300" class="img-fluid" alt="CF2M — Centre de formation 2 mille" loading="lazy">
+            </a>
           </div>
+        </div>
 
+        <div class="partner-group" data-aos="fade-up" data-aos-delay="150">
+          <h3>Partenaires institutionnels</h3>
+          <div class="partner-logo-grid">
+            <a class="partner-logo-card" href="https://www.actiris.brussels/fr/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/actiris.png" width="328" height="117" class="img-fluid" alt="Actiris" loading="lazy">
+            </a>
+            <a class="partner-logo-card" href="https://www.bruxellesformation.brussels/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/bruxelles-formation.png" width="3744" height="2969" class="img-fluid" alt="Bruxelles Formation" loading="lazy">
+            </a>
+            <a class="partner-logo-card" href="https://ccf.brussels/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/cocof.png" width="2787" height="1535" class="img-fluid" alt="Commission communautaire française — Francophones Bruxelles" loading="lazy">
+            </a>
+            <a class="partner-logo-card" href="https://stgilles.brussels/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/clients/SG1060.webp" width="474" height="240" class="img-fluid" alt="Commune de Saint-Gilles — 1060" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="partner-group" data-aos="fade-up" data-aos-delay="200">
+          <h3>Partenaires du projet</h3>
+          <div class="partner-logo-grid partner-logo-grid--project">
+            <a class="partner-logo-card" href="https://digitalcity.brussels/fr" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/digitalcity.png" width="758" height="649" class="img-fluid" alt="Digitalcity.brussels" loading="lazy">
+            </a>
+            <a class="partner-logo-card partner-logo-card--project" href="https://youthstart.be/fr/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/youthstart.png" width="2741" height="839" class="img-fluid" alt="YouthStart" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="partner-group partner-group--funding" data-aos="fade-up" data-aos-delay="250">
+          <h3>Financement</h3>
+          <div class="partner-logo-grid partner-logo-grid--funding">
+            <a class="partner-logo-card partner-logo-card--funding" href="https://commission.europa.eu/funding-tenders/managing-your-project/communicating-and-raising-eu-visibility_en" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/partners/eu-cofinanced-fr.jpg" width="70" height="334" class="img-fluid" alt="Cofinancé par l’Union européenne" loading="lazy">
+            </a>
+          </div>
+          <p class="partner-funding-note">Cofinancé par l’Union européenne.</p>
         </div>
 
       </div>
 
-    </section><!-- /Faq 2 Section -->
-
-    <!-- Subscribe Section -->
-    <section id="subscribe" class="subscribe section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4 justify-content-between align-items-center">
-          <div class="col-lg-6">
-            <div class="cta-content" data-aos="fade-up" data-aos-delay="200">
-              <h2>Abonnez-vous à notre newsletter</h2>
-              <p>Pour recevoir des news sur l'iA.</p>
-              <form action="forms/newsletter.php" method="post" class="php-email-form cta-form" data-aos="fade-up" data-aos-delay="300">
-                <div class="input-group mb-3">
-                  <input type="email" class="form-control" placeholder="Email address..." aria-label="Email address" aria-describedby="button-subscribe">
-                  <button class="btn btn-primary" type="submit" id="button-subscribe">Subscribe</button>
-                </div>
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-              </form>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="cta-image" data-aos="zoom-out" data-aos-delay="200">
-              <img src="assets/img/cta/cta-1.webp" alt="" class="img-fluid">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- /Subscribe Section -->
-
-    <!-- Recent Blog Postst Section -->
-    <section id="recent-blog-postst" class="recent-blog-postst section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Articles récents</h2>
-        <p>N'hesitez pas à lire ces blogs</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
-
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-post-1.webp" class="img-fluid" alt="">
-                <span class="post-date">December 12</span>
-              </div>
-
-              <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
-                  </div>
-                </div>
-
-                <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
-              </div>
-
-            </div>
-          </div><!-- End post item -->
-
-          <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-post-2.webp" class="img-fluid" alt="">
-                <span class="post-date">July 17</span>
-              </div>
-
-              <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Et repellendus molestiae qui est sed omnis</h3>
-
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Mario Douglas</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Sports</span>
-                  </div>
-                </div>
-
-                <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
-              </div>
-
-            </div>
-          </div><!-- End post item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="post-item position-relative h-100">
-
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-post-3.webp" class="img-fluid" alt="">
-                <span class="post-date">September 05</span>
-              </div>
-
-              <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Quia assumenda est et veritati tirana ploder</h3>
-
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Lisa Hunter</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
-                  </div>
-                </div>
-
-                <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
-              </div>
-
-            </div>
-          </div><!-- End post item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Recent Blog Postst Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Posez nous toutes vos questions.</p> 
-        <p> écrivez nous directement</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3> Adresse</h3>
-                  <p>87-89 Avenue du Parc 1060 St-Gilles</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Nous contacter</h3>
-                  <a href="tel:+02 538 20 83" target="_blank" rel="noopener noreferrer">Appeler +02 538 20 83</a>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email </h3>
-                 <a href="IA-PER@cf2000.onmicrosoft.com" target="_blank" rel="noopener noreferrer">IA-PER@cf2000.onmicrosoft.com</a>
-                </div>
-              </div><!-- End Info Item -->
-
-              <iframe src="https://www.google.com/maps/place/Centre+De+Formation+2mille/@50.8255051,4.3361576,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3c4424e23846d:0x96f406ef5208ebd9!8m2!3d50.8255051!4d4.3387325!16s%2Fg%2F1tj20q1k?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNC4wIKXMDSoASAFQAw%3D%3D" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Nom</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Objet</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">On a bien reçu ton message. Merci!</div>
-
-                  <button type="submit">Envoyer ton message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
+    </section><!-- /Partners and funding Section -->
 
   </main>
 
@@ -1002,54 +299,54 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">IA-PER</span>
+            <img src="assets/img/ia-per-progres-enjeux-responsabilites.png" class="footer-logo" width="150" height="75" alt="IA-PER — Progrès, Enjeux et Responsabilités">
           </a>
           <div class="footer-contact pt-3">
-            <p>Adresse:</p>
-            <p>87-89 Avenue du Parc </p>
-            <p>1060 St-Gilles</p>
-            <p class="mt-3"><strong>Phone:</strong> <span><a href="tel:+02 538 20 83" target="_blank" rel="noopener noreferrer"> +02 538 20 83</a></span></p>
-            <p><strong>Email:</strong> <span><a href="IA-PER@cf2000.onmicrosoft.com" target="_blank" rel="noopener noreferrer">IA-PER@cf2000.onmicrosoft.com</a></span></p>
+            <p><strong>Email :</strong> <span><a href="mailto:IA-PER@cf2000.onmicrosoft.com">IA-PER@cf2000.onmicrosoft.com</a></span></p>
+            <p><strong>Téléphone :</strong> <span><a href="tel:+3225382083">02 538 20 83</a></span></p>
+            <p class="mt-3"><strong>Adresse :</strong></p>
+            <p><a class="footer-address" href="https://www.google.com/maps/search/?api=1&amp;query=Avenue+du+Parc+87-89%2C+1060+Saint-Gilles%2C+Belgium" target="_blank" rel="noopener noreferrer">Avenue du Parc 87-89<br>1060 Saint-Gilles</a></p>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Liens utiles</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Accueil</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">À propos</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Questions fréquemment posées</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#hero">Accueil</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#about">À propos</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="thematiques.html#themes">Thématiques</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="thematiques.html#faq">Questions fréquemment posées</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Thématiques</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Environnement</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Professionnel</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Sociétal</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="environnement.html">Environnement</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="professionnel.html">Professionnel</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="societe.html">Société</a></li>
           </ul>
         </div>
-         <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+        <div class="col-lg-4 col-md-6 footer-social">
+          <div class="social-links d-flex" aria-label="Réseaux sociaux de CF2M">
+                  <a href="" aria-label="X"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+                  <a href="https://www.facebook.com/centredeformation2mille/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                  <a href="" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/school/cf2m-formation-bruxelles/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          </div>
          </div>
-      
 
        </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">IA-PER</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">IA-PER</strong> <span>Tous droits réservés</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <p>Section Aventure digitale</p>  
+        Conçu par <span>Section Aventure digitale</span><br>
         <a href="https://www.cf2m.be/">CF2M</a>
       </div>
     </div>
@@ -1057,7 +354,7 @@
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Retour en haut"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
@@ -1067,10 +364,6 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>

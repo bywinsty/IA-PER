@@ -1,2 +1,3 @@
 # Keep vendored checksums stable on Windows checkouts.
 assets/vendor/aos/* text eol=lf
+graphify-out/graph.json merge=graphify
