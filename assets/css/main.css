@@ -809,28 +809,25 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
-.hero .btn-watch-video {
-  font-size: 16px;
+.hero .btn-about {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px 12px;
+  margin-left: 18px;
+  color: #ffffff;
+  border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 28%);
+  border-radius: 50px;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
   transition: 0.5s;
-  margin-left: 25px;
-  color: color-mix(in srgb, var(--default-color), transparent 8%);
-  font-weight: 600;
 }
 
-.hero .btn-watch-video i {
-  color: var(--contrast-color);
-  font-size: 32px;
-  transition: 0.3s;
-  line-height: 0;
-  margin-right: 8px;
-}
-
-.hero .btn-watch-video:hover {
-  color: var(--accent-color);
-}
-
-.hero .btn-watch-video:hover i {
-  color: color-mix(in srgb, var(--accent-color), transparent 15%);
+.hero .btn-about:hover {
+  color: #ffffff;
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
 .hero .animated {
@@ -865,7 +862,7 @@ section,
   }
 
   .hero .btn-get-started,
-  .hero .btn-watch-video {
+  .hero .btn-about {
     font-size: 13px;
   }
 }
@@ -892,6 +889,48 @@ section,
   padding-bottom: 5px;
   display: flex;
   align-items: center;
+}
+
+.about .theme-list {
+  margin: 24px 0 0;
+}
+
+.about .theme-item {
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 0;
+}
+
+.about .theme-item > i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  padding-right: 0;
+}
+
+.about .theme-item span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.about .theme-item strong {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-weight: 600;
+}
+
+.about .theme-item small {
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.about .about-lead {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.45;
 }
 
 .about ul i {
