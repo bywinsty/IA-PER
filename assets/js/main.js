@@ -133,7 +133,6 @@
   function initPageNavigation() {
     const navigation = document.querySelector('.header-section-links');
     if (!navigation) return;
-    const overviewLink = document.querySelector('.header-nav-caption');
 
     const entries = Array.from(navigation.querySelectorAll('a[href^="#"]'))
       .map(link => ({ link, section: hashTarget(link.getAttribute('href')) }))
@@ -148,7 +147,6 @@
     function setActiveSection(section) {
       if (activeSection === section) return;
       activeSection = section;
-      overviewLink?.classList.toggle('is-active', Boolean(section));
       entries.forEach(({ link, section: target }) => {
         const isActive = target === section;
         link.classList.toggle('is-active', isActive);

@@ -357,16 +357,6 @@ h6 {
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
-.header-nav-caption.is-active {
-  color: var(--header-highlight);
-  font-weight: 600;
-}
-
-.header-nav-caption.is-active::after {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
 @media (max-width: 1199px) {
   .header-page-nav {
     max-width: 760px;
