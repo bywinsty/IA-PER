@@ -38,7 +38,15 @@ const server = createServer(async (request, response) => {
     return;
   }
 
-  const filePath = resolveRequestPath(request.url);
+  let filePath;
+  try {
+    filePath = resolveRequestPath(request.url);
+  } catch {
+    response.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+    response.end('Bad request');
+    return;
+  }
+
   if (!filePath) {
     response.writeHead(403);
     response.end('Forbidden');
