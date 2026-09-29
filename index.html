@@ -51,7 +51,14 @@
           <ul>
             <li><a href="#hero" class="active">Accueil</a></li>
             <li><a href="#about">À propos</a></li>
-            <li><a href="#services">Thématiques</a></li>
+            <li class="dropdown">
+              <a href="#hero"><span>Thématiques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="environnement.html">Environnement</a></li>
+                <li><a href="societe.html">Société</a></li>
+                <li><a href="professionnel.html">Professionnel</a></li>
+              </ul>
+            </li>
             <li><a href="#team">Team</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -66,26 +73,45 @@
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
+    <section id="hero" class="hero section dark-background hero-theme-first">
       <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-            <div class="hero-text-panel">
-              <div class="hero-panel-topline">
-              </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/img/AI_design.png" class="img-fluid animated" alt="">
+        <div class="hero-theme-orbit" data-aos="zoom-out">
+        <div class="theme-orbit" id="theme-orbit" role="region" aria-roledescription="carousel" aria-label="Les trois cadres IA-PER">
+          <div class="theme-orbit__ring theme-orbit__ring--outer" aria-hidden="true"></div>
+          <div class="theme-orbit__ring theme-orbit__ring--inner" aria-hidden="true"></div>
+          <div class="theme-orbit__cards">
+            <article class="theme-card theme-card--environment" data-theme="environment" tabindex="0" role="button" aria-label="Sélectionner le cadre Environnement">
+              <div class="theme-card__visual"><img src="assets/img/steps/iaenviro.png" alt="" loading="lazy"><span class="theme-card__number">01</span></div>
+              <div class="theme-card__body"><span class="theme-card__eyebrow">Cadre 01</span><h3>Environnement</h3><p>Énergie, eau et ressources : comprendre l'empreinte des usages de l'IA.</p><a href="environnement.html" class="theme-card__link">Explorer le cadre</a></div>
+            </article>
+            <article class="theme-card theme-card--professional" data-theme="professional" tabindex="0" role="button" aria-label="Sélectionner le cadre Professionnel">
+              <div class="theme-card__visual"><img src="assets/img/steps/iaprof.webp" alt="" loading="lazy"><span class="theme-card__number">02</span></div>
+              <div class="theme-card__body"><span class="theme-card__eyebrow">Cadre 02</span><h3>Professionnel</h3><p>Gagner du temps, faire évoluer les métiers et garder le contrôle humain.</p><a href="professionnel.html" class="theme-card__link">Explorer le cadre</a></div>
+            </article>
+            <article class="theme-card theme-card--society" data-theme="society" tabindex="0" role="button" aria-label="Sélectionner le cadre Société">
+              <div class="theme-card__visual"><img src="assets/img/steps/iasocietal.jpg" alt="" loading="lazy"><span class="theme-card__number">03</span></div>
+              <div class="theme-card__body"><span class="theme-card__eyebrow">Cadre 03</span><h3>Société</h3><p>Information, vie privée et décisions : questionner nos usages quotidiens.</p><a href="societe.html" class="theme-card__link">Explorer le cadre</a></div>
+            </article>
           </div>
-              <h1 class="hero-title">Comprendre l’impact de l’intelligence artificielle</h1>
-              <p>Au travail, dans l’environnement et dans la société. Comprendre, questionner, choisir.</p>
-              <div class="d-flex hero-actions">
-              </div>
+          <div class="theme-orbit__controls" aria-label="Navigation des cadres">
+            <button type="button" class="theme-orbit__control" data-theme-prev aria-label="Cadre précédent">←</button>
+            <div class="theme-orbit__dots" role="tablist" aria-label="Choisir un cadre">
+              <button type="button" class="theme-orbit__dot" data-theme-index="0" role="tab" aria-label="Environnement"></button>
+              <button type="button" class="theme-orbit__dot" data-theme-index="1" role="tab" aria-label="Professionnel"></button>
+              <button type="button" class="theme-orbit__dot" data-theme-index="2" role="tab" aria-label="Société"></button>
             </div>
+            <button type="button" class="theme-orbit__control" data-theme-next aria-label="Cadre suivant">→</button>
           </div>
+          <p class="theme-orbit__status" id="theme-orbit-status" aria-live="polite"></p>
+        </div>
+        </div>
+
+        <div class="hero-text-panel" data-aos="fade-up" data-aos-delay="150">
+          <div class="hero-panel-topline"></div>
+          <h1 class="hero-title">Comprendre l’impact de l’intelligence artificielle</h1>
+          <p>Au travail, dans l’environnement et dans la société. Comprendre, questionner, choisir.</p>
         </div>
       </div>
-
     </section><!-- /Hero Section -->
 
     <!-- Clients Section -->
@@ -173,7 +199,7 @@
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <p>Nos questions sont pour vous informer sur les avantages et les inconvénient de l'IA. </p>
-            <a href="#services"><span>Thématiques Read More</span><i class="bi bi-arrow-right"></i></a>
+            
           </div>
 
         </div>
@@ -248,106 +274,6 @@
 
     </section><!-- /Skills Section -->
 
-    <!-- Services Section -->
-    <section id="services" class="services section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Thématiques</h2>
-        <p>Abordons les différentes thématiques liées à l'usage de l'intelligence artificielle</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iaenviro.png" alt="Step 1" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">01</div>
-                <h4><a href="environnement.html" class="stretched-link">Environnement</a></h4>
-                <p>IA environnement</p>
-                <div class="steps-features">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Accueil</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Interview</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iaprof.webp" alt="Step 2" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">02</div>
-                <h4><a href="professionnel.html" class="stretched-link">Professionnel</a></h4>
-                <p>IA professionnel</p>
-                <div class="steps-features">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Accueil</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Interview</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="assets/img/steps/iasocietal.jpg" alt="Step 3" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">03</div>
-                <h4><a href="societe.html" class="stretched-link">Société</a></h4>
-                <p>IA Sociétal</p>
-                <div class="steps-features">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Accueil</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Interview</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Questions</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Steps Item -->
-          </div>
-
-        </div>
-
-      </div>
-
-
-    </section><!-- /Services Section -->
 
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section dark-background">
@@ -484,6 +410,7 @@
       </div>
 
     </section><!-- /Team Section -->
+    
 
     <!-- Témoignages + Questions : zone commune -->
     <section id="ia-hub" class="ia-hub section">
@@ -823,6 +750,23 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+<script>
+(() => {
+  const root=document.querySelector('#theme-orbit'); if(!root) return;
+  const cards=[...root.querySelectorAll('.theme-card')], dots=[...root.querySelectorAll('.theme-orbit__dot')];
+  const prev=root.querySelector('[data-theme-prev]'), next=root.querySelector('[data-theme-next]'), status=root.querySelector('#theme-orbit-status');
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches; let index=1, timer=null, interacted=false;
+  const wrap=n=>(n+cards.length)%cards.length;
+  function render(){ cards.forEach((c,i)=>{c.classList.toggle('is-active',i===index);c.classList.toggle('is-prev',i===wrap(index-1));c.classList.toggle('is-next',i===wrap(index+1));c.setAttribute('aria-current',i===index?'true':'false');c.tabIndex=i===index?0:-1;}); dots.forEach((d,i)=>{d.setAttribute('aria-selected',i===index?'true':'false');d.tabIndex=i===index?0:-1;}); status.textContent=`${cards[index].querySelector('h3').textContent}, cadre ${index+1} sur ${cards.length}`; }
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function start(){stop();if(!reduced&&!interacted) timer=setInterval(()=>{index=wrap(index+1);render();},5200);}
+  function go(n,focus=false){index=wrap(n);interacted=true;render();stop();if(focus) cards[index].focus();}
+  cards.forEach((c,i)=>{c.addEventListener('click',e=>{if(!e.target.closest('.theme-card__link'))go(i);});c.addEventListener('keydown',e=>{if(e.target.closest('.theme-card__link'))return;if(e.key==='Enter'||e.key===' '){e.preventDefault();go(i);}else if(e.key==='ArrowLeft'){e.preventDefault();go(index-1,true);}else if(e.key==='ArrowRight'){e.preventDefault();go(index+1,true);}});});
+  dots.forEach((d,i)=>d.addEventListener('click',()=>go(i,true))); prev.addEventListener('click',()=>go(index-1,true)); next.addEventListener('click',()=>go(index+1,true));
+  root.addEventListener('mouseenter',stop); root.addEventListener('mouseleave',start); root.addEventListener('focusin',stop); root.addEventListener('focusout',e=>{if(!root.contains(e.relatedTarget))start();});
+  render(); start();
+})();
+</script>
 </body>
 
 </html>
