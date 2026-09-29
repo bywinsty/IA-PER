@@ -86,7 +86,6 @@ body {
 }
 
 .index-page .light-background,
-.index-page .team,
 .index-page .testimonials,
 .index-page .services,
 .index-page .skills,
@@ -97,7 +96,6 @@ body {
 
 .index-page .service-item,
 .index-page .steps-item,
-.index-page .team-member,
 .index-page .testimonial-item,
 .index-page .faq-item,
 .index-page .member-info,
@@ -111,7 +109,6 @@ body {
 
 .index-page .service-item,
 .index-page .steps-item,
-.index-page .team-member,
 .index-page .testimonial-item,
 .index-page .faq-item {
   border-radius: 20px;
@@ -2758,132 +2755,6 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Team Section
---------------------------------------------------------------*/
-.team .team-member {
-  background-color: var(--surface-color);
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  position: relative;
-  border-radius: 5px;
-  transition: 0.5s;
-  padding: 30px;
-  height: 100%;
-}
-
-@media (max-width: 468px) {
-  .team .team-member {
-    flex-direction: column;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-}
-
-.team .team-member .pic {
-  overflow: hidden;
-  width: 150px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.team .team-member .pic img {
-  transition: ease-in-out 0.3s;
-}
-
-.team .team-member:hover {
-  transform: translateY(-10px);
-}
-
-.team .team-member .member-info {
-  padding-left: 30px;
-}
-
-@media (max-width: 468px) {
-  .team .team-member .member-info {
-    padding: 30px 0 0 0;
-    text-align: center;
-  }
-}
-
-.team .team-member h4 {
-  font-weight: 700;
-  margin-bottom: 5px;
-  font-size: 20px;
-}
-
-.team .team-member span {
-  display: block;
-  font-size: 15px;
-  padding-bottom: 10px;
-  position: relative;
-  font-weight: 500;
-}
-
-.team .team-member span::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 1px;
-  background: color-mix(in srgb, var(--default-color), transparent 85%);
-  bottom: 0;
-  left: 0;
-}
-
-@media (max-width: 468px) {
-  .team .team-member span::after {
-    left: calc(50% - 25px);
-  }
-}
-
-.team .team-member p {
-  margin: 10px 0 0 0;
-  font-size: 14px;
-}
-
-.team .team-member .social {
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  width: 100%;
-}
-
-@media (max-width: 468px) {
-  .team .team-member .social {
-    justify-content: center;
-  }
-}
-
-.team .team-member .social a {
-  background: color-mix(in srgb, var(--default-color), transparent 94%);
-  transition: ease-in-out 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50px;
-  width: 36px;
-  height: 36px;
-}
-
-.team .team-member .social a i {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  font-size: 16px;
-  margin: 0 2px;
-}
-
-.team .team-member .social a:hover {
-  background: var(--accent-color);
-}
-
-.team .team-member .social a:hover i {
-  color: var(--contrast-color);
-}
-
-.team .team-member .social a+a {
-  margin-left: 8px;
-}
-
-/*--------------------------------------------------------------
 # Pricing Section
 --------------------------------------------------------------*/
 .pricing .pricing-item {
@@ -4983,7 +4854,6 @@ section,
 /* Reduce empty space inside common content cards. */
 .index-page .service-item,
 .index-page .steps-item,
-.index-page .team-member,
 .index-page .testimonial-item,
 .index-page .faq-item {
   padding-top: 18px;
@@ -5051,7 +4921,6 @@ section,
 
   .index-page .service-item,
   .index-page .steps-item,
-  .index-page .team-member,
   .index-page .testimonial-item,
   .index-page .faq-item {
     padding-top: 16px;
@@ -6210,57 +6079,143 @@ section .mb-5,
   }
 }
 
-
-/* =========================================================
-   TEAM V11 — DESIGN INTÉGRÉ AU THÈME
-   ========================================================= */
-
-/* Conteneur de l'équipe plus compact et élégant */
-.team {
-  padding: 18px 0 !important;
+/*--------------------------------------------------------------
+# Team Section
+--------------------------------------------------------------*/
+.team .team-hierarchy {
+  position: relative;
+  padding-top: 8px;
 }
 
-.team .member,
+.team .team-lead-wrap {
+  position: relative;
+  z-index: 2;
+  width: min(390px, 100%);
+  margin: 0 auto;
+}
+
+.team .team-lead {
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 35%);
+  box-shadow: 0 14px 40px color-mix(in srgb, var(--heading-color), transparent 84%);
+}
+
+.team .team-connector-layer {
+  width: min(920px, 100%);
+  height: 72px;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.team .team-connector-layer svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.team .team-connector-layer path,
+.team .team-connector-layer circle {
+  fill: none;
+  stroke: color-mix(in srgb, var(--accent-color), transparent 35%);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.team .team-connector-layer circle { fill: var(--accent-color); }
+.team .team-connector-mobile { display: none; }
+
+.team .team-members {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+}
+
 .team .team-member {
-  background: rgba(255,255,255,.035) !important;
-  border: 1px solid rgba(255,179,92,.16) !important;
-  border-radius: 20px !important;
-  padding: 14px !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,.12) !important;
-  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  background: transparent;
+  border: none;
+  border-radius: 18px;
+  padding: 22px 20px 24px;
+  text-align: center;
+  height: 100%;
+  box-shadow: none;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  background: transparent !important;
 }
 
-.team .member:hover,
 .team .team-member:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255,179,92,.42) !important;
-  box-shadow: 0 12px 28px rgba(0,0,0,.18) !important;
+  transform: translateY(-7px);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 35%);
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--heading-color), transparent 84%);
 }
 
-.team .member img,
-.team .team-member img {
-  border-radius: 16px !important;
+.team .team-member .pic {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 18px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid var(--surface-color);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color), transparent 65%);
 }
 
-.team .member h4,
-.team .team-member h4 {
-  font-size: 17px !important;
-  margin: 8px 0 3px !important;
+.team .team-member .pic img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .35s ease;
 }
 
-.team .member span,
-.team .team-member span {
-  font-size: 12px !important;
-  color: #ffb35c !important;
+.team .team-member:hover .pic img { transform: scale(1.04); }
+.team .team-member .member-info { width: 100%; }
+.team .team-member h3 {
+  font-weight: 700;
+  margin: 0 0 7px;
+  font-size: 18px;
+  color: var(--heading-color);
 }
 
-.team .member p,
+.team .team-member .team-role {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: .02em;
+}
+
+.team .team-member .team-role--lead { font-size: 14px; }
 .team .team-member p {
-  font-size: 12.5px !important;
-  line-height: 1.4 !important;
-  margin: 5px 0 0 !important;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
 }
 
+@media (max-width: 1199.98px) {
+  .team .team-members { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767.98px) {
+  .team .team-lead-wrap { width: min(340px, 100%); }
+  .team .team-connector-layer { height: 45px; }
+  .team .team-connector-desktop { display: none; }
+  .team .team-connector-mobile { display: block; }
+  .team .team-members { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .team .team-member { padding: 18px 14px 20px; border-radius: 15px; }
+  .team .team-member .pic { width: 112px; height: 112px; margin-bottom: 14px; }
+  .team .team-member h3 { font-size: 15px; }
+  .team .team-member p { font-size: 12px; }
+}
+
+@media (max-width: 479.98px) {
+  .team .team-members { grid-template-columns: 1fr; }
+}
+
+/*--------------------------------------------------------------
 /* =========================================================
    TÉMOIGNAGES V11 — BEAUCOUP PLUS COMPACT
    ========================================================= */
@@ -6337,16 +6292,6 @@ section .mb-5,
 
 /* Mobile */
 @media (max-width: 767px) {
-  .team {
-    padding: 14px 0 !important;
-  }
-
-  .team .member,
-  .team .team-member {
-    padding: 11px !important;
-    border-radius: 16px !important;
-  }
-
   #testimonials,
   .testimonials,
   #faq,
@@ -6956,164 +6901,10 @@ section .mb-5,
 
 
 /* =========================================================
-   TEAM V22 — MÊME CASE POUR TOUS, NOUVEAU CADRE
-   ========================================================= */
-
-#team.team {
-  padding: 20px 0 !important;
-}
-
-#team > .container > .row {
-  display: flex !important;
-  flex-wrap: wrap;
-  gap: 0 !important;
-}
-
-#team > .container > .row > [class*="col-lg-4"] {
-  width: 33.333333% !important;
-  max-width: 33.333333% !important;
-  flex: 0 0 33.333333% !important;
-  padding-left: 7px !important;
-  padding-right: 7px !important;
-}
-
-#team .team-member {
-  position: relative;
-  min-height: 150px !important;
-  height: 150px !important;
-  padding: 17px 18px !important;
-  display: flex !important;
-  align-items: center !important;
-  border: 1px solid rgba(57,200,120,.22) !important;
-  border-radius: 26px !important;
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.015)) !important;
-  box-shadow:
-    0 8px 24px rgba(0,0,0,.14),
-    inset 0 1px 0 rgba(255,255,255,.055) !important;
-  overflow: hidden;
-}
-
-/* Petit détail futuriste commun à toutes les cartes */
-#team .team-member::before {
-  content: "";
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  top: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    #ffb35c,
-    #39c878,
-    transparent
-  );
-  opacity: .75;
-}
-
-#team .team-member::after {
-  content: "IA";
-  position: absolute;
-  right: 14px;
-  top: 12px;
-  font-family: "Orbitron", sans-serif;
-  font-size: 7px;
-  letter-spacing: .15em;
-  color: rgba(57,200,120,.55);
-}
-
-#team .member-info {
-  width: 100%;
-  padding: 0 !important;
-}
-
-#team .member-info h4 {
-  margin: 0 0 3px !important;
-  font-family: "Poppins", sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  line-height: 1.25 !important;
-}
-
-#team .member-info > span {
-  display: block;
-  margin-bottom: 6px !important;
-  font-family: "Orbitron", sans-serif !important;
-  font-size: 8px !important;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  color: #ffb35c !important;
-}
-
-#team .member-info > p {
-  margin: 0 0 8px !important;
-  font-size: 11.5px !important;
-  line-height: 1.4 !important;
-  color: rgba(255,255,255,.68);
-}
-
-#team .member-info .social {
-  display: flex;
-  gap: 5px;
-}
-
-#team .member-info .social a {
-  width: 25px;
-  height: 25px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 50%;
-  background: rgba(255,255,255,.025);
-  color: rgba(255,255,255,.72);
-  transition: .2s ease;
-}
-
-#team .member-info .social a:hover {
-  border-color: rgba(57,200,120,.45);
-  color: #39c878;
-  transform: translateY(-2px);
-}
-
-/* Tablette */
-@media (min-width: 768px) and (max-width: 991px) {
-  #team > .container > .row > [class*="col-lg-4"] {
-    width: 50% !important;
-    max-width: 50% !important;
-    flex-basis: 50% !important;
-  }
-
-  #team .team-member {
-    height: 145px !important;
-    min-height: 145px !important;
-  }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-  #team > .container > .row > [class*="col-lg-4"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex-basis: 100% !important;
-    padding: 0 0 8px !important;
-  }
-
-  #team .team-member {
-    height: 140px !important;
-    min-height: 140px !important;
-    padding: 15px !important;
-    border-radius: 20px !important;
-  }
-}
-
-
-/* =========================================================
    V23 — NETTOYAGE DES INDICATEURS + HARMONISATION FINALE
    ========================================================= */
 
 /* Aucun indicateur "IA" décoratif dans les cartes */
-#team .team-member::after,
 .ia-hub-panel::after,
 .ia-testimonials-panel .ia-testimonials-slider .testimonial-item::before,
 .ia-testimonials-panel .ia-testimonials-slider .testimonial-item::after {
@@ -7267,12 +7058,6 @@ section .mb-5,
     height: 38px !important;
   }
 }
-
-/* V25 — TEAM : texte principal bleu comme les noms */
-#team .member-info > p {
-  color: #24375d !important;
-}
-
 
 /* V26 — Témoignages : texte bleu comme les noms */
 .ia-testimonials-panel .ia-testimonials-slider .testimonial-item p {
@@ -7708,235 +7493,6 @@ section .mb-5,
 .index-page .gy-5 {
   --bs-gutter-y: 14px !important;
 }
-
-/* Team : garder les cartes identiques mais gagner de la hauteur */
-.index-page #team .team-member {
-  min-height: 142px !important;
-  height: 142px !important;
-  padding: 14px 16px !important;
-}
-
-/* Hub Questions / Témoignages : réduire uniquement les marges autour */
-.index-page #ia-hub .ia-hub-header {
-  margin-bottom: 10px !important;
-}
-
-.index-page #ia-hub .ia-hub-grid {
-  gap: 12px !important;
-}
-
-/* Contact : conserver V41, réduire seulement l'espace extérieur */
-.index-page #contact {
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
-}
-
-.index-page #contact .section-title {
-  margin-bottom: 8px !important;
-}
-
-/* Footer : éviter une grande zone finale inutile */
-.index-page #footer {
-  padding-top: 14px !important;
-  padding-bottom: 14px !important;
-}
-
-@media (max-width: 767px) {
-  .index-page section.section {
-    padding-top: 12px !important;
-    padding-bottom: 12px !important;
-  }
-
-  .index-page #hero {
-    min-height: 38vh !important;
-    padding-top: 46px !important;
-    padding-bottom: 12px !important;
-  }
-
-  .index-page #team .team-member {
-    height: auto !important;
-    min-height: 142px !important;
-  }
-}
-
-
-/* V43 — TEAM : modèle C / Dashboard IA */
-.index-page #team .team-member {
-  position: relative !important;
-  min-height: 142px !important;
-  height: 142px !important;
-  padding: 16px 18px !important;
-  border-radius: 20px !important;
-  border: 1px solid rgba(57, 200, 120, .22) !important;
-  background: linear-gradient(135deg, rgba(17,27,61,.98), rgba(17,27,61,.86)) !important;
-  box-shadow: 0 8px 22px rgba(0,0,0,.14) !important;
-  overflow: hidden !important;
-}
-
-.index-page #team .team-member::before {
-  content: "" !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 4px !important;
-  height: 100% !important;
-  background: linear-gradient(180deg, #FFB35C, #39c878) !important;
-  opacity: .9 !important;
-}
-
-.index-page #team .member-info {
-  position: relative !important;
-  z-index: 1 !important;
-  padding: 0 !important;
-  text-align: left !important;
-}
-
-.index-page #team .member-info h4 {
-  font-size: 15px !important;
-  line-height: 1.25 !important;
-  margin: 0 0 3px !important;
-  color: #fff !important;
-}
-
-.index-page #team .member-info span {
-  display: block !important;
-  font-size: 10px !important;
-  line-height: 1.25 !important;
-  margin-bottom: 7px !important;
-  color: #FFB35C !important;
-}
-
-.index-page #team .member-info > p {
-  font-size: 11px !important;
-  line-height: 1.4 !important;
-  margin: 0 !important;
-  color: #24375d !important;
-}
-
-.index-page #team .social {
-  margin-top: 7px !important;
-}
-
-.index-page #team .social a {
-  font-size: 11px !important;
-  margin-right: 7px !important;
-}
-
-@media (max-width: 767px) {
-  .index-page #team .team-member {
-    height: auto !important;
-    min-height: 142px !important;
-    padding: 14px 16px !important;
-  }
-
-  .index-page #team .member-info h4 {
-    font-size: 14px !important;
-  }
-
-  .index-page #team .member-info > p {
-    font-size: 11px !important;
-  }
-}
-
-
-/* V44 — TEAM : Dashboard IA allégé, sans cadre bleu foncé */
-.index-page #team .team-member {
-  background: rgba(255,255,255,.055) !important;
-  border: 1px solid rgba(255,179,92,.28) !important;
-  box-shadow: 0 6px 18px rgba(17,27,61,.08) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
-.index-page #team .team-member::before {
-  width: 3px !important;
-  opacity: .8 !important;
-}
-
-.index-page #team .member-info h4 {
-  color: #24375d !important;
-}
-
-.index-page #team .member-info span {
-  color: #0f7b2e !important;
-}
-
-.index-page #team .member-info > p {
-  color: #24375d !important;
-}
-
-
-/* V45 — TEAM : noms et statut centrés */
-.index-page #team .member-info {
-  text-align: center !important;
-}
-
-.index-page #team .member-info h4,
-.index-page #team .member-info span {
-  text-align: center !important;
-}
-
-.index-page #team .member-info h4 {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.index-page #team .member-info span {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-
-/* V46 — TEAM : bordure orange → verte sur tout le contour de chaque cadre */
-.index-page #team .team-member {
-  border: 1px solid transparent !important;
-  background:
-    linear-gradient(rgba(255,255,255,.055), rgba(255,255,255,.055)) padding-box,
-    linear-gradient(135deg, #FFB35C 0%, #39c878 100%) border-box !important;
-}
-
-/* La barre latérale devient inutile : la bordure fait maintenant tout le tour */
-.index-page #team .team-member::before {
-  display: none !important;
-}
-
-
-/* V47 — TEAM : bordure complète, sobre et professionnelle */
-.index-page #team .team-member {
-  border: 1px solid transparent !important;
-  background:
-    linear-gradient(rgba(255,255,255,.035), rgba(255,255,255,.035)) padding-box,
-    linear-gradient(135deg, rgba(255,179,92,.42), rgba(57,200,120,.42)) border-box !important;
-  box-shadow: 0 4px 14px rgba(17,27,61,.06) !important;
-  backdrop-filter: blur(5px) !important;
-  -webkit-backdrop-filter: blur(5px) !important;
-}
-
-.index-page #team .member-info h4 {
-  color: #24375d !important;
-  font-weight: 600 !important;
-}
-
-.index-page #team .member-info span {
-  color: #0f7b2e !important;
-  font-weight: 500 !important;
-}
-
-
-/* V48 — TEAM : réseaux sociaux centrés */
-.index-page #team .member-info .social {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 100% !important;
-  margin: 8px auto 0 !important;
-  text-align: center !important;
-}
-
-.index-page #team .member-info .social a {
-  margin: 0 5px !important;
-}
-
 
 /* V49 — FOOTER : version plus compacte */
 .index-page #footer {
