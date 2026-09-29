@@ -55,9 +55,6 @@
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
-  --header-height: 96px;
-  --header-scroll-padding: 96px;
-  scroll-padding-top: var(--header-scroll-padding);
 }
 
 /*--------------------------------------------------------------
@@ -141,274 +138,6 @@ h6 {
   100% {
     transform: rotate(360deg);
   }
-}
-
-/*--------------------------------------------------------------
-# Global Header
---------------------------------------------------------------*/
-.skip-link {
-  position: fixed;
-  top: 10px;
-  left: 16px;
-  z-index: 1001;
-  padding: 9px 14px;
-  border-radius: 8px;
-  color: #ffffff;
-  background: var(--heading-color);
-  font-size: 13px;
-  font-weight: 700;
-  transform: translateY(-180%);
-  transition: transform 0.2s ease;
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
-
-.header {
-  --background-color: rgba(255, 255, 255, 0.92);
-  --heading-color: #111b3d;
-  --nav-color: #111b3d;
-  --header-highlight: #f4a51c;
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 10px 0;
-  transition: all 0.5s;
-  z-index: 997;
-  border-bottom: 0;
-  box-shadow: none;
-  -webkit-backdrop-filter: blur(12px) saturate(120%);
-  backdrop-filter: blur(12px) saturate(120%);
-}
-
-.header .logo {
-  line-height: 1;
-  gap: 10px;
-}
-
-.header > .container-fluid {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
-.header .logo .site-logo {
-  display: block;
-  width: 150px;
-  max-width: 100%;
-  height: auto;
-  max-height: none;
-  margin: 0;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-}
-
-/* Page navigation mockup: the current page is followed by its sections. */
-.header-brand {
-  flex: 1 1 auto;
-  min-width: 0;
-  overflow: hidden;
-  align-items: flex-start;
-}
-
-.header-brand .logo {
-  flex: 0 0 auto;
-}
-
-.header-page-nav {
-  flex: 1 1 auto;
-  min-width: 0;
-  max-width: 930px;
-  margin-left: 18px;
-  padding-left: 18px;
-  border-left: 1px solid rgba(17, 27, 61, 0.16);
-  color: var(--nav-color);
-}
-
-.header-current-link {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  padding: 4px 6px;
-  color: var(--nav-color);
-  font-family: var(--heading-font);
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.2;
-  white-space: nowrap;
-  border-radius: 6px;
-  background-color: transparent;
-  text-decoration: none;
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.header-current-link:hover,
-.header-current-link:focus-visible {
-  color: var(--nav-color);
-  background-color: rgba(101, 108, 118, 0.08);
-}
-
-.header-current-link:focus-visible,
-.header-section-links a:focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--accent-color), transparent 25%);
-  outline-offset: 3px;
-}
-
-.header-section-links {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px 20px;
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.header-section-links a {
-  display: inline-flex;
-  position: relative;
-  align-items: center;
-  gap: 7px;
-  padding: 5px 6px;
-  color: var(--nav-color);
-  font-size: 13px;
-  line-height: 1.25;
-  border-radius: 6px;
-  background-color: transparent;
-  text-decoration: none;
-  transition:
-    background-color 0.15s ease,
-    color 0.15s ease,
-    transform 0.15s ease;
-}
-
-.header-section-links a:hover,
-.header-section-links a:focus-visible {
-  color: var(--nav-color);
-  background-color: rgba(101, 108, 118, 0.08);
-  transform: translateY(-1px);
-}
-
-.header-current-link span:last-child {
-  position: relative;
-  padding-bottom: 4px;
-}
-
-.header-current-link span:last-child::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--accent-color);
-}
-
-.header-section-links a::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 1px;
-  left: 0;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--header-highlight);
-  opacity: 0;
-  transform: scaleX(0.45);
-  transform-origin: left center;
-  transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-.header-section-links a.is-active {
-  /* Keep the orange brand cue in the underline while preserving text contrast. */
-  color: #8a5400;
-  font-weight: 600;
-}
-
-.header-section-links a.is-active::after {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-@media (max-width: 1199px) {
-  .header-page-nav {
-    max-width: 760px;
-  }
-
-  .header-section-links {
-    gap: 4px 14px;
-  }
-}
-
-@media (max-width: 640px) {
-  :root {
-    --header-height: 120px;
-    --header-scroll-padding: 120px;
-  }
-
-  .header > .container-fluid {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .header .logo .site-logo {
-    width: 118px;
-  }
-
-  .header-page-nav {
-    max-width: none;
-    margin-left: 10px;
-    padding-left: 10px;
-  }
-
-  .header-current-link {
-    min-height: 24px;
-    padding: 0 0 2px;
-    font-size: 13px;
-  }
-
-  .header-section-links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 10px;
-  }
-
-  .header-section-links a {
-    min-height: 24px;
-    font-size: 11px;
-    padding: 3px 0;
-  }
-
-  .header > .container-fluid {
-    align-items: flex-start;
-  }
-}
-
-.header .logo .site-name {
-  color: var(--heading-color);
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.header .logo h1 {
-  font-size: 30px;
-  margin: 0;
-  font-weight: 500;
-  color: var(--heading-color);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* Header on Scroll
-------------------------------*/
-.scrolled .header {
-  --background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: none;
 }
 
 /*--------------------------------------------------------------
@@ -707,15 +436,9 @@ html [data-aos].aos-focus-visible {
   position: relative;
 }
 
-/* Keep every internal page title visible below the fixed header. */
+/* Keep every internal page title visible below the rendered fixed header. */
 .page-title {
-  padding-top: 95px;
-}
-
-@media (max-width: 1199px) {
-  .page-title {
-    padding-top: 85px;
-  }
+  padding-top: max(85px, var(--header-height, 95px));
 }
 
 .page-title h1 {
@@ -738,7 +461,7 @@ section,
 /* The thematic pages no longer use a separate page-title strip, so keep their
    first visible content below the fixed header. */
 .thematic-page {
-  padding-top: 155px;
+  padding-top: calc(var(--header-height, 95px) + 60px);
 }
 
 @media (max-width: 1199px) {
@@ -749,7 +472,7 @@ section,
   }
 
   .thematic-page {
-    padding-top: 145px;
+    padding-top: calc(var(--header-height, 95px) + 50px);
   }
 }
 
@@ -931,14 +654,10 @@ section,
   }
 }
 
-/* The one-column mobile navigation makes the header taller than the default
+/* The one-column mobile navigation can make the header taller than the default
    small-screen hero spacing, so this override must come after the max-width
    640px hero rule above. */
 @media (max-width: 380px) {
-  .header-section-links {
-    grid-template-columns: 1fr;
-  }
-
   .hero {
     padding-top: max(140px, calc(var(--header-height, 96px) + 24px));
   }

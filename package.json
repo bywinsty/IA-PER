@@ -1,0 +1,17 @@
+{
+  "name": "ia-per",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:headers": "node site/scripts/build-headers.mjs",
+    "serve:test": "node site/scripts/serve-static.mjs --port=4173",
+    "test:headers": "npm run build:headers && playwright test",
+    "verify:headers": "node site/scripts/verify-headers.mjs && npm run test:headers"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
