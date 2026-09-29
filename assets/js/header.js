@@ -122,9 +122,11 @@
         framePending = false;
         const header = document.querySelector('#header');
         const readingLine = (header?.getBoundingClientRect().bottom || 0) + 24;
-        const activeEntry = entries
-          .map(entry => ({ ...entry, bounds: entry.section.getBoundingClientRect() }))
-          .find(({ bounds }) => bounds.top <= readingLine && bounds.bottom > readingLine);
+        const measuredEntries = entries.map(entry => ({
+          ...entry,
+          bounds: entry.section.getBoundingClientRect()
+        }));
+        const activeEntry = measuredEntries.find(({ bounds }) => bounds.top <= readingLine && bounds.bottom > readingLine);
         setActiveSection(activeEntry?.section || null);
       });
     }
@@ -147,6 +149,7 @@
       const entry = entries.find(({ section }) => section === target);
       trackHashNavigation(entry?.section || null);
       if (entry) setActiveSection(entry.section);
+      else if (!window.location.hash && window.scrollY <= 1) setActiveSection(null);
       updateActiveSection();
     }
 
@@ -161,6 +164,9 @@
   initHeaderMetrics();
   document.addEventListener('scroll', toggleScrolled, { passive: true });
   onLoaded(toggleScrolled);
-  onLoaded(initPageNavigation);
+  // This script is loaded at the end of the document, so the header and all
+  // section targets already exist. Initialize now so the first section can be
+  // highlighted before the window waits for images and other resources.
+  initPageNavigation();
   onLoaded(() => requestAnimationFrame(() => requestAnimationFrame(correctInitialAnchor)));
 })();

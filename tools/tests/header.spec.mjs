@@ -2,13 +2,11 @@ import { expect, test } from '@playwright/test';
 
 const pages = [
   { file: 'index.html', type: 'home', assetPrefix: '' },
-  { file: 'pages/thématiques/thematiques.html', type: 'breadcrumb', assetPrefix: '../../' },
+  { file: 'pages/thématiques/thematiques.html', type: 'breadcrumb-sections', assetPrefix: '../../' },
   { file: 'pages/thématiques/environnement.html', type: 'breadcrumb', assetPrefix: '../../' },
   { file: 'pages/thématiques/professionnel.html', type: 'breadcrumb', assetPrefix: '../../' },
   { file: 'pages/thématiques/societe.html', type: 'breadcrumb', assetPrefix: '../../' },
-  { file: 'pages/404.html', type: 'breadcrumb', assetPrefix: '../' },
-  { file: 'pages/service-details.html', type: 'breadcrumb', assetPrefix: '../' },
-  { file: 'pages/starter-page.html', type: 'breadcrumb', assetPrefix: '../' }
+  { file: 'pages/404.html', type: 'breadcrumb', assetPrefix: '../' }
 ];
 
 async function expectNoHorizontalOverflow(page) {
@@ -61,12 +59,30 @@ for (const definition of pages) {
       await expect(header.locator('.header-page-nav')).toHaveCount(1);
       await expect(header.locator('.header-section-links a')).toHaveCount(3);
       await expect(header.locator('.header-breadcrumbs')).toHaveCount(0);
+      await expect(header.locator('#scroll-progress')).toHaveCount(1);
+    } else if (definition.type === 'breadcrumb-sections') {
+      const breadcrumbs = header.locator('.header-breadcrumbs');
+      await expect(breadcrumbs).toHaveCount(1);
+      await expect(breadcrumbs.locator('a[aria-current="page"]')).toHaveCount(1);
+      await expect(breadcrumbs.locator('ol')).toHaveCSS('list-style-type', 'none');
+      const currentLink = breadcrumbs.locator('a[aria-current="page"]');
+      await expect(breadcrumbs.locator('.breadcrumb-button').first()).toHaveCSS('font-weight', '700');
+      await expect(currentLink).toHaveCSS('font-weight', '700');
+      await expect(currentLink).toHaveAttribute('href', 'thematiques.html#themes');
+      await expect(header.locator('.header-section-nav')).toHaveCount(0);
+      await expect(header.locator('.header-section-links a')).toHaveCount(0);
+      await expect(header.locator('#scroll-progress')).toHaveCount(1);
+      await expect(page.locator('#sources')).toHaveCount(0);
+      await expect(page.locator('main')).not.toContainText('Sources et références');
     } else {
       const breadcrumbs = header.locator('.header-breadcrumbs');
       await expect(breadcrumbs).toHaveCount(1);
       await expect(breadcrumbs.locator('a[aria-current="page"]')).toHaveCount(1);
       await expect(breadcrumbs.locator('ol')).toHaveCSS('list-style-type', 'none');
+      await expect(breadcrumbs.locator('.breadcrumb-button').first()).toHaveCSS('font-weight', '700');
+      await expect(breadcrumbs.locator('a[aria-current="page"]')).toHaveCSS('font-weight', '700');
       await expect(header.locator('.header-page-nav')).toHaveCount(0);
+      await expect(page.locator('#scroll-progress')).toHaveCount(0);
     }
 
     expect(pageErrors).toEqual([]);
@@ -123,6 +139,57 @@ test('homepage anchors remain below the fixed header and activate their link', a
   }
 });
 
+test('homepage keeps only the page link current while the hero is visible', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
+
+  await expect(page.locator('.header-current-link')).toHaveAttribute('aria-current', 'page');
+  await expect(page.locator('.header-section-links a[aria-current="location"]')).toHaveCount(0);
+  await expect(page.locator('.header-section-links a.is-active')).toHaveCount(0);
+});
+
+test('thematics page exposes its themes breadcrumb anchor', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
+
+  const themesLink = page.locator('.header-breadcrumbs a[href="thematiques.html#themes"]');
+  await expect(themesLink).toHaveAttribute('aria-current', 'page');
+  await themesLink.click();
+  await expect(themesLink).toHaveAttribute('aria-current', 'page');
+});
+
+test('thematics page direct hash navigation respects the dynamic header', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+
+  for (const id of ['themes', 'faq']) {
+    await page.goto(`/pages/thématiques/thematiques.html#${id}`, { waitUntil: 'load' });
+    await waitForAnchorAlignment(page, `#${id}`);
+    if (id === 'themes') {
+      await expect(page.locator('.header-breadcrumbs a[aria-current="page"]')).toHaveAttribute('href', 'thematiques.html#themes');
+    }
+  }
+});
+
+test('thematics page skip link reaches the main content', async ({ page }) => {
+  await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
+  const skipLink = page.locator('.skip-link');
+  await page.keyboard.press('Tab');
+  await expect(skipLink).toBeFocused();
+  await expect.poll(() => skipLink.evaluate(element => element.getBoundingClientRect().top >= 0)).toBe(true);
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#main-content')).toBeFocused();
+});
+
+for (const width of [1440, 640, 380, 300, 280]) {
+  test(`thematics page header stays within ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
+    await expectHeaderMetrics(page);
+    await expectNoHorizontalOverflow(page);
+  });
+}
+
 test('direct hash navigation respects the header in reduced-motion mode', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/index.html#team', { waitUntil: 'load' });
@@ -147,26 +214,62 @@ test('scrolling changes the header to its scrolled state', async ({ page }) => {
 });
 
 for (const width of [1440, 380]) {
-  test(`homepage reading progress sits directly below the header at ${width}px`, async ({ page }) => {
+  test(`homepage reading progress is part of the header at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/index.html', { waitUntil: 'load' });
 
     const positions = await page.evaluate(() => {
       const header = document.querySelector('#header');
       const progress = document.querySelector('#scroll-progress');
+      const headerRect = header?.getBoundingClientRect();
+      const progressRect = progress?.getBoundingClientRect();
       return {
-        headerBottom: header?.getBoundingClientRect().bottom ?? 0,
-        progressTop: progress?.getBoundingClientRect().top ?? 0
+        parentIsHeader: progress?.parentElement === header,
+        position: progress ? getComputedStyle(progress).position : '',
+        headerBottom: headerRect?.bottom ?? 0,
+        progressTop: progressRect?.top ?? 0,
+        progressBottom: progressRect?.bottom ?? 0
       };
     });
 
-    expect(Math.abs(positions.progressTop - positions.headerBottom)).toBeLessThanOrEqual(1);
+    expect(positions.parentIsHeader).toBe(true);
+    expect(positions.position).toBe('absolute');
+    expect(Math.abs(positions.progressBottom - positions.headerBottom)).toBeLessThanOrEqual(1);
   });
 }
 
 test('homepage reading progress tracks the document from start to finish', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/index.html', { waitUntil: 'load' });
+
+  const progress = page.locator('#scroll-progress');
+  await expect(progress).toHaveAttribute('role', 'progressbar');
+  await expect(progress).toHaveAttribute('aria-valuenow', '0');
+
+  const values = await page.evaluate(async () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const readProgress = () => new Promise(resolve => {
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve(
+        document.querySelector('#scroll-progress')?.getAttribute('aria-valuenow')
+      )));
+    });
+
+    window.scrollTo({ top: Math.round(maxScroll / 2), behavior: 'instant' });
+    const middle = await readProgress();
+    window.scrollTo({ top: maxScroll, behavior: 'instant' });
+    const end = await readProgress();
+    return { maxScroll, middle, end };
+  });
+
+  expect(values.maxScroll).toBeGreaterThan(0);
+  expect(Number(values.middle)).toBeGreaterThan(40);
+  expect(Number(values.middle)).toBeLessThan(60);
+  expect(values.end).toBe('100');
+});
+
+test('thematics page reading progress tracks the document from start to finish', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'load' });
 
   const progress = page.locator('#scroll-progress');
   await expect(progress).toHaveAttribute('role', 'progressbar');

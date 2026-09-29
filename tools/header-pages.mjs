@@ -10,9 +10,7 @@ const homeRoutes = {
   'environnement.html': 'pages/thématiques/environnement.html',
   'professionnel.html': 'pages/thématiques/professionnel.html',
   'societe.html': 'pages/thématiques/societe.html',
-  '404.html': 'pages/404.html',
-  'service-details.html': 'pages/service-details.html',
-  'starter-page.html': 'pages/starter-page.html'
+  '404.html': 'pages/404.html'
 };
 
 const pagesRoutes = {
@@ -21,9 +19,7 @@ const pagesRoutes = {
   'environnement.html': 'thématiques/environnement.html',
   'professionnel.html': 'thématiques/professionnel.html',
   'societe.html': 'thématiques/societe.html',
-  '404.html': '404.html',
-  'service-details.html': 'service-details.html',
-  'starter-page.html': 'starter-page.html'
+  '404.html': '404.html'
 };
 
 const thematicRoutes = {
@@ -32,9 +28,7 @@ const thematicRoutes = {
   'environnement.html': 'environnement.html',
   'professionnel.html': 'professionnel.html',
   'societe.html': 'societe.html',
-  '404.html': '../404.html',
-  'service-details.html': '../service-details.html',
-  'starter-page.html': '../starter-page.html'
+  '404.html': '../404.html'
 };
 export const headerPages = [
   {
@@ -53,14 +47,14 @@ export const headerPages = [
   },
   {
     file: 'pages/thématiques/thematiques.html',
-    type: 'breadcrumb',
+    type: 'breadcrumb-sections',
     assetPrefix: '../../',
     homeHref: '../../index.html',
     routes: thematicRoutes,
     breadcrumbs: [
       { label: 'Accueil', href: '../../index.html' },
-      { label: 'Thématiques', href: 'thematiques.html', current: true }
-    ]
+      { label: 'Thématiques', href: 'thematiques.html#themes', current: true }
+    ],
   },
   {
     file: 'pages/thématiques/environnement.html',
@@ -107,28 +101,6 @@ export const headerPages = [
     breadcrumbs: [
       { label: 'Accueil', href: '../index.html' },
       { label: '404', href: '404.html', current: true }
-    ]
-  },
-  {
-    file: 'pages/service-details.html',
-    type: 'breadcrumb',
-    assetPrefix: '../',
-    homeHref: '../index.html',
-    routes: pagesRoutes,
-    breadcrumbs: [
-      { label: 'Accueil', href: '../index.html' },
-      { label: 'Service Details', href: 'service-details.html', current: true }
-    ]
-  },
-  {
-    file: 'pages/starter-page.html',
-    type: 'breadcrumb',
-    assetPrefix: '../',
-    homeHref: '../index.html',
-    routes: pagesRoutes,
-    breadcrumbs: [
-      { label: 'Accueil', href: '../index.html' },
-      { label: 'Starter Page', href: 'starter-page.html', current: true }
     ]
   }
 ];

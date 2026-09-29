@@ -54,7 +54,7 @@
 
 .header .logo .site-logo {
   display: block;
-  width: 150px;
+  width: 75px;
   max-width: 100%;
   height: auto;
   max-height: none;
@@ -76,7 +76,8 @@
 }
 
 .header-page-nav,
-.header-breadcrumbs {
+.header-breadcrumbs,
+.header-navigation-stack {
   flex: 1 1 auto;
   min-width: 0;
   max-width: 930px;
@@ -86,7 +87,25 @@
   color: var(--nav-color);
 }
 
-.header-current-link {
+.header-navigation-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.header-navigation-stack > .header-page-nav,
+.header-navigation-stack > .header-breadcrumbs {
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  padding-left: 0;
+  border-left: 0;
+}
+
+.header-current-link,
+.breadcrumb-button.current {
   display: flex;
   align-items: center;
   width: max-content;
@@ -104,7 +123,9 @@
 }
 
 .header-current-link:hover,
-.header-current-link:focus-visible {
+.header-current-link:focus-visible,
+.breadcrumb-button.current:hover,
+.breadcrumb-button.current:focus-visible {
   color: var(--nav-color);
   background-color: rgba(101, 108, 118, 0.08);
 }
@@ -140,6 +161,7 @@
   padding: 5px 6px;
   color: var(--nav-color);
   font-size: 13px;
+  font-weight: 700;
   line-height: 1.25;
   border-radius: 6px;
   background-color: transparent;
@@ -159,12 +181,14 @@
   transform: translateY(-1px);
 }
 
-.header-current-link span:last-child {
+.header-current-link span:last-child,
+.breadcrumb-button.current {
   position: relative;
   padding-bottom: 4px;
 }
 
-.header-current-link span:last-child::after {
+.header-current-link span:last-child::after,
+.breadcrumb-button.current::after {
   content: "";
   position: absolute;
   right: 0;
@@ -190,8 +214,7 @@
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
-.header-section-links a.is-active,
-.breadcrumb-button.current {
+.header-section-links a.is-active {
   color: #8a5400;
   font-weight: 600;
 }
@@ -220,7 +243,8 @@
 
 @media (max-width: 1199px) {
   .header-page-nav,
-  .header-breadcrumbs {
+  .header-breadcrumbs,
+  .header-navigation-stack {
     max-width: 760px;
   }
 
@@ -242,17 +266,19 @@
   }
 
   .header .logo .site-logo {
-    width: 118px;
+    width: 64px;
   }
 
   .header-page-nav,
-  .header-breadcrumbs {
+  .header-breadcrumbs,
+  .header-navigation-stack {
     max-width: none;
     margin-left: 10px;
     padding-left: 10px;
   }
 
-  .header-current-link {
+  .header-current-link,
+  .breadcrumb-button.current {
     min-height: 24px;
     padding: 0 0 2px;
     font-size: 13px;

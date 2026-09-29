@@ -29,6 +29,8 @@
 
 <body class="thematics-page">
 
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
   <!-- generated:header:start -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid position-relative d-flex align-items-center">
@@ -36,26 +38,40 @@
       <div class="header-brand d-flex align-items-center me-auto">
         <a href="../../index.html" class="logo d-flex align-items-center" aria-label="IA-PER">
           <img
-            src="../../assets/img/ia-per.webp"
+            src="../../assets/img/ia-per.svg"
             class="site-logo"
-            width="150"
+            width="75"
             height="75"
             alt="IA-PER — Progrès, Enjeux et Responsabilités">
         </a>
 
-      <nav class="header-breadcrumbs" aria-label="Fil d’Ariane">
-        <ol>
-          <li><a href="../../index.html" class="breadcrumb-button">Accueil</a></li>
-          <li><a href="thematiques.html" class="breadcrumb-button current" aria-current="page">Thématiques</a></li>
-        </ol>
-      </nav>
+      <div class="header-navigation-stack">
+        <nav class="header-breadcrumbs" aria-label="Fil d’Ariane">
+          <ol>
+            <li><a href="../../index.html" class="breadcrumb-button">Accueil</a></li>
+            <li><a href="thematiques.html#themes" class="breadcrumb-button current" aria-current="page">Thématiques</a></li>
+          </ol>
+        </nav>
+      </div>
       </div>
 
+    </div>
+
+    <div
+      id="scroll-progress"
+      class="scroll-progress"
+      role="progressbar"
+      aria-label="Progression de lecture"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+      aria-valuetext="0%">
+      <span class="scroll-progress__bar" aria-hidden="true"></span>
     </div>
   </header>
   <!-- generated:header:end -->
 
-  <main class="main">
+  <main id="main-content" class="main" tabindex="-1">
 
     <h1 class="visually-hidden">Thématiques et questions fréquemment posées</h1>
 
@@ -74,7 +90,7 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="steps-item">
               <div class="steps-image">
-                <img src="../../assets/img/steps/iaenviro.png" alt="L’intelligence artificielle et l’environnement" class="img-fluid" loading="lazy">
+                <img src="../../assets/img/steps/iaenviro.png" width="765" height="430" alt="L’intelligence artificielle et l’environnement" class="img-fluid" loading="lazy">
               </div>
               <div class="steps-content">
                 <div class="steps-number">01</div>
@@ -92,7 +108,7 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="steps-item">
               <div class="steps-image">
-                <img src="../../assets/img/steps/iaprof.webp" alt="L’intelligence artificielle dans le monde professionnel" class="img-fluid" loading="lazy">
+                <img src="../../assets/img/steps/iaprof.webp" width="1024" height="683" alt="L’intelligence artificielle dans le monde professionnel" class="img-fluid" loading="lazy">
               </div>
               <div class="steps-content">
                 <div class="steps-number">02</div>
@@ -110,7 +126,7 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
             <div class="steps-item">
               <div class="steps-image">
-                <img src="../../assets/img/steps/iasocietal.jpg" alt="L’intelligence artificielle dans la société" class="img-fluid" loading="lazy">
+                <img src="../../assets/img/steps/iasocietal.jpg" width="1792" height="1024" alt="L’intelligence artificielle dans la société" class="img-fluid" loading="lazy">
               </div>
               <div class="steps-content">
                 <div class="steps-number">03</div>
@@ -214,24 +230,6 @@
       </div>
     </section><!-- /FAQ Section -->
 
-    <section id="sources" class="section" aria-labelledby="sources-title">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2 id="sources-title">Sources et références</h2>
-          <p>Pour approfondir les enjeux abordés dans cette page.</p>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-lg-9" data-aos="fade-up">
-            <ul>
-              <li><a href="https://www.iea.org/reports/energy-and-ai" target="_blank" rel="noopener noreferrer">Agence internationale de l’énergie — Energy and AI</a></li>
-              <li><a href="https://www.nist.gov/itl/ai-risk-management-framework/ai-risk-management-framework-faqs" target="_blank" rel="noopener noreferrer">NIST — AI Risk Management Framework FAQ</a></li>
-              <li><a href="https://www.oecd.org/fr/publications/perspectives-de-l-emploi-de-l-ocde-2023_aae5dba0-fr/full-report/component-10.html" target="_blank" rel="noopener noreferrer">OCDE — Une intelligence artificielle digne de confiance au travail</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer id="footer" class="footer">
@@ -239,7 +237,7 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="../../index.html" class="d-flex align-items-center">
-            <img src="../../assets/img/ia-per.webp" class="footer-logo" width="150" height="75" alt="IA-PER — Progrès, Enjeux et Responsabilités">
+            <img src="../../assets/img/ia-per.svg" class="footer-logo" width="75" height="75" alt="IA-PER — Progrès, Enjeux et Responsabilités">
           </a>
           <div class="footer-contact pt-3">
             <p><strong>Email :</strong> <span><a href="mailto:IA-PER@cf2000.onmicrosoft.com">IA-PER@cf2000.onmicrosoft.com</a></span></p>
@@ -288,7 +286,7 @@
     </div>
   </footer>
 
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Retour en haut"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
   <div id="preloader"></div>
 
   <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
