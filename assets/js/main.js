@@ -41,6 +41,43 @@
   }
 
   /**
+   * Keep fixed-header compensation in sync with the rendered header.
+   * The mobile navigation can wrap to additional lines, so a media-query-only
+   * scroll offset is not reliable at narrow widths.
+   */
+  function syncHeaderMetrics() {
+    const header = document.querySelector('#header');
+    if (!header) return;
+
+    const height = Math.ceil(header.getBoundingClientRect().height);
+    if (!height) return;
+
+    root.style.setProperty('--header-height', `${height}px`);
+    root.style.setProperty('--header-scroll-padding', `${height}px`);
+  }
+
+  function initHeaderMetrics() {
+    const header = document.querySelector('#header');
+    if (!header) return;
+
+    syncHeaderMetrics();
+
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(syncHeaderMetrics);
+      observer.observe(header);
+    }
+
+    window.addEventListener('resize', syncHeaderMetrics, { passive: true });
+    document.fonts?.ready.then(syncHeaderMetrics);
+    onLoaded(syncHeaderMetrics);
+    document.addEventListener('load', event => {
+      if (event.target instanceof HTMLImageElement) syncHeaderMetrics();
+    }, true);
+  }
+
+  initHeaderMetrics();
+
+  /**
    * Apply .scrolled class to the body as the page is scrolled down
    */
   function toggleScrolled() {
@@ -119,9 +156,10 @@
     if (navigation?.type === 'back_forward') return;
     const section = hashTarget(window.location.hash);
     if (!section) return;
-    const margin = parseFloat(getComputedStyle(section).scrollMarginTop) || 0;
+    syncHeaderMetrics();
+    const offset = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
     window.scrollTo({
-      top: section.getBoundingClientRect().top + window.scrollY - margin,
+      top: section.getBoundingClientRect().top + window.scrollY - offset,
       behavior: 'instant'
     });
   }
@@ -193,16 +231,10 @@
         framePending = false;
         const header = document.querySelector('#header');
         const readingLine = (header?.getBoundingClientRect().bottom || 0) + 24;
-        const visibleEntries = entries
+        const activeEntry = entries
           .map(entry => ({ ...entry, bounds: entry.section.getBoundingClientRect() }))
-          .filter(({ bounds }) => bounds.bottom > readingLine && bounds.top < window.innerHeight);
-        const visibleEntry = visibleEntries.reduce((closest, entry) => {
-          if (!closest) return entry;
-          const distance = Math.abs(entry.bounds.top - readingLine);
-          const closestDistance = Math.abs(closest.bounds.top - readingLine);
-          return distance < closestDistance ? entry : closest;
-        }, null);
-        setActiveSection(visibleEntry?.section || null);
+          .find(({ bounds }) => bounds.top <= readingLine && bounds.bottom > readingLine);
+        setActiveSection(activeEntry?.section || null);
       });
     }
 
