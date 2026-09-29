@@ -355,6 +355,54 @@ html.preloader-active #preloader {
 }
 
 /*--------------------------------------------------------------
+# Reading Progress
+--------------------------------------------------------------*/
+.scroll-progress {
+  position: fixed;
+  inset: var(--header-height, 96px) 0 auto;
+  z-index: 1002;
+  height: 4px;
+  overflow: hidden;
+  pointer-events: none;
+  background: rgba(17, 27, 61, 0.14);
+}
+
+.scroll-progress__bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f4a51c 0%, var(--accent-color) 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+@keyframes scroll-progress-fill {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Use the compositor-driven timeline when it is available. main.js keeps a
+   requestAnimationFrame fallback for older browsers. */
+@supports (animation-timeline: scroll()) {
+  .scroll-progress__bar {
+    animation: scroll-progress-fill linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@media (max-width: 640px) {
+  .scroll-progress {
+    height: 3px;
+  }
+}
+
+/*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
 .scroll-top {

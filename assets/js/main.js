@@ -34,6 +34,49 @@
   }
 
   /**
+   * Reading progress
+   */
+  const scrollProgress = document.querySelector('#scroll-progress');
+  const scrollProgressBar = scrollProgress?.querySelector('.scroll-progress__bar');
+
+  function initScrollProgress() {
+    if (!scrollProgress || !scrollProgressBar) return;
+
+    const hasScrollTimeline = typeof CSS !== 'undefined'
+      && CSS.supports?.('animation-timeline: scroll()');
+    let framePending = false;
+
+    function updateScrollProgress() {
+      if (framePending) return;
+      framePending = true;
+      requestAnimationFrame(() => {
+        framePending = false;
+        const scrollRange = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollRange > 0
+          ? Math.min(1, Math.max(0, window.scrollY / scrollRange))
+          : 0;
+        const percentage = Math.round(progress * 100);
+
+        if (!hasScrollTimeline) scrollProgressBar.style.transform = `scaleX(${progress})`;
+        scrollProgress.setAttribute('aria-valuenow', String(percentage));
+        scrollProgress.setAttribute('aria-valuetext', `${percentage}%`);
+      });
+    }
+
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    window.addEventListener('resize', updateScrollProgress, { passive: true });
+    document.addEventListener('load', updateScrollProgress, true);
+    window.addEventListener('pageshow', updateScrollProgress);
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(updateScrollProgress);
+      observer.observe(document.documentElement);
+    }
+    updateScrollProgress();
+  }
+
+  initScrollProgress();
+
+  /**
    * Scroll top button
    */
   let scrollTop = document.querySelector('.scroll-top');

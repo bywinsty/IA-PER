@@ -126,3 +126,50 @@ test('scrolling changes the header to its scrolled state', async ({ page }) => {
   await page.evaluate(() => window.scrollTo({ top: 200, behavior: 'instant' }));
   await expect(page.locator('body')).toHaveClass(/scrolled/);
 });
+
+for (const width of [1440, 380]) {
+  test(`homepage reading progress sits directly below the header at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/index.html', { waitUntil: 'load' });
+
+    const positions = await page.evaluate(() => {
+      const header = document.querySelector('#header');
+      const progress = document.querySelector('#scroll-progress');
+      return {
+        headerBottom: header?.getBoundingClientRect().bottom ?? 0,
+        progressTop: progress?.getBoundingClientRect().top ?? 0
+      };
+    });
+
+    expect(Math.abs(positions.progressTop - positions.headerBottom)).toBeLessThanOrEqual(1);
+  });
+}
+
+test('homepage reading progress tracks the document from start to finish', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/index.html', { waitUntil: 'load' });
+
+  const progress = page.locator('#scroll-progress');
+  await expect(progress).toHaveAttribute('role', 'progressbar');
+  await expect(progress).toHaveAttribute('aria-valuenow', '0');
+
+  const values = await page.evaluate(async () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const readProgress = () => new Promise(resolve => {
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve(
+        document.querySelector('#scroll-progress')?.getAttribute('aria-valuenow')
+      )));
+    });
+
+    window.scrollTo({ top: Math.round(maxScroll / 2), behavior: 'instant' });
+    const middle = await readProgress();
+    window.scrollTo({ top: maxScroll, behavior: 'instant' });
+    const end = await readProgress();
+    return { maxScroll, middle, end };
+  });
+
+  expect(values.maxScroll).toBeGreaterThan(0);
+  expect(Number(values.middle)).toBeGreaterThan(40);
+  expect(Number(values.middle)).toBeLessThan(60);
+  expect(values.end).toBe('100');
+});
