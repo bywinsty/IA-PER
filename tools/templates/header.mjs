@@ -44,6 +44,7 @@ function renderBreadcrumbs(page, indent, eol) {
 
 /** Render one complete, marker-delimited header block. */
 export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
+  const asset = (relativePath) => `${page.assetPrefix ?? ''}assets/${relativePath}`;
   const navigation = page.type === 'home'
     ? renderHomeNavigation(page, indent, eol)
     : renderBreadcrumbs(page, indent, eol);
@@ -54,9 +55,9 @@ export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
     `${indent}  <div class="container-fluid position-relative d-flex align-items-center">`,
     '',
     `${indent}    <div class="header-brand d-flex align-items-center me-auto">`,
-    `${indent}      <a href="index.html" class="logo d-flex align-items-center" aria-label="IA-PER">`,
+    `${indent}      <a href="${escapeHtml(page.homeHref ?? 'index.html')}" class="logo d-flex align-items-center" aria-label="IA-PER">`,
     `${indent}        <img`,
-    `${indent}          src="assets/img/ia-per.webp"`,
+    `${indent}          src="${escapeHtml(asset('img/ia-per.webp'))}"`,
     `${indent}          class="site-logo"`,
     `${indent}          width="150"`,
     `${indent}          height="75"`,

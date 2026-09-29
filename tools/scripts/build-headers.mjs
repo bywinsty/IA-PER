@@ -14,6 +14,25 @@ function countOccurrences(value, needle) {
   return value.split(needle).length - 1;
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function normalizePagePaths(html, page) {
+  let normalized = html;
+
+  for (const [legacyPath, targetPath] of Object.entries(page.routes ?? {})) {
+    const routePattern = new RegExp(
+      `(href\\s*=\\s*["'])${escapeRegExp(legacyPath)}(?=["'#?])`,
+      'g'
+    );
+    normalized = normalized.replace(routePattern, `$1${targetPath}`);
+  }
+
+  const assetPattern = /((?:href|src)\s*=\s*["'])(?:\.\.\/)*assets\//g;
+  return normalized.replace(assetPattern, `$1${page.assetPrefix ?? ''}assets/`);
+}
+
 function replaceHeader(html, page, eol) {
   const starts = countOccurrences(html, markerStart);
   const ends = countOccurrences(html, markerEnd);
@@ -56,16 +75,17 @@ function ensureSingleAsset(html, page, { asset, anchor, tag }) {
 
 function updatePage(html, page) {
   const eol = html.includes('\r\n') ? '\r\n' : '\n';
-  let updated = replaceHeader(html, page, eol);
+  let updated = normalizePagePaths(html, page);
+  updated = replaceHeader(updated, page, eol);
   updated = ensureSingleAsset(updated, page, {
     tag: 'link',
-    asset: 'assets/css/header.css',
-    anchor: 'assets/css/main.css'
+    asset: `${page.assetPrefix ?? ''}assets/css/header.css`,
+    anchor: `${page.assetPrefix ?? ''}assets/css/main.css`
   });
   updated = ensureSingleAsset(updated, page, {
     tag: 'script',
-    asset: 'assets/js/header.js',
-    anchor: 'assets/js/main.js'
+    asset: `${page.assetPrefix ?? ''}assets/js/header.js`,
+    anchor: `${page.assetPrefix ?? ''}assets/js/main.js`
   });
   return updated;
 }

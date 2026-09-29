@@ -1,7 +1,7 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './site/tests',
+  testDir: './tools/tests',
   testMatch: '**/*.spec.mjs',
   fullyParallel: false,
   forbidOnly: Boolean(process.env.CI),

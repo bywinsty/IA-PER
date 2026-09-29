@@ -1,14 +1,14 @@
 import { expect, test } from '@playwright/test';
 
 const pages = [
-  { file: 'index.html', type: 'home' },
-  { file: 'thematiques.html', type: 'breadcrumb' },
-  { file: 'environnement.html', type: 'breadcrumb' },
-  { file: 'professionnel.html', type: 'breadcrumb' },
-  { file: 'societe.html', type: 'breadcrumb' },
-  { file: '404.html', type: 'breadcrumb' },
-  { file: 'service-details.html', type: 'breadcrumb' },
-  { file: 'starter-page.html', type: 'breadcrumb' }
+  { file: 'index.html', type: 'home', assetPrefix: '' },
+  { file: 'pages/thématiques/thematiques.html', type: 'breadcrumb', assetPrefix: '../../' },
+  { file: 'pages/thématiques/environnement.html', type: 'breadcrumb', assetPrefix: '../../' },
+  { file: 'pages/thématiques/professionnel.html', type: 'breadcrumb', assetPrefix: '../../' },
+  { file: 'pages/thématiques/societe.html', type: 'breadcrumb', assetPrefix: '../../' },
+  { file: 'pages/404.html', type: 'breadcrumb', assetPrefix: '../' },
+  { file: 'pages/service-details.html', type: 'breadcrumb', assetPrefix: '../' },
+  { file: 'pages/starter-page.html', type: 'breadcrumb', assetPrefix: '../' }
 ];
 
 async function expectNoHorizontalOverflow(page) {
@@ -52,8 +52,8 @@ for (const definition of pages) {
     await expect(header).toHaveCount(1);
     await expect(header.locator('.site-logo')).toHaveCount(1);
     await expect(header.locator('.site-logo')).toHaveAttribute('alt', 'IA-PER — Progrès, Enjeux et Responsabilités');
-    await expect(page.locator('link[href="assets/css/header.css"]')).toHaveCount(1);
-    await expect(page.locator('script[src="assets/js/header.js"]')).toHaveCount(1);
+    await expect(page.locator(`link[href="${definition.assetPrefix}assets/css/header.css"]`)).toHaveCount(1);
+    await expect(page.locator(`script[src="${definition.assetPrefix}assets/js/header.js"]`)).toHaveCount(1);
     await expectHeaderMetrics(page);
     await expectNoHorizontalOverflow(page);
 
@@ -73,6 +73,25 @@ for (const definition of pages) {
     expect(consoleErrors).toEqual([]);
   });
 }
+
+test('production pages keep local links and assets reachable', async ({ page, request }) => {
+  for (const definition of pages) {
+    await page.goto(`/${definition.file}`, { waitUntil: 'domcontentloaded' });
+    const localUrls = await page.evaluate(() => {
+      const urls = [...document.querySelectorAll('a[href], link[href], script[src], img[src]')]
+        .map(element => element.href || element.src)
+        .map(value => new URL(value, document.baseURI))
+        .filter(url => url.origin === window.location.origin)
+        .map(url => `${url.pathname}${url.search}`);
+      return [...new Set(urls)];
+    });
+
+    for (const url of localUrls) {
+      const response = await request.get(url);
+      expect(response.ok(), `${definition.file} -> ${url} returned ${response.status()}`).toBe(true);
+    }
+  }
+});
 
 for (const width of [1440, 640, 380, 300, 280]) {
   test(`homepage header stays within ${width}px`, async ({ page }) => {
