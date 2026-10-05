@@ -21,165 +21,11 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
-
-<style>
-/* Alignement navbar / cadre + occupation efficace du cadre */
-.environnement-page .starter-section,
-.societe-page .starter-section,
-.professionnel-page .starter-section {
-  padding-top: 68px !important;
-  padding-bottom: 8px !important;
-}
-
-.environnement-page .starter-section .container,
-.societe-page .starter-section .container,
-.professionnel-page .starter-section .container {
-  width: min(920px, calc(100% - 32px)) !important;
-  max-width: 920px !important;
-  padding: 12px 22px 14px !important;
-  margin: 0 auto !important;
-  border-radius: 18px !important;
-}
-
-/* Titre : proche du haut du cadre */
-.environnement-page .starter-section h1,
-.societe-page .starter-section h1,
-.professionnel-page .starter-section h1 {
-  font-size: 28px !important;
-  line-height: 1.15 !important;
-  margin: 0 0 8px !important;
-}
-
-/* Image : utilisée comme bandeau compact */
-.environnement-page .starter-section > .container > img,
-.societe-page .starter-section > .container > img,
-.professionnel-page .starter-section > .container > img {
-  display: block !important;
-  width: min(100%, 620px) !important;
-  height: 170px !important;
-  max-height: 170px !important;
-  object-fit: cover !important;
-  margin: 0 auto 9px !important;
-}
-
-/* Sections rapprochées : pas de trous inutiles */
-.environnement-page .starter-section h2,
-.societe-page .starter-section h2,
-.professionnel-page .starter-section h2 {
-  font-size: 19px !important;
-  line-height: 1.2 !important;
-  margin: 9px 0 4px !important;
-}
-
-.environnement-page .starter-section h3,
-.societe-page .starter-section h3,
-.professionnel-page .starter-section h3 {
-  font-size: 15px !important;
-  line-height: 1.2 !important;
-  margin: 7px 0 3px !important;
-}
-
-.environnement-page .starter-section h5,
-.societe-page .starter-section h5,
-.professionnel-page .starter-section h5 {
-  font-size: 13px !important;
-  line-height: 1.2 !important;
-  margin: 6px 0 3px !important;
-}
-
-.environnement-page .starter-section p,
-.societe-page .starter-section p,
-.professionnel-page .starter-section p {
-  font-size: 13px !important;
-  line-height: 1.42 !important;
-  margin: 0 0 5px !important;
-}
-
-.environnement-page .starter-section ul,
-.societe-page .starter-section ul,
-.professionnel-page .starter-section ul {
-  margin: 2px 0 6px !important;
-  padding-left: 19px !important;
-}
-
-.environnement-page .starter-section li,
-.societe-page .starter-section li,
-.professionnel-page .starter-section li {
-  font-size: 13px !important;
-  line-height: 1.35 !important;
-  margin: 0 0 2px !important;
-}
-
-.environnement-page .starter-section hr,
-.societe-page .starter-section hr,
-.professionnel-page .starter-section hr {
-  margin: 7px 0 !important;
-  opacity: .45 !important;
-}
-
-/* Vidéo : intégrée au cadre sans gros espace autour */
-.environnement-page .starter-section iframe,
-.societe-page .starter-section iframe,
-.professionnel-page .starter-section iframe {
-  display: block !important;
-  width: 100% !important;
-  max-width: 760px !important;
-  height: 250px !important;
-  max-height: 250px !important;
-  margin: 5px auto 0 !important;
-}
-
-/* Réduit aussi les marges Bootstrap éventuelles */
-.environnement-page .starter-section .row,
-.societe-page .starter-section .row,
-.professionnel-page .starter-section .row {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.environnement-page .starter-section [class*="col-"],
-.societe-page .starter-section [class*="col-"],
-.professionnel-page .starter-section [class*="col-"] {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-@media (max-width: 767px) {
-  .environnement-page .starter-section,
-  .societe-page .starter-section,
-  .professionnel-page .starter-section {
-    padding-top: 64px !important;
-    padding-bottom: 6px !important;
-  }
-
-  .environnement-page .starter-section .container,
-  .societe-page .starter-section .container,
-  .professionnel-page .starter-section .container {
-    width: calc(100% - 18px) !important;
-    padding: 11px 13px 12px !important;
-    border-radius: 15px !important;
-  }
-
-  .environnement-page .starter-section > .container > img,
-  .societe-page .starter-section > .container > img,
-  .professionnel-page .starter-section > .container > img {
-    height: 150px !important;
-    max-height: 150px !important;
-    margin-bottom: 7px !important;
-  }
-
-  .environnement-page .starter-section iframe,
-  .societe-page .starter-section iframe,
-  .professionnel-page .starter-section iframe {
-    height: 205px !important;
-    max-height: 205px !important;
-  }
-}
-</style>
+  <link href="assets/css/header.css" rel="stylesheet">
 
 </head>
 
-<body class="starter-page-page professionnel-page">
+<body class="index-page theme-professionnel">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative">
@@ -190,15 +36,42 @@
           </span>
         </a>
 
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="#hero" class="active">Accueil</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#services">Thématiques</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <nav class="header-page-nav" aria-label="Navigation de la page d’accueil">
+          <a href="index.html#hero" class="header-current-link" aria-current="page">
+            <span>Accueil</span>
+          </a>
+          <ol class="header-section-links">
+            <li>
+              <a href="index.html#about">
+                <span>À propos de l’étude</span>
+              </a>
+            </li>
+            <li>
+              <a href="index.html#team">
+                <span>Équipe du projet</span>
+              </a>
+            </li>
+            <li>
+              <a href="index.html#partners">
+                <span>Partenaires et soutiens</span>
+              </a>
+            </li>
+            <li class="header-themes">
+              <a href="index.html#themes">
+                <span>Thématiques ▼</span>
+              </a>
+              <ol>
+                <li><a href="environnement.html"><span>Environnement</span></a></li>
+                <li><a href="societe.html"><span>Société</span></a></li>
+                <li><a href="professionnel.html"><span>Professionnel</span></a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="index.html#contact">
+                <span>Contact</span>
+              </a>
+            </li>
+          </ol>
         </nav>
 
         <div class="header-brand-text">IA-PER</div>
@@ -206,70 +79,112 @@
     </div>
   </header>
 
-  <main class="main">
-    <section id="starter-section" class="starter-section section">
-      <div class="container" data-aos="fade-up">
-        <h1>IA et Monde Professionnel</h1>
+  <main class="main main--dark-top">
 
-        <img src="assets/img/steps/iaprof.webp" class="img-fluid mb-4 rounded" alt="IA et monde professionnel">
-
-        <h3>Présentation</h3>
-        <p>
-          L'intelligence artificielle transforme le monde du travail en automatisant certaines tâches,
-          en améliorant la productivité et en soutenant la prise de décision. Son intégration modifie
-          progressivement les compétences recherchées et les méthodes de travail dans de nombreux secteurs.
-        </p>
-
-        <hr>
-
-        <hr>
-
-        <h3>Questions posées</h3>
-
-        <h5>Questions destinées à l'expert</h5>
-
-        <ul>
-          <li>Comment l'IA transforme-t-elle les entreprises ?</li>
-          <li>Quels métiers sont les plus impactés par l'IA ?</li>
-          <li>L'IA va-t-elle remplacer certains emplois ?</li>
-          <li>Quelles compétences deviendront essentielles dans le futur ?</li>
-          <li>Comment intégrer l'IA de manière responsable dans les organisations ?</li>
-        </ul>
-
-        <h5>Questions destinées au travailleur</h5>
-
-        <ul>
-          <li>Utilisez-vous des outils d'IA dans votre travail ?</li>
-          <li>L'IA vous permet-elle de gagner du temps ?</li>
-          <li>Avez-vous des inquiétudes concernant l'avenir de votre profession ?</li>
-        </ul>
-
-        <hr>
-
-        <h3>Interviews</h3>
-
-        <p>
-          Retrouvez ici les interviews réalisées auprès de professionnels,
-          d'employeurs et de travailleurs concernant l'impact de l'intelligence
-          artificielle dans le monde professionnel.
-        </p>
-
-        <ul>
-          <li>Interview d'un expert</li>
-          <li>Interview d'un travailleur</li>
-        </ul>
-
-        
-        <iframe width="100%"
-                height="500"
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                title="IA et Monde Professionnel"
-                frameborder="0"
-                allowfullscreen>
-        </iframe>
-
+    <!-- Hero Section -->
+    <section id="page-hero" class="hero hero-page section dark-background">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-7" data-aos="fade-up">
+            <div class="hero-text-panel">
+              <div class="hero-panel-topline"></div>
+              <h1 class="hero-title">IA et Monde Professionnel</h1>
+              <h2 class="hero-page__label">Présentation</h2>
+              <p>L'intelligence artificielle transforme le monde du travail en automatisant certaines tâches, en améliorant la productivité et en soutenant la prise de décision. Son intégration modifie progressivement les compétences recherchées et les méthodes de travail dans de nombreux secteurs.</p>
+            </div>
+          </div>
+          <div class="col-lg-5" data-aos="zoom-out" data-aos-delay="150">
+            <img src="assets/img/steps/iaprof.webp" class="img-fluid hero-page__img" alt="IA et monde professionnel">
+          </div>
+        </div>
       </div>
-    </section>
+    </section><!-- /Hero Section -->
+
+    <!-- Questions Section -->
+    <section id="questions" class="about section light-background" aria-labelledby="questions-title">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2 id="questions-title">Questions posées</h2>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="about-lead">Questions destinées à l'expert</h3>
+            <ul class="theme-list" aria-label="Questions destinées à l&#x27;expert">
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span>Comment l'IA transforme-t-elle les entreprises ?</span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span>Quels métiers sont les plus impactés par l'IA ?</span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span>L'IA va-t-elle remplacer certains emplois ?</span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span>Quelles compétences deviendront essentielles dans le futur ?</span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span>Comment intégrer l'IA de manière responsable dans les organisations ?</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="about-lead">Questions destinées au travailleur</h3>
+            <ul class="theme-list" aria-label="Questions destinées au travailleur">
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span>Utilisez-vous des outils d'IA dans votre travail ?</span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span>L'IA vous permet-elle de gagner du temps ?</span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span>Avez-vous des inquiétudes concernant l'avenir de votre profession ?</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- /Questions Section -->
+
+    <!-- Interviews Section -->
+    <section id="interviews" class="about section" aria-labelledby="interviews-title">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2 id="interviews-title">Interviews</h2>
+        <p>Retrouvez ici les interviews réalisées auprès de professionnels, d'employeurs et de travailleurs concernant l'impact de l'intelligence artificielle dans le monde professionnel.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <ul class="theme-list interviews-list" aria-label="Interviews">
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span>Interview d'un expert</span>
+              </li>
+              <li class="theme-item">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                <span>Interview d'un travailleur</span>
+              </li>
+        </ul>
+
+        <div class="interviews-video ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="IA et Monde Professionnel" allowfullscreen></iframe>
+        </div>
+      </div>
+
+    </section><!-- /Interviews Section -->
 
   </main>
 
@@ -277,54 +192,53 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="d-flex align-items-center">
+          <a href="index.html" class="d-flex align-items-center" aria-label="IA-PER, retour à l'accueil">
             <span class="sitename">IA-PER</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>Adresse:</p>
-            <p>87-89 Avenue du Parc </p>
+            <p>Adresse :</p>
+            <p>87-89 Avenue du Parc</p>
             <p>1060 St-Gilles</p>
-            <p class="mt-3"><strong>Phone:</strong> <span><a href="tel:+02 538 20 83" target="_blank"> +02 538 20 83</a></span></p>
-            <p><strong>Email:</strong> <span><a href="IA-PER@cf2000.onmicrosoft.com" target="_blank">IA-PER@cf2000.onmicrosoft.com</a></span></p>
+            <p class="mt-3"><strong>Tél. :</strong> <a href="tel:+3225382083">+02 538 20 83</a></p>
+            <p><strong>Email :</strong> <a href="mailto:IA-PER@cf2000.onmicrosoft.com">IA-PER@cf2000.onmicrosoft.com</a></p>
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <nav class="col-lg-2 col-md-3 footer-links" aria-label="Liens utiles">
           <h4>Liens utiles</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="index.html#hero">Accueil</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="index.html#about">À propos</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="index.html#ia-hub">Questions posées</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="index.html#contact">Contact</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="index.html#hero">Accueil</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="index.html#about">À propos</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="index.html#team">Équipe du projet</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="index.html#contact">Contact</a></li>
           </ul>
-        </div>
+        </nav>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <nav class="col-lg-2 col-md-3 footer-links" aria-label="Thématiques">
           <h4>Thématiques</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="environnement.html">Environnement</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="professionnel.html">Professionnel</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="societe.html">Sociétal</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="environnement.html">Environnement</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="societe.html">Société</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="professionnel.html">Professionnel</a></li>
           </ul>
-        </div>
+        </nav>
 
         <div class="col-lg-4 col-md-12">
-          <h4>Follow Us</h4>
+          <h4>Suivez-nous</h4>
           <div class="social-links d-flex">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">IA-PER</strong> <span>All Rights Reserved</span></p>
+      <p>© <strong class="px-1 sitename">IA-PER</strong> Tous droits réservés</p>
       <div class="credits">
-        Designed by <p>Section Aventure digitale</p>
-        <a href="https://www.cf2m.be/">CF2M</a>
+        Conçu par la Section Aventure digitale &middot; <a href="https://www.cf2m.be/" target="_blank" rel="noopener noreferrer">CF2M</a>
       </div>
     </div>
   </footer>
@@ -345,81 +259,11 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
+  <!-- Header JS File -->
+  <script src="assets/js/header.js"></script>
+
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
-
-<style>
-/* Correction finale : le cadre doit passer SOUS la navbar fixe */
-.environnement-page .starter-section,
-.societe-page .starter-section,
-.professionnel-page .starter-section {
-  padding-top: 108px !important;
-}
-
-/* Le haut du cadre reste compact malgré le décalage nécessaire */
-.environnement-page .starter-section .container,
-.societe-page .starter-section .container,
-.professionnel-page .starter-section .container {
-  margin-top: 0 !important;
-  padding-top: 12px !important;
-}
-
-@media (max-width: 1199px) {
-  .environnement-page .starter-section,
-  .societe-page .starter-section,
-  .professionnel-page .starter-section {
-    padding-top: 100px !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .environnement-page .starter-section,
-  .societe-page .starter-section,
-  .professionnel-page .starter-section {
-    padding-top: 92px !important;
-  }
-}
-</style>
-
-
-<style>
-/* Vidéo prioritaire : toute la largeur utile du grand cadre */
-.environnement-page .starter-section iframe,
-.societe-page .starter-section iframe,
-.professionnel-page .starter-section iframe {
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-  height: 420px !important;
-  max-height: 420px !important;
-  margin: 4px 0 10px !important;
-  border: 0 !important;
-}
-
-/* Interview directement sous la vidéo, sans espace vide */
-.environnement-page .starter-section iframe + h2,
-.environnement-page .starter-section iframe + h3,
-.environnement-page .starter-section iframe + h5,
-.societe-page .starter-section iframe + h2,
-.societe-page .starter-section iframe + h3,
-.societe-page .starter-section iframe + h5,
-.professionnel-page .starter-section iframe + h2,
-.professionnel-page .starter-section iframe + h3,
-.professionnel-page .starter-section iframe + h5 {
-  margin-top: 8px !important;
-}
-
-@media (max-width: 767px) {
-  .environnement-page .starter-section iframe,
-  .societe-page .starter-section iframe,
-  .professionnel-page .starter-section iframe {
-    height: 280px !important;
-    max-height: 280px !important;
-    margin-bottom: 8px !important;
-  }
-}
-</style>
 
 </body>
 

@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/header.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Arsha
@@ -47,22 +48,42 @@
           </span>
         </a>
 
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="#hero" class="active">Accueil</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li class="dropdown">
-              <a href="#hero"><span>Thématiques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="environnement.html">Environnement</a></li>
-                <li><a href="societe.html">Société</a></li>
-                <li><a href="professionnel.html">Professionnel</a></li>
-              </ul>
+        <nav class="header-page-nav" aria-label="Navigation de la page d’accueil">
+          <a href="#hero" class="header-current-link" aria-current="page">
+            <span>Accueil</span>
+          </a>
+          <ol class="header-section-links">
+            <li>
+              <a href="#about">
+                <span>À propos de l’étude</span>
+              </a>
             </li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            <li>
+              <a href="#team">
+                <span>Équipe du projet</span>
+              </a>
+            </li>
+            <li>
+              <a href="#partners">
+                <span>Partenaires et soutiens</span>
+              </a>
+            </li>
+            <li class="header-themes">
+              <a href="#themes">
+                <span>Thématiques ▼</span>
+              </a>
+              <ol>
+                <li><a href="environnement.html"><span>Environnement</span></a></li>
+                <li><a href="societe.html"><span>Société</span></a></li>
+                <li><a href="professionnel.html"><span>Professionnel</span></a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="#contact">
+                <span>Contact</span>
+              </a>
+            </li>
+          </ol>
         </nav>
 
         <div class="header-brand-text">IA-PER</div>
@@ -70,7 +91,7 @@
     </div>
   </header>
 
-  <main class="main">
+  <main class="main main--dark-top">
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background hero-theme-first">
@@ -419,7 +440,7 @@
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
                   <h3>Nous contacter</h3>
-                  <a href="tel:+02 538 20 83" target="_blank" rel="noopener noreferrer">Appeler +02 538 20 83</a>
+                  <a href="tel:+3225382083">Appeler +02 538 20 83</a>
                 </div>
               </div><!-- End Info Item -->
 
@@ -427,11 +448,11 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email </h3>
-                 <a href="IA-PER@cf2000.onmicrosoft.com" target="_blank" rel="noopener noreferrer">IA-PER@cf2000.onmicrosoft.com</a>
+                 <a href="mailto:IA-PER@cf2000.onmicrosoft.com">IA-PER@cf2000.onmicrosoft.com</a>
                 </div>
               </div><!-- End Info Item -->
 
-              <iframe src="https://www.google.com/maps/place/Centre+De+Formation+2mille/@50.8255051,4.3361576,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3c4424e23846d:0x96f406ef5208ebd9!8m2!3d50.8255051!4d4.3387325!16s%2Fg%2F1tj20q1k?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNC4wIKXMDSoASAFQAw%3D%3D" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://maps.google.com/maps?q=50.8255051,4.3387325&z=16&output=embed" title="Plan : Centre de Formation 2mille, 87-89 Avenue du Parc, 1060 Saint-Gilles" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
 
@@ -479,60 +500,59 @@
 
   </main>
 
-  
-  
+  <footer id="footer" class="footer">
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="d-flex align-items-center">
+          <a href="index.html" class="d-flex align-items-center" aria-label="IA-PER, retour à l'accueil">
             <span class="sitename">IA-PER</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>Adresse:</p>
-            <p>87-89 Avenue du Parc </p>
+            <p>Adresse :</p>
+            <p>87-89 Avenue du Parc</p>
             <p>1060 St-Gilles</p>
-            <p class="mt-3"><strong>Phone:</strong> <span><a href="tel:+02 538 20 83" target="_blank"> +02 538 20 83</a></span></p>
-            <p><strong>Email:</strong> <span><a href="IA-PER@cf2000.onmicrosoft.com" target="_blank">IA-PER@cf2000.onmicrosoft.com</a></span></p>
+            <p class="mt-3"><strong>Tél. :</strong> <a href="tel:+3225382083">+02 538 20 83</a></p>
+            <p><strong>Email :</strong> <a href="mailto:IA-PER@cf2000.onmicrosoft.com">IA-PER@cf2000.onmicrosoft.com</a></p>
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <nav class="col-lg-2 col-md-3 footer-links" aria-label="Liens utiles">
           <h4>Liens utiles</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Accueil</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">À propos</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#ia-hub">Questions posées</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="index.html#hero">Accueil</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="index.html#about">À propos</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="index.html#team">Équipe du projet</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="index.html#contact">Contact</a></li>
           </ul>
-        </div>
+        </nav>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <nav class="col-lg-2 col-md-3 footer-links" aria-label="Thématiques">
           <h4>Thématiques</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Environnement</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Professionnel</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Sociétal</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="environnement.html">Environnement</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="societe.html">Société</a></li>
+            <li><i class="bi bi-chevron-right" aria-hidden="true"></i> <a href="professionnel.html">Professionnel</a></li>
           </ul>
-        </div>
-       <div class="col-lg-4 col-md-12">
-          <h4>Follow Us</h4>
-          <div class="social-links d-flex">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-       </div>
-    </div>
+        </nav>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">IA-PER</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        Designed by <p>Section Aventure digitale</p>  
-        <a href="https://www.cf2m.be/">CF2M</a>
+        <div class="col-lg-4 col-md-12">
+          <h4>Suivez-nous</h4>
+          <div class="social-links d-flex">
+            <a href="#" aria-label="X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
       </div>
     </div>
 
+    <div class="container copyright text-center mt-4">
+      <p>© <strong class="px-1 sitename">IA-PER</strong> Tous droits réservés</p>
+      <div class="credits">
+        Conçu par la Section Aventure digitale &middot; <a href="https://www.cf2m.be/" target="_blank" rel="noopener noreferrer">CF2M</a>
+      </div>
+    </div>
   </footer>
 
   <!-- Scroll Top -->
@@ -550,6 +570,9 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Header JS File -->
+  <script src="assets/js/header.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
