@@ -33,3 +33,4 @@ docs/GRAPHIFY.md
 # Codex local project integration
 AGENTS.md
 .codex/
+.agents/

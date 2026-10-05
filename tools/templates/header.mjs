@@ -71,9 +71,7 @@ function renderBreadcrumbSections(page, indent, eol) {
   ].join(eol);
 }
 
-function renderScrollProgress(page, indent, eol) {
-  if (!['home', 'breadcrumb-sections'].includes(page.type)) return null;
-
+function renderScrollProgress(indent, eol) {
   return [
     `${indent}  <div`,
     `${indent}    id="scroll-progress"`,
@@ -92,7 +90,7 @@ function renderScrollProgress(page, indent, eol) {
 /** Render one complete, marker-delimited header block. */
 export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
   const asset = (relativePath) => `${page.assetPrefix ?? ''}assets/${relativePath}`;
-  const scrollProgress = renderScrollProgress(page, indent, eol);
+  const scrollProgress = renderScrollProgress(indent, eol);
   const navigation = page.type === 'home'
     ? renderHomeNavigation(page, indent, eol)
     : page.type === 'breadcrumb-sections'
@@ -118,7 +116,8 @@ export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
     `${indent}    </div>`,
     '',
     `${indent}  </div>`,
-    ...(scrollProgress ? ['', scrollProgress] : []),
+    '',
+    scrollProgress,
     `${indent}</header>`,
     `${indent}<!-- generated:header:end -->`
   ].join(eol);

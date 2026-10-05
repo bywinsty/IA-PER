@@ -53,7 +53,7 @@ export const headerPages = [
     routes: thematicRoutes,
     breadcrumbs: [
       { label: 'Accueil', href: '../../index.html' },
-      { label: 'Thématiques', href: 'thematiques.html#themes', current: true }
+      { label: 'Thématiques', href: 'thematiques.html', current: true }
     ],
   },
   {

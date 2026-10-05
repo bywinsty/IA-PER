@@ -68,7 +68,7 @@ for (const definition of pages) {
       const currentLink = breadcrumbs.locator('a[aria-current="page"]');
       await expect(breadcrumbs.locator('.breadcrumb-button').first()).toHaveCSS('font-weight', '700');
       await expect(currentLink).toHaveCSS('font-weight', '700');
-      await expect(currentLink).toHaveAttribute('href', 'thematiques.html#themes');
+      await expect(currentLink).toHaveAttribute('href', 'thematiques.html');
       await expect(header.locator('.header-section-nav')).toHaveCount(0);
       await expect(header.locator('.header-section-links a')).toHaveCount(0);
       await expect(header.locator('#scroll-progress')).toHaveCount(1);
@@ -82,7 +82,7 @@ for (const definition of pages) {
       await expect(breadcrumbs.locator('.breadcrumb-button').first()).toHaveCSS('font-weight', '700');
       await expect(breadcrumbs.locator('a[aria-current="page"]')).toHaveCSS('font-weight', '700');
       await expect(header.locator('.header-page-nav')).toHaveCount(0);
-      await expect(page.locator('#scroll-progress')).toHaveCount(0);
+      await expect(header.locator('#scroll-progress')).toHaveCount(1);
     }
 
     expect(pageErrors).toEqual([]);
@@ -148,12 +148,13 @@ test('homepage keeps only the page link current while the hero is visible', asyn
   await expect(page.locator('.header-section-links a.is-active')).toHaveCount(0);
 });
 
-test('thematics page exposes its themes breadcrumb anchor', async ({ page }) => {
+test('thematics page current breadcrumb links to the page without a section hash', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
 
-  const themesLink = page.locator('.header-breadcrumbs a[href="thematiques.html#themes"]');
+  const themesLink = page.locator('.header-breadcrumbs a[aria-current="page"]');
   await expect(themesLink).toHaveAttribute('aria-current', 'page');
+  await expect(themesLink).toHaveAttribute('href', 'thematiques.html');
   await themesLink.click();
   await expect(themesLink).toHaveAttribute('aria-current', 'page');
 });
@@ -166,7 +167,7 @@ test('thematics page direct hash navigation respects the dynamic header', async 
     await page.goto(`/pages/thématiques/thematiques.html#${id}`, { waitUntil: 'load' });
     await waitForAnchorAlignment(page, `#${id}`);
     if (id === 'themes') {
-      await expect(page.locator('.header-breadcrumbs a[aria-current="page"]')).toHaveAttribute('href', 'thematiques.html#themes');
+      await expect(page.locator('.header-breadcrumbs a[aria-current="page"]')).toHaveAttribute('href', 'thematiques.html');
     }
   }
 });

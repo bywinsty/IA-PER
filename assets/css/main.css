@@ -19,7 +19,7 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --background-color: #f5f6f8; /* Site-wide page and section background */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #37517e; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #176b91; /* Accessible accent for buttons, links, focus states, and decorative highlights */
@@ -144,6 +144,7 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .footer {
+  --background-color: rgba(255, 255, 255, 0.92);
   color: var(--default-color);
   background-color: var(--background-color);
   font-size: 14px;
@@ -227,6 +228,8 @@ h6 {
   border-color: var(--accent-color);
 }
 
+.footer h2,
+.footer h3,
 .footer h4 {
   font-size: 16px;
   font-weight: bold;
@@ -486,7 +489,7 @@ html [data-aos].aos-focus-visible {
 
 /* Keep every internal page title visible below the rendered fixed header. */
 .page-title {
-  padding-top: max(85px, var(--header-height, 95px));
+  padding-top: calc(var(--header-height, 95px) + 16px);
 }
 
 .page-title h1 {
@@ -506,22 +509,23 @@ section,
   overflow: clip;
 }
 
-/* The thematic pages no longer use a separate page-title strip, so keep their
-   first visible content below the fixed header. */
+/* Thematic detail content starts below the measured fixed header with a little
+   breathing room. The header height is synchronized by header.js. */
+.thematic-page {
+  padding-top: calc(var(--header-height, 95px) + 24px);
+}
+
+/* The theme index is a body-level page with a fixed header. */
 .thematics-page {
   padding-top: var(--header-height, 95px);
 }
 
 @media (max-width: 1199px) {
-
   section,
   .section {
     scroll-margin-top: 0;
   }
 
-  .thematics-page {
-    padding-top: var(--header-height, 95px);
-  }
 }
 
 /*--------------------------------------------------------------
@@ -1753,7 +1757,7 @@ section,
 # Thematic Pages
 --------------------------------------------------------------*/
 .thematics-index {
-  padding-top: 0px;
+  padding-top: 24px;
 }
 
 .thematic-page {
@@ -1878,12 +1882,6 @@ section,
   line-height: 1;
 }
 
-.error-404 .error-title {
-  font-size: 2rem;
-  color: var(--heading-color);
-  font-weight: 600;
-}
-
 .error-404 .error-text {
   font-size: 1.1rem;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
@@ -1891,45 +1889,11 @@ section,
   margin: 0 auto;
 }
 
-.error-404 .search-box {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.error-404 .search-box .input-group {
-  border-radius: 50px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.error-404 .search-box .form-control {
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  color: var(--default-color);
-  background-color: var(--surface-color);
-  border-radius: 50px;
-}
-
-.error-404 .search-box .form-control:focus {
-  box-shadow: none;
-  border-color: var(--accent-color);
-}
-
-.error-404 .search-box .form-control::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-
-.error-404 .search-box .search-btn {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.error-404 .search-box .search-btn:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+.error-404 .error-action {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .error-404 .error-action .btn-primary {
@@ -1956,16 +1920,9 @@ section,
     font-size: clamp(4rem, 12vw, 8rem);
   }
 
-  .error-404 .error-title {
-    font-size: 1.5rem;
-  }
-
   .error-404 .error-text {
     font-size: 1rem;
     padding: 0 20px;
   }
 
-  .error-404 .search-box {
-    margin: 0 20px;
-  }
 }
