@@ -316,103 +316,121 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
   /**
-   * Poll local storage
+   * Sondage : les votes sont enregistrés en base via sondage.php.
+   * localStorage sert uniquement à mémoriser que ce navigateur a déjà voté.
    */
-  const pollStorageKey = 'poll';
+  const pollEndpoint = 'sondage.php';
+  const pollChoices = ['positif', 'negatif', 'neutre'];
 
-  function getPollState() {
-    const defaultState = { positif: 0, negatif: 0, neutre: 0 };
-
+  function hasVoted() {
     try {
-      const saved = localStorage.getItem(pollStorageKey);
-      if (!saved) {
-        localStorage.setItem(pollStorageKey, JSON.stringify(defaultState));
-        return { ...defaultState };
-      }
-
-      const parsed = JSON.parse(saved);
-      return {
-        positif: Number(parsed.positif) || 0,
-        negatif: Number(parsed.negatif) || 0,
-        neutre: Number(parsed.neutre) || 0
-      };
+      return localStorage.getItem('poll-voted') === 'true';
     } catch (error) {
-      console.warn('Impossible de lire le sondage localStorage.', error);
-      return { ...defaultState };
+      return false;
     }
   }
 
-  function vote(choice) {
-    const poll = getPollState();
-    if (!poll[choice] && poll[choice] !== 0) return;
-
-    const hasVoted = localStorage.getItem('poll-voted') === 'true';
-    if (hasVoted) {
-      showResults();
-      return;
+  function markVoted(choice) {
+    try {
+      localStorage.setItem('poll-voted', 'true');
+      if (choice) localStorage.setItem('poll-choice', choice);
+    } catch (error) {
+      console.warn('Impossible de mémoriser le vote.', error);
     }
-
-    poll[choice] += 1;
-    localStorage.setItem(pollStorageKey, JSON.stringify(poll));
-    localStorage.setItem('poll-voted', 'true');
-    localStorage.setItem('poll-choice', choice);
-    showResults();
   }
 
-  function showResults() {
+  function showPollError(message) {
+    const errorBox = document.getElementById('poll-error-message');
+    if (!errorBox) return;
+    errorBox.textContent = message;
+    errorBox.style.display = message ? 'block' : 'none';
+  }
+
+  async function requestPoll(options) {
+    const response = await fetch(pollEndpoint, options);
+    const data = await response.json();
+    if (!response.ok || data.error) {
+      throw new Error(data.error || 'Erreur serveur');
+    }
+    return data;
+  }
+
+  function setPollButtonsDisabled(disabled) {
+    document.querySelectorAll('[data-vote]').forEach(button => {
+      button.disabled = disabled;
+      button.setAttribute('aria-disabled', String(disabled));
+      button.classList.toggle('disabled', disabled);
+    });
+  }
+
+  function renderResults(poll) {
     const results = document.getElementById('results');
     if (!results) return;
 
-    const poll = getPollState();
-    const total = poll.positif + poll.negatif + poll.neutre;
-    const pPos = total ? Math.round((poll.positif / total) * 100) : 0;
-    const pNeg = total ? Math.round((poll.negatif / total) * 100) : 0;
-    const pNeu = total ? Math.round((poll.neutre / total) * 100) : 0;
-
-    const positifBar = document.getElementById('positif-bar');
-    const negatifBar = document.getElementById('negatif-bar');
-    const neutreBar = document.getElementById('neutre-bar');
-    const positifVal = document.getElementById('positif-val');
-    const negatifVal = document.getElementById('negatif-val');
-    const neutreVal = document.getElementById('neutre-val');
-
-    if (positifBar) positifBar.style.width = pPos + '%';
-    if (negatifBar) negatifBar.style.width = pNeg + '%';
-    if (neutreBar) neutreBar.style.width = pNeu + '%';
-
-    if (positifVal) positifVal.innerText = pPos + '%';
-    if (negatifVal) negatifVal.innerText = pNeg + '%';
-    if (neutreVal) neutreVal.innerText = pNeu + '%';
-
-    const hasVoted = localStorage.getItem('poll-voted') === 'true';
-    results.style.display = hasVoted ? 'block' : 'none';
-
-    const voteMessage = document.getElementById('poll-vote-message');
-    if (voteMessage) {
-      voteMessage.style.display = hasVoted ? 'block' : 'none';
-      voteMessage.textContent = 'Votre vote a déjà été enregistré.';
-    }
-
-    const buttons = document.querySelectorAll('[data-vote]');
-    buttons.forEach(button => {
-      const disabled = hasVoted;
-      button.disabled = disabled;
-      button.setAttribute('aria-disabled', String(disabled));
-      if (disabled) {
-        button.classList.add('disabled');
+    const total = pollChoices.reduce((sum, choice) => sum + (Number(poll[choice]) || 0), 0);
+    pollChoices.forEach(choice => {
+      const percent = total ? Math.round(((Number(poll[choice]) || 0) / total) * 100) : 0;
+      const bar = document.getElementById(choice + '-bar');
+      const val = document.getElementById(choice + '-val');
+      if (bar) {
+        bar.style.width = percent + '%';
+        bar.setAttribute('aria-valuenow', String(percent));
       }
+      if (val) val.innerText = percent + '%';
     });
+
+    const totalEl = document.getElementById('poll-total');
+    if (totalEl) totalEl.innerText = total;
+
+    results.style.display = 'block';
+  }
+
+  function showVotedState() {
+    const voteMessage = document.getElementById('poll-vote-message');
+    if (voteMessage) voteMessage.style.display = 'block';
+    setPollButtonsDisabled(true);
+  }
+
+  async function vote(choice) {
+    if (!pollChoices.includes(choice) || hasVoted()) return;
+
+    setPollButtonsDisabled(true);
+    showPollError('');
+
+    try {
+      const body = new FormData();
+      body.append('choix', choice);
+      const poll = await requestPoll({ method: 'POST', body });
+      markVoted(choice);
+      renderResults(poll);
+      showVotedState();
+    } catch (error) {
+      console.warn('Vote non enregistré.', error);
+      showPollError("Votre vote n'a pas pu être enregistré. Veuillez réessayer plus tard.");
+      setPollButtonsDisabled(false);
+    }
+  }
+
+  async function loadResults() {
+    try {
+      renderResults(await requestPoll({ method: 'GET' }));
+    } catch (error) {
+      console.warn('Résultats du sondage indisponibles.', error);
+      showPollError('Les résultats du sondage sont momentanément indisponibles.');
+    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('[data-vote]');
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        vote(button.dataset.vote);
-      });
+    if (!document.getElementById('poll')) return;
+
+    document.querySelectorAll('[data-vote]').forEach(button => {
+      button.addEventListener('click', () => vote(button.dataset.vote));
     });
 
-    showResults();
+    if (hasVoted()) {
+      showVotedState();
+      loadResults();
+    }
   });
 
 })();

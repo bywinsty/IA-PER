@@ -78,7 +78,8 @@
 
   function displayError(thisForm, error) {
     thisForm.querySelector('.loading').classList.remove('d-block');
-    thisForm.querySelector('.error-message').innerHTML = error;
+    // IA-PER : afficher seulement le texte renvoyé par le PHP (sans le préfixe "Error: ")
+    thisForm.querySelector('.error-message').textContent = error instanceof Error ? error.message : error;
     thisForm.querySelector('.error-message').classList.add('d-block');
   }
 

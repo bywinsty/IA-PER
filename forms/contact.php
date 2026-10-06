@@ -1,44 +1,50 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+// Formulaire de contact IA-PER : enregistre le message dans la table "messages".
+// Réponse attendue par assets/vendor/php-email-form/validate.js :
+// "OK" en cas de succès, sinon le texte de l'erreur (affiché sous le formulaire).
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+// 1. Connexion à la base de données
+$serveur = "localhost";
+$base    = "iaper";
+$user    = "root";
+$mdp     = "";
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    die("Méthode non autorisée.");
+}
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+// 2. Récupération des données du formulaire
+$nom     = trim($_POST['name'] ?? '');
+$email   = trim($_POST['email'] ?? '');
+$objet   = trim($_POST['subject'] ?? '');
+$message = trim($_POST['message'] ?? '');
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+// 3. Vérifications
+if ($nom === '' || $email === '' || $objet === '' || $message === '') {
+    die("Merci de remplir tous les champs.");
+}
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    die("L'adresse email n'est pas valide.");
+}
+if (mb_strlen($nom) > 100 || mb_strlen($email) > 255 || mb_strlen($objet) > 200 || mb_strlen($message) > 5000) {
+    die("Un des champs est trop long.");
+}
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  if(isset($_POST['phone'])) {
-    $contact->add_message( $_POST['phone'], 'Phone');
-  }
-  $contact->add_message( $_POST['message'], 'Message', 10);
+// 4. Insertion dans la table (requête préparée)
+try {
+    $pdo = new PDO("mysql:host=$serveur;dbname=$base;charset=utf8mb4", $user, $mdp);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  echo $contact->send();
-?>
+    $requete = $pdo->prepare("INSERT INTO messages (nom, email, objet, message) VALUES (:nom, :email, :objet, :message)");
+    $requete->execute([
+        ':nom'     => $nom,
+        ':email'   => $email,
+        ':objet'   => $objet,
+        ':message' => $message
+    ]);
+} catch (PDOException $e) {
+    die("Votre message n'a pas pu être enregistré. Veuillez réessayer plus tard.");
+}
+
+echo "OK";
