@@ -1,6 +1,6 @@
 /* Cadence workflow story: the IA-PER question moves from collection to a shared choice. */
 .workflow-cadence {
-  --workflow-bg: #080a0d;
+  --workflow-bg: #111b3d;
   --workflow-surface: #101419;
   --workflow-surface-2: #151b21;
   --workflow-text: #f0f4f6;
@@ -13,8 +13,9 @@
   --workflow-accent-line: rgba(76, 196, 234, 0.42);
   color: var(--workflow-text);
   background:
-    radial-gradient(ellipse 70% 44% at 75% 8%, rgba(76, 196, 234, 0.09), transparent 68%),
-    linear-gradient(180deg, var(--workflow-bg), #0b0e12 88%, #10161c);
+    radial-gradient(ellipse 48% 42% at 50% 14%, rgba(71, 178, 228, 0.14), transparent 72%),
+    radial-gradient(circle at 76% 55%, rgba(71, 178, 228, 0.1), transparent 28%),
+    var(--workflow-bg);
   padding: calc(var(--header-height, 96px) + clamp(48px, 7vw, 84px)) 0 clamp(88px, 11vw, 156px);
   scroll-margin-top: var(--header-scroll-padding, 96px);
 }
