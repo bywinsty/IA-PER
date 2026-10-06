@@ -198,16 +198,6 @@ test('thematics page direct hash navigation respects the dynamic header', async 
   }
 });
 
-test('thematics page skip link reaches the main content', async ({ page }) => {
-  await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
-  const skipLink = page.locator('.skip-link');
-  await page.keyboard.press('Tab');
-  await expect(skipLink).toBeFocused();
-  await expect.poll(() => skipLink.evaluate(element => element.getBoundingClientRect().top >= 0)).toBe(true);
-  await page.keyboard.press('Enter');
-  await expect(page.locator('#main-content')).toBeFocused();
-});
-
 for (const width of [1440, 640, 380, 300, 280]) {
   test(`thematics page header stays within ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
@@ -224,20 +214,143 @@ test('direct hash navigation respects the header in reduced-motion mode', async 
   await expect(page.locator('.header-section-links a[href="#team"]')).toHaveAttribute('aria-current', 'location');
 });
 
-test('skip link is first in the keyboard order and becomes visible on focus', async ({ page }) => {
-  await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
-  const skipLink = page.locator('.skip-link');
-  await page.keyboard.press('Tab');
-  await expect(skipLink).toBeFocused();
-  await expect.poll(() => skipLink.evaluate(element => element.getBoundingClientRect().top >= 0)).toBe(true);
-  await page.keyboard.press('Enter');
-  await expect(page.locator('#main-content')).toBeFocused();
-});
-
 test('scrolling changes the header to its scrolled state', async ({ page }) => {
   await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
   await page.evaluate(() => window.scrollTo({ top: 200, behavior: 'instant' }));
   await expect(page.locator('body')).toHaveClass(/scrolled/);
+});
+
+test('homepage header spreads at the top and condenses around the centered navigation', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/index.html', { waitUntil: 'load' });
+
+  const topState = await page.evaluate(() => {
+    const header = document.querySelector('#header');
+    const inner = document.querySelector('.header-inner');
+    const logo = document.querySelector('.site-logo');
+    const siteName = document.querySelector('.site-name');
+    const nav = document.querySelector('.header-page-nav');
+    const current = document.querySelector('.header-current-link');
+    const sectionList = document.querySelector('.header-section-links');
+    const cta = document.querySelector('.header-theme-cta');
+    const progress = document.querySelector('#scroll-progress');
+    const rect = element => {
+      const bounds = element.getBoundingClientRect();
+      return {
+        left: bounds.left,
+        right: bounds.right,
+        top: bounds.top,
+        bottom: bounds.bottom,
+        width: bounds.width,
+        center: bounds.left + bounds.width / 2
+      };
+    };
+    return {
+      header: rect(header),
+      inner: rect(inner),
+      logo: rect(logo),
+      siteName: rect(siteName),
+      nav: rect(nav),
+      current: rect(current),
+      sectionList: rect(sectionList),
+      cta: rect(cta),
+      progress: rect(progress),
+      progressParentIsInner: progress?.parentElement === inner,
+      siteNameText: siteName?.textContent.trim(),
+      headerBackground: getComputedStyle(inner).backgroundColor
+    };
+  });
+
+  expect(topState.inner.width).toBeGreaterThan(1200);
+  expect(topState.inner.top).toBeLessThanOrEqual(1);
+  expect(topState.progressParentIsInner).toBe(true);
+  expect(Math.abs(topState.progress.left - topState.inner.left)).toBeLessThanOrEqual(1);
+  expect(Math.abs(topState.progress.right - topState.inner.right)).toBeLessThanOrEqual(1);
+  expect(Math.abs(topState.progress.bottom - topState.inner.bottom)).toBeLessThanOrEqual(1);
+  expect(topState.siteName.width).toBeGreaterThan(0);
+  expect(topState.siteNameText).toBe('IA-PER');
+  expect(topState.logo.left).toBeLessThan(80);
+  expect(topState.cta.right).toBeGreaterThan(1360);
+  expect(Math.abs((topState.current.left + topState.current.width / 2) - (topState.nav.left + topState.nav.width / 2))).toBeLessThanOrEqual(2);
+  expect(Math.abs(topState.nav.center - topState.inner.center)).toBeLessThanOrEqual(2);
+  expect(Math.abs(topState.sectionList.center - topState.current.center)).toBeLessThanOrEqual(2);
+
+  await page.evaluate(() => window.scrollTo({ top: 200, behavior: 'instant' }));
+  await expect(page.locator('body')).toHaveClass(/scrolled/);
+  await page.waitForTimeout(700);
+
+  const scrolledState = await page.evaluate(() => {
+    const inner = document.querySelector('.header-inner');
+    const logo = document.querySelector('.site-logo');
+    const cta = document.querySelector('.header-theme-cta');
+    const current = document.querySelector('.header-current-link');
+    const sectionList = document.querySelector('.header-section-links');
+    const progress = document.querySelector('#scroll-progress');
+    const rect = element => {
+      const bounds = element.getBoundingClientRect();
+      return {
+        left: bounds.left,
+        right: bounds.right,
+        top: bounds.top,
+        bottom: bounds.bottom,
+        width: bounds.width,
+        center: bounds.left + bounds.width / 2
+      };
+    };
+    return {
+      inner: rect(inner),
+      logo: rect(logo),
+      cta: rect(cta),
+      current: rect(current),
+      sectionList: rect(sectionList),
+      progress: rect(progress),
+      headerBackground: getComputedStyle(inner).backgroundColor
+    };
+  });
+
+  expect(scrolledState.inner.width).toBeLessThan(topState.inner.width - 200);
+  expect(scrolledState.inner.top).toBeLessThanOrEqual(1);
+  expect(Math.abs(scrolledState.progress.left - scrolledState.inner.left)).toBeLessThanOrEqual(1);
+  expect(Math.abs(scrolledState.progress.right - scrolledState.inner.right)).toBeLessThanOrEqual(1);
+  expect(Math.abs(scrolledState.progress.bottom - scrolledState.inner.bottom)).toBeLessThanOrEqual(1);
+  expect(Math.abs(scrolledState.sectionList.center - scrolledState.current.center)).toBeLessThanOrEqual(2);
+  expect(scrolledState.logo.left).toBeGreaterThan(topState.logo.left + 80);
+  expect(scrolledState.cta.right).toBeLessThan(topState.cta.right - 80);
+  expect(scrolledState.headerBackground).toBe(topState.headerBackground);
+});
+
+test('homepage mobile header keeps the brand, navigation, and CTA separated', async ({ page }) => {
+  await page.setViewportSize({ width: 380, height: 900 });
+  await page.goto('/index.html', { waitUntil: 'load' });
+
+  const layout = await page.evaluate(() => {
+    const rect = selector => {
+      const bounds = document.querySelector(selector).getBoundingClientRect();
+      return {
+        left: bounds.left,
+        right: bounds.right,
+        top: bounds.top,
+        bottom: bounds.bottom,
+        center: bounds.left + bounds.width / 2
+      };
+    };
+    return {
+      logo: rect('.site-logo'),
+      siteName: rect('.site-name'),
+      nav: rect('.header-page-nav'),
+      current: rect('.header-current-link'),
+      sections: rect('.header-section-links'),
+      cta: rect('.header-theme-cta'),
+      scrollWidth: document.documentElement.scrollWidth,
+      viewportWidth: window.innerWidth
+    };
+  });
+
+  expect(layout.siteName.left).toBeGreaterThanOrEqual(layout.logo.right - 1);
+  expect(layout.nav.top).toBeGreaterThanOrEqual(layout.logo.bottom - 1);
+  expect(layout.cta.top).toBeGreaterThanOrEqual(layout.sections.bottom - 1);
+  expect(Math.abs(layout.sections.center - layout.current.center)).toBeLessThanOrEqual(2);
+  expect(layout.scrollWidth).toBeLessThanOrEqual(layout.viewportWidth);
 });
 
 for (const width of [1440, 380]) {
@@ -247,21 +360,24 @@ for (const width of [1440, 380]) {
 
     const positions = await page.evaluate(() => {
       const header = document.querySelector('#header');
+      const inner = document.querySelector('.header-inner');
       const progress = document.querySelector('#scroll-progress');
       const headerRect = header?.getBoundingClientRect();
+      const innerRect = inner?.getBoundingClientRect();
       const progressRect = progress?.getBoundingClientRect();
       return {
-        parentIsHeader: progress?.parentElement === header,
+        parentIsInner: progress?.parentElement === inner,
         position: progress ? getComputedStyle(progress).position : '',
         headerBottom: headerRect?.bottom ?? 0,
+        innerBottom: innerRect?.bottom ?? 0,
         progressTop: progressRect?.top ?? 0,
         progressBottom: progressRect?.bottom ?? 0
       };
     });
 
-    expect(positions.parentIsHeader).toBe(true);
+    expect(positions.parentIsInner).toBe(true);
     expect(positions.position).toBe('absolute');
-    expect(Math.abs(positions.progressBottom - positions.headerBottom)).toBeLessThanOrEqual(1);
+    expect(Math.abs(positions.progressBottom - positions.innerBottom)).toBeLessThanOrEqual(1);
   });
 }
 

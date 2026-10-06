@@ -97,6 +97,10 @@ function renderScrollProgress(indent, eol) {
 export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
   const asset = (relativePath) => `${page.assetPrefix ?? ''}assets/${relativePath}`;
   const scrollProgress = renderScrollProgress(indent, eol);
+  const scrollProgressInsideInner = page.type === 'home'
+    ? renderScrollProgress(`${indent}  `, eol)
+    : '';
+  const scrollProgressOutsideInner = page.type === 'home' ? '' : scrollProgress;
   const navigation = page.type === 'home'
     ? renderHomeNavigation(page, indent, eol)
     : page.type === 'breadcrumb-sections'
@@ -117,16 +121,18 @@ export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
     `${indent}          width="75"`,
     `${indent}          height="75"`,
     `${indent}          alt="IA-PER — Progrès, Enjeux et Responsabilités">`,
+    `${indent}        <span class="site-name">IA-PER</span>`,
     `${indent}      </a>`,
     '',
     navigation,
     `${indent}      </div>`,
     renderThemeCta(page, indent),
+    ...(scrollProgressInsideInner ? [scrollProgressInsideInner] : []),
     `${indent}    </div>`,
     '',
     `${indent}  </div>`,
     '',
-    scrollProgress,
+    ...(scrollProgressOutsideInner ? [scrollProgressOutsideInner] : []),
     `${indent}</header>`,
     `${indent}<!-- generated:header:end -->`
   ].join(eol);

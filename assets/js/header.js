@@ -61,7 +61,7 @@
     const body = document.body;
     const header = document.querySelector('#header');
     if (!header || (!header.classList.contains('scroll-up-sticky') && !header.classList.contains('sticky-top') && !header.classList.contains('fixed-top'))) return;
-    body.classList.toggle('scrolled', window.scrollY > 100);
+    body.classList.toggle('scrolled', window.scrollY > 40);
   }
 
   function correctInitialAnchor() {
