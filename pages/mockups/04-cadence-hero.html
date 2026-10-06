@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mockup du hero IA-PER, inspiré du style Cadence.">
+  <title>IA-PER — Hero mockup</title>
+  <style>
+    @font-face { font-family:"Geist"; src:url(https://cdn.jsdelivr.net/fontsource/fonts/geist:vf@latest/latin-wght-normal.woff2) format("woff2"); font-weight:100 900; font-style:normal; font-display:swap; }
+    @font-face { font-family:"Geist Mono"; src:url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono:vf@latest/latin-wght-normal.woff2) format("woff2"); font-weight:100 900; font-style:normal; font-display:swap; }
+    :root { --bg:#08090b; --raised:#0b0d10; --surface:#0f1216; --surface-2:#14181d; --line:rgba(226,236,245,.075); --line-2:rgba(226,236,245,.12); --text:#eef2f5; --muted:#a9b3bc; --faint:#78838d; --cyan:#4cc4ea; --cyan-hi:#6fd2f1; --cyan-ink:#031219; --star:#f0c75e; --font-sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --font-mono:"Geist Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace; }
+    * { box-sizing:border-box; }
+    html { background:var(--bg); }
+    body { min-width:320px; margin:0; overflow-x:hidden; background:var(--bg); color:var(--text); font-family:var(--font-sans); font-size:16px; line-height:1.6; font-feature-settings:"ss01","cv11"; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeLegibility; }
+    a { color:inherit; text-decoration:none; }
+    .skip { position:fixed; z-index:30; top:12px; left:12px; padding:13px 18px; border:2px solid var(--cyan); border-radius:14px; color:var(--cyan-ink); background:var(--cyan); font-weight:750; transform:translateY(-150%); transition:transform .2s; }
+    .skip:focus { transform:translateY(0); outline:3px solid white; outline-offset:2px; }
+    .hero { position:relative; isolation:isolate; min-height:100vh; height:1120px; overflow:hidden; background:var(--bg); }
+    .ambient { position:absolute; z-index:0; top:0; left:0; width:100%; height:100vh; overflow:hidden; pointer-events:none; }
+    .ambient i { position:absolute; top:0; left:0; display:block; }
+    .ambient i:nth-child(1) { width:560px; height:1380px; transform:translateY(-350px) rotate(-45deg); background:radial-gradient(68.54% 68.72% at 55.02% 31.46%,hsla(200,20%,85%,.075) 0,hsla(200,10%,55%,.02) 50%,transparent 80%); }
+    .ambient i:nth-child(2) { width:240px; height:1380px; transform:rotate(-45deg) translate(5%,-50%); transform-origin:top left; background:radial-gradient(50% 50% at 50% 50%,hsla(200,20%,85%,.055) 0,hsla(200,10%,45%,.02) 80%,transparent 100%); }
+    .ambient i:nth-child(3) { width:240px; height:1380px; transform:rotate(-45deg) translate(-180%,-70%); transform-origin:top left; background:radial-gradient(50% 50% at 50% 50%,hsla(200,20%,85%,.04) 0,hsla(200,10%,45%,.02) 80%,transparent 100%); }
+    .hero::after { content:""; position:absolute; z-index:-1; inset:auto 0 0; height:55%; background:linear-gradient(transparent, var(--bg) 88%); pointer-events:none; }
+    .site-header { position:fixed; z-index:10; inset:0 0 auto; padding-top:14px; pointer-events:none; }
+    .nav { --spread:0px; position:relative; display:flex; align-items:center; gap:6px; width:min(calc(100% - 24px),940px); height:60px; margin:0 auto; padding:0 10px 0 14px; pointer-events:auto; }
+    .nav-bg { position:absolute; inset:0; border:1px solid var(--line-2); border-radius:20px; background:rgba(15,18,22,.72); box-shadow:inset 0 1px rgba(255,255,255,.06),0 18px 40px -20px rgba(0,0,0,.9); opacity:0; transform:scale(.97); transition:opacity .28s ease,transform 520ms cubic-bezier(.2,.8,.2,1); backdrop-filter:blur(16px) saturate(150%); }
+    .site-header.is-scrolled .nav-bg { opacity:1; transform:none; }
+    .brand { position:relative; display:flex; align-items:center; gap:.6rem; min-width:155px; color:var(--text); font-size:1.02rem; font-weight:620; letter-spacing:-.02em; transition:transform 560ms cubic-bezier(.2,.8,.2,1); }
+    .nav-brand { transform:translateX(calc(var(--spread) * -1)); }
+    .site-header.is-scrolled .nav-brand, .site-header.is-scrolled .nav-cta { transform:none; }
+    .brand-mark { display:grid; place-items:center; width:30px; aspect-ratio:1; overflow:hidden; border:1px solid #dce5e8; border-radius:10px; background:#f4f7f8; box-shadow:inset 0 1px white; }
+    .brand-mark img { display:block; width:82%; height:82%; object-fit:contain; }
+    .nav-links { position:relative; display:flex; gap:2px; margin-left:18px; color:var(--muted); font-size:.9rem; }
+    .nav-links a { position:relative; display:inline-flex; align-items:center; height:38px; padding:0 12px; border-radius:999px; color:var(--muted); transition:color .2s,background-color .2s; }
+    .nav-links a:hover { color:var(--text); background:rgba(255,255,255,.05); }
+    .nav-actions { position:relative; display:flex; align-items:center; gap:6px; margin-left:auto; font-size:.9rem; transition:transform 560ms cubic-bezier(.2,.8,.2,1); }
+    .nav-cta { transform:translateX(var(--spread)); }
+    .login { display:inline-flex; align-items:center; height:38px; padding:0 12px; border-radius:999px; color:var(--muted); transition:color .2s; }
+    .login:hover { color:var(--text); }
+    .nav-cta .button { height:38px; padding:0 .95rem; font-size:.875rem; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:.55rem; height:46px; padding:0 1.15rem; border:1px solid transparent; border-radius:10px; background:var(--cyan); color:var(--cyan-ink); font:inherit; font-size:.95rem; font-weight:540; letter-spacing:-.005em; box-shadow:inset 0 1px rgba(255,255,255,.5),inset 0 -1px rgba(0,0,0,.18),0 10px 26px -14px rgba(76,196,234,.7); transition:transform .14s cubic-bezier(.23,1,.32,1),background .18s; }
+    .button:hover { background:var(--cyan-hi); transform:translateY(-2px); }
+    .button:active { transform:scale(.97); }
+    .hero-copy { position:relative; z-index:2; width:min(100% - 32px,1040px); margin:auto; padding-top:158px; text-align:center; }
+    h1 { max-width:64rem; margin:0 auto; padding:1.5rem 0; background:linear-gradient(180deg,#77828c 0%,#c6ced5 34%,#f3f6f8 62%); -webkit-background-clip:text; background-clip:text; color:transparent; font-size:clamp(2.5rem,7.2vw,6rem); font-weight:600; letter-spacing:-.045em; line-height:1.05; }
+    .lede { max-width:48rem; margin:1rem auto 0; color:var(--muted); font-size:clamp(1rem,1.6vw,1.25rem); line-height:1.5; }
+    .proof { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px; margin:2.5rem auto 0; }
+    .faces { display:flex; padding-left:10px; }
+    .face { width:56px; height:56px; margin-left:-16px; overflow:hidden; border:2px solid #dfe5ea; border-radius:16px; background:#1a2229; box-shadow:0 2px 8px #0008; }
+    .face:nth-child(1){transform:rotate(-4deg)} .face:nth-child(2){transform:rotate(3deg)} .face:nth-child(3){transform:rotate(-2deg)} .face:nth-child(4){transform:rotate(4deg)} .face:nth-child(5){transform:rotate(-3deg)}
+    .face img { width:100%; height:100%; object-fit:cover; }
+    .stars { color:var(--star); font-size:16px; letter-spacing:4px; text-shadow:0 1px 8px rgba(240,199,94,.22); }
+    .proof-label { flex-basis:100%; margin-top:-7px; color:var(--muted); font-size:.875rem; }
+    .cta { height:52px; margin-top:2.5rem; padding:0 1.4rem; font-size:1rem; }
+    .arrow { font-size:20px; line-height:0; }
+    .device-wrap { position:absolute; z-index:1; top:794px; left:50%; width:min(1152px,calc(100vw - 48px)); perspective:1000px; transform:translateX(-50%); }
+    .device { overflow:hidden; min-height:470px; border:1px solid rgba(203,221,231,.23); border-radius:25px; background:linear-gradient(150deg,#182027,#0d1115 35%,#0a0c0e); box-shadow:inset 0 1px rgba(255,255,255,.2),0 -1px 0 rgba(255,255,255,.12),0 45px 80px rgba(0,0,0,.65); transform:rotateX(19deg); transform-origin:50% 0; }
+    .device-top { position:relative; height:38px; border-bottom:1px solid var(--line); background:linear-gradient(90deg,#1a2229,#0f1317); }
+    .device-top::after { content:""; position:absolute; top:15px; left:11%; width:18%; height:1px; background:linear-gradient(90deg,transparent,var(--cyan),transparent); box-shadow:0 0 12px var(--cyan); }
+    .app { display:grid; grid-template-columns:220px minmax(360px,1fr) 38%; min-height:430px; color:#c3cbd1; font-size:12px; }
+    .sidebar { padding:18px 13px; border-right:1px solid var(--line); background:rgba(6,8,10,.45); }
+    .workspace { display:flex; align-items:center; gap:9px; padding:0 6px 20px; color:#e6edf0; font-size:13px; font-weight:700; }
+    .workspace-mark { display:grid; place-items:center; width:24px; height:24px; border-radius:7px; background:#49b5d3; color:#07141a; font-size:12px; }
+    .side-item { display:flex; align-items:center; gap:10px; padding:10px 7px; color:#9ba8b1; }
+    .side-item.active { border-radius:7px; background:rgba(76,196,234,.11); color:#e7f4f8; }
+    .side-icon { width:13px; color:#6c7b84; text-align:center; }
+    .side-title { margin:22px 7px 6px; color:#66737d; font-family:var(--font-mono); font-size:9px; font-weight:500; letter-spacing:.06em; }
+    .count { margin-left:auto; color:#68747d; font-variant-numeric:tabular-nums; }
+    .inbox { background:rgba(12,15,18,.54); }
+    .inbox-head { display:flex; align-items:center; gap:10px; height:58px; padding:0 18px; border-bottom:1px solid var(--line); color:#edf2f4; font-size:13px; font-weight:680; }
+    .search { margin-left:auto; width:128px; padding:7px 10px; border:1px solid var(--line-2); border-radius:6px; color:#74808a; font-size:10px; font-weight:400; }
+    .row { position:relative; min-height:86px; padding:14px 18px 10px 58px; border-bottom:1px solid var(--line); }
+    .row.selected { background:linear-gradient(90deg,rgba(76,196,234,.11),transparent 65%); box-shadow:inset 3px 0 var(--cyan); }
+    .ava { position:absolute; top:15px; left:18px; display:grid; place-items:center; width:29px; height:29px; border-radius:50%; background:#285c72; color:#dbedf3; font-size:9px; font-weight:800; }
+    .ava.amber { background:#71552e; } .ava.blue { background:#3e587f; } .ava.green { background:#315e56; }
+    .row-name { color:#dee7eb; font-weight:690; } .org,.time { color:#77838c; font-size:10px; font-weight:500; } .org { margin-left:5px; } .time { float:right; }
+    .subject { margin-top:5px; overflow:hidden; color:#aab6be; font-size:11px; text-overflow:ellipsis; white-space:nowrap; }
+    .tags { display:flex; gap:5px; margin-top:7px; }
+    .tag { padding:2px 5px; border-radius:4px; color:#92d9ec; background:rgba(76,196,234,.12); font-size:9px; }
+    .tag.warm { color:#deb86e; background:rgba(216,176,100,.13); } .tag.red { color:#dfa1a1; background:rgba(223,128,128,.13); }
+    .detail { padding:17px 18px; border-left:1px solid var(--line); background:#0b0d10; }
+    .detail-label { color:#78858e; font-family:var(--font-mono); font-size:9px; font-weight:500; letter-spacing:.08em; }
+    .detail h2 { margin:14px 0 6px; color:#eaf1f3; font-size:16px; letter-spacing:-.025em; }
+    .detail p { max-width:380px; margin:0; color:#9ba8b0; line-height:1.55; }
+    .tag-stack { display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; }
+    .roadmap { margin-top:20px; padding:14px; border:1px solid rgba(76,196,234,.28); border-radius:8px; background:linear-gradient(100deg,rgba(76,196,234,.08),rgba(76,196,234,.02)); }
+    .roadmap-top { display:flex; align-items:center; justify-content:space-between; color:#bdeefa; font-size:11px; font-weight:700; }.roadmap small{color:#7e8b94}.roadmap-stats{display:flex;gap:20px;margin-top:12px;color:#e0e8eb;font-size:11px}.roadmap-stats span{color:#87949c}
+    @media (max-width:800px) { .nav { --spread:0px!important; height:56px; padding:0 6px 0 14px; } .brand { min-width:auto; } .nav-links,.login { display:none; } .nav-actions { margin-left:auto; } .hero { height:900px; } .hero-copy { padding-top:134px; } .lede { max-width:540px; margin-top:23px; } .proof { margin-top:30px; } .device-wrap { top:683px; width:calc(100vw - 24px); } .device { min-height:330px; transform:rotateX(14deg); } .app { grid-template-columns:160px 1fr; } .detail { display:none; } .sidebar { padding:13px 8px; } .side-item { padding:8px 4px; } }
+    @media (max-width:520px) { .hero { height:790px; } .nav { top:9px; width:calc(100% - 18px); padding:0 8px 0 11px; } .brand { font-size:14px; }.brand-mark { width:28px; } .nav-actions { gap:0; }.nav-actions .button { min-height:38px; padding:0 13px; font-size:13px; } .hero-copy { width:calc(100% - 26px); padding-top:118px; } h1 { font-size:clamp(2.65rem,13vw,3.6rem); letter-spacing:-.055em; } .lede { font-size:16px; } .faces .face { width:40px; height:40px; } .stars { font-size:17px; }.proof-label { margin-top:-4px; } .cta { margin-top:30px; } .device-wrap { top:610px; width:calc(100vw - 14px); }.app { grid-template-columns:1fr; }.sidebar { display:none; }.inbox-head { height:46px; padding:0 12px; }.row { min-height:74px; padding:11px 12px 8px 48px; }.ava { top:12px; left:12px; width:27px; height:27px; }.search { width:90px; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Aller au contenu</a>
+  <header class="site-header" id="siteHeader">
+  <nav class="nav" aria-label="Navigation principale">
+    <span class="nav-bg" aria-hidden="true"></span>
+    <a class="brand nav-brand" href="#content" aria-label="IA-PER, accueil"><span class="brand-mark" aria-hidden="true"><img src="../../assets/img/ia-per.svg" alt=""></span>IA-PER</a>
+    <nav class="nav-links" aria-label="Sections"><a href="#content">Accueil</a><a href="#content">Thématiques</a><a href="#content">Ressources</a><a href="#content">À propos</a><a href="#content">Actualités</a></nav>
+    <div class="nav-actions nav-cta"><a class="login" href="mailto:IA-PER@cf2000.onmicrosoft.com">Contact</a><a class="button" href="../thématiques/thematiques.html">Explorer</a></div>
+  </nav>
+  </header>
+  <main id="content">
+    <section class="hero" aria-labelledby="hero-title">
+      <span class="ambient" aria-hidden="true"><i></i><i></i><i></i></span>
+      <div class="hero-copy">
+        <h1 id="hero-title">Comprendre l’IA pour mieux choisir</h1>
+        <p class="lede">Des repères clairs sur l’intelligence artificielle, ses usages et ses effets au travail, dans la société et sur l’environnement.</p>
+        <div class="proof" aria-label="Projet porté par une équipe de cinq personnes">
+          <div class="faces" aria-hidden="true">
+            <span class="face"><img src="../../assets/img/person/person-m-6.webp" alt=""></span><span class="face"><img src="../../assets/img/person/person-m-7-prepared.webp" alt=""></span><span class="face"><img src="../../assets/img/person/person-f-8.webp" alt=""></span><span class="face"><img src="../../assets/img/person/person-f-4.webp" alt=""></span><span class="face"><img src="../../assets/img/person/person-m-13.webp" alt=""></span>
+          </div>
+          <span class="stars" aria-label="cinq étoiles">★★★★★</span><span class="proof-label">Un projet conçu par des apprenant·es et formateurs du CF2M</span>
+        </div>
+        <a class="button cta" href="../thématiques/thematiques.html#themes">Découvrir les thématiques <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <div class="device-wrap" aria-label="Aperçu de l’espace IA-PER">
+        <div class="device">
+          <div class="device-top"></div>
+          <div class="app">
+            <aside class="sidebar" aria-label="Navigation de l’aperçu"><div class="workspace"><span class="workspace-mark">IA</span>IA-PER</div><div class="side-item active"><span class="side-icon">⌘</span>Repères <span class="count">12</span></div><div class="side-item"><span class="side-icon">◒</span>Études</div><div class="side-item"><span class="side-icon">◇</span>Cas d’usage</div><p class="side-title">THÉMATIQUES</p><div class="side-item"><span class="side-icon">≋</span>Environnement</div><div class="side-item"><span class="side-icon">≋</span>Monde professionnel</div><div class="side-item"><span class="side-icon">≋</span>Société</div></aside>
+            <section class="inbox" aria-label="Questions en cours"><div class="inbox-head">Questions à explorer <span class="search">Rechercher</span></div><article class="row selected"><span class="ava amber">ML</span><strong class="row-name">Maya Lambert</strong><span class="org">Atelier formation</span><span class="time">1 min</span><div class="subject">Quels usages de l’IA peuvent réellement faire gagner du temps&nbsp;?</div><div class="tags"><span class="tag">Travail</span><span class="tag warm">À vérifier</span></div></article><article class="row"><span class="ava">SB</span><strong class="row-name">Sami Benali</strong><span class="org">Groupe citoyen</span><span class="time">4 min</span><div class="subject">L’IA générative peut-elle diffuser des informations biaisées&nbsp;?</div><div class="tags"><span class="tag">Société</span><span class="tag red">Vigilance</span></div></article><article class="row"><span class="ava blue">NC</span><strong class="row-name">Nora Charlier</strong><span class="org">Éco-lab</span><span class="time">12 min</span><div class="subject">Quel est l’impact énergétique d’une requête adressée à une IA&nbsp;?</div><div class="tags"><span class="tag">Environnement</span></div></article><article class="row"><span class="ava green">AR</span><strong class="row-name">Amine Roux</strong><span class="org">Équipe projet</span><span class="time">26 min</span><div class="subject">Dans quelles situations faut-il garder une décision humaine&nbsp;?</div><div class="tags"><span class="tag">Responsabilité</span></div></article></section>
+            <aside class="detail"><div class="detail-label">QUESTION SÉLECTIONNÉE</div><h2>Gagner du temps sans perdre son jugement</h2><p>Identifier les tâches où l’IA peut assister une personne, et celles où une validation humaine reste indispensable.</p><div class="tag-stack"><span class="tag">IA au travail</span><span class="tag warm">Analyse</span><span class="tag">Décision humaine</span></div><div class="roadmap"><div class="roadmap-top">Guide pratique : usages responsables <small>● En cours</small></div><div class="roadmap-stats"><b>8 <span>sources</span></b><b>3 <span>repères</span></b><b>Oct. <span>publication</span></b></div></div></aside>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const header = document.querySelector('#siteHeader');
+    const nav = document.querySelector('.nav');
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+    const measureSpread = () => {
+      if (window.innerWidth < 801) return nav.style.setProperty('--spread', '0px');
+      const gutter = clamp(window.innerWidth * .04, 16, 40);
+      const row = Math.min(window.innerWidth - 2 * gutter, 1240);
+      const spread = Math.max(0, (row - nav.offsetWidth) / 2);
+      nav.style.setProperty('--spread', `${spread}px`);
+    };
+    const syncNav = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', syncNav, { passive: true });
+    window.addEventListener('resize', measureSpread);
+    measureSpread();
+    syncNav();
+  </script>
+</body>
+</html>

@@ -97,22 +97,26 @@
   <main id="main-content" class="main" tabindex="-1">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+    <section id="hero" class="hero hero--cadence section dark-background" aria-labelledby="hero-title">
+      <span class="hero-cadence__ambient" aria-hidden="true"><i></i><i></i><i></i></span>
 
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-1 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-            <h1 class="hero-title">Comprendre l’impact de l’intelligence artificielle</h1>
-            <p>Au travail, dans l’environnement et dans la société. Comprendre, questionner, choisir.</p>
-            <div class="d-flex">
-              <a href="pages/thématiques/thematiques.html#themes" class="btn-get-started">Découvrir les thématiques</a>
-              <a href="#about" class="btn-about">Pourquoi ce projet&nbsp;?</a>
-            </div>
+      <div class="container hero-cadence__copy">
+        <h1 id="hero-title" class="hero-cadence__title">Comprendre l’IA pour mieux choisir</h1>
+        <p class="hero-cadence__lede">Des repères clairs sur l’intelligence artificielle, ses usages et ses effets au travail, dans la société et sur l’environnement.</p>
+
+        <div class="hero-cadence__proof">
+          <div class="hero-cadence__faces" aria-hidden="true">
+            <span class="hero-cadence__face"><img src="assets/img/person/person-m-6.webp" width="1024" height="1024" alt=""></span>
+            <span class="hero-cadence__face"><img src="assets/img/person/person-m-7-prepared.webp" width="1254" height="1254" alt=""></span>
+            <span class="hero-cadence__face"><img src="assets/img/person/person-f-8.webp" width="1024" height="1024" alt=""></span>
+            <span class="hero-cadence__face"><img src="assets/img/person/person-f-4.webp" width="1024" height="1024" alt=""></span>
+            <span class="hero-cadence__face"><img src="assets/img/person/person-m-13.webp" width="1024" height="1024" alt=""></span>
           </div>
-          <div class="col-lg-6 order-2 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="" fetchpriority="high">
-          </div>
+          <span class="hero-cadence__stars" aria-hidden="true">★★★★★</span>
+          <p class="hero-cadence__proof-label">Un projet conçu par des apprenant·es et formateurs du CF2M</p>
         </div>
+
+        <a href="pages/thématiques/thematiques.html#themes" class="btn-get-started hero-cadence__cta">Découvrir les thématiques <span aria-hidden="true">→</span></a>
       </div>
 
     </section><!-- /Hero Section -->
