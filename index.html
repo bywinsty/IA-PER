@@ -26,6 +26,7 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/header.css" rel="stylesheet">
+  <link href="assets/css/workflow-cadence.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Arsha
@@ -122,6 +123,128 @@
       </div>
 
     </section><!-- /Hero Section -->
+
+    <!-- Workflow story: from the first question to a useful choice -->
+    <section id="workflow" class="workflow-cadence section" aria-labelledby="workflow-title">
+      <div class="container workflow-cadence__container">
+        <div class="workflow-cadence__header">
+          <p class="workflow-cadence__eyebrow">Le parcours IA-PER</p>
+          <h2 id="workflow-title">One loop, from first message to shipped fix</h2>
+          <p class="workflow-cadence__lead">IA-PER suit une question à travers quatre mouvements : la recueillir, la comprendre, la mettre en perspective et partager une réponse utile.</p>
+        </div>
+
+        <div class="workflow-cadence__story">
+          <div class="workflow-cadence__tabs" role="tablist" aria-label="Étapes du parcours IA-PER">
+            <button type="button" role="tab" id="workflow-tab-0" aria-selected="true" aria-controls="workflow-step-0" data-workflow-step="0">Recueillir</button>
+            <button type="button" role="tab" id="workflow-tab-1" aria-selected="false" aria-controls="workflow-step-1" data-workflow-step="1" tabindex="-1">Comprendre</button>
+            <button type="button" role="tab" id="workflow-tab-2" aria-selected="false" aria-controls="workflow-step-2" data-workflow-step="2" tabindex="-1">Mettre en perspective</button>
+            <button type="button" role="tab" id="workflow-tab-3" aria-selected="false" aria-controls="workflow-step-3" data-workflow-step="3" tabindex="-1">Partager</button>
+          </div>
+
+          <div class="workflow-cadence__steps">
+            <div class="workflow-cadence__rail" aria-hidden="true"><span id="workflowRail"></span></div>
+
+            <article class="workflow-step is-active" id="workflow-step-0" data-step="0" role="tabpanel" aria-labelledby="workflow-tab-0">
+              <span class="workflow-step__dot" aria-hidden="true"></span>
+              <span class="workflow-step__k"><i class="bi bi-inbox" aria-hidden="true"></i>Recueillir</span>
+              <h3>Chaque question trouve un point de départ</h3>
+              <p>Les questions remontent des ateliers, des recherches et des expériences vécues. Elles sont rassemblées pour ne pas se perdre dans des conversations séparées.</p>
+              <ul>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Un point d’entrée pour les trois thématiques</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Des repères issus du terrain et de la documentation</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Une trace claire de ce qui mérite d’être vérifié</li>
+              </ul>
+            </article>
+
+            <article class="workflow-step" id="workflow-step-1" data-step="1" role="tabpanel" aria-labelledby="workflow-tab-1">
+              <span class="workflow-step__dot" aria-hidden="true"></span>
+              <span class="workflow-step__k"><i class="bi bi-tags" aria-hidden="true"></i>Comprendre</span>
+              <h3>Les enjeux se structurent pour devenir lisibles</h3>
+              <p>Chaque information est replacée dans son contexte. Les thèmes, les bénéfices, les limites et les responsabilités apparaissent sans effacer la nuance.</p>
+              <ul>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Une lecture par environnement, professionnel et société</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Les effets directs et indirects mis en regard</li>
+              </ul>
+            </article>
+
+            <article class="workflow-step" id="workflow-step-2" data-step="2" role="tabpanel" aria-labelledby="workflow-tab-2">
+              <span class="workflow-step__dot" aria-hidden="true"></span>
+              <span class="workflow-step__k"><i class="bi bi-kanban" aria-hidden="true"></i>Mettre en perspective</span>
+              <h3>Choisir avec les conséquences en vue</h3>
+              <p>Les faits ne dictent pas une réponse unique. Ils aident à comparer les options, à reconnaître les arbitrages et à garder la responsabilité humaine au centre.</p>
+              <ul>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Les questions avant les promesses</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Les usages utiles face à leurs coûts réels</li>
+              </ul>
+            </article>
+
+            <article class="workflow-step" id="workflow-step-3" data-step="3" role="tabpanel" aria-labelledby="workflow-tab-3">
+              <span class="workflow-step__dot" aria-hidden="true"></span>
+              <span class="workflow-step__k"><i class="bi bi-send" aria-hidden="true"></i>Partager</span>
+              <h3>Une réponse claire est prête à circuler</h3>
+              <p>Le résultat devient un dossier accessible, avec des mots simples et des pistes pour continuer la réflexion. Comprendre ouvre la possibilité d’agir.</p>
+              <ul>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Une synthèse pour chaque public</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Des sources et des questions pour aller plus loin</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="workflow-cadence__stage" aria-hidden="true">
+            <div class="workflow-screen is-active" data-screen="0">
+              <div class="workflow-frame"><div class="workflow-window">
+                <div class="workflow-window__top"><i class="bi bi-inbox" aria-hidden="true"></i><h4>Collecte</h4><span class="workflow-pill"><i class="bi bi-plus" aria-hidden="true"></i>Ajouter une source</span></div>
+                <div class="workflow-window__body">
+                  <div class="workflow-source-row"><span class="workflow-source-row__icon"><i class="bi bi-chat-square-text" aria-hidden="true"></i></span><span><b>Questions de terrain</b><small>Ateliers et échanges CF2M</small></span><span class="workflow-spark" aria-hidden="true"><i></i></span><span class="workflow-switch"></span></div>
+                  <div class="workflow-source-row"><span class="workflow-source-row__icon"><i class="bi bi-journal-text" aria-hidden="true"></i></span><span><b>Recherche documentaire</b><small>Études, articles et rapports</small></span><span class="workflow-spark" aria-hidden="true"><i></i></span><span class="workflow-switch"></span></div>
+                  <div class="workflow-source-row"><span class="workflow-source-row__icon"><i class="bi bi-people" aria-hidden="true"></i></span><span><b>Regards croisés</b><small>Professionnel, société, environnement</small></span><span class="workflow-spark" aria-hidden="true"><i></i></span><span class="workflow-switch"></span></div>
+                  <div class="workflow-source-row"><span class="workflow-source-row__icon"><i class="bi bi-globe2" aria-hidden="true"></i></span><span><b>Ressources publiques</b><small>Repères pour poursuivre</small></span><span class="workflow-spark" aria-hidden="true"><i></i></span><span class="workflow-switch is-off"></span></div>
+                  <div class="workflow-snippet"><span class="workflow-code-muted">&lt;!-- garder la question visible --&gt;</span><br><span class="workflow-code-key">&lt;article</span> <span class="workflow-code-attr">data-theme</span>=<span class="workflow-code-string">"IA-PER"</span><span class="workflow-code-key">&gt;</span><br>&nbsp;&nbsp;Une question mérite des repères.<br><span class="workflow-code-key">&lt;/article&gt;</span></div>
+                </div>
+              </div></div>
+            </div>
+
+            <div class="workflow-screen" data-screen="1">
+              <div class="workflow-frame"><div class="workflow-window">
+                <div class="workflow-window__top"><i class="bi bi-tags" aria-hidden="true"></i><h4>Thématiques</h4><span class="workflow-pill"><i class="bi bi-filter" aria-hidden="true"></i>Vue d’ensemble</span></div>
+                <div class="workflow-window__body">
+                  <div class="workflow-kpis"><div><span>Thèmes suivis</span><b>3<em>clairs</em></b></div><div><span>Regards croisés</span><b>3<em>+ nuance</em></b></div><div><span>Questions ouvertes</span><b>12<em class="is-muted">à explorer</em></b></div></div>
+                  <div class="workflow-topic-row is-heading"><span>Thème</span><span>Repères</span><span>État</span><span>Suite</span></div>
+                  <div class="workflow-topic-row"><span class="workflow-topic-name">Environnement</span><span class="workflow-bar" style="--workflow-width:1"></span><span class="workflow-count">énergie</span><span class="workflow-trend"><i class="bi bi-arrow-up-right" aria-hidden="true"></i>à mettre en regard</span></div>
+                  <div class="workflow-topic-row"><span class="workflow-topic-name">Professionnel</span><span class="workflow-bar" style="--workflow-width:.78"></span><span class="workflow-count">compétences</span><span class="workflow-trend"><i class="bi bi-arrow-up-right" aria-hidden="true"></i>à questionner</span></div>
+                  <div class="workflow-topic-row"><span class="workflow-topic-name">Société</span><span class="workflow-bar is-muted" style="--workflow-width:.62"></span><span class="workflow-count">équité</span><span class="workflow-trend is-muted"><i class="bi bi-arrow-right" aria-hidden="true"></i>à contextualiser</span></div>
+                  <div class="workflow-topic-row"><span class="workflow-topic-name">Responsabilité</span><span class="workflow-bar is-muted" style="--workflow-width:.46"></span><span class="workflow-count">choix</span><span class="workflow-trend"><i class="bi bi-arrow-up-right" aria-hidden="true"></i>à partager</span></div>
+                </div>
+              </div></div>
+            </div>
+
+            <div class="workflow-screen" data-screen="2">
+              <div class="workflow-frame"><div class="workflow-window">
+                <div class="workflow-window__top"><i class="bi bi-kanban" aria-hidden="true"></i><h4>Points de vue</h4><span class="workflow-pill"><i class="bi bi-filter" aria-hidden="true"></i>Comparer les enjeux</span></div>
+                <div class="workflow-window__body">
+                  <div class="workflow-board">
+                    <div class="workflow-lane"><div class="workflow-lane__head">Bénéfices<span>3</span></div><div class="workflow-card"><b>Assister sans décider</b><small>Usages possibles</small></div><div class="workflow-card"><b>Rendre l’information accessible</b><small>À documenter</small></div></div>
+                    <div class="workflow-lane"><div class="workflow-lane__head">Vigilances<span>3</span></div><div class="workflow-card"><b>Ressources et énergie</b><small>À mettre en contexte</small></div><div class="workflow-card"><b>Biais et vie privée</b><small>À questionner</small></div></div>
+                    <div class="workflow-lane"><div class="workflow-lane__head">Responsabilités<span>3</span></div><div class="workflow-card is-highlight"><b>Garder le jugement humain</b><div class="workflow-card__meta"><span>Repère central</span><span class="workflow-tag">À retenir</span></div></div><div class="workflow-card"><b>Choisir en connaissance de cause</b><small>À partager</small></div></div>
+                  </div>
+                </div>
+              </div></div>
+            </div>
+
+            <div class="workflow-screen" data-screen="3">
+              <div class="workflow-frame"><div class="workflow-window">
+                <div class="workflow-window__top"><i class="bi bi-send" aria-hidden="true"></i><h4>Dossier partagé</h4><span class="workflow-pill is-on"><i class="bi bi-check2-circle" aria-hidden="true"></i>Prêt à lire</span></div>
+                <div class="workflow-window__body">
+                  <div class="workflow-mail"><div><span>Pour</span><b>Personnes qui cherchent des repères</b></div><div><span>Objet</span><b>Comprendre l’IA pour mieux choisir</b></div><div class="workflow-mail__body"><span>Bonjour,</span><span>L’intelligence artificielle peut aider, mais chaque usage pose aussi des questions. Nous avons rassemblé des repères sur l’environnement, le travail et la société pour vous aider à regarder les deux côtés.</span><span>À vous de poursuivre la réflexion, avec les sources et les questions qui restent ouvertes.</span></div></div>
+                  <div class="workflow-recipients"><span class="workflow-avatars"><i>CF</i><i>IA</i><i>PE</i></span><span>Un dossier pour <b>les curieux·ses</b></span><span class="workflow-pill"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>Ouvrir le dossier</span></div>
+                  <div class="workflow-sendbar"><i class="bi bi-check2-circle" aria-hidden="true"></i><div><b>Le repère est prêt à circuler</b><small>Comprendre avant de choisir</small></div><div class="workflow-sendstats"><span><b>3</b>thèmes</span><span><b>1</b>fil conducteur</span><span><b>∞</b>questions</span></div></div>
+                </div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- About Section -->
     <section id="about" class="about section light-background" aria-labelledby="about-title">
@@ -386,6 +509,7 @@
   <!-- Main JS File -->
   <script src="assets/js/header.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/workflow-cadence.js"></script>
 
 </body>
 

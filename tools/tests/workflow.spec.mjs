@@ -14,15 +14,16 @@ test.describe('homepage workflow story', () => {
   });
 
   test('switches the workflow stage from tabs and keeps ARIA state in sync', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 900 });
     await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
 
     const workflow = page.locator('#workflow');
-    await expect(workflow.locator('[role="tab"][aria-selected="true"]')).toHaveText('Capture');
+    await expect(workflow.locator('[role="tab"][aria-selected="true"]')).toHaveText('Recueillir');
     await expect(workflow.locator('.workflow-screen.is-active')).toHaveAttribute('data-screen', '0');
 
-    await workflow.getByRole('tab', { name: 'Prioritize' }).click();
+    await workflow.getByRole('tab', { name: 'Mettre en perspective' }).click();
 
-    await expect(workflow.locator('[role="tab"][aria-selected="true"]')).toHaveText('Prioritize');
+    await expect(workflow.locator('[role="tab"][aria-selected="true"]')).toHaveText('Mettre en perspective');
     await expect(workflow.locator('.workflow-step.is-active')).toHaveAttribute('data-step', '2');
     await expect(workflow.locator('.workflow-screen.is-active')).toHaveAttribute('data-screen', '2');
   });
