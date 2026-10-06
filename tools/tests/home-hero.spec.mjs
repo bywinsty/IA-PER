@@ -20,6 +20,41 @@ test('homepage Cadence hero keeps its content semantic without the device previe
   await expect(page.locator('#hero .site-header')).toHaveCount(0);
 });
 
+test('homepage hero and workflow use one fixed background across the scroll boundary', async ({ page }) => {
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/index.html', { waitUntil: 'load' });
+
+    const backgrounds = await page.evaluate(() => {
+      const hero = document.querySelector('#hero');
+      const workflow = document.querySelector('.workflow-cadence');
+      const readBackground = element => {
+        const styles = getComputedStyle(element);
+        return {
+          image: styles.backgroundImage,
+          color: styles.backgroundColor,
+          attachment: styles.backgroundAttachment
+        };
+      };
+
+      return {
+        hero: readBackground(hero),
+        workflow: readBackground(workflow),
+        ambientDisplay: getComputedStyle(document.querySelector('.hero-cadence__ambient')).display,
+        workflowTop: workflow.offsetTop
+      };
+    });
+
+    expect(backgrounds.hero).toEqual(backgrounds.workflow);
+    expect(backgrounds.hero.attachment.split(',').map(value => value.trim())).toEqual(['fixed', 'fixed', 'fixed']);
+    expect(backgrounds.ambientDisplay).toBe('none');
+
+    await page.evaluate(top => window.scrollTo({ top, behavior: 'instant' }), backgrounds.workflowTop);
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+    await expect(page.locator('.workflow-cadence')).toHaveCSS('background-attachment', 'fixed, fixed, fixed');
+  }
+});
+
 for (const width of viewports) {
   test(`homepage Cadence hero fits below the header at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });

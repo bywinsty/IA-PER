@@ -12,10 +12,8 @@
   --workflow-accent-soft: rgba(76, 196, 234, 0.12);
   --workflow-accent-line: rgba(76, 196, 234, 0.42);
   color: var(--workflow-text);
-  background:
-    radial-gradient(ellipse 48% 42% at 50% 14%, rgba(71, 178, 228, 0.14), transparent 72%),
-    radial-gradient(circle at 76% 55%, rgba(71, 178, 228, 0.1), transparent 28%),
-    var(--workflow-bg);
+  background: var(--cadence-section-background);
+  background-attachment: fixed;
   padding: calc(var(--header-height, 96px) + clamp(48px, 7vw, 84px)) 0 clamp(88px, 11vw, 156px);
   scroll-margin-top: var(--header-scroll-padding, 96px);
 }

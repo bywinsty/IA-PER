@@ -12,6 +12,11 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
+  --cadence-section-background:
+    radial-gradient(ellipse 48% 42% at 50% 14%, rgba(71, 178, 228, 0.14), transparent 72%),
+    radial-gradient(circle at 76% 55%, rgba(71, 178, 228, 0.1), transparent 28%),
+    #111b3d;
+
   --default-font: "Open Sans",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Jost",  sans-serif;
   --nav-font: "Poppins",  sans-serif;
@@ -591,45 +596,11 @@ section,
   isolation: isolate;
   overflow: hidden;
   padding: calc(var(--header-height, 96px) + 24px) 0 80px;
-  background:
-    radial-gradient(ellipse 48% 42% at 50% 14%, rgba(71, 178, 228, 0.14), transparent 72%),
-    radial-gradient(circle at 76% 55%, rgba(71, 178, 228, 0.1), transparent 28%),
-    var(--background-color);
+  background: var(--cadence-section-background);
+  background-attachment: fixed;
 }
 
-.hero-cadence__ambient,
-.hero-cadence__ambient i {
-  position: absolute;
-  display: block;
-  pointer-events: none;
-}
-
-.hero-cadence__ambient {
-  z-index: -1;
-  inset: 0;
-  overflow: hidden;
-}
-
-.hero-cadence__ambient i {
-  top: -350px;
-  left: 0;
-  width: 560px;
-  height: 1380px;
-  transform: rotate(-45deg);
-  background: radial-gradient(68% 69% at 55% 31%, rgba(187, 226, 241, 0.09), rgba(71, 178, 228, 0.025) 50%, transparent 80%);
-}
-
-.hero-cadence__ambient i:nth-child(2) {
-  left: 22%;
-  width: 240px;
-  background: radial-gradient(50% 50%, rgba(187, 226, 241, 0.06), transparent 80%);
-}
-
-.hero-cadence__ambient i:nth-child(3) {
-  left: 68%;
-  width: 240px;
-  background: radial-gradient(50% 50%, rgba(187, 226, 241, 0.045), transparent 80%);
-}
+.hero-cadence__ambient { display: none; }
 
 .hero-cadence__copy {
   position: relative;
