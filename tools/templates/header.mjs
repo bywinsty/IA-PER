@@ -15,7 +15,7 @@ function renderHomeNavigation(page, indent, eol) {
   ].join(eol)).join(eol);
 
   return [
-    `${indent}    <nav class="header-page-nav" aria-label="Navigation de la page d’accueil">`,
+    `${indent}    <nav class="header-page-nav" aria-label="${escapeHtml(page.navigationLabel ?? 'Navigation de la page d’accueil')}">`,
     `${indent}      <a href="${escapeHtml(page.currentHref)}" class="header-current-link" aria-current="page">`,
     `${indent}        <span>${escapeHtml(page.currentLabel)}</span>`,
     `${indent}      </a>`,
@@ -97,11 +97,12 @@ function renderScrollProgress(indent, eol) {
 export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
   const asset = (relativePath) => `${page.assetPrefix ?? ''}assets/${relativePath}`;
   const scrollProgress = renderScrollProgress(indent, eol);
-  const scrollProgressInsideInner = page.type === 'home'
+  const usesCadenceHeader = page.type === 'home' || page.type === 'thematics';
+  const scrollProgressInsideInner = usesCadenceHeader
     ? renderScrollProgress(`${indent}  `, eol)
     : '';
-  const scrollProgressOutsideInner = page.type === 'home' ? '' : scrollProgress;
-  const navigation = page.type === 'home'
+  const scrollProgressOutsideInner = usesCadenceHeader ? '' : scrollProgress;
+  const navigation = usesCadenceHeader
     ? renderHomeNavigation(page, indent, eol)
     : page.type === 'breadcrumb-sections'
       ? renderBreadcrumbSections(page, indent, eol)

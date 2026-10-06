@@ -47,13 +47,17 @@ export const headerPages = [
   },
   {
     file: 'pages/thématiques/thematiques.html',
-    type: 'breadcrumb-sections',
+    type: 'thematics',
     assetPrefix: '../../',
     homeHref: '../../index.html',
     routes: thematicRoutes,
-    breadcrumbs: [
-      { label: 'Accueil', href: '../../index.html' },
-      { label: 'Thématiques', href: 'thematiques.html', current: true }
+    navigationLabel: 'Navigation des thématiques',
+    currentLabel: 'Thématiques',
+    currentHref: 'thematiques.html',
+    sections: [
+      { label: 'Environnement', href: 'environnement.html' },
+      { label: 'Professionnel', href: 'professionnel.html' },
+      { label: 'Société', href: 'societe.html' }
     ],
   },
   {

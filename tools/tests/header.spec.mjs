@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 const pages = [
   { file: 'index.html', type: 'home', assetPrefix: '' },
-  { file: 'pages/thématiques/thematiques.html', type: 'breadcrumb-sections', assetPrefix: '../../' },
+  { file: 'pages/thématiques/thematiques.html', type: 'thematics', assetPrefix: '../../' },
   { file: 'pages/thématiques/environnement.html', type: 'breadcrumb', assetPrefix: '../../' },
   { file: 'pages/thématiques/professionnel.html', type: 'breadcrumb', assetPrefix: '../../' },
   { file: 'pages/thématiques/societe.html', type: 'breadcrumb', assetPrefix: '../../' },
@@ -60,14 +60,17 @@ for (const definition of pages) {
       await expect(header.locator('.header-section-links a')).toHaveCount(3);
       await expect(header.locator('.header-breadcrumbs')).toHaveCount(0);
       await expect(header.locator('#scroll-progress')).toHaveCount(1);
-    } else if (definition.type === 'breadcrumb-sections') {
-      const breadcrumbs = header.locator('.header-breadcrumbs');
-      await expect(breadcrumbs).toHaveCount(1);
-      await expect(breadcrumbs.locator('a[aria-current="page"]')).toHaveCount(1);
-      const currentLink = breadcrumbs.locator('a[aria-current="page"]');
-      await expect(currentLink).toHaveAttribute('href', 'thematiques.html');
-      await expect(header.locator('.header-section-nav')).toHaveCount(0);
-      await expect(header.locator('.header-section-links a')).toHaveCount(0);
+    } else if (definition.type === 'thematics') {
+      await expect(header.locator('.header-page-nav')).toHaveCount(1);
+      await expect(header.locator('.header-page-nav')).toHaveAttribute('aria-label', 'Navigation des thématiques');
+      await expect(header.locator('.header-current-link')).toHaveText('Thématiques');
+      await expect(header.locator('.header-current-link')).toHaveAttribute('href', 'thematiques.html');
+      await expect(header.locator('.header-current-link')).toHaveAttribute('aria-current', 'page');
+      await expect(header.locator('.header-section-links a')).toHaveCount(3);
+      await expect(header.locator('.header-section-links a')).toHaveText(['Environnement', 'Professionnel', 'Société']);
+      await expect.poll(() => header.locator('.header-section-links a').evaluateAll(links => links.map(link => link.getAttribute('href'))))
+        .toEqual(['environnement.html', 'professionnel.html', 'societe.html']);
+      await expect(header.locator('.header-breadcrumbs')).toHaveCount(0);
       await expect(header.locator('#scroll-progress')).toHaveCount(1);
       await expect(page.locator('#sources')).toHaveCount(0);
       await expect(page.locator('main')).not.toContainText('Sources et références');
@@ -168,13 +171,14 @@ test('homepage keeps only the page link current while the hero is visible', asyn
   await expect(page.locator('.header-section-links a.is-active')).toHaveCount(0);
 });
 
-test('thematics page current breadcrumb stays page-local and hash-free', async ({ page }) => {
+test('thematics page keeps a page-local current link without breadcrumbs', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
 
-  const themesLink = page.locator('.header-breadcrumbs a[aria-current="page"]');
+  const themesLink = page.locator('.header-current-link');
   await expect(themesLink).toHaveAttribute('aria-current', 'page');
   await expect(themesLink).toHaveAttribute('href', 'thematiques.html');
+  await expect(page.locator('.header-breadcrumbs')).toHaveCount(0);
   await themesLink.click();
   const currentUrl = new URL(page.url());
   expect(decodeURIComponent(currentUrl.pathname)).toBe('/pages/thématiques/thematiques.html');
@@ -190,7 +194,7 @@ test('thematics page direct hash navigation respects the dynamic header', async 
     await page.goto(`/pages/thématiques/thematiques.html#${id}`, { waitUntil: 'load' });
     await waitForAnchorAlignment(page, `#${id}`);
     if (id === 'themes') {
-      await expect(page.locator('.header-breadcrumbs a[aria-current="page"]')).toHaveAttribute('href', 'thematiques.html');
+      await expect(page.locator('.header-current-link')).toHaveAttribute('href', 'thematiques.html');
     }
   }
 });

@@ -386,19 +386,22 @@
   box-shadow: none;
 }
 
-/* Homepage Cadence-style header: open at the top, compact after scrolling. */
-.index-page .header > .container-fluid.container-xl {
+/* Cadence-style headers: open at the top, compact after scrolling. */
+.index-page .header > .container-fluid.container-xl,
+.thematics-page .header > .container-fluid.container-xl {
   width: 100%;
   max-width: none;
   padding-left: 0;
   padding-right: 0;
 }
 
-.index-page .header {
+.index-page .header,
+.thematics-page .header {
   padding-top: 0;
 }
 
-.index-page .header-inner {
+.index-page .header-inner,
+.thematics-page .header-inner {
   position: relative;
   flex-wrap: wrap;
   overflow: hidden;
@@ -419,13 +422,15 @@
     box-shadow 280ms ease;
 }
 
-.index-page .header-brand {
+.index-page .header-brand,
+.thematics-page .header-brand {
   flex: 0 0 auto;
   margin-right: 0 !important;
   overflow: visible;
 }
 
-.index-page .header-page-nav {
+.index-page .header-page-nav,
+.thematics-page .header-page-nav {
   position: absolute;
   top: 16px;
   left: 50%;
@@ -440,18 +445,21 @@
   transform: translateX(-50%);
 }
 
-.index-page .header-section-links {
+.index-page .header-section-links,
+.thematics-page .header-section-links {
   width: fit-content;
   max-width: 100%;
   margin-inline: auto;
   justify-content: center;
 }
 
-.index-page .header-theme-cta {
+.index-page .header-theme-cta,
+.thematics-page .header-theme-cta {
   margin-left: auto;
 }
 
-.index-page.scrolled .header-inner {
+.index-page.scrolled .header-inner,
+.thematics-page.scrolled .header-inner {
   width: min(calc(100% - 28px), 1140px);
   border-color: rgba(17, 27, 61, 0.14);
   border-radius: 24px;
@@ -462,16 +470,19 @@
 }
 
 @media (max-width: 640px) {
-  .index-page .header-inner {
+  .index-page .header-inner,
+  .thematics-page .header-inner {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .index-page .header-brand {
+  .index-page .header-brand,
+  .thematics-page .header-brand {
     display: contents !important;
   }
 
-  .index-page .header-page-nav {
+  .index-page .header-page-nav,
+  .thematics-page .header-page-nav {
     position: static;
     flex: 1 0 100%;
     width: 100%;
@@ -485,13 +496,15 @@
     font-size: 24px;
   }
 
-  .index-page .header-theme-cta {
+  .index-page .header-theme-cta,
+  .thematics-page .header-theme-cta {
     flex: 1 0 100%;
     width: 100%;
     margin: 8px 0 0;
   }
 
-  .index-page.scrolled .header-inner {
+  .index-page.scrolled .header-inner,
+  .thematics-page.scrolled .header-inner {
     width: calc(100% - 16px);
   }
 }

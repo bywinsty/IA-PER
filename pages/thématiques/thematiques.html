@@ -45,31 +45,45 @@
           <span class="site-name">IA-PER</span>
         </a>
 
-      <div class="header-navigation-stack">
-        <nav class="header-breadcrumbs" aria-label="Fil d’Ariane">
-          <ol>
-            <li><a href="../../index.html" class="breadcrumb-button">Accueil</a></li>
-            <li><a href="thematiques.html" class="breadcrumb-button current" aria-current="page">Thématiques</a></li>
-          </ol>
-        </nav>
-      </div>
+      <nav class="header-page-nav" aria-label="Navigation des thématiques">
+        <a href="thematiques.html" class="header-current-link" aria-current="page">
+          <span>Thématiques</span>
+        </a>
+        <ol class="header-section-links">
+        <li>
+          <a href="environnement.html">
+            <span>Environnement</span>
+          </a>
+        </li>
+        <li>
+          <a href="professionnel.html">
+            <span>Professionnel</span>
+          </a>
+        </li>
+        <li>
+          <a href="societe.html">
+            <span>Société</span>
+          </a>
+        </li>
+        </ol>
+      </nav>
         </div>
         <a href="thematiques.html#themes" class="header-theme-cta">Découvrir les thématiques <span aria-hidden="true">→</span></a>
+      <div
+        id="scroll-progress"
+        class="scroll-progress"
+        role="progressbar"
+        aria-label="Progression de lecture"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+        aria-valuetext="0%">
+        <span class="scroll-progress__bar" aria-hidden="true"></span>
+      </div>
       </div>
 
     </div>
 
-    <div
-      id="scroll-progress"
-      class="scroll-progress"
-      role="progressbar"
-      aria-label="Progression de lecture"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      aria-valuenow="0"
-      aria-valuetext="0%">
-      <span class="scroll-progress__bar" aria-hidden="true"></span>
-    </div>
   </header>
   <!-- generated:header:end -->
 
