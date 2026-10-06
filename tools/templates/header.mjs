@@ -62,6 +62,12 @@ function renderSectionNavigation(page, indent, eol, { prefix = '' } = {}) {
   ].join(eol);
 }
 
+function renderThemeCta(page, indent) {
+  const themesHref = page.routes?.['thematiques.html'] ?? 'pages/thématiques/thematiques.html';
+
+  return `${indent}      <a href="${escapeHtml(`${themesHref}#themes`)}" class="header-theme-cta">Découvrir les thématiques <span aria-hidden="true">→</span></a>`;
+}
+
 function renderBreadcrumbSections(page, indent, eol) {
   return [
     `${indent}    <div class="header-navigation-stack">`,
@@ -100,9 +106,10 @@ export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
   return [
     `${indent}<!-- generated:header:start -->`,
     `${indent}<header id="header" class="header d-flex align-items-center fixed-top">`,
-    `${indent}  <div class="container-fluid position-relative d-flex align-items-center">`,
+    `${indent}  <div class="container-fluid container-xl position-relative d-flex align-items-center">`,
     '',
-    `${indent}    <div class="header-brand d-flex align-items-center me-auto">`,
+    `${indent}    <div class="header-inner d-flex align-items-center">`,
+    `${indent}      <div class="header-brand d-flex align-items-center me-auto">`,
     `${indent}      <a href="${escapeHtml(page.homeHref ?? 'index.html')}" class="logo d-flex align-items-center" aria-label="IA-PER">`,
     `${indent}        <img`,
     `${indent}          src="${escapeHtml(asset('img/ia-per.svg'))}"`,
@@ -113,6 +120,8 @@ export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
     `${indent}      </a>`,
     '',
     navigation,
+    `${indent}      </div>`,
+    renderThemeCta(page, indent),
     `${indent}    </div>`,
     '',
     `${indent}  </div>`,

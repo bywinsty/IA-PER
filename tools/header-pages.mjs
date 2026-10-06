@@ -40,7 +40,7 @@ export const headerPages = [
     currentLabel: 'Accueil',
     currentHref: '#hero',
     sections: [
-      { label: 'À propos de l’étude', href: '#about' },
+      { label: 'À propos', href: '#about' },
       { label: 'Équipe du projet', href: '#team' },
       { label: 'Partenaires et soutiens', href: '#partners' }
     ]

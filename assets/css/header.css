@@ -32,14 +32,14 @@
   --nav-color: #111b3d;
   --header-highlight: #f4a51c;
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: transparent;
   padding: 10px 0;
   transition: all 0.5s;
   z-index: 997;
   border-bottom: 0;
   box-shadow: none;
-  -webkit-backdrop-filter: blur(12px) saturate(120%);
-  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .header .logo {
@@ -48,8 +48,65 @@
 }
 
 .header > .container-fluid {
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Yassin form: one floating, rounded surface containing the existing Tolya
+   navigation. The markup and runtime behaviour remain Tolya's. */
+.header-inner {
+  width: 100%;
+  min-width: 0;
+  padding: 6px 14px;
+  border: 1px solid rgba(17, 27, 61, 0.14);
+  border-radius: 24px;
+  background: rgba(247, 249, 253, 0.98);
+  box-shadow:
+    0 8px 28px rgba(17, 27, 61, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  backdrop-filter: blur(18px) saturate(120%);
+}
+
+.header-theme-cta {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  margin-left: 16px;
+  padding: 9px 16px;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-family: var(--heading-font);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 50px;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 12px 24px -14px rgba(71, 178, 228, 0.9);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.header-theme-cta:hover,
+.header-theme-cta:focus-visible {
+  color: var(--contrast-color);
+  background: color-mix(in srgb, var(--accent-color), white 14%);
+  transform: translateY(-1px);
+}
+
+.header-theme-cta:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent-color), transparent 25%);
+  outline-offset: 3px;
+}
+
+@media (min-width: 1200px) {
+  /* Yassin uses the narrower xl shell instead of a full-width desktop bar. */
+  .header > .container-fluid.container-xl {
+    max-width: 1140px;
+  }
 }
 
 .header .logo .site-logo {
@@ -255,14 +312,29 @@
 
 @media (max-width: 640px) {
   :root {
-    --header-height: 120px;
-    --header-scroll-padding: 120px;
+    --header-height: 174px;
+    --header-scroll-padding: 174px;
   }
 
   .header > .container-fluid {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
     align-items: flex-start;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    padding: 6px 10px;
+    border-radius: 20px;
+  }
+
+  .header-theme-cta {
+    flex: 1 0 100%;
+    width: 100%;
+    min-height: 40px;
+    margin: 8px 0 0;
+    padding: 8px 14px;
+    font-size: 12px;
   }
 
   .header .logo .site-logo {

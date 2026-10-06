@@ -109,6 +109,32 @@ test('production pages keep local links and assets reachable', async ({ page, re
   }
 });
 
+test('theme CTA stays at the right edge and keeps the correct local route', async ({ page }) => {
+  const cases = [
+    { file: 'index.html', href: 'pages/thématiques/thematiques.html#themes' },
+    { file: 'pages/thématiques/thematiques.html', href: 'thematiques.html#themes' },
+    { file: 'pages/thématiques/environnement.html', href: 'thematiques.html#themes' },
+    { file: 'pages/thématiques/professionnel.html', href: 'thematiques.html#themes' },
+    { file: 'pages/thématiques/societe.html', href: 'thematiques.html#themes' },
+    { file: 'pages/404.html', href: 'thématiques/thematiques.html#themes' }
+  ];
+
+  for (const definition of cases) {
+    await page.goto(`/${definition.file}`, { waitUntil: 'domcontentloaded' });
+    const cta = page.locator('.header-theme-cta');
+    await expect(cta).toHaveText('Découvrir les thématiques →');
+    await expect(cta).toHaveAttribute('href', definition.href);
+
+    const edgeGap = await page.evaluate(() => {
+      const button = document.querySelector('.header-theme-cta')?.getBoundingClientRect();
+      const panel = document.querySelector('.header-inner')?.getBoundingClientRect();
+      return panel && button ? panel.right - button.right : Number.POSITIVE_INFINITY;
+    });
+    expect(edgeGap).toBeGreaterThanOrEqual(0);
+    expect(edgeGap).toBeLessThanOrEqual(20);
+  }
+});
+
 for (const width of [1440, 640, 380, 300, 280]) {
   test(`homepage header stays within ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
