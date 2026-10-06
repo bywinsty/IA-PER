@@ -5,6 +5,7 @@
   "scripts": {
     "build:headers": "node tools/scripts/build-headers.mjs",
     "serve:test": "node tools/scripts/serve-static.mjs --port=4173",
+    "test": "npm run test:headers",
     "test:headers": "npm run build:headers && playwright test",
     "verify:headers": "node tools/scripts/verify-headers.mjs && npm run test:headers"
   },

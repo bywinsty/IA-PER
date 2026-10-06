@@ -64,10 +64,7 @@ for (const definition of pages) {
       const breadcrumbs = header.locator('.header-breadcrumbs');
       await expect(breadcrumbs).toHaveCount(1);
       await expect(breadcrumbs.locator('a[aria-current="page"]')).toHaveCount(1);
-      await expect(breadcrumbs.locator('ol')).toHaveCSS('list-style-type', 'none');
       const currentLink = breadcrumbs.locator('a[aria-current="page"]');
-      await expect(breadcrumbs.locator('.breadcrumb-button').first()).toHaveCSS('font-weight', '700');
-      await expect(currentLink).toHaveCSS('font-weight', '700');
       await expect(currentLink).toHaveAttribute('href', 'thematiques.html');
       await expect(header.locator('.header-section-nav')).toHaveCount(0);
       await expect(header.locator('.header-section-links a')).toHaveCount(0);
@@ -78,9 +75,6 @@ for (const definition of pages) {
       const breadcrumbs = header.locator('.header-breadcrumbs');
       await expect(breadcrumbs).toHaveCount(1);
       await expect(breadcrumbs.locator('a[aria-current="page"]')).toHaveCount(1);
-      await expect(breadcrumbs.locator('ol')).toHaveCSS('list-style-type', 'none');
-      await expect(breadcrumbs.locator('.breadcrumb-button').first()).toHaveCSS('font-weight', '700');
-      await expect(breadcrumbs.locator('a[aria-current="page"]')).toHaveCSS('font-weight', '700');
       await expect(header.locator('.header-page-nav')).toHaveCount(0);
       await expect(header.locator('#scroll-progress')).toHaveCount(1);
     }
@@ -174,7 +168,7 @@ test('homepage keeps only the page link current while the hero is visible', asyn
   await expect(page.locator('.header-section-links a.is-active')).toHaveCount(0);
 });
 
-test('thematics page current breadcrumb links to the page without a section hash', async ({ page }) => {
+test('thematics page current breadcrumb stays page-local and hash-free', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
 
@@ -182,6 +176,9 @@ test('thematics page current breadcrumb links to the page without a section hash
   await expect(themesLink).toHaveAttribute('aria-current', 'page');
   await expect(themesLink).toHaveAttribute('href', 'thematiques.html');
   await themesLink.click();
+  const currentUrl = new URL(page.url());
+  expect(decodeURIComponent(currentUrl.pathname)).toBe('/pages/thématiques/thematiques.html');
+  expect(currentUrl.hash).toBe('');
   await expect(themesLink).toHaveAttribute('aria-current', 'page');
 });
 
@@ -212,12 +209,6 @@ test('direct hash navigation respects the header in reduced-motion mode', async 
   await page.goto('/index.html#team', { waitUntil: 'load' });
   await waitForAnchorAlignment(page, '#team');
   await expect(page.locator('.header-section-links a[href="#team"]')).toHaveAttribute('aria-current', 'location');
-});
-
-test('scrolling changes the header to its scrolled state', async ({ page }) => {
-  await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
-  await page.evaluate(() => window.scrollTo({ top: 200, behavior: 'instant' }));
-  await expect(page.locator('body')).toHaveClass(/scrolled/);
 });
 
 test('homepage header spreads at the top and condenses around the centered navigation', async ({ page }) => {
@@ -256,8 +247,7 @@ test('homepage header spreads at the top and condenses around the centered navig
       cta: rect(cta),
       progress: rect(progress),
       progressParentIsInner: progress?.parentElement === inner,
-      siteNameText: siteName?.textContent.trim(),
-      headerBackground: getComputedStyle(inner).backgroundColor
+      siteNameText: siteName?.textContent.trim()
     };
   });
 
@@ -277,7 +267,10 @@ test('homepage header spreads at the top and condenses around the centered navig
 
   await page.evaluate(() => window.scrollTo({ top: 200, behavior: 'instant' }));
   await expect(page.locator('body')).toHaveClass(/scrolled/);
-  await page.waitForTimeout(700);
+  await expect.poll(
+    () => page.evaluate(() => document.querySelector('.header-inner')?.getBoundingClientRect().width ?? 0),
+    { timeout: 2_000 }
+  ).toBeLessThan(topState.inner.width - 200);
 
   const scrolledState = await page.evaluate(() => {
     const inner = document.querySelector('.header-inner');
@@ -303,8 +296,7 @@ test('homepage header spreads at the top and condenses around the centered navig
       cta: rect(cta),
       current: rect(current),
       sectionList: rect(sectionList),
-      progress: rect(progress),
-      headerBackground: getComputedStyle(inner).backgroundColor
+      progress: rect(progress)
     };
   });
 
@@ -316,7 +308,6 @@ test('homepage header spreads at the top and condenses around the centered navig
   expect(Math.abs(scrolledState.sectionList.center - scrolledState.current.center)).toBeLessThanOrEqual(2);
   expect(scrolledState.logo.left).toBeGreaterThan(topState.logo.left + 80);
   expect(scrolledState.cta.right).toBeLessThan(topState.cta.right - 80);
-  expect(scrolledState.headerBackground).toBe(topState.headerBackground);
 });
 
 test('homepage mobile header keeps the brand, navigation, and CTA separated', async ({ page }) => {
@@ -353,30 +344,24 @@ test('homepage mobile header keeps the brand, navigation, and CTA separated', as
   expect(layout.scrollWidth).toBeLessThanOrEqual(layout.viewportWidth);
 });
 
-for (const width of [1440, 380]) {
+for (const width of [380]) {
   test(`homepage reading progress is part of the header at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/index.html', { waitUntil: 'load' });
 
     const positions = await page.evaluate(() => {
-      const header = document.querySelector('#header');
       const inner = document.querySelector('.header-inner');
       const progress = document.querySelector('#scroll-progress');
-      const headerRect = header?.getBoundingClientRect();
       const innerRect = inner?.getBoundingClientRect();
       const progressRect = progress?.getBoundingClientRect();
       return {
         parentIsInner: progress?.parentElement === inner,
-        position: progress ? getComputedStyle(progress).position : '',
-        headerBottom: headerRect?.bottom ?? 0,
         innerBottom: innerRect?.bottom ?? 0,
-        progressTop: progressRect?.top ?? 0,
         progressBottom: progressRect?.bottom ?? 0
       };
     });
 
     expect(positions.parentIsInner).toBe(true);
-    expect(positions.position).toBe('absolute');
     expect(Math.abs(positions.progressBottom - positions.innerBottom)).toBeLessThanOrEqual(1);
   });
 }

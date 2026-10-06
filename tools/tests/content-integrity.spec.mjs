@@ -16,6 +16,13 @@ test('404 page gives a clear heading, useful recovery links, and a non-empty des
   expect(headingLevels).toEqual([1, 2, 2]);
 });
 
+test('thematics index does not publish the removed sources placeholder', async ({ page }) => {
+  await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
+
+  await expect(page.locator('#sources')).toHaveCount(0);
+  await expect(page.locator('main')).not.toContainText('Sources et références');
+});
+
 for (const path of [
   '/pages/thématiques/environnement.html',
   '/pages/thématiques/professionnel.html',
@@ -25,6 +32,7 @@ for (const path of [
     await page.goto(path, { waitUntil: 'domcontentloaded' });
 
     await expect(page.locator('#testimonials')).toHaveCount(0);
+    await expect(page.locator('link[href*="swiper"], script[src*="swiper"]')).toHaveCount(0);
     await expect(page.getByText(/Saul Goodman|Sara Wilsson|Jena Karlis|Matt Brandon|John Larson/)).toHaveCount(0);
     await expect(page.getByText(/Reprendre les phrases pertinents/i)).toHaveCount(0);
   });
