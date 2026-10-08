@@ -64,4 +64,10 @@ test('single partner logos stay centred on tablets', async ({ page }) => {
     }));
     offsets.forEach(offset => expect(offset).toBeLessThanOrEqual(1));
   }
+  await page.setViewportSize({ width: 375, height: 900 });
+  const narrowCards = await page.locator('.partner-logo-card').evaluateAll(cards => cards.map(card => ({
+    width: card.getBoundingClientRect().width,
+    available: card.parentElement.getBoundingClientRect().width
+  })));
+  narrowCards.forEach(card => expect(Math.abs(card.width - card.available)).toBeLessThanOrEqual(1));
 });

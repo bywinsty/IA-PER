@@ -74,7 +74,7 @@
 .header-theme-cta:hover,
 .header-theme-cta:focus-visible {
   color: var(--contrast-color);
-  background: color-mix(in srgb, var(--accent-color), white 14%);
+  background: #125775;
   transform: translateY(-1px);
 }
 

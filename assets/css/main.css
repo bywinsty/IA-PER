@@ -599,7 +599,14 @@ section,
     background-attachment: scroll;
   }
 }
-.section--cadence-background > .section-title h2 {
+.index-page :is(.section-title, .about-story__header) h2 {
+  margin: 0 auto 20px;
+  padding: 0;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  text-transform: none;
   color: transparent;
   background: linear-gradient(120deg, #f7f9fb 12%, #b6c7d1 58%, #4cc4ea 115%);
   -webkit-background-clip: text;
@@ -610,11 +617,12 @@ section,
   color: var(--cadence-text);
 }
 
-.section--cadence-background > .section-title h2::before {
-  background: rgba(243, 247, 250, 0.4);
+.index-page .section-title h2::before,
+.index-page .section-title h2::after {
+  content: none;
 }
 
-.section--cadence-background > .section-title p,
+.section--cadence-background .section-title p,
 .section--cadence-background .partner-funding-note {
   color: var(--cadence-text-muted);
 }
@@ -737,9 +745,10 @@ section,
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.hero .hero-cadence__cta:hover {
+.hero .hero-cadence__cta:hover,
+.hero .hero-cadence__cta:focus-visible {
   color: var(--contrast-color);
-  background: color-mix(in srgb, var(--accent-color), white 14%);
+  background: #125775;
   transform: translateY(-2px);
 }
 
@@ -893,6 +902,11 @@ section,
 @media (max-width: 991px) {
   .partner-logo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .partner-logo-grid--owner,
+  .partner-logo-grid--funding {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -1250,6 +1264,8 @@ section,
 
 .team .team-member .member-info {
   width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
   padding-left: 0;
 }
 
@@ -1281,6 +1297,7 @@ section,
 
 .team .team-member .team-role--lead {
   display: inline-flex;
+  max-width: 100%;
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
@@ -1302,7 +1319,8 @@ section,
 
 .team .team-member p {
   margin: 10px 0 0 0;
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .team .team-connector-layer {
@@ -1423,6 +1441,17 @@ section,
 
   .team .team-member h3 {
     font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .team .team-members .team-member {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .team .team-members .member-info {
+    padding-left: 0;
   }
 }
 
