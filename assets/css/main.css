@@ -593,6 +593,12 @@ section,
   background-attachment: fixed;
 }
 
+/* Fixed backgrounds are unreliable and costly to paint on touch browsers, notably iOS Safari. */
+@media (hover: none) and (pointer: coarse) {
+  .section--cadence-background {
+    background-attachment: scroll;
+  }
+}
 .section--cadence-background > .section-title h2 {
   color: transparent;
   background: linear-gradient(120deg, #f7f9fb 12%, #b6c7d1 58%, #4cc4ea 115%);
@@ -846,6 +852,9 @@ section,
   outline-offset: 4px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .section--cadence-background.partners .partner-logo-card { transition: none; }
+}
 .partner-logo-card img {
   display: block;
   max-height: 72px;

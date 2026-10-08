@@ -95,6 +95,29 @@ test('team and partner panels extend the About visual language', async ({ page }
   expect(styles.partnerBanner.borderRadius).toBe('16px');
 });
 
+test('touch devices use a scrolling cadence background instead of fixed attachment', async ({ browser }) => {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    isMobile: true,
+    hasTouch: true
+  });
+  const page = await context.newPage();
+
+  await page.goto('/index.html', { waitUntil: 'load' });
+
+  expect(await page.evaluate(() => matchMedia('(hover: none) and (pointer: coarse)').matches)).toBe(true);
+  await expect(page.locator('#team')).toHaveCSS('background-attachment', 'scroll, scroll, scroll');
+  await expect(page.locator('#partners')).toHaveCSS('background-attachment', 'scroll, scroll, scroll');
+
+  await context.close();
+});
+
+test('partner-card motion is disabled when reduced motion is requested', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/index.html', { waitUntil: 'load' });
+
+  await expect(page.locator('#partners .partner-logo-card').first()).toHaveCSS('transition-duration', '0s');
+});
 for (const width of viewports) {
   test(`homepage Cadence hero fits below the header at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
