@@ -20,7 +20,7 @@ test('homepage Cadence hero keeps its content semantic without the device previe
   await expect(page.locator('#hero .site-header')).toHaveCount(0);
 });
 
-test('homepage hero and about story use one fixed background across the scroll boundary', async ({ page }) => {
+test('homepage sections from hero through partners use one fixed background', async ({ page }) => {
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/index.html', { waitUntil: 'load' });
@@ -28,6 +28,8 @@ test('homepage hero and about story use one fixed background across the scroll b
     const backgrounds = await page.evaluate(() => {
       const hero = document.querySelector('#hero');
       const aboutStory = document.querySelector('.about-story');
+      const team = document.querySelector('#team');
+      const partners = document.querySelector('#partners');
       const readBackground = element => {
         const styles = getComputedStyle(element);
         return {
@@ -40,12 +42,16 @@ test('homepage hero and about story use one fixed background across the scroll b
       return {
         hero: readBackground(hero),
         aboutStory: readBackground(aboutStory),
+        team: readBackground(team),
+        partners: readBackground(partners),
         ambientDisplay: getComputedStyle(document.querySelector('.hero-cadence__ambient')).display,
         aboutStoryTop: aboutStory.offsetTop
       };
     });
 
     expect(backgrounds.hero).toEqual(backgrounds.aboutStory);
+    expect(backgrounds.team).toEqual(backgrounds.aboutStory);
+    expect(backgrounds.partners).toEqual(backgrounds.aboutStory);
     expect(backgrounds.hero.attachment.split(',').map(value => value.trim())).toEqual(['fixed', 'fixed', 'fixed']);
     expect(backgrounds.ambientDisplay).toBe('none');
 
@@ -53,6 +59,40 @@ test('homepage hero and about story use one fixed background across the scroll b
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
     await expect(page.locator('.about-story')).toHaveCSS('background-attachment', 'fixed, fixed, fixed');
   }
+});
+
+test('team and partner panels extend the About visual language', async ({ page }) => {
+  await page.goto('/index.html', { waitUntil: 'load' });
+
+  const styles = await page.evaluate(() => {
+    const read = selector => {
+      const computed = getComputedStyle(document.querySelector(selector));
+      return {
+        backgroundImage: computed.backgroundImage,
+        borderRadius: computed.borderRadius,
+        color: computed.color
+      };
+    };
+
+    return {
+      teamTitle: read('#team-title'),
+      teamCard: read('#team .team-member'),
+      teamCardTitle: read('#team .team-member h3'),
+      teamCardText: read('#team .team-member p'),
+      partnerHeading: read('#partners .partner-group h3'),
+      partnerBanner: read('#partners .partner-logo-card')
+    };
+  });
+
+  expect(styles.teamTitle.color).toBe('rgba(0, 0, 0, 0)');
+  expect(styles.teamTitle.backgroundImage).toContain('linear-gradient');
+  expect(styles.teamCard.backgroundImage).toContain('linear-gradient');
+  expect(styles.teamCard.borderRadius).toBe('22px');
+  expect(styles.teamCardTitle.color).toBe('rgb(243, 247, 250)');
+  expect(styles.teamCardText.color).toBe('rgb(201, 213, 221)');
+  expect(styles.partnerHeading.color).toBe('rgb(243, 247, 250)');
+  expect(styles.partnerBanner.backgroundImage).toContain('linear-gradient');
+  expect(styles.partnerBanner.borderRadius).toBe('16px');
 });
 
 for (const width of viewports) {

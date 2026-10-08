@@ -584,6 +584,35 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+.section--cadence-background {
+  --accent-color: #4cc4ea;
+  --cadence-text: #f3f7fa;
+  --cadence-text-muted: #c9d5dd;
+  --cadence-line: rgba(222, 236, 245, 0.24);
+  background: var(--cadence-section-background);
+  background-attachment: fixed;
+}
+
+.section--cadence-background > .section-title h2 {
+  color: transparent;
+  background: linear-gradient(120deg, #f7f9fb 12%, #b6c7d1 58%, #4cc4ea 115%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.section--cadence-background .partner-group h3 {
+  color: var(--cadence-text);
+}
+
+.section--cadence-background > .section-title h2::before {
+  background: rgba(243, 247, 250, 0.4);
+}
+
+.section--cadence-background > .section-title p,
+.section--cadence-background .partner-funding-note {
+  color: var(--cadence-text-muted);
+}
+
 .hero.hero--cadence {
   width: 100%;
   min-height: 100vh;
@@ -792,10 +821,29 @@ section,
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.section--cadence-background.partners .partner-logo-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(213, 231, 240, 0.94));
+  border-color: rgba(76, 196, 234, 0.52);
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68), 0 18px 38px -28px rgba(0, 0, 0, 0.86);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
 .partner-logo-card:hover,
 .partner-logo-card:focus-visible {
   border-color: var(--accent-color);
   box-shadow: 0 8px 22px rgba(50, 70, 100, 0.1);
+}
+
+.section--cadence-background.partners .partner-logo-card:hover,
+.section--cadence-background.partners .partner-logo-card:focus-visible {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 22px 42px -24px rgba(0, 0, 0, 0.92);
+  transform: translateY(-3px);
+}
+
+.section--cadence-background.partners .partner-logo-card:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
 }
 
 .partner-logo-card img {
@@ -1105,6 +1153,29 @@ section,
   height: 100%;
 }
 
+.section--cadence-background.team .team-member {
+  background: linear-gradient(145deg, rgba(25, 39, 65, 0.92), rgba(8, 15, 28, 0.98));
+  border: 1px solid var(--cadence-line);
+  border-radius: 22px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 26px 60px -36px rgba(0, 0, 0, 0.92);
+}
+
+.section--cadence-background.team .team-member h3 {
+  color: var(--cadence-text);
+}
+
+.section--cadence-background.team .team-member .team-role {
+  color: var(--accent-color);
+}
+
+.section--cadence-background.team .team-member .team-role::after {
+  background: var(--cadence-line);
+}
+
+.section--cadence-background.team .team-member p {
+  color: var(--cadence-text-muted);
+}
+
 .team .team-member .pic {
   overflow: hidden;
   width: 112px;
@@ -1139,6 +1210,10 @@ section,
   border: 1px solid color-mix(in srgb, var(--team-lead-accent), transparent 30%);
   border-top: 4px solid var(--team-lead-accent);
   box-shadow: 0 6px 24px color-mix(in srgb, var(--heading-color), transparent 82%);
+}
+
+.section--cadence-background.team .team-lead {
+  --team-lead-accent: #4cc4ea;
 }
 
 .team .team-lead:hover {
@@ -1206,6 +1281,10 @@ section,
   color: var(--heading-color);
   font-size: 14px;
   font-weight: 700;
+}
+
+.section--cadence-background.team .team-member .team-role--lead {
+  color: #111b3d;
 }
 
 .team .team-member .team-role--lead::after {
