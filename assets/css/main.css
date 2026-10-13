@@ -1387,7 +1387,7 @@ section,
 
 .team .team-lead .pic {
   width: 158px;
-  border: 3px solid var(--team-lead-accent);
+  border: 0;
 }
 
 .team .team-members {
@@ -1465,6 +1465,8 @@ section,
 }
 
 .team .team-connector-layer {
+  --team-connector-color: #2A9D5B;
+  position: relative;
   height: 68px;
   pointer-events: none;
 }
@@ -1478,15 +1480,23 @@ section,
 
 .team .team-connector-layer path {
   fill: none;
-  stroke: var(--accent-color);
-  stroke-width: 2;
+  stroke: var(--team-connector-color);
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
 }
 
-.team .team-connector-layer circle {
-  fill: var(--accent-color);
+.team .team-connector-node {
+  position: absolute;
+  top: 45%;
+  left: var(--connector-x);
+  width: 7px;
+  height: 7px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--team-connector-color);
+  box-shadow: 0 0 0 3px rgba(42, 157, 91, .12);
 }
 
 .team .team-connector-mobile {
@@ -1505,8 +1515,8 @@ section,
   .team .team-connector-mobile {
     display: block;
     fill: none;
-    stroke: var(--accent-color);
-    stroke-width: 2;
+    stroke: var(--team-connector-color);
+    stroke-width: 1.5;
     stroke-linecap: round;
     vector-effect: non-scaling-stroke;
   }
@@ -1525,8 +1535,8 @@ section,
     top: 0;
     bottom: 0;
     left: 10px;
-    width: 2px;
-    background: var(--accent-color);
+    width: 1.5px;
+    background: var(--team-connector-color);
     border-radius: 2px;
   }
 
@@ -1543,8 +1553,8 @@ section,
     top: 50%;
     left: -18px;
     width: 18px;
-    height: 2px;
-    background: var(--accent-color);
+    height: 1.5px;
+    background: var(--team-connector-color);
     transform: translateY(-50%);
   }
 
