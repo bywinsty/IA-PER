@@ -28,6 +28,14 @@
     }
   }
 
+  function documentOffsetTop(element) {
+    let top = 0;
+    for (let current = element; current; current = current.offsetParent) {
+      top += current.offsetTop;
+    }
+    return top;
+  }
+
   function syncHeaderMetrics() {
     const header = document.querySelector('#header');
     if (!header) return;
@@ -91,6 +99,8 @@
     let framePending = false;
     let pendingHashSection = null;
     let pendingHashTimer = 0;
+    let anchorExpandedSection = null;
+    let anchorOriginalInlinePadding = '';
 
     function setActiveSection(section) {
       if (activeSection === section) return;
@@ -153,9 +163,62 @@
       updateActiveSection();
     }
 
+    document.addEventListener('click', event => {
+      if (!document.body.classList.contains('index-page')) return;
+
+      const clickedElement = event.target instanceof Element ? event.target : event.target?.parentElement;
+      const link = clickedElement?.closest('a[href^="#"]');
+      if (!link) return;
+
+      const section = hashTarget(link.getAttribute('href'));
+      if (!section) return;
+
+      event.preventDefault();
+      if (anchorExpandedSection) {
+        anchorExpandedSection.style.paddingBottom = anchorOriginalInlinePadding;
+        anchorExpandedSection = null;
+      }
+
+      if (window.location.hash !== link.getAttribute('href')) {
+        window.history.pushState(null, '', link.getAttribute('href'));
+      }
+
+      const entry = entries.find(({ section: target }) => target === section);
+      if (entry) {
+        trackHashNavigation(section);
+        setActiveSection(section);
+      } else {
+        clearPendingHash();
+        setActiveSection(null);
+      }
+
+      syncHeaderMetrics();
+      const labelledBy = section.getAttribute('aria-labelledby')?.trim().split(/\s+/)[0];
+      const labelledHeading = labelledBy && document.getElementById(labelledBy);
+      const heading = labelledHeading && section.contains(labelledHeading)
+        ? labelledHeading
+        : section.querySelector('h1, h2, h3, h4, h5, h6') || section;
+      const offset = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+      const targetTop = documentOffsetTop(heading) - offset - 24;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const extraScrollSpace = targetTop - maxScroll;
+      if (extraScrollSpace > 0) {
+        const currentPadding = parseFloat(getComputedStyle(section).paddingBottom) || 0;
+        anchorExpandedSection = section;
+        anchorOriginalInlinePadding = section.style.paddingBottom;
+        section.style.paddingBottom = `${currentPadding + extraScrollSpace}px`;
+      }
+
+      window.scrollTo({
+        top: targetTop,
+        behavior: motionPreference.matches ? 'instant' : 'smooth'
+      });
+    });
+
     document.addEventListener('scroll', updateActiveSection, { passive: true });
     window.addEventListener('resize', updateActiveSection);
     window.addEventListener('hashchange', activateFromHash);
+    window.addEventListener('popstate', activateFromHash);
     window.addEventListener('pageshow', activateFromHash);
     if ('onscrollend' in document) document.addEventListener('scrollend', finishHashNavigation, { passive: true });
     activateFromHash();
