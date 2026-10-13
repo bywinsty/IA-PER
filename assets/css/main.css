@@ -150,10 +150,13 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   --background-color: rgba(255, 255, 255, 0.92);
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
   color: var(--default-color);
   background-color: var(--background-color);
   font-size: 14px;
-  padding-bottom: 50px;
+  padding-bottom: 0;
   position: relative;
 }
 
@@ -211,6 +214,7 @@ h6 {
 }
 
 .footer .footer-top {
+  flex: 1 0 auto;
   padding-top: 50px;
 }
 
@@ -243,10 +247,14 @@ h6 {
 }
 
 .footer .footer-links {
-  margin-bottom: 30px;
+  margin-bottom: 0;
 }
 
 .footer .footer-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -260,9 +268,8 @@ h6 {
 }
 
 .footer .footer-links ul li {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
+  padding: 0;
+  display: block;
 }
 
 .footer .footer-links ul li:first-child {
@@ -294,8 +301,15 @@ h6 {
   height: auto;
 }
 
+.footer .footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+}
+
 .footer .footer-contact p {
-  margin-bottom: 5px;
+  margin: 0;
 }
 
 .footer .footer-contact a {
@@ -308,8 +322,10 @@ h6 {
 }
 
 .footer .copyright {
+  display: block;
+  margin-top: auto !important;
   padding-top: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 8px;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
@@ -317,9 +333,23 @@ h6 {
   margin-bottom: 0;
 }
 
+.footer .footer-copyright-logo {
+  width: 32px;
+  height: 32px;
+  margin: 0 4px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
 .footer .credits {
   margin-top: 6px;
   font-size: 13px;
+}
+
+@media (max-width: 991.98px) {
+  .footer .footer-contact {
+    column-gap: 24px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1909,13 +1939,15 @@ section,
 # Error 404 Section
 --------------------------------------------------------------*/
 .error-404 {
-  padding: 80px 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--header-height, 96px) + 24px) 0 80px;
   margin: 0 auto;
-}
-
-.error-404 .error-icon {
-  font-size: 5rem;
-  color: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
 .error-404 .error-code {
@@ -1923,13 +1955,15 @@ section,
   font-weight: 800;
   color: color-mix(in srgb, var(--heading-color), transparent 10%);
   font-family: var(--heading-font);
+  letter-spacing: -0.045em;
   line-height: 1;
 }
 
 .error-404 .error-text {
-  font-size: 1.1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  max-width: 600px;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--cadence-text-muted);
+  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -1945,9 +1979,53 @@ section,
   font-size: 1.1rem;
   background-color: var(--accent-color);
   border: none;
-  color: var(--contrast-color);
-  border-radius: 50px;
+  color: #111b3d;
   transition: all 0.3s ease;
+}
+
+.error-404 .error-action .btn-primary,
+.error-404 .error-action .btn-outline-primary {
+  position: relative;
+  display: inline-flex;
+  width: min(100%, 18rem);
+  min-height: 50px;
+  padding: 0.75rem 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+.error-404 .error-action .btn-outline-primary {
+  text-align: center;
+  color: #f3f7fa;
+  border-color: #4cc4ea;
+}
+
+.error-404 .error-action__arrow {
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: #f3f7fa;
+  transform: translateY(-50%);
+}
+
+.error-404 .error-action__arrow--start {
+  right: auto;
+  left: 1.25rem;
+  color: inherit;
+}
+
+.error-404 .error-action .btn > span:first-child {
+  white-space: nowrap;
+}
+
+.error-404 .error-action .btn-outline-primary:hover,
+.error-404 .error-action .btn-outline-primary:focus-visible {
+  color: #111b3d;
+  background-color: #4cc4ea;
+  border-color: #4cc4ea;
 }
 
 .error-404 .error-action .btn-primary:hover {
@@ -1955,9 +2033,13 @@ section,
   transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .error-404 {
-    padding: 60px 0;
+    padding: calc(var(--header-height, 120px) + 20px) 0 56px;
+  }
+
+  .error-404 > .container {
+    width: calc(100% - 26px);
   }
 
   .error-404 .error-code {
@@ -1965,8 +2047,22 @@ section,
   }
 
   .error-404 .error-text {
-    font-size: 1rem;
-    padding: 0 20px;
+    font-size: 1.05rem;
+    padding: 0 8px;
+  }
+
+  .error-404 .error-action .btn-outline-primary {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  .error-404 .error-action__arrow {
+    right: 0.5rem;
+  }
+
+  .error-404 .error-action__arrow--start {
+    right: auto;
+    left: 0.5rem;
   }
 
 }

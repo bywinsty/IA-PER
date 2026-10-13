@@ -11,7 +11,7 @@ test('homepage Cadence hero keeps its content semantic without the device previe
   await expect(hero.locator('.hero-cadence__lede')).toHaveText(/Des repères clairs sur l’intelligence artificielle/i);
   await expect(hero.getByRole('link', { name: /Découvrir les thématiques/i })).toHaveAttribute(
     'href',
-    'pages/thématiques/thematiques.html#themes'
+    'pages/thematiques.html#themes'
   );
   await expect(hero.locator('.hero-cadence__cta')).toHaveCount(1);
   await expect(hero.locator('.hero-cadence__faces img')).toHaveCount(5);

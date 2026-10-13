@@ -11,8 +11,8 @@
   }
 
   const legacyIndexAnchors = {
-    '#services': 'pages/thématiques/thematiques.html#themes',
-    '#faq-2': 'pages/thématiques/thematiques.html#faq'
+    '#services': 'pages/thematiques.html#themes',
+    '#faq-2': 'pages/thematiques.html#faq'
   };
   if (document.body?.classList.contains('index-page')) {
     const legacyTarget = legacyIndexAnchors[window.location.hash];

@@ -7,7 +7,7 @@ test('404 page gives a clear heading, useful recovery links, and a non-empty des
   await expect(page.locator('main h1')).toHaveText(/page introuvable/i);
   await expect(page.locator('meta[name="description"]')).not.toHaveAttribute('content', '');
   await expect(page.getByRole('link', { name: 'Retour à l’accueil' })).toHaveAttribute('href', 'index.html');
-  await expect(page.getByRole('link', { name: 'Parcourir les thématiques' })).toHaveAttribute('href', 'pages/thématiques/thematiques.html#themes');
+  await expect(page.getByRole('link', { name: 'Découvrir les thématiques' })).toHaveAttribute('href', 'pages/thematiques.html#themes');
   await expect(page.locator('.search-form')).toHaveCount(0);
 
   const headingLevels = await page.locator('h1, h2, h3, h4, h5, h6').evaluateAll((headings) =>
@@ -17,7 +17,7 @@ test('404 page gives a clear heading, useful recovery links, and a non-empty des
 });
 
 test('thematics index does not publish the removed sources placeholder', async ({ page }) => {
-  await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
+  await page.goto('/pages/thematiques.html', { waitUntil: 'domcontentloaded' });
 
   await expect(page.locator('#sources')).toHaveCount(0);
   await expect(page.locator('main')).not.toContainText('Sources et références');

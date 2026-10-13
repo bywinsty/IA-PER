@@ -2,11 +2,11 @@ import { expect, test } from '@playwright/test';
 
 const pages = [
   { file: 'index.html', type: 'home', assetPrefix: '' },
-  { file: 'pages/thématiques/thematiques.html', type: 'thematics', assetPrefix: '../../' },
+  { file: 'pages/thematiques.html', type: 'thematics', assetPrefix: '../' },
   { file: 'pages/thématiques/environnement.html', type: 'breadcrumb', assetPrefix: '../../' },
   { file: 'pages/thématiques/professionnel.html', type: 'breadcrumb', assetPrefix: '../../' },
   { file: 'pages/thématiques/societe.html', type: 'breadcrumb', assetPrefix: '../../' },
-  { file: '404.html', type: 'breadcrumb', assetPrefix: '' }
+  { file: '404.html', type: 'brand-only', assetPrefix: '' }
 ];
 
 async function expectNoHorizontalOverflow(page) {
@@ -69,11 +69,16 @@ for (const definition of pages) {
       await expect(header.locator('.header-section-links a')).toHaveCount(3);
       await expect(header.locator('.header-section-links a')).toHaveText(['Environnement', 'Professionnel', 'Société']);
       await expect.poll(() => header.locator('.header-section-links a').evaluateAll(links => links.map(link => link.getAttribute('href'))))
-        .toEqual(['environnement.html', 'professionnel.html', 'societe.html']);
+        .toEqual(['thématiques/environnement.html', 'thématiques/professionnel.html', 'thématiques/societe.html']);
       await expect(header.locator('.header-breadcrumbs')).toHaveCount(0);
       await expect(header.locator('#scroll-progress')).toHaveCount(1);
       await expect(page.locator('#sources')).toHaveCount(0);
       await expect(page.locator('main')).not.toContainText('Sources et références');
+    } else if (definition.type === 'brand-only') {
+      await expect(header.locator('.header-brand .logo')).toHaveCount(1);
+      await expect(header.locator('.header-breadcrumbs, .header-page-nav, .header-theme-cta')).toHaveCount(0);
+      await expect(header.locator('#scroll-progress')).toHaveCount(1);
+      expect(await header.locator('#scroll-progress').evaluate(progress => progress.parentElement?.classList.contains('header-inner'))).toBe(true);
     } else {
       const breadcrumbs = header.locator('.header-breadcrumbs');
       await expect(breadcrumbs).toHaveCount(1);
@@ -108,12 +113,11 @@ test('production pages keep local links and assets reachable', async ({ page, re
 
 test('theme CTA stays at the right edge and keeps the correct local route', async ({ page }) => {
   const cases = [
-    { file: 'index.html', href: 'pages/thématiques/thematiques.html#themes' },
-    { file: 'pages/thématiques/thematiques.html', href: 'thematiques.html#themes' },
-    { file: 'pages/thématiques/environnement.html', href: 'thematiques.html#themes' },
-    { file: 'pages/thématiques/professionnel.html', href: 'thematiques.html#themes' },
-    { file: 'pages/thématiques/societe.html', href: 'thematiques.html#themes' },
-    { file: '404.html', href: 'pages/thématiques/thematiques.html#themes' }
+    { file: 'index.html', href: 'pages/thematiques.html#themes' },
+    { file: 'pages/thematiques.html', href: 'thematiques.html#themes' },
+    { file: 'pages/thématiques/environnement.html', href: '../thematiques.html#themes' },
+    { file: 'pages/thématiques/professionnel.html', href: '../thematiques.html#themes' },
+    { file: 'pages/thématiques/societe.html', href: '../thematiques.html#themes' },
   ];
 
   for (const definition of cases) {
@@ -173,7 +177,7 @@ test('homepage keeps only the page link current while the hero is visible', asyn
 
 test('thematics page keeps a page-local current link without breadcrumbs', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
+  await page.goto('/pages/thematiques.html', { waitUntil: 'domcontentloaded' });
 
   const themesLink = page.locator('.header-current-link');
   await expect(themesLink).toHaveAttribute('aria-current', 'page');
@@ -181,7 +185,7 @@ test('thematics page keeps a page-local current link without breadcrumbs', async
   await expect(page.locator('.header-breadcrumbs')).toHaveCount(0);
   await themesLink.click();
   const currentUrl = new URL(page.url());
-  expect(decodeURIComponent(currentUrl.pathname)).toBe('/pages/thématiques/thematiques.html');
+  expect(decodeURIComponent(currentUrl.pathname)).toBe('/pages/thematiques.html');
   expect(currentUrl.hash).toBe('');
   await expect(themesLink).toHaveAttribute('aria-current', 'page');
 });
@@ -191,7 +195,7 @@ test('thematics page direct hash navigation respects the dynamic header', async 
   await page.emulateMedia({ reducedMotion: 'reduce' });
 
   for (const id of ['themes', 'faq']) {
-    await page.goto(`/pages/thématiques/thematiques.html#${id}`, { waitUntil: 'load' });
+    await page.goto(`/pages/thematiques.html#${id}`, { waitUntil: 'load' });
     await waitForAnchorAlignment(page, `#${id}`);
     if (id === 'themes') {
       await expect(page.locator('.header-current-link')).toHaveAttribute('href', 'thematiques.html');
@@ -202,7 +206,7 @@ test('thematics page direct hash navigation respects the dynamic header', async 
 for (const width of [1440, 640, 380, 300, 280]) {
   test(`thematics page header stays within ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'domcontentloaded' });
+    await page.goto('/pages/thematiques.html', { waitUntil: 'domcontentloaded' });
     await expectHeaderMetrics(page);
     await expectNoHorizontalOverflow(page);
   });
@@ -401,7 +405,7 @@ test('homepage reading progress tracks the document from start to finish', async
 
 test('thematics page reading progress tracks the document from start to finish', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto('/pages/thématiques/thematiques.html', { waitUntil: 'load' });
+  await page.goto('/pages/thematiques.html', { waitUntil: 'load' });
 
   const progress = page.locator('#scroll-progress');
   await expect(progress).toHaveAttribute('role', 'progressbar');

@@ -6,7 +6,7 @@
  */
 const homeRoutes = {
   'index.html': 'index.html',
-  'thematiques.html': 'pages/thématiques/thematiques.html',
+  'thematiques.html': 'pages/thematiques.html',
   'environnement.html': 'pages/thématiques/environnement.html',
   'professionnel.html': 'pages/thématiques/professionnel.html',
   'societe.html': 'pages/thématiques/societe.html',
@@ -15,11 +15,20 @@ const homeRoutes = {
 
 const thematicRoutes = {
   'index.html': '../../index.html',
-  'thematiques.html': 'thematiques.html',
+  'thematiques.html': '../thematiques.html',
   'environnement.html': 'environnement.html',
   'professionnel.html': 'professionnel.html',
   'societe.html': 'societe.html',
   '404.html': '../../404.html'
+};
+
+const thematicIndexRoutes = {
+  'index.html': '../index.html',
+  'thematiques.html': 'thematiques.html',
+  'environnement.html': 'thématiques/environnement.html',
+  'professionnel.html': 'thématiques/professionnel.html',
+  'societe.html': 'thématiques/societe.html',
+  '404.html': '../404.html'
 };
 export const headerPages = [
   {
@@ -37,65 +46,64 @@ export const headerPages = [
     ]
   },
   {
-    file: 'pages/thématiques/thematiques.html',
+    file: 'pages/thematiques.html',
     type: 'thematics',
-    assetPrefix: '../../',
-    homeHref: '../../index.html',
-    routes: thematicRoutes,
+    assetPrefix: '../',
+    homeHref: '../index.html',
+    routes: thematicIndexRoutes,
     navigationLabel: 'Navigation des thématiques',
     currentLabel: 'Thématiques',
     currentHref: 'thematiques.html',
     sections: [
-      { label: 'Environnement', href: 'environnement.html' },
-      { label: 'Professionnel', href: 'professionnel.html' },
-      { label: 'Société', href: 'societe.html' }
+      { label: 'Environnement', href: 'thématiques/environnement.html' },
+      { label: 'Professionnel', href: 'thématiques/professionnel.html' },
+      { label: 'Société', href: 'thématiques/societe.html' }
     ],
   },
   {
     file: 'pages/thématiques/environnement.html',
-    type: 'breadcrumb',
+    type: 'breadcrumb-cadence',
+    showThemeCta: false,
     assetPrefix: '../../',
     homeHref: '../../index.html',
     routes: thematicRoutes,
     breadcrumbs: [
       { label: 'Accueil', href: '../../index.html' },
-      { label: 'Thématiques', href: 'thematiques.html' },
+      { label: 'Thématiques', href: '../thematiques.html' },
       { label: 'Environnement', href: 'environnement.html', current: true }
     ]
   },
   {
     file: 'pages/thématiques/professionnel.html',
-    type: 'breadcrumb',
+    type: 'breadcrumb-cadence',
+    showThemeCta: false,
     assetPrefix: '../../',
     homeHref: '../../index.html',
     routes: thematicRoutes,
     breadcrumbs: [
       { label: 'Accueil', href: '../../index.html' },
-      { label: 'Thématiques', href: 'thematiques.html' },
+      { label: 'Thématiques', href: '../thematiques.html' },
       { label: 'Professionnel', href: 'professionnel.html', current: true }
     ]
   },
   {
     file: 'pages/thématiques/societe.html',
-    type: 'breadcrumb',
+    type: 'breadcrumb-cadence',
+    showThemeCta: false,
     assetPrefix: '../../',
     homeHref: '../../index.html',
     routes: thematicRoutes,
     breadcrumbs: [
       { label: 'Accueil', href: '../../index.html' },
-      { label: 'Thématiques', href: 'thematiques.html' },
+      { label: 'Thématiques', href: '../thematiques.html' },
       { label: 'Société', href: 'societe.html', current: true }
     ]
   },
   {
     file: '404.html',
-    type: 'breadcrumb',
+    type: 'brand-only',
     assetPrefix: '',
     homeHref: 'index.html',
-    routes: homeRoutes,
-    breadcrumbs: [
-      { label: 'Accueil', href: 'index.html' },
-      { label: '404', href: '404.html', current: true }
-    ]
+    routes: homeRoutes
   }
 ];

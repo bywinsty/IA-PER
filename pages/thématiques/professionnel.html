@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>IA-PER - Professionnel</title>
+  <title>IA-PER — Professionnel</title>
   <meta name="description" content="Découvrez les enjeux de l’intelligence artificielle dans le monde professionnel dans le projet IA-PER.">
   <meta name="keywords" content="">
 
@@ -36,7 +36,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body class="thematic-detail-page">
 
   <!-- generated:header:start -->
   <header id="header" class="header d-flex align-items-center fixed-top">
@@ -57,27 +57,26 @@
       <nav class="header-breadcrumbs" aria-label="Fil d’Ariane">
         <ol>
           <li><a href="../../index.html" class="breadcrumb-button">Accueil</a></li>
-          <li><a href="thematiques.html" class="breadcrumb-button">Thématiques</a></li>
+          <li><a href="../thematiques.html" class="breadcrumb-button">Thématiques</a></li>
           <li><a href="professionnel.html" class="breadcrumb-button current" aria-current="page">Professionnel</a></li>
         </ol>
       </nav>
         </div>
-        <a href="thematiques.html#themes" class="header-theme-cta">Découvrir les thématiques <span aria-hidden="true">→</span></a>
+      <div
+        id="scroll-progress"
+        class="scroll-progress"
+        role="progressbar"
+        aria-label="Progression de lecture"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+        aria-valuetext="0%">
+        <span class="scroll-progress__bar" aria-hidden="true"></span>
+      </div>
       </div>
 
     </div>
 
-    <div
-      id="scroll-progress"
-      class="scroll-progress"
-      role="progressbar"
-      aria-label="Progression de lecture"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      aria-valuenow="0"
-      aria-valuetext="0%">
-      <span class="scroll-progress__bar" aria-hidden="true"></span>
-    </div>
   </header>
   <!-- generated:header:end -->
 
@@ -121,7 +120,7 @@
         </div>
 
         <div class="thematic-back" data-aos="fade-up">
-          <a href="thematiques.html#themes"><i class="bi bi-arrow-left" aria-hidden="true"></i> Retour aux thématiques</a>
+          <a href="../thematiques.html#themes"><i class="bi bi-arrow-left" aria-hidden="true"></i> Retour aux thématiques</a>
         </div>
       </div>
     </section><!-- /Thematic Section -->
@@ -132,38 +131,24 @@
 <footer id="footer" class="footer">
 
     <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="../../index.html" class="d-flex align-items-center">
-            <img src="../../assets/img/ia-per.svg" class="footer-logo" width="75" height="75" alt="IA-PER — Progrès, Enjeux et Responsabilités">
-          </a>
-          <div class="footer-contact pt-3">
-            <p><strong>Email :</strong> <span><a href="mailto:IA-PER@cf2000.onmicrosoft.com">IA-PER@cf2000.onmicrosoft.com</a></span></p>
-            <p><strong>Téléphone :</strong> <span><a href="tel:+3225382083">02 538 20 83</a></span></p>
-            <p class="mt-3"><strong>Adresse :</strong></p>
-            <p><a class="footer-address" href="https://www.google.com/maps/search/?api=1&amp;query=Avenue+du+Parc+87-89%2C+1060+Saint-Gilles%2C+Belgium" target="_blank" rel="noopener noreferrer">Avenue du Parc 87-89<br>1060 Saint-Gilles</a></p>
+      <div class="row gy-4 align-items-center">
+        <div class="col-lg-6 col-md-12 footer-about">
+          <div class="footer-contact">
+            <p><strong>Email :</strong> <a href="mailto:IA-PER@cf2000.onmicrosoft.com">IA-PER@cf2000.onmicrosoft.com</a></p>
+            <p><strong>Téléphone :</strong> <a href="tel:+3225382083">02 538 20 83</a></p>
+            <p><strong>Adresse :</strong> <a class="footer-address" href="https://www.google.com/maps/search/?api=1&amp;query=Avenue+du+Parc+87-89%2C+1060+Saint-Gilles%2C+Belgium" target="_blank" rel="noopener noreferrer">Avenue du Parc 87-89, 1060 Saint-Gilles</a></p>
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Liens utiles</h4>
+        <div class="col-lg-3 col-md-6 footer-links">
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="../../index.html#hero">Accueil</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="thematiques.html#themes">Thématiques</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="thematiques.html#faq">Questions fréquemment posées</a></li>
+            <li><a href="../../index.html#hero">Accueil</a></li>
+            <li><a href="../thematiques.html#themes">Thématiques</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Thématiques</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="environnement.html">Environnement</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="professionnel.html">Professionnel</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="societe.html">Société</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-6 footer-social">
-          <div class="social-links d-flex" aria-label="Réseaux sociaux de CF2M">
+        <div class="col-lg-3 col-md-6 footer-social">
+          <div class="social-links d-flex justify-content-md-end" aria-label="Réseaux sociaux de CF2M">
                   <a href="https://www.facebook.com/centredeformation2mille/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
                   <a href="https://x.com/Cf2mBe" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
                   <a href="https://www.linkedin.com/school/cf2m-formation-bruxelles/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
@@ -174,14 +159,14 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">IA-PER</strong> <span>Tous droits réservés</span></p>
+      <p><img class="footer-copyright-logo" src="../../assets/img/ia-per.svg" width="32" height="32" alt=""> © 2026 IA-PER</p>
+      <p>Conçu par Section Aventure digitale — <a href="https://www.cf2m.be/">CF2M</a></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Conçu par <span>Section Aventure digitale</span><br>
-        <a href="https://www.cf2m.be/">CF2M</a>
+        <a href="https://bootstrapmade.com/">Designed by BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
       </div>
     </div>
 

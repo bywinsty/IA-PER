@@ -63,7 +63,7 @@ function renderSectionNavigation(page, indent, eol, { prefix = '' } = {}) {
 }
 
 function renderThemeCta(page, indent) {
-  const themesHref = page.routes?.['thematiques.html'] ?? 'pages/thématiques/thematiques.html';
+  const themesHref = page.routes?.['thematiques.html'] ?? 'pages/thematiques.html';
 
   return `${indent}      <a href="${escapeHtml(`${themesHref}#themes`)}" class="header-theme-cta">Découvrir les thématiques <span aria-hidden="true">→</span></a>`;
 }
@@ -97,16 +97,18 @@ function renderScrollProgress(indent, eol) {
 export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
   const asset = (relativePath) => `${page.assetPrefix ?? ''}assets/${relativePath}`;
   const scrollProgress = renderScrollProgress(indent, eol);
-  const usesCadenceHeader = page.type === 'home' || page.type === 'thematics';
+  const usesCadenceHeader = ['home', 'thematics', 'brand-only', 'breadcrumb-cadence'].includes(page.type);
   const scrollProgressInsideInner = usesCadenceHeader
     ? renderScrollProgress(`${indent}  `, eol)
     : '';
   const scrollProgressOutsideInner = usesCadenceHeader ? '' : scrollProgress;
-  const navigation = usesCadenceHeader
-    ? renderHomeNavigation(page, indent, eol)
-    : page.type === 'breadcrumb-sections'
-      ? renderBreadcrumbSections(page, indent, eol)
-      : renderBreadcrumbs(page, indent, eol);
+  const navigation = page.type === 'brand-only'
+    ? ''
+    : page.type === 'home' || page.type === 'thematics'
+      ? renderHomeNavigation(page, indent, eol)
+      : page.type === 'breadcrumb-sections'
+        ? renderBreadcrumbSections(page, indent, eol)
+        : renderBreadcrumbs(page, indent, eol);
 
   return [
     `${indent}<!-- generated:header:start -->`,
@@ -125,9 +127,9 @@ export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
     `${indent}        <span class="site-name">IA-PER</span>`,
     `${indent}      </a>`,
     '',
-    navigation,
+    ...(navigation ? [navigation] : []),
     `${indent}      </div>`,
-    renderThemeCta(page, indent),
+    ...(page.type === 'brand-only' || page.showThemeCta === false ? [] : [renderThemeCta(page, indent)]),
     ...(scrollProgressInsideInner ? [scrollProgressInsideInner] : []),
     `${indent}    </div>`,
     '',
