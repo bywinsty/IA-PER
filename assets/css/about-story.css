@@ -104,6 +104,15 @@
 .about-commitments > div .bi { color: var(--about-accent); font-size: 17px; }
 .about-commitments > p:not(.about-commitments__label) { margin: 16px 0 0; color: var(--about-text); font-family: var(--heading-font); font-size: clamp(1.25rem, 2vw, 1.7rem); font-weight: 600; letter-spacing: -.03em; }
 
+@media (min-width: 960px) {
+  .about-commitments {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto repeat(4, minmax(60px, 1fr)) auto;
+    align-content: stretch;
+  }
+  .about-commitments > p:not(.about-commitments__label) { margin-top: 0; }
+}
+
 @media (max-width: 959.98px) {
   .about-story__story { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .about-story.is-enhanced .about-story__tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 6px; border: 1px solid var(--about-line); border-radius: 14px; background: rgba(12, 23, 43, .92); }
