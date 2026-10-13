@@ -10,15 +10,6 @@ const homeRoutes = {
   'environnement.html': 'pages/thématiques/environnement.html',
   'professionnel.html': 'pages/thématiques/professionnel.html',
   'societe.html': 'pages/thématiques/societe.html',
-  '404.html': 'pages/404.html'
-};
-
-const pagesRoutes = {
-  'index.html': '../index.html',
-  'thematiques.html': 'thématiques/thematiques.html',
-  'environnement.html': 'thématiques/environnement.html',
-  'professionnel.html': 'thématiques/professionnel.html',
-  'societe.html': 'thématiques/societe.html',
   '404.html': '404.html'
 };
 
@@ -28,7 +19,7 @@ const thematicRoutes = {
   'environnement.html': 'environnement.html',
   'professionnel.html': 'professionnel.html',
   'societe.html': 'societe.html',
-  '404.html': '../404.html'
+  '404.html': '../../404.html'
 };
 export const headerPages = [
   {
@@ -97,13 +88,13 @@ export const headerPages = [
     ]
   },
   {
-    file: 'pages/404.html',
+    file: '404.html',
     type: 'breadcrumb',
-    assetPrefix: '../',
-    homeHref: '../index.html',
-    routes: pagesRoutes,
+    assetPrefix: '',
+    homeHref: 'index.html',
+    routes: homeRoutes,
     breadcrumbs: [
-      { label: 'Accueil', href: '../index.html' },
+      { label: 'Accueil', href: 'index.html' },
       { label: '404', href: '404.html', current: true }
     ]
   }

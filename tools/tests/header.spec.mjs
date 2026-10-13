@@ -6,7 +6,7 @@ const pages = [
   { file: 'pages/thématiques/environnement.html', type: 'breadcrumb', assetPrefix: '../../' },
   { file: 'pages/thématiques/professionnel.html', type: 'breadcrumb', assetPrefix: '../../' },
   { file: 'pages/thématiques/societe.html', type: 'breadcrumb', assetPrefix: '../../' },
-  { file: 'pages/404.html', type: 'breadcrumb', assetPrefix: '../' }
+  { file: '404.html', type: 'breadcrumb', assetPrefix: '' }
 ];
 
 async function expectNoHorizontalOverflow(page) {
@@ -113,7 +113,7 @@ test('theme CTA stays at the right edge and keeps the correct local route', asyn
     { file: 'pages/thématiques/environnement.html', href: 'thematiques.html#themes' },
     { file: 'pages/thématiques/professionnel.html', href: 'thematiques.html#themes' },
     { file: 'pages/thématiques/societe.html', href: 'thematiques.html#themes' },
-    { file: 'pages/404.html', href: 'thématiques/thematiques.html#themes' }
+    { file: '404.html', href: 'pages/thématiques/thematiques.html#themes' }
   ];
 
   for (const definition of cases) {
