@@ -8794,3 +8794,10 @@ body.index-page .header .header-brand-text {
 @media (min-width: 992px) {
   #interviews > .container:last-child { align-items: start; }
 }
+
+/* ---- Interviews : vidéo centrée (liste au-dessus, vidéo en dessous) ---- */
+@media (min-width: 992px) {
+  #interviews > .container:last-child { display: block; }
+  #interviews .interviews-list { max-width: 960px; margin: 0 auto 24px; }
+  #interviews .interviews-video { max-width: 960px; margin: 0 auto; }
+}
