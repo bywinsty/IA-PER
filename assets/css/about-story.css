@@ -21,7 +21,7 @@
 .about-story__tabs { display: none; }
 .about-story__chapters { position: relative; padding-left: 28px; }
 .about-story__rail { position: absolute; top: 12px; bottom: 12px; left: 5px; width: 1px; background: var(--about-line-strong); }
-.about-story__rail span { position: absolute; top: 0; left: 0; width: 1px; height: 100%; background: linear-gradient(180deg, var(--about-accent), rgba(76, 196, 234, .25)); transform: scaleY(var(--about-progress, 0)); transform-origin: top; transition: transform 380ms cubic-bezier(.22, 1, .36, 1); }
+.about-story__rail span { position: absolute; top: 0; left: 0; width: 1px; height: 100%; background: linear-gradient(180deg, #2A9D5B, rgba(42, 157, 91, .3)); transform: scaleY(var(--about-progress, 0)); transform-origin: top; transition: transform 420ms cubic-bezier(.22, 1, .36, 1); }
 .about-story__panel { min-height: 45vh; display: flex; align-items: center; }
 .about-story__panel[data-about-panel="0"] { min-height: 38vh; align-items: flex-start; }
 .about-story__chapter { position: relative; width: 100%; padding: 22px 0; overflow-wrap: anywhere; }

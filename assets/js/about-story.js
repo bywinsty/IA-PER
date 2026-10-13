@@ -10,16 +10,33 @@
   const chapters = Array.from(about.querySelectorAll('[data-about-step]'));
   const screens = Array.from(about.querySelectorAll('[data-about-screen]'));
   const rail = about.querySelector('#aboutRail');
+  const chaptersList = about.querySelector('.about-story__chapters');
   const mobileQuery = window.matchMedia('(max-width: 959.98px)');
   const tabList = about.querySelector('.about-story__tabs');
   let activeIndex = 0;
   let observer;
+  let progressTicking = false;
+
+  function updateRailProgress() {
+    progressTicking = false;
+    if (!rail || !chaptersList || mobileQuery.matches) return;
+
+    const bounds = chaptersList.getBoundingClientRect();
+    const viewportMidpoint = window.innerHeight * 0.5;
+    const progress = (viewportMidpoint - bounds.top) / Math.max(1, bounds.height);
+    rail.style.setProperty('--about-progress', String(Math.max(0, Math.min(progress, 1))));
+  }
+
+  function scheduleRailProgress() {
+    if (progressTicking) return;
+    progressTicking = true;
+    window.requestAnimationFrame(updateRailProgress);
+  }
 
   function setVisualState(index) {
     activeIndex = Math.max(0, Math.min(index, panels.length - 1));
     chapters.forEach((chapter, chapterIndex) => chapter.classList.toggle('is-active', chapterIndex === activeIndex));
     screens.forEach((screen, screenIndex) => screen.classList.toggle('is-active', screenIndex === activeIndex));
-    if (rail) rail.style.setProperty('--about-progress', String(activeIndex / Math.max(1, panels.length - 1)));
   }
 
   function setMobileState(index) {
@@ -85,6 +102,7 @@
     disableMobileTabs();
     observeDesktopChapters();
     setVisualState(activeIndex);
+    scheduleRailProgress();
   }
 
   tabs.forEach((tab, tabIndex) => {
@@ -106,5 +124,7 @@
   });
 
   mobileQuery.addEventListener?.('change', applyMode);
+  window.addEventListener('scroll', scheduleRailProgress, { passive: true });
+  window.addEventListener('resize', scheduleRailProgress, { passive: true });
   applyMode();
 }());
