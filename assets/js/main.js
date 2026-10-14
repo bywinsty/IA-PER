@@ -86,31 +86,42 @@
 
     const smallViewport = window.matchMedia('(max-width: 640px)');
     const mediumViewport = window.matchMedia('(max-width: 991px)');
-    let framePending = false;
+    let lastScrollY = window.scrollY;
+    let resetTimer = 0;
+
+    function restingTilt() {
+      return mediumViewport.matches ? 2 : 3;
+    }
+
+    function resetHeroTilt() {
+      window.clearTimeout(resetTimer);
+      resetTimer = 0;
+      if (motionPreference.matches || smallViewport.matches) {
+        device.style.removeProperty('--hero-device-tilt');
+        return;
+      }
+      device.style.setProperty('--hero-device-tilt', `${restingTilt()}deg`);
+    }
 
     function updateHeroTilt() {
-      if (framePending) return;
-      framePending = true;
-      requestAnimationFrame(() => {
-        framePending = false;
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
 
-        if (motionPreference.matches || smallViewport.matches) {
-          device.style.removeProperty('--hero-device-tilt');
-          return;
-        }
+      if (motionPreference.matches || smallViewport.matches || Math.abs(scrollDelta) < 1) return;
 
-        const heroHeight = Math.max(hero.offsetHeight, 1);
-        const progress = Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / heroHeight));
-        const initialTilt = mediumViewport.matches ? 2 : 3;
-        const currentTilt = initialTilt * (1 - progress * 2);
-        device.style.setProperty('--hero-device-tilt', `${currentTilt.toFixed(2)}deg`);
-      });
+      window.clearTimeout(resetTimer);
+      device.style.setProperty('--hero-device-tilt', scrollDelta > 0 ? '30deg' : '-30deg');
+      resetTimer = window.setTimeout(resetHeroTilt, 1200);
     }
 
     window.addEventListener('scroll', updateHeroTilt, { passive: true });
-    window.addEventListener('resize', updateHeroTilt, { passive: true });
-    motionPreference.addEventListener('change', updateHeroTilt);
-    updateHeroTilt();
+    window.addEventListener('resize', () => {
+      lastScrollY = window.scrollY;
+      resetHeroTilt();
+    }, { passive: true });
+    motionPreference.addEventListener('change', resetHeroTilt);
+    resetHeroTilt();
   }
 
   initHeroScrollTilt();
