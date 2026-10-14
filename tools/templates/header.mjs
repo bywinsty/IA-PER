@@ -64,8 +64,10 @@ function renderSectionNavigation(page, indent, eol, { prefix = '' } = {}) {
 
 function renderThemeCta(page, indent) {
   const themesHref = page.routes?.['thematiques.html'] ?? 'pages/thematiques.html';
+  const href = page.themeCtaHref ?? `${themesHref}#themes`;
+  const label = page.themeCtaLabel ?? 'Découvrir les thématiques';
 
-  return `${indent}      <a href="${escapeHtml(`${themesHref}#themes`)}" class="header-theme-cta">Découvrir les thématiques <span aria-hidden="true">→</span></a>`;
+  return `${indent}      <a href="${escapeHtml(href)}" class="header-theme-cta">${escapeHtml(label)} <span aria-hidden="true">→</span></a>`;
 }
 
 function renderBreadcrumbSections(page, indent, eol) {
