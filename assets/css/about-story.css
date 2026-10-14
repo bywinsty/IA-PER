@@ -13,6 +13,10 @@
   padding: clamp(48px, 7vw, 84px) 0 clamp(80px, 10vw, 132px);
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .about-story { background-attachment: scroll; }
+}
+
 .about-story__container { max-width: 1180px; }
 .about-story__header { max-width: 760px; margin: 0 auto clamp(34px, 5vw, 62px); text-align: center; }
 .about-story__lead { max-width: 650px; margin: 20px auto 0; color: var(--about-text-2); font-size: clamp(16px, 1.4vw, 19px); line-height: 1.65; }

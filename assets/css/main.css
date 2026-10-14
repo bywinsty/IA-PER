@@ -720,7 +720,6 @@ section,
   isolation: isolate;
   overflow: hidden;
   padding: calc(var(--header-height, 96px) + 20px) 0 64px;
-  background: var(--cadence-section-background);
 }
 
 .hero-cadence__ambient { display: none; }
