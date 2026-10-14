@@ -87,15 +87,12 @@
     const smallViewport = window.matchMedia('(max-width: 640px)');
     const mediumViewport = window.matchMedia('(max-width: 991px)');
     let lastScrollY = window.scrollY;
-    let resetTimer = 0;
 
     function restingTilt() {
       return mediumViewport.matches ? 2 : 3;
     }
 
     function resetHeroTilt() {
-      window.clearTimeout(resetTimer);
-      resetTimer = 0;
       if (motionPreference.matches || smallViewport.matches) {
         device.style.removeProperty('--hero-device-tilt');
         return;
@@ -110,9 +107,8 @@
 
       if (motionPreference.matches || smallViewport.matches || Math.abs(scrollDelta) < 1) return;
 
-      window.clearTimeout(resetTimer);
-      device.style.setProperty('--hero-device-tilt', scrollDelta > 0 ? '30deg' : '-30deg');
-      resetTimer = window.setTimeout(resetHeroTilt, 1200);
+      if (scrollDelta > 0) device.style.setProperty('--hero-device-tilt', '30deg');
+      else resetHeroTilt();
     }
 
     window.addEventListener('scroll', updateHeroTilt, { passive: true });
