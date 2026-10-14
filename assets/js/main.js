@@ -89,7 +89,7 @@
     let lastScrollY = window.scrollY;
 
     function restingTilt() {
-      return mediumViewport.matches ? 2 : 3;
+      return mediumViewport.matches ? 1.6 : 2.4;
     }
 
     function resetHeroTilt() {
@@ -107,7 +107,7 @@
 
       if (motionPreference.matches || smallViewport.matches || Math.abs(scrollDelta) < 1) return;
 
-      if (scrollDelta > 0) device.style.setProperty('--hero-device-tilt', '30deg');
+      if (scrollDelta > 0) device.style.setProperty('--hero-device-tilt', '24deg');
       else resetHeroTilt();
     }
 

@@ -725,7 +725,7 @@ section,
 .hero-cadence__ambient { display: none; }
 
 .hero-cadence__device {
-  --hero-device-tilt: 3deg;
+  --hero-device-tilt: 2.4deg;
   position: relative;
   isolation: isolate;
   width: min(1240px, calc(100% - 48px));
@@ -941,7 +941,7 @@ section,
 
 @media (max-width: 991px) {
   .hero-cadence__copy { max-width: 760px; }
-  .hero-cadence__device { --hero-device-tilt: 2deg; }
+  .hero-cadence__device { --hero-device-tilt: 1.6deg; }
 }
 
 @media (max-width: 640px) {
