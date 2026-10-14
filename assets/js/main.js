@@ -86,13 +86,18 @@
 
     const smallViewport = window.matchMedia('(max-width: 640px)');
     const mediumViewport = window.matchMedia('(max-width: 991px)');
+    const upwardResetThreshold = 6;
     let lastScrollY = window.scrollY;
+    let upwardScrollDistance = 0;
+    let isTilted = false;
 
     function restingTilt() {
       return mediumViewport.matches ? 1.6 : 2.4;
     }
 
     function resetHeroTilt() {
+      upwardScrollDistance = 0;
+      isTilted = false;
       if (motionPreference.matches || smallViewport.matches) {
         device.style.removeProperty('--hero-device-tilt');
         return;
@@ -105,10 +110,21 @@
       const scrollDelta = currentScrollY - lastScrollY;
       lastScrollY = currentScrollY;
 
-      if (motionPreference.matches || smallViewport.matches || Math.abs(scrollDelta) < 1) return;
+      if (motionPreference.matches || smallViewport.matches || scrollDelta === 0) return;
 
-      if (scrollDelta > 0) device.style.setProperty('--hero-device-tilt', '24deg');
-      else resetHeroTilt();
+      if (scrollDelta > 0) {
+        upwardScrollDistance = 0;
+        if (!isTilted) {
+          device.style.setProperty('--hero-device-tilt', '24deg');
+          isTilted = true;
+        }
+        return;
+      }
+
+      if (!isTilted) return;
+
+      upwardScrollDistance += Math.abs(scrollDelta);
+      if (currentScrollY <= 0 || upwardScrollDistance >= upwardResetThreshold) resetHeroTilt();
     }
 
     window.addEventListener('scroll', updateHeroTilt, { passive: true });
