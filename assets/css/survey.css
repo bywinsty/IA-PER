@@ -1,13 +1,19 @@
 .survey-page .survey-section {
-  padding-top: calc(var(--header-height, 100px) + 56px);
+  padding-top: 56px;
   padding-bottom: 56px;
+}
+
+.survey-page .results-intro,
+.survey-page #resultats,
+.survey-page #sondage {
+  scroll-margin-top: calc(var(--header-height, 100px) + 16px);
 }
 
 .survey-page .section-title {
   padding-bottom: 20px;
 }
 
-.survey-page .section-title h1 {
+.survey-page .survey-section .section-title h2 {
   position: relative;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -89,6 +95,24 @@
   font-weight: 600;
 }
 
+.survey-invitation__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.survey-invitation__link--secondary {
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background: transparent;
+}
+
+.survey-invitation__link--secondary:hover,
+.survey-invitation__link--secondary:focus-visible {
+  color: #fff;
+}
+
 .survey-invitation__link:hover,
 .survey-invitation__link:focus-visible {
   color: #fff;
@@ -97,7 +121,7 @@
 
 @media (max-width: 767px) {
   .survey-page .survey-section {
-    padding-top: calc(var(--header-height, 100px) + 32px);
+    padding-top: 36px;
   }
 
   .survey-frame-wrap {

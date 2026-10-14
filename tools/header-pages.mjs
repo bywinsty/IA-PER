@@ -11,6 +11,7 @@ const homeRoutes = {
   'professionnel.html': 'pages/thématiques/professionnel.html',
   'societe.html': 'pages/thématiques/societe.html',
   'sondage.html': 'pages/thématiques/sondage.html',
+  'resultats.html': 'pages/thématiques/resultats.html',
   '404.html': '404.html'
 };
 
@@ -21,6 +22,7 @@ const thematicRoutes = {
   'professionnel.html': 'professionnel.html',
   'societe.html': 'societe.html',
   'sondage.html': 'sondage.html',
+  'resultats.html': 'resultats.html',
   '404.html': '../../404.html'
 };
 
@@ -31,6 +33,7 @@ const thematicIndexRoutes = {
   'professionnel.html': 'thématiques/professionnel.html',
   'societe.html': 'thématiques/societe.html',
   'sondage.html': 'sondage.html',
+  'resultats.html': 'thématiques/resultats.html',
   '404.html': '../404.html'
 };
 export const headerPages = [
@@ -45,7 +48,7 @@ export const headerPages = [
     sections: [
       { label: 'À propos', href: '#about' },
       { label: 'Équipe du projet', href: '#team' },
-      { label: 'Partenaires et soutiens', href: '#partners' }
+      { label: 'Partenaires', href: '#partners' }
     ]
   },
   {

@@ -1,0 +1,42 @@
+{
+  "updatedThrough": "13 octobre 2026",
+  "responses": 61,
+  "sections": [
+    {
+      "id": "usages", "title": "Usages et travail", "intro": "Comment les répondants utilisent l’IA et anticipent son effet sur leur activité.",
+      "charts": [
+        { "title": "Dans quel domaine utilisez-vous principalement l’IA ?", "n": 61, "type": "bar", "items": [{"label":"Études et formation","count":20},{"label":"Recherche d’information","count":19},{"label":"Travail","count":12},{"label":"Autre","count":5},{"label":"Loisirs et création","count":3},{"label":"Travail et recherche","count":1},{"label":"Un peu de tout","count":1}] },
+        { "title": "L’IA remplacera-t-elle la majorité des tâches quotidiennes dans 10 ans ?", "n": 61, "type": "bar", "note": "La question autorisait plusieurs choix. Les catégories indiquent ici les combinaisons de réponses regroupées, et non des options exclusives.", "items": [{"label":"Partiellement","count":41},{"label":"Non","count":10},{"label":"Oui","count":8},{"label":"Partiellement et oui","count":1},{"label":"Non et partiellement","count":1}] },
+        { "title": "Quel effet l’IA aura-t-elle sur votre carrière ?", "n": 61, "type": "bar", "items": [{"label":"Une opportunité","count":21},{"label":"Un risque","count":20},{"label":"Ni l’un ni l’autre","count":20}] },
+        { "title": "L’IA va-t-elle transformer fortement le monde professionnel ?", "n": 61, "type": "bar", "items": [{"label":"Beaucoup","count":54},{"label":"Je ne sais pas","count":3},{"label":"Pas du tout","count":4}] },
+        { "title": "La maîtrise de l’IA sera-t-elle indispensable dans votre domaine d’ici 5 ans ?", "n": 61, "type": "rating", "min": 1, "max": 10, "mean": 7.16, "median": 8, "items": [{"label":"1","count":3},{"label":"2","count":1},{"label":"3","count":4},{"label":"4","count":3},{"label":"5","count":6},{"label":"6","count":5},{"label":"7","count":5},{"label":"8","count":10},{"label":"9","count":7},{"label":"10","count":17}] },
+        { "title": "À quelle fréquence modifiez-vous un texte avec l’IA ?", "n": 61, "type": "bar", "items": [{"label":"Occasionnellement","count":26},{"label":"Fréquemment","count":25},{"label":"Jamais","count":7},{"label":"Systématiquement","count":3}] }
+      ]
+    },
+    {
+      "id": "confiance", "title": "Confiance et responsabilité", "intro": "Les réponses font ressortir la vérification, la prudence et l’encadrement comme sujets centraux.",
+      "charts": [
+        { "title": "Confieriez-vous à l’IA des décisions importantes ?", "n": 61, "type": "bar", "items": [{"label":"Cela dépend de la décision","count":28},{"label":"Non","count":30},{"label":"Oui","count":3}] },
+        { "title": "Vérifiez-vous les réponses de l’IA ?", "n": 61, "type": "bar", "items": [{"label":"Toujours","count":38},{"label":"Parfois","count":21},{"label":"Jamais","count":2}] },
+        { "title": "À quel point vérifiez-vous les informations fournies par une IA avant de les utiliser ?", "n": 61, "type": "rating", "min": 1, "max": 10, "mean": 7.38, "median": 8, "items": [{"label":"1","count":2},{"label":"2","count":0},{"label":"3","count":3},{"label":"4","count":2},{"label":"5","count":4},{"label":"6","count":5},{"label":"7","count":10},{"label":"8","count":15},{"label":"9","count":9},{"label":"10","count":11}] },
+        { "title": "Comment évaluez-vous l’exactitude des informations de l’IA ?", "n": 61, "type": "rating", "min": 1, "max": 10, "mean": 6.34, "median": 7, "items": [{"label":"1","count":1},{"label":"2","count":0},{"label":"3","count":6},{"label":"4","count":2},{"label":"5","count":5},{"label":"6","count":12},{"label":"7","count":21},{"label":"8","count":11},{"label":"9","count":2},{"label":"10","count":1}] },
+        { "title": "Quel est votre niveau d’inquiétude concernant la vie privée ?", "n": 61, "type": "rating", "min": 1, "max": 10, "mean": 7.57, "median": 8, "items": [{"label":"1","count":2},{"label":"2","count":1},{"label":"3","count":3},{"label":"4","count":3},{"label":"5","count":4},{"label":"6","count":2},{"label":"7","count":9},{"label":"8","count":9},{"label":"9","count":10},{"label":"10","count":18}] },
+        { "title": "Faut-il réglementer l’IA ?", "n": 61, "type": "rating", "min": 1, "max": 10, "mean": 7.46, "median": 8, "items": [{"label":"1","count":2},{"label":"2","count":1},{"label":"3","count":2},{"label":"4","count":1},{"label":"5","count":9},{"label":"6","count":4},{"label":"7","count":9},{"label":"8","count":7},{"label":"9","count":7},{"label":"10","count":19}] }
+      ]
+    },
+    {
+      "id": "societe", "title": "Société et création", "intro": "Les répondants expriment à la fois des attentes pour les usages de l’IA et des réserves sur sa place dans la société.",
+      "charts": [
+        { "title": "Quel impact l’IA aura-t-elle sur les relations sociales ?", "n": 61, "type": "bar", "items": [{"label":"Un impact important","count":34},{"label":"Un impact léger","count":20},{"label":"Pas d’impact","count":7}] },
+        { "title": "L’IA vous inspire-t-elle plutôt de l’inquiétude ou de la confiance ?", "n": 61, "type": "bar", "items": [{"label":"De l’inquiétude","count":41},{"label":"Sans opinion","count":14},{"label":"Un sentiment rassurant","count":6}] },
+        { "title": "Quelle est la principale qualité de l’IA ?", "n": 61, "type": "bar", "items": [{"label":"Gagner du temps","count":33},{"label":"Accéder à l’information","count":13},{"label":"Recherche et innovation","count":8},{"label":"Autre","count":4},{"label":"Améliorer le travail","count":3}] },
+        { "title": "Arrivez-vous à reconnaître un contenu créé par l’IA ?", "n": 61, "type": "bar", "items": [{"label":"Oui, facilement","count":37},{"label":"Non ou difficilement","count":24}] },
+        { "title": "Quel niveau d’inquiétude suscitent les effets de l’IA sur la société et l’environnement ?", "n": 61, "type": "bar", "items": [{"label":"Beaucoup","count":21},{"label":"Moyennement","count":18},{"label":"Énormément","count":17},{"label":"Peu","count":3},{"label":"Pas du tout","count":2}] },
+        { "title": "Quelle place pour l’IA dans l’art ?", "n": 61, "type": "bar", "items": [{"label":"Un outil complémentaire","count":32},{"label":"Elle remplacera beaucoup de créateurs","count":26},{"label":"À abandonner au profit du 100 % humain","count":3}] },
+        { "title": "Quelle compétence humaine sera la plus importante ?", "n": 61, "type": "bar", "items": [{"label":"Esprit critique","count":33},{"label":"Créativité","count":15},{"label":"Empathie","count":6},{"label":"Autre","count":5},{"label":"Deux compétences citées ensemble","count":2}] },
+        { "title": "Une œuvre créée par l’IA a-t-elle la même valeur artistique qu’une œuvre humaine ?", "n": 59, "type": "rating", "min": 1, "max": 10, "mean": 3.83, "median": 4, "items": [{"label":"1","count":16},{"label":"2","count":4},{"label":"3","count":8},{"label":"4","count":5},{"label":"5","count":12},{"label":"6","count":7},{"label":"7","count":4},{"label":"8","count":1},{"label":"9","count":0},{"label":"10","count":2}] },
+        { "title": "Qui devrait détenir les droits d’auteur d’une œuvre générée par l’IA ?", "n": 59, "type": "bar", "items": [{"label":"La personne qui rédige la consigne","count":28},{"label":"Le domaine public","count":23},{"label":"L’entreprise qui développe l’IA","count":8}] }
+      ]
+    }
+  ]
+}
