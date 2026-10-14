@@ -2,21 +2,24 @@ import { expect, test } from '@playwright/test';
 
 const viewports = [1440, 768, 390, 320];
 
-test('homepage Cadence hero keeps its content semantic without the device preview', async ({ page }) => {
+test('homepage Cadence hero keeps its content inside the screen preview', async ({ page }) => {
   await page.goto('/index.html', { waitUntil: 'load' });
 
   const hero = page.locator('#hero.hero--cadence');
+  const screen = hero.locator('.hero-cadence__screen');
   await expect(hero).toHaveCount(1);
+  await expect(screen).toHaveCount(1);
+  await expect(screen.locator('.hero-cadence__copy')).toHaveCount(1);
   await expect(hero.getByRole('heading', { level: 1 })).toHaveText('Comprendre l’IA pour mieux choisir');
   await expect(hero.locator('.hero-cadence__lede')).toHaveText(/Des repères clairs sur l’intelligence artificielle/i);
   await expect(hero.getByRole('link', { name: /Découvrir les thématiques/i })).toHaveAttribute(
     'href',
-    'pages/thematiques.html#themes'
+    'pages/thematiques.html'
   );
   await expect(hero.locator('.hero-cadence__cta')).toHaveCount(1);
   await expect(hero.locator('.hero-cadence__faces img')).toHaveCount(5);
   expect(await hero.locator('.hero-cadence__faces img').evaluateAll(images => images.every(image => image.alt === ''))).toBe(true);
-  await expect(hero.locator('.hero-cadence__device-wrap, .hero-cadence__device')).toHaveCount(0);
+  expect(await screen.evaluate(element => !element.contains(document.querySelector('#header')))).toBe(true);
   await expect(page.locator('#hero .site-header')).toHaveCount(0);
 });
 
@@ -126,14 +129,20 @@ for (const width of viewports) {
 
     const layout = await page.evaluate(() => {
       const header = document.querySelector('#header');
+      const screen = document.querySelector('.hero-cadence__screen');
       const title = document.querySelector('.hero-cadence__title');
       const cta = document.querySelector('.hero-cadence__cta');
       const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+      const screenBox = screen?.getBoundingClientRect();
       const ctaBox = cta?.getBoundingClientRect();
 
       return {
         titleTop: title?.getBoundingClientRect().top ?? 0,
         headerBottom,
+        screenTop: screenBox?.top ?? 0,
+        screenLeft: screenBox?.left ?? 0,
+        screenRight: screenBox?.right ?? 0,
+        screenBottom: screenBox?.bottom ?? 0,
         ctaVisible: Boolean(ctaBox && ctaBox.top >= 0 && ctaBox.bottom <= window.innerHeight),
         heroHeight: document.querySelector('#hero')?.getBoundingClientRect().height ?? 0,
         viewportHeight: window.innerHeight,
@@ -144,9 +153,38 @@ for (const width of viewports) {
     });
 
     expect(layout.titleTop).toBeGreaterThanOrEqual(layout.headerBottom + 16);
+    expect(layout.screenTop).toBeGreaterThanOrEqual(layout.headerBottom + 16);
+    expect(layout.screenLeft).toBeGreaterThanOrEqual(0);
+    expect(layout.screenRight).toBeLessThanOrEqual(layout.viewportWidth);
+    expect(layout.screenBottom).toBeLessThanOrEqual(layout.heroHeight);
     expect(layout.ctaVisible).toBe(true);
     expect(layout.heroHeight).toBeGreaterThanOrEqual(layout.viewportHeight);
     expect(layout.scrollWidth).toBeLessThanOrEqual(layout.viewportWidth);
     expect(layout.ctaTransition).toBe('0s');
   });
 }
+
+test('homepage screen tilt follows viewport size and reduced-motion preference', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/index.html', { waitUntil: 'load' });
+
+  const screen = page.locator('.hero-cadence__screen');
+  const tiltDegrees = () => screen.evaluate(element => {
+    const transform = getComputedStyle(element).transform;
+    if (transform === 'none') return 0;
+    const matrix = new DOMMatrixReadOnly(transform);
+    return Math.round(Math.acos(Math.min(1, matrix.m22)) * 180 / Math.PI);
+  });
+  await expect.poll(tiltDegrees).toBe(7);
+
+  await page.setViewportSize({ width: 768, height: 900 });
+  await expect.poll(tiltDegrees).toBe(4);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect.poll(tiltDegrees).toBe(0);
+
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect.poll(tiltDegrees).toBe(0);
+});
