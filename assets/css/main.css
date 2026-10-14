@@ -726,6 +726,7 @@ section,
 .hero-cadence__ambient { display: none; }
 
 .hero-cadence__device {
+  --hero-device-tilt: 3deg;
   position: relative;
   isolation: isolate;
   width: min(1240px, calc(100% - 48px));
@@ -740,7 +741,7 @@ section,
     inset 0 -2px 0 rgba(0, 0, 0, 0.48),
     0 42px 72px -38px rgba(0, 0, 0, 0.9),
     0 16px 40px -24px rgba(76, 196, 234, 0.52);
-  transform: perspective(1400px) rotateX(3deg);
+  transform: perspective(1400px) rotateX(var(--hero-device-tilt));
   transform-origin: 50% 50%;
 }
 
@@ -940,7 +941,7 @@ section,
 
 @media (max-width: 991px) {
   .hero-cadence__copy { max-width: 760px; }
-  .hero-cadence__device { transform: perspective(1400px) rotateX(2deg); }
+  .hero-cadence__device { --hero-device-tilt: 2deg; }
 }
 
 @media (max-width: 640px) {

@@ -77,6 +77,45 @@
   initScrollProgress();
 
   /**
+   * Let the homepage tablet gently tip as it moves through the viewport.
+   */
+  function initHeroScrollTilt() {
+    const hero = document.querySelector('#hero.hero--cadence');
+    const device = hero?.querySelector('.hero-cadence__device');
+    if (!hero || !device) return;
+
+    const smallViewport = window.matchMedia('(max-width: 640px)');
+    const mediumViewport = window.matchMedia('(max-width: 991px)');
+    let framePending = false;
+
+    function updateHeroTilt() {
+      if (framePending) return;
+      framePending = true;
+      requestAnimationFrame(() => {
+        framePending = false;
+
+        if (motionPreference.matches || smallViewport.matches) {
+          device.style.removeProperty('--hero-device-tilt');
+          return;
+        }
+
+        const heroHeight = Math.max(hero.offsetHeight, 1);
+        const progress = Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / heroHeight));
+        const initialTilt = mediumViewport.matches ? 2 : 3;
+        const currentTilt = initialTilt * (1 - progress * 2);
+        device.style.setProperty('--hero-device-tilt', `${currentTilt.toFixed(2)}deg`);
+      });
+    }
+
+    window.addEventListener('scroll', updateHeroTilt, { passive: true });
+    window.addEventListener('resize', updateHeroTilt, { passive: true });
+    motionPreference.addEventListener('change', updateHeroTilt);
+    updateHeroTilt();
+  }
+
+  initHeroScrollTilt();
+
+  /**
    * Scroll top button
    */
   let scrollTop = document.querySelector('.scroll-top');
