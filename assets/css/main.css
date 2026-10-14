@@ -728,7 +728,7 @@ section,
 .hero-cadence__device {
   position: relative;
   isolation: isolate;
-  width: min(1160px, calc(100% - 48px));
+  width: min(1240px, calc(100% - 48px));
   margin: 0 auto;
   padding: 23px 13px 0;
   border: 12px solid #29384b;
