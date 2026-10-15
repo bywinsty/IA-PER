@@ -28,6 +28,11 @@
 .about-story__rail span { position: absolute; top: 0; left: 0; width: 1px; height: 100%; background: linear-gradient(180deg, #2A9D5B, rgba(42, 157, 91, .3)); transform: scaleY(var(--about-progress, 0)); transform-origin: top; transition: transform 420ms cubic-bezier(.22, 1, .36, 1); }
 .about-story__panel { min-height: 50vh; display: flex; align-items: center; }
 .about-story__panel[data-about-panel="0"] { min-height: 42vh; align-items: flex-start; }
+/* Leave enough vertical breathing room before the second chapter title near the fold. */
+.about-story__panel[data-about-panel="1"] { min-height: 76vh; }
+@media (min-width: 960px) and (min-height: 800px) {
+.about-story__panel[data-about-panel="1"] { min-height: 83vh; }
+}
 .about-story__chapter { position: relative; width: 100%; padding: 22px 0; overflow-wrap: anywhere; }
 .about-story__dot { position: absolute; top: calc(50% - 6px); left: -28px; width: 11px; height: 11px; border: 1px solid var(--about-line-strong); border-radius: 50%; background: #111b3d; transition: border-color .25s ease, background-color .25s ease, box-shadow .25s ease; }
 .about-story__panel[data-about-panel="0"] .about-story__dot { top: 28px; }
