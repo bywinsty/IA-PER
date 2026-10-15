@@ -738,8 +738,8 @@ section,
   box-shadow:
     inset 0 0 0 1px rgba(226, 238, 248, 0.28),
     inset 0 -2px 0 rgba(0, 0, 0, 0.48),
-    0 42px 72px -38px rgba(0, 0, 0, 0.9),
-    0 16px 40px -24px rgba(76, 196, 234, 0.52);
+    0 -18px 46px -30px rgba(0, 0, 0, 0.68),
+    0 -10px 36px -26px rgba(76, 196, 234, 0.3);
   transform: perspective(1400px) rotateX(var(--hero-device-tilt));
   transform-origin: 50% 50%;
   transition: none;
