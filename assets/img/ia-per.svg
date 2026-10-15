@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="740" height="740" viewBox="90 150 740 740" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="740" height="740" viewBox="72 150 740 740" version="1.1">
   <title>IA — signe humain au centre, version bleu et vert</title>
-  <desc>Symbole vectoriel sans texte. Palette : bleu #075BC9, bleu marine #07386B, jaune #FFB700, vert #2A9D5B. Fond transparent.</desc>
+  <desc>Symbole vectoriel sans texte. Palette : bleu #075BC9, bleu marine #07386B, vert #2A9D5B. Fond transparent.</desc>
   <g id="symbol" inkscape:groupmode="layer" inkscape:label="Signe">
-    <g id="arc-blue" inkscape:label="Arc gauche — bleu" fill="#075BC9">
-      <path d="M 287,262 C 112,370 105,637 302,767 C 318,778 336,773 350,759 C 364,744 361,725 346,711 C 192,600 194,418 329,322 C 348,309 354,290 341,270 C 328,250 306,249 287,262 Z" />
+    <defs>
+      <path id="arc-form" d="M 287,262 C 112,370 105,637 302,767 C 318,778 336,773 350,759 C 364,744 361,725 346,711 C 192,600 194,418 329,322 C 348,309 354,290 341,270 C 328,250 306,249 287,262 Z" />
+      <clipPath id="arc-upper-crop" clipPathUnits="userSpaceOnUse">
+        <rect x="72" y="396.75" width="740" height="493.25" />
+      </clipPath>
+    </defs>
+    <g id="arc-blue" inkscape:label="Arc gauche — bleu" fill="#07386B" clip-path="url(#arc-upper-crop)">
+      <use href="#arc-form" />
     </g>
-    <g id="arc-gold" inkscape:label="Arc supérieur — jaune" fill="#FFB700">
-      <path d="M 392,197 C 570,140 749,281 764,477 C 765,492 757,504 743,504 C 730,504 721,494 721,480 C 707,311 549,221 411,255 C 390,262 373,254 367,237 C 361,219 370,204 392,197 Z" />
+    <g id="arc-green" inkscape:label="Arc droit — vert" fill="#FFB700" transform="matrix(-1 0 0 1 884 0)" clip-path="url(#arc-upper-crop)">
+      <use href="#arc-form" />
     </g>
-    <g id="arc-green" inkscape:label="Arc droit — vert" fill="#2A9D5B">
-      <path d="M 579,313 C 699,393 739,548 649,672 C 637,689 617,687 601,677 C 586,668 584,654 593,641 C 667,535 634,428 547,361 C 531,349 529,333 539,318 C 549,303 565,305 579,313 Z" />
-    </g>
-    <g id="person" inkscape:label="Personne — bleu marine" fill="#07386B">
+    <g id="person" inkscape:label="Personne — bleu marine" fill="#DDD5C4" transform="translate(0.5 -71.25)">
       <path id="head" inkscape:label="Tête" d="M 500,425 A 58.5,58.5 0 1 1 383,425 A 58.5,58.5 0 1 1 500,425 Z" />
       <path id="body" inkscape:label="Corps" d="M 334,468 C 395,527 487,529 549,468 C 560,457 574,468 571,482 C 566,521 538,550 510,570 C 501,576 499,582 499,593 L 499,778 C 499,794 476,803 442,803 C 409,803 384,794 384,778 L 384,593 C 384,582 381,576 373,570 C 341,547 316,517 311,483 C 309,468 323,458 334,468 Z" />
     </g>

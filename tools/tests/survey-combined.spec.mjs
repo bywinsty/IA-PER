@@ -55,7 +55,7 @@ test('combined page and thematic links reflow on a narrow screen', async ({ page
 
   await page.goto('/pages/thematiques.html', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('.survey-invitation__actions a')).toHaveCount(1);
-  await expect(page.getByRole('link', { name: /Découvrir le sondage/ })).toHaveAttribute('href', 'sondage.html#resultats');
+  await expect(page.getByRole('link', { name: /Découvrir le sondage/ })).toHaveAttribute('href', 'sondage.html');
   await expect(page.locator('.survey-invitation')).toContainText('Consultez les résultats');
   await expect(page.locator('.survey-invitation')).toContainText('partagez votre regard');
 });

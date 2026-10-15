@@ -50,10 +50,10 @@
   width: min(100%, 900px);
   margin: 0 auto;
   overflow: hidden;
-  border: 1px solid rgba(55, 81, 126, 0.12);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
-  background: #f0ebf8;
-  box-shadow: 0 18px 55px rgba(17, 27, 61, 0.1);
+  background: var(--surface-raised);
+  box-shadow: 0 16px 44px -34px rgba(7, 56, 107, 0.32);
 }
 
 .survey-frame {
@@ -87,7 +87,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  border-radius: 50px;
+  border-radius: 10px;
   padding: 12px 24px;
   color: #fff;
   background: var(--accent-color);
@@ -115,7 +115,7 @@
 .survey-invitation__link:hover,
 .survey-invitation__link:focus-visible {
   color: #fff;
-  background: #111b3d;
+  background: var(--brand-ink);
 }
 
 @media (max-width: 767px) {

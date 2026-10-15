@@ -54,14 +54,11 @@
           <span class="site-name">IA-PER</span>
         </a>
 
-      <nav class="header-breadcrumbs" aria-label="Fil d’Ariane">
-        <ol>
-          <li><a href="../../index.html" class="breadcrumb-button">Accueil</a></li>
-          <li><a href="../thematiques.html" class="breadcrumb-button">Thématiques</a></li>
-          <li><a href="environnement.html" class="breadcrumb-button current" aria-current="page">Environnement</a></li>
-        </ol>
-      </nav>
         </div>
+      <nav class="header-primary-nav" aria-label="Navigation principale">
+        <a href="../../index.html" class="header-primary-link"><span>Accueil</span></a>
+        <a href="../thematiques.html" class="header-primary-link"><span>Thématiques</span></a>
+      </nav>
       <div
         id="scroll-progress"
         class="scroll-progress"
@@ -89,8 +86,8 @@
           <div class="col-lg-7" data-aos="fade-up">
             <div class="thematic-copy">
               <h2 id="thematic-title">IA et environnement</h2>
-              <p class="thematic-lead">Comprendre les liens entre intelligence artificielle, ressources et transition environnementale.</p>
-              <p>Cette thématique met en perspective les usages de l’IA, les ressources nécessaires à son fonctionnement et les questions qu’elle soulève pour l’environnement.</p>
+              <p class="thematic-lead">L’IA mobilise des ressources et peut aussi soutenir certains usages environnementaux.</p>
+              <p>Son calcul et ses équipements demandent de l’énergie et des matières premières ; certaines infrastructures utilisent aussi de l’eau. Des usages peuvent servir à modéliser le climat, optimiser les réseaux électriques ou limiter les gaspillages.</p>
             </div>
           </div>
           <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="100">
@@ -98,26 +95,82 @@
           </div>
         </div>
 
-        <div class="row gy-4 mt-4">
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <article class="thematic-card h-100">
-              <h3>Ressources et énergie</h3>
-              <p>Quels besoins matériels et énergétiques sont associés aux systèmes d’IA&nbsp;?</p>
-            </article>
+        <section id="impact-environnement" class="mt-5 pt-4" aria-labelledby="impact-environnement-title">
+          <div class="section-title pb-2" data-aos="fade-up">
+            <h2 id="impact-environnement-title">Impact de l’IA sur l’environnement</h2>
           </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <article class="thematic-card h-100">
-              <h3>Usages utiles</h3>
-              <p>Dans quels cas l’IA peut-elle aider à observer, anticiper ou optimiser certains phénomènes&nbsp;?</p>
-            </article>
+
+          <div class="row gy-4">
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <details class="thematic-card environnement-impact-panel">
+                <summary class="environnement-impact-panel__summary">
+                  <h3>Risques et points de vigilance</h3>
+                  <span class="environnement-impact-panel__topics">Calcul et émissions · énergie et eau · ressources minières</span>
+                </summary>
+                <ul class="list-unstyled thematic-impact-list environnement-impact-panel__list">
+                  <li>
+                    <strong>Calcul et émissions</strong>
+                    <span>L’entraînement et le fonctionnement des grands modèles demandent une puissance de calcul importante et génèrent des émissions de gaz à effet de serre.</span>
+                  </li>
+                  <li>
+                    <strong>Énergie et eau</strong>
+                    <span>Les centres de données consomment de l’électricité et utilisent de l’eau pour refroidir les serveurs.</span>
+                  </li>
+                  <li>
+                    <strong>Ressources minières</strong>
+                    <span>La fabrication des puces, des serveurs et des équipements informatiques nécessite l’extraction de terres rares et d’autres minerais, avec des conséquences écologiques et sociales dans les zones concernées.</span>
+                  </li>
+                </ul>
+              </details>
+            </div>
+
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <details class="thematic-card environnement-impact-panel environnement-impact-panel--opportunities">
+                <summary class="environnement-impact-panel__summary">
+                  <h3>Possibilités et progrès</h3>
+                  <span class="environnement-impact-panel__topics">Climat · réseaux électriques · industrie et transports</span>
+                </summary>
+                <ul class="list-unstyled thematic-impact-list environnement-impact-panel__list">
+                  <li>
+                    <strong>Modélisation du climat</strong>
+                    <span>L’IA peut contribuer à modéliser le climat.</span>
+                  </li>
+                  <li>
+                    <strong>Réseaux électriques</strong>
+                    <span>Elle peut aider à optimiser les réseaux électriques intelligents (smart grids).</span>
+                  </li>
+                  <li>
+                    <strong>Industrie, logistique et transports</strong>
+                    <span>Certains usages peuvent réduire les gaspillages industriels et améliorer la gestion de la logistique et des transports.</span>
+                  </li>
+                </ul>
+              </details>
+            </div>
           </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <article class="thematic-card h-100">
-              <h3>Choix et responsabilités</h3>
-              <p>Comment mettre en balance les bénéfices, les limites et les effets indirects d’un usage&nbsp;?</p>
-            </article>
+
+          <p class="thematic-impact-sources small mb-0" data-aos="fade-up">
+            Pour approfondir&nbsp;:
+            <a href="https://wedocs.unep.org/handle/20.500.11822/46288">PNUE, cycle de vie de l’IA</a>,
+            <a href="https://www.iea.org/reports/energy-and-ai/ai-for-energy-optimisation-and-innovation">AIE, usages énergétiques de l’IA</a>,
+            <a href="https://www.oecd.org/en/publications/measuring-the-environmental-impacts-of-artificial-intelligence-compute-and-applications_7babf571-en.html">OCDE, mesure des impacts</a>.
+          </p>
+        </section>
+
+        <section id="interviews" class="mt-5 pt-4" aria-labelledby="interviews-title">
+          <div class="section-title pb-2" data-aos="fade-up">
+            <h2 id="interviews-title">Interviews</h2>
           </div>
-        </div>
+
+          <div class="ratio ratio-16x9" data-aos="fade-up" data-aos-delay="100">
+            <iframe
+              src="https://www.youtube.com/embed/G4hJNCPoJhI"
+              title="IA ENVIRONNEMENT OK — vidéo YouTube"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              loading="lazy"></iframe>
+          </div>
+        </section>
 
         <div class="thematic-back" data-aos="fade-up">
           <a href="../thematiques.html#themes"><i class="bi bi-arrow-left" aria-hidden="true"></i> Retour aux thématiques</a>

@@ -24,6 +24,16 @@ const thematicRoutes = {
   '404.html': '../../404.html'
 };
 
+const thematicDetailNavigation = [
+  { label: 'Accueil', href: thematicRoutes['index.html'] },
+  { label: 'Thématiques', href: thematicRoutes['thematiques.html'] }
+];
+
+const surveyNavigation = [
+  { label: 'Accueil', href: '../index.html' },
+  { label: 'Thématiques', href: 'thematiques.html' }
+];
+
 const thematicIndexRoutes = {
   'index.html': '../index.html',
   'thematiques.html': 'thematiques.html',
@@ -40,8 +50,12 @@ export const headerPages = [
     assetPrefix: '',
     homeHref: 'index.html',
     routes: homeRoutes,
-    currentLabel: 'Accueil',
-    currentHref: '#hero',
+    navigationLabel: 'Sections de la page d’accueil',
+    primaryNavigationLabel: 'Navigation principale',
+    primaryNavigation: [
+      { label: 'Accueil', href: homeRoutes['index.html'], current: true },
+      { label: 'Thématiques', href: homeRoutes['thematiques.html'] }
+    ],
     sections: [
       { label: 'À propos', href: '#about' },
       { label: 'Équipe du projet', href: '#team' },
@@ -54,74 +68,72 @@ export const headerPages = [
     assetPrefix: '../',
     homeHref: '../index.html',
     routes: thematicIndexRoutes,
-    navigationLabel: 'Navigation des thématiques',
-    currentLabel: 'Thématiques',
-    currentHref: 'thematiques.html',
-    sections: [
-      { label: 'Environnement', href: 'thématiques/environnement.html' },
-      { label: 'Professionnel', href: 'thématiques/professionnel.html' },
-      { label: 'Société', href: 'thématiques/societe.html' }
+    navigationLabel: 'Sections de la page Thématiques',
+    primaryNavigationLabel: 'Navigation principale',
+    primaryNavigation: [
+      { label: 'Accueil', href: thematicIndexRoutes['index.html'] },
+      { label: 'Thématiques', href: thematicIndexRoutes['thematiques.html'], current: true }
     ],
-    themeCtaLabel: 'Sondage',
-    themeCtaHref: 'sondage.html',
+    sections: [
+      { label: 'Thématiques', href: '#themes' },
+      { label: 'Sondage', href: '#sondage' },
+      { label: 'Questions fréquemment posées', href: '#faq' }
+    ],
   },
   {
     file: 'pages/sondage.html',
     type: 'breadcrumb-cadence',
     showThemeCta: false,
+    primaryNavigationOnly: true,
+    primaryNavigationLabel: 'Navigation principale',
+    primaryNavigation: surveyNavigation,
     assetPrefix: '../',
     homeHref: '../index.html',
-    routes: thematicRoutes,
-    breadcrumbs: [
-      { label: 'Accueil', href: '../index.html' },
-      { label: 'Thématiques', href: 'thematiques.html' },
-      { label: 'Sondage', href: 'sondage.html', current: true }
-    ]
+    routes: thematicRoutes
   },
   {
     file: 'pages/thématiques/environnement.html',
     type: 'breadcrumb-cadence',
     showThemeCta: false,
+    primaryNavigationOnly: true,
+    primaryNavigationLabel: 'Navigation principale',
+    primaryNavigation: thematicDetailNavigation,
     assetPrefix: '../../',
     homeHref: '../../index.html',
-    routes: thematicRoutes,
-    breadcrumbs: [
-      { label: 'Accueil', href: '../../index.html' },
-      { label: 'Thématiques', href: '../thematiques.html' },
-      { label: 'Environnement', href: 'environnement.html', current: true }
-    ]
+    routes: thematicRoutes
   },
   {
     file: 'pages/thématiques/professionnel.html',
     type: 'breadcrumb-cadence',
     showThemeCta: false,
+    primaryNavigationOnly: true,
+    primaryNavigationLabel: 'Navigation principale',
+    primaryNavigation: thematicDetailNavigation,
     assetPrefix: '../../',
     homeHref: '../../index.html',
-    routes: thematicRoutes,
-    breadcrumbs: [
-      { label: 'Accueil', href: '../../index.html' },
-      { label: 'Thématiques', href: '../thematiques.html' },
-      { label: 'Professionnel', href: 'professionnel.html', current: true }
-    ]
+    routes: thematicRoutes
   },
   {
     file: 'pages/thématiques/societe.html',
     type: 'breadcrumb-cadence',
     showThemeCta: false,
+    primaryNavigationOnly: true,
+    primaryNavigationLabel: 'Navigation principale',
+    primaryNavigation: thematicDetailNavigation,
     assetPrefix: '../../',
     homeHref: '../../index.html',
-    routes: thematicRoutes,
-    breadcrumbs: [
-      { label: 'Accueil', href: '../../index.html' },
-      { label: 'Thématiques', href: '../thematiques.html' },
-      { label: 'Société', href: 'societe.html', current: true }
-    ]
+    routes: thematicRoutes
   },
   {
     file: '404.html',
     type: 'brand-only',
     assetPrefix: '',
     homeHref: 'index.html',
-    routes: homeRoutes
+    routes: homeRoutes,
+    primaryNavigationLabel: 'Navigation principale',
+    primaryNavigation: [
+      { label: 'Accueil', href: homeRoutes['index.html'] },
+      { label: 'Thématiques', href: homeRoutes['thematiques.html'] }
+    ]
   }
 ];

@@ -55,10 +55,8 @@
           <span class="site-name">IA-PER</span>
         </a>
 
-      <nav class="header-page-nav" aria-label="Navigation de la page d’accueil">
-        <a href="#hero" class="header-current-link" aria-current="page">
-          <span>Accueil</span>
-        </a>
+        </div>
+      <nav class="header-page-nav" aria-label="Sections de la page d’accueil">
         <ol class="header-section-links">
         <li>
           <a href="#about">
@@ -77,8 +75,10 @@
         </li>
         </ol>
       </nav>
-        </div>
-        <a href="pages/thematiques.html#themes" class="header-theme-cta">Découvrir les thématiques <span aria-hidden="true">→</span></a>
+      <nav class="header-primary-nav" aria-label="Navigation principale">
+        <a href="index.html" class="header-primary-link" aria-current="page"><span>Accueil</span></a>
+        <a href="pages/thematiques.html" class="header-primary-link"><span>Thématiques</span></a>
+      </nav>
       <div
         id="scroll-progress"
         class="scroll-progress"
@@ -110,14 +110,8 @@
             <p class="hero-cadence__lede">Des repères clairs sur l’intelligence artificielle, ses usages et ses effets au travail, dans la société et sur l’environnement.</p>
 
             <div class="hero-cadence__proof">
-              <div class="hero-cadence__faces" aria-hidden="true">
-                <span class="hero-cadence__face"><img src="assets/img/person/person-m-1.webp" width="1024" height="1024" alt=""></span>
-                <span class="hero-cadence__face"><img src="assets/img/person/person-m-3.webp" width="1254" height="1254" alt=""></span>
-                <span class="hero-cadence__face"><img src="assets/img/person/person-f-4.webp" width="1024" height="1024" alt=""></span>
-                <span class="hero-cadence__face"><img src="assets/img/person/person-f-1.webp" width="1024" height="1024" alt=""></span>
-                <span class="hero-cadence__face"><img src="assets/img/person/person-m-6.webp" width="1024" height="1024" alt=""></span>
-              </div>
-              <p class="hero-cadence__proof-label">Un projet conçu par des apprenant·es et formateurs du CF2M</p>
+              <div class="hero-cadence__faces" aria-hidden="true"></div>
+              <a class="hero-cadence__proof-label" href="#team">Un projet conçu par des apprenant·es et formateurs du CF2M</a>
             </div>
           </div>
         </div>
@@ -209,11 +203,13 @@
                   <span class="about-notebook__mark"><img src="assets/img/ia-per.svg" width="75" height="75" alt=""></span>
                 </div>
                 <svg class="about-notebook__acronym" viewBox="0 0 420 145" role="img" aria-labelledby="about-acronym-title about-acronym-desc">
-                  <title id="about-acronym-title">P.E.R. : Progrès, Enjeux et Responsabilités</title>
-                  <desc id="about-acronym-desc">Des lignes relient les lettres P, E et R aux mots Progrès, Enjeux et Responsabilités.</desc>
+                  <title id="about-acronym-title">IA-PER.BE : Progrès, Enjeux et Responsabilités</title>
+                  <desc id="about-acronym-desc">Le préfixe IA- précède le sigle PER et le suffixe .BE le suit. Les lettres P, E et R sont reliées respectivement à Progrès, Enjeux et Responsabilités.</desc>
+                  <text class="about-notebook__wordmark about-notebook__wordmark--prefix" x="137" y="37">IA-</text>
                   <text class="about-notebook__wordmark about-notebook__wordmark--p" x="177" y="37">P</text>
                   <text class="about-notebook__wordmark about-notebook__wordmark--e" x="210" y="37">E</text>
                   <text class="about-notebook__wordmark about-notebook__wordmark--r" x="243" y="37">R</text>
+                  <text class="about-notebook__wordmark about-notebook__wordmark--prefix" x="282" y="37">.BE</text>
                   <path class="about-notebook__connector about-notebook__connector--p" d="M177 45 V55 H70 V88"></path>
                   <path class="about-notebook__connector about-notebook__connector--e" d="M210 45 V88"></path>
                   <path class="about-notebook__connector about-notebook__connector--r" d="M243 45 V55 H350 V88"></path>
@@ -409,6 +405,7 @@
   <script src="assets/js/header.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/about-story.js"></script>
+  <script src="assets/js/team-sync.js"></script>
 
   <script src="assets/js/footer.js" defer></script>
 

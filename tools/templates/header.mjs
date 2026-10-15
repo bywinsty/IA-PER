@@ -6,6 +6,11 @@ const escapeHtml = (value) => String(value)
   .replaceAll("'", '&#39;');
 
 function renderHomeNavigation(page, indent, eol) {
+  const currentLink = page.primaryNavigation ? [] : [
+    `${indent}      <a href="${escapeHtml(page.currentHref)}" class="header-current-link" aria-current="page">`,
+    `${indent}        <span>${escapeHtml(page.currentLabel)}</span>`,
+    `${indent}      </a>`
+  ];
   const links = page.sections.map(({ label, href }) => [
     `${indent}      <li>`,
     `${indent}        <a href="${escapeHtml(href)}">`,
@@ -16,9 +21,7 @@ function renderHomeNavigation(page, indent, eol) {
 
   return [
     `${indent}    <nav class="header-page-nav" aria-label="${escapeHtml(page.navigationLabel ?? 'Navigation de la page d’accueil')}">`,
-    `${indent}      <a href="${escapeHtml(page.currentHref)}" class="header-current-link" aria-current="page">`,
-    `${indent}        <span>${escapeHtml(page.currentLabel)}</span>`,
-    `${indent}      </a>`,
+    ...currentLink,
     `${indent}      <ol class="header-section-links">`,
     links,
     `${indent}      </ol>`,
@@ -70,6 +73,20 @@ function renderThemeCta(page, indent) {
   return `${indent}      <a href="${escapeHtml(href)}" class="header-theme-cta">${escapeHtml(label)} <span aria-hidden="true">→</span></a>`;
 }
 
+function renderPrimaryNavigation(page, indent, eol) {
+  const links = page.primaryNavigation.map(({ label, href, current }) => {
+    const currentValue = current === true ? 'page' : current;
+    const currentAttribute = currentValue ? ` aria-current="${escapeHtml(currentValue)}"` : '';
+    return `${indent}      <a href="${escapeHtml(href)}" class="header-primary-link"${currentAttribute}><span>${escapeHtml(label)}</span></a>`;
+  }).join(eol);
+
+  return [
+    `${indent}    <nav class="header-primary-nav" aria-label="${escapeHtml(page.primaryNavigationLabel ?? 'Navigation principale')}">`,
+    links,
+    `${indent}    </nav>`
+  ].join(eol);
+}
+
 function renderBreadcrumbSections(page, indent, eol) {
   return [
     `${indent}    <div class="header-navigation-stack">`,
@@ -104,13 +121,20 @@ export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
     ? renderScrollProgress(`${indent}  `, eol)
     : '';
   const scrollProgressOutsideInner = usesCadenceHeader ? '' : scrollProgress;
-  const navigation = page.type === 'brand-only'
+  const navigation = page.primaryNavigationOnly || page.type === 'brand-only'
     ? ''
     : page.type === 'home' || page.type === 'thematics'
       ? renderHomeNavigation(page, indent, eol)
       : page.type === 'breadcrumb-sections'
         ? renderBreadcrumbSections(page, indent, eol)
         : renderBreadcrumbs(page, indent, eol);
+  const headerAction = page.primaryNavigation
+    ? renderPrimaryNavigation(page, indent, eol)
+    : page.type === 'brand-only' || page.showThemeCta === false
+      ? ''
+      : renderThemeCta(page, indent);
+  const navigationInsideBrand = page.primaryNavigation ? [] : navigation ? [navigation] : [];
+  const navigationAfterBrand = page.primaryNavigation && !page.primaryNavigationOnly && navigation ? [navigation] : [];
 
   return [
     `${indent}<!-- generated:header:start -->`,
@@ -129,9 +153,10 @@ export function renderHeader(page, { eol = '\n', indent = '  ' } = {}) {
     `${indent}        <span class="site-name">IA-PER</span>`,
     `${indent}      </a>`,
     '',
-    ...(navigation ? [navigation] : []),
+    ...navigationInsideBrand,
     `${indent}      </div>`,
-    ...(page.type === 'brand-only' || page.showThemeCta === false ? [] : [renderThemeCta(page, indent)]),
+    ...navigationAfterBrand,
+    ...(headerAction ? [headerAction] : []),
     ...(scrollProgressInsideInner ? [scrollProgressInsideInner] : []),
     `${indent}    </div>`,
     '',
