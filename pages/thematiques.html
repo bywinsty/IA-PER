@@ -26,6 +26,7 @@
   <link href="../assets/css/main.css" rel="stylesheet">
   <link href="../assets/css/header.css" rel="stylesheet">
   <link href="../assets/css/survey.css" rel="stylesheet">
+  <link href="../assets/css/thematic-carousel.css" rel="stylesheet">
 </head>
 
 <body class="thematics-page">
@@ -93,7 +94,7 @@
     <h1 class="visually-hidden">Thématiques et questions fréquemment posées</h1>
 
     <!-- Thématiques Section -->
-    <section id="themes" class="work-process section thematics-index" aria-labelledby="themes-title">
+    <section id="themes" class="section thematics-index" aria-labelledby="themes-title">
 
       <div class="container section-title" data-aos="fade-up">
         <h2 id="themes-title">Thématiques</h2>
@@ -101,65 +102,50 @@
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div
+          class="thematic-carousel"
+          role="region"
+          aria-roledescription="carrousel"
+          aria-labelledby="themes-title"
+          data-rotation-interval="5200">
+          <div class="orbit-stage">
+            <article class="orbit-card" data-topic="environment" role="group" aria-roledescription="diapositive" aria-label="Environnement, 1 sur 3" aria-current="false" tabindex="0">
+              <img class="orbit-image" src="../assets/img/themes/ia-environnement.webp" width="1599" height="900" alt="" loading="lazy">
+              <h3 id="orbit-card-environment-title">Environnement</h3>
+              <p>Énergie, eau, ressources&nbsp;: regarder le coût invisible de chaque usage.</p>
+              <a class="orbit-card-link" href="thématiques/environnement.html">Découvrir l’environnement <span aria-hidden="true">↗</span></a>
+            </article>
 
-        <div class="row gy-5">
+            <article class="orbit-card" data-topic="work" role="group" aria-roledescription="diapositive" aria-label="Professionnel, 2 sur 3" aria-current="true" tabindex="0">
+              <img class="orbit-image" src="../assets/img/themes/ia-professionnel-code.webp" width="1600" height="900" alt="" loading="lazy">
+              <h3 id="orbit-card-work-title">Professionnel</h3>
+              <p>Gagner du temps, faire évoluer les métiers et garder le contrôle humain.</p>
+              <a class="orbit-card-link" href="thématiques/professionnel.html">Découvrir le professionnel <span aria-hidden="true">↗</span></a>
+            </article>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="../assets/img/steps/iaenviro.png" width="765" height="430" alt="L’intelligence artificielle et l’environnement" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">01</div>
-                <h3><a href="thématiques/environnement.html" class="stretched-link">Environnement</a></h3>
-                <p>IA et environnement</p>
-                <ul class="steps-features">
-                  <li class="feature-item"><i class="bi bi-check-circle" aria-hidden="true"></i><span>Contexte</span></li>
-                  <li class="feature-item"><i class="bi bi-check-circle" aria-hidden="true"></i><span>Usages</span></li>
-                  <li class="feature-item"><i class="bi bi-check-circle" aria-hidden="true"></i><span>Questions clés</span></li>
-                </ul>
-              </div>
-            </div>
+            <article class="orbit-card" data-topic="society" role="group" aria-roledescription="diapositive" aria-label="Société, 3 sur 3" aria-current="false" tabindex="0">
+              <img class="orbit-image" src="../assets/img/themes/ia-societe.webp" width="1599" height="900" alt="" loading="lazy">
+              <h3 id="orbit-card-society-title">Société</h3>
+              <p>Information, vie privée et décisions&nbsp;: questionner nos usages quotidiens.</p>
+              <a class="orbit-card-link" href="thématiques/societe.html">Découvrir la société <span aria-hidden="true">↗</span></a>
+            </article>
           </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="../assets/img/steps/iaprof.webp" width="1024" height="683" alt="L’intelligence artificielle dans le monde professionnel" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">02</div>
-                <h3><a href="thématiques/professionnel.html" class="stretched-link">Professionnel</a></h3>
-                <p>IA dans le monde professionnel</p>
-                <ul class="steps-features">
-                  <li class="feature-item"><i class="bi bi-check-circle" aria-hidden="true"></i><span>Contexte</span></li>
-                  <li class="feature-item"><i class="bi bi-check-circle" aria-hidden="true"></i><span>Usages</span></li>
-                  <li class="feature-item"><i class="bi bi-check-circle" aria-hidden="true"></i><span>Questions clés</span></li>
-                </ul>
-              </div>
-            </div>
+          <div class="carousel-controls" role="group" aria-label="Commandes du carrousel">
+            <button class="carousel-arrow carousel-previous" type="button" aria-label="Précédente">
+              <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            </button>
+            <button class="carousel-rotation" type="button" aria-label="Mettre en pause la rotation automatique">
+              <i class="bi bi-pause-fill" aria-hidden="true"></i>
+              <span>Pause</span>
+            </button>
+            <button class="carousel-arrow carousel-next" type="button" aria-label="Suivante">
+              <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </button>
           </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="steps-item">
-              <div class="steps-image">
-                <img src="../assets/img/steps/iasocietal.jpg" width="1792" height="1024" alt="L’intelligence artificielle dans la société" class="img-fluid" loading="lazy">
-              </div>
-              <div class="steps-content">
-                <div class="steps-number">03</div>
-                <h3><a href="thématiques/societe.html" class="stretched-link">Société</a></h3>
-                <p>IA et société</p>
-                <ul class="steps-features">
-                  <li class="feature-item"><i class="bi bi-check-circle" aria-hidden="true"></i><span>Contexte</span></li>
-                  <li class="feature-item"><i class="bi bi-check-circle" aria-hidden="true"></i><span>Usages</span></li>
-                  <li class="feature-item"><i class="bi bi-check-circle" aria-hidden="true"></i><span>Questions clés</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
+          <p class="visually-hidden" id="carousel-status" aria-live="off" aria-atomic="false">Professionnel, thème 2 sur 3</p>
         </div>
-
       </div>
     </section><!-- /Thématiques Section -->
 
@@ -270,6 +256,7 @@
   <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="../assets/js/header.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/thematic-carousel.js"></script>
 
   <script src="../assets/js/footer.js" defer></script>
 
