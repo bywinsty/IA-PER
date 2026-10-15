@@ -6,6 +6,11 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>IA-PER — #404</title>
   <base href="/IA-PER/">
+  <script>
+    if (!window.location.pathname.startsWith('/IA-PER/')) {
+      document.querySelector('base').href = '/';
+    }
+  </script>
   <meta name="description" content="La page demandée est introuvable. Reprenez votre visite sur IA-PER et explorez les enjeux et les usages de l’intelligence artificielle.">
   <meta name="keywords" content="">
 
@@ -85,9 +90,9 @@
         <div class="text-center">
           <p class="error-code mb-4" aria-hidden="true" data-aos="fade-up" data-aos-delay="300">#404</p>
 
-          <p class="error-text mb-4" data-aos="fade-up" data-aos-delay="400">
+          <h1 class="error-text mb-4" data-aos="fade-up" data-aos-delay="400">
             Cette page est introuvable. Son adresse a peut-être changé ou elle n’est plus disponible.
-          </p>
+          </h1>
 
           <div class="error-action" data-aos="fade-up" data-aos-delay="500">
             <a href="index.html" class="btn btn-primary"><span>Retour à l’accueil</span><span class="error-action__arrow error-action__arrow--start" aria-hidden="true">←</span></a>
@@ -115,6 +120,7 @@
           <ul>
             <li><a href="index.html#hero">Accueil</a></li>
             <li><a href="pages/thematiques.html#themes">Thématiques</a></li>
+            <li><a href="pages/thématiques/sondage.html#sondage">Sondage</a></li>
           </ul>
         </div>
 
@@ -145,7 +151,7 @@
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Retour en haut"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>

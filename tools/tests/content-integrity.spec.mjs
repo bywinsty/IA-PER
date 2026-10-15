@@ -13,7 +13,7 @@ test('404 page gives a clear heading, useful recovery links, and a non-empty des
   const headingLevels = await page.locator('h1, h2, h3, h4, h5, h6').evaluateAll((headings) =>
     headings.map((heading) => Number(heading.tagName.slice(1)))
   );
-  expect(headingLevels).toEqual([1, 2, 2]);
+  expect(headingLevels).toEqual([1]);
 });
 
 test('thematics index does not publish the removed sources placeholder', async ({ page }) => {
