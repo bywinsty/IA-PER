@@ -62,7 +62,7 @@ function renderResults(data) {
   resultsRoot.replaceChildren(fragment);
 }
 
-fetch('../../assets/data/survey-results.json')
+fetch('../assets/data/survey-results.json')
   .then(response => {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();

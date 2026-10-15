@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const surveyPage = '/pages/thématiques/sondage.html';
+const surveyPage = '/pages/sondage.html';
 
 test('combined survey page presents results before the questionnaire', async ({ page }) => {
   await page.goto(surveyPage, { waitUntil: 'domcontentloaded' });
@@ -8,7 +8,7 @@ test('combined survey page presents results before the questionnaire', async ({ 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Ce que vos réponses nous apprennent');
   await expect(page.locator('.result-chart')).toHaveCount(21);
   await expect(page.locator('#sondage')).toContainText('Le sondage continue');
-  await expect(page.locator('#sondage .results-survey-link')).toHaveAttribute('href', '#survey-form');
+  await expect(page.locator('.results-method .results-survey-link')).toHaveAttribute('href', '#sondage');
   await expect(page.locator('#sondage iframe')).toHaveAttribute('title', 'Formulaire IA-PER — Sondage');
   await expect(page.locator('#sondage a[href*="docs.google.com/forms"]')).toHaveCount(1);
 
@@ -38,13 +38,6 @@ test('intro has no navigation buttons and remaining survey link reaches the form
   expect(position.top).toBeGreaterThanOrEqual(position.headerBottom);
 });
 
-test('legacy results address redirects to the combined results section', async ({ page }) => {
-  await page.goto('/pages/thématiques/resultats.html', { waitUntil: 'domcontentloaded' });
-
-  await expect(page).toHaveURL(/\/pages\/th%C3%A9matiques\/sondage\.html#resultats$/);
-  await expect(page.locator('#resultats')).toBeVisible();
-});
-
 test('results data failure still leaves the questionnaire reachable', async ({ page }) => {
   await page.route('**/assets/data/survey-results.json', route => route.abort());
   await page.goto(surveyPage, { waitUntil: 'domcontentloaded' });
@@ -61,6 +54,8 @@ test('combined page and thematic links reflow on a narrow screen', async ({ page
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 
   await page.goto('/pages/thematiques.html', { waitUntil: 'domcontentloaded' });
-  await expect(page.getByRole('link', { name: /Répondre au sondage/ })).toHaveAttribute('href', 'thématiques/sondage.html#sondage');
-  await expect(page.getByRole('link', { name: /Voir les résultats/ })).toHaveAttribute('href', 'thématiques/sondage.html#resultats');
+  await expect(page.locator('.survey-invitation__actions a')).toHaveCount(1);
+  await expect(page.getByRole('link', { name: /Découvrir le sondage/ })).toHaveAttribute('href', 'sondage.html#resultats');
+  await expect(page.locator('.survey-invitation')).toContainText('Consultez les résultats');
+  await expect(page.locator('.survey-invitation')).toContainText('partagez votre regard');
 });
