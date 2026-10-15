@@ -164,27 +164,39 @@ for (const width of viewports) {
   });
 }
 
-test('homepage screen tilt follows viewport size and reduced-motion preference', async ({ page }) => {
+test('homepage device tilt follows scroll position and reduced-motion preference', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/index.html', { waitUntil: 'load' });
 
-  const screen = page.locator('.hero-cadence__screen');
-  const tiltDegrees = () => screen.evaluate(element => {
-    const transform = getComputedStyle(element).transform;
-    if (transform === 'none') return 0;
-    const matrix = new DOMMatrixReadOnly(transform);
-    return Math.round(Math.acos(Math.min(1, matrix.m22)) * 180 / Math.PI);
-  });
-  await expect.poll(tiltDegrees).toBe(7);
+  const device = page.locator('.hero-cadence__device');
+  const tiltDegrees = () => device.evaluate(element =>
+    Number.parseFloat(element.style.getPropertyValue('--hero-device-tilt'))
+  );
+  const scrollRange = await page.evaluate(() => ({
+    start: document.querySelector('#hero').getBoundingClientRect().bottom - window.innerHeight,
+    range: window.innerHeight * 0.2
+  }));
+
+  await expect.poll(tiltDegrees).toBe(2.4);
+  await page.evaluate(({ start, range }) => window.scrollTo({ top: start + range / 2, behavior: 'instant' }), scrollRange);
+  await expect.poll(tiltDegrees).toBe(7.2);
+  await page.evaluate(({ start, range }) => window.scrollTo({ top: start + range, behavior: 'instant' }), scrollRange);
+  await expect.poll(tiltDegrees).toBe(12);
+  await page.evaluate(({ start, range }) => window.scrollTo({ top: start + range * 1.5, behavior: 'instant' }), scrollRange);
+  await expect.poll(tiltDegrees).toBe(12);
+  await page.evaluate(({ start, range }) => window.scrollTo({ top: start + range / 2, behavior: 'instant' }), scrollRange);
+  await expect.poll(tiltDegrees).toBe(7.2);
+  await page.evaluate(({ start }) => window.scrollTo({ top: start, behavior: 'instant' }), scrollRange);
+  await expect.poll(tiltDegrees).toBe(2.4);
 
   await page.setViewportSize({ width: 768, height: 900 });
-  await expect.poll(tiltDegrees).toBe(4);
+  await expect.poll(tiltDegrees).toBe(1.6);
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await expect.poll(tiltDegrees).toBe(0);
+  await expect(device).toHaveCSS('transform', 'none');
 
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await expect.poll(tiltDegrees).toBe(0);
+  await expect(device).toHaveCSS('transform', 'none');
 });
