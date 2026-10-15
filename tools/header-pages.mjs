@@ -10,6 +10,7 @@ const homeRoutes = {
   'environnement.html': 'pages/thématiques/environnement.html',
   'professionnel.html': 'pages/thématiques/professionnel.html',
   'societe.html': 'pages/thématiques/societe.html',
+  'sondage.html': 'pages/sondage.html',
   '404.html': '404.html'
 };
 
@@ -19,6 +20,7 @@ const thematicRoutes = {
   'environnement.html': 'environnement.html',
   'professionnel.html': 'professionnel.html',
   'societe.html': 'societe.html',
+  'sondage.html': '../sondage.html',
   '404.html': '../../404.html'
 };
 
@@ -28,6 +30,7 @@ const thematicIndexRoutes = {
   'environnement.html': 'thématiques/environnement.html',
   'professionnel.html': 'thématiques/professionnel.html',
   'societe.html': 'thématiques/societe.html',
+  'sondage.html': 'sondage.html',
   '404.html': '../404.html'
 };
 export const headerPages = [
@@ -42,7 +45,7 @@ export const headerPages = [
     sections: [
       { label: 'À propos', href: '#about' },
       { label: 'Équipe du projet', href: '#team' },
-      { label: 'Partenaires et soutiens', href: '#partners' }
+      { label: 'Partenaires', href: '#partners' }
     ]
   },
   {
@@ -59,6 +62,21 @@ export const headerPages = [
       { label: 'Professionnel', href: 'thématiques/professionnel.html' },
       { label: 'Société', href: 'thématiques/societe.html' }
     ],
+    themeCtaLabel: 'Sondage',
+    themeCtaHref: 'sondage.html',
+  },
+  {
+    file: 'pages/sondage.html',
+    type: 'breadcrumb-cadence',
+    showThemeCta: false,
+    assetPrefix: '../',
+    homeHref: '../index.html',
+    routes: thematicRoutes,
+    breadcrumbs: [
+      { label: 'Accueil', href: '../index.html' },
+      { label: 'Thématiques', href: 'thematiques.html' },
+      { label: 'Sondage', href: 'sondage.html', current: true }
+    ]
   },
   {
     file: 'pages/thématiques/environnement.html',

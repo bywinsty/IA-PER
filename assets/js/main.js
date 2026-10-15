@@ -77,6 +77,52 @@
   initScrollProgress();
 
   /**
+   * Let the homepage tablet gently tip as it moves through the viewport.
+   */
+  function initHeroScrollTilt() {
+    const hero = document.querySelector('#hero.hero--cadence');
+    const device = hero?.querySelector('.hero-cadence__device');
+    if (!hero || !device) return;
+
+    const smallViewport = window.matchMedia('(max-width: 640px)');
+    const mediumViewport = window.matchMedia('(max-width: 991px)');
+    const maximumTilt = 12;
+    const tiltRange = 0.2;
+    let framePending = false;
+
+    function restingTilt() {
+      return mediumViewport.matches ? 1.6 : 2.4;
+    }
+
+    function updateHeroTilt() {
+      framePending = false;
+      if (motionPreference.matches || smallViewport.matches) {
+        device.style.removeProperty('--hero-device-tilt');
+        return;
+      }
+
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const rangeInPixels = Math.max(1, window.innerHeight * tiltRange);
+      const progress = Math.min(1, Math.max(0, (window.innerHeight - heroBottom) / rangeInPixels));
+      const tilt = restingTilt() + (maximumTilt - restingTilt()) * progress;
+      device.style.setProperty('--hero-device-tilt', `${tilt.toFixed(2)}deg`);
+    }
+
+    function scheduleHeroTiltUpdate() {
+      if (framePending) return;
+      framePending = true;
+      requestAnimationFrame(updateHeroTilt);
+    }
+
+    window.addEventListener('scroll', scheduleHeroTiltUpdate, { passive: true });
+    window.addEventListener('resize', scheduleHeroTiltUpdate, { passive: true });
+    motionPreference.addEventListener('change', scheduleHeroTiltUpdate);
+    scheduleHeroTiltUpdate();
+  }
+
+  initHeroScrollTilt();
+
+  /**
    * Scroll top button
    */
   let scrollTop = document.querySelector('.scroll-top');
