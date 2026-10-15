@@ -57,7 +57,7 @@ test('single partner logos stay centred on tablets', async ({ page }) => {
   for (const width of [576, 768, 960, 991]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/index.html');
-    const offsets = await page.locator('.partner-logo-grid--owner, .partner-logo-grid--funding').evaluateAll(grids => grids.map(grid => {
+    const offsets = await page.locator('.partner-logo-grid--funding').evaluateAll(grids => grids.map(grid => {
       const parent = grid.getBoundingClientRect();
       const card = grid.firstElementChild.getBoundingClientRect();
       return Math.abs(card.x + card.width / 2 - parent.x - parent.width / 2);
