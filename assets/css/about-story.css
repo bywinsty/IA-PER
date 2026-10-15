@@ -114,6 +114,8 @@
 .about-commitments > p:not(.about-commitments__label) { margin: 16px 0 0; color: var(--about-text); font-family: var(--heading-font); font-size: clamp(1.25rem, 2vw, 1.7rem); font-weight: 600; letter-spacing: -.03em; }
 
 @media (min-width: 960px) {
+  .about-story__panel[data-about-panel="2"] { margin-block-start: 47px; }
+  .about-story__panel[data-about-panel="3"] { margin-block-start: 200px; }
   .about-commitments {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto repeat(4, minmax(60px, 1fr)) auto;
