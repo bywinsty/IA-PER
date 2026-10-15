@@ -708,6 +708,19 @@ section,
   color: var(--cadence-text-muted);
 }
 
+.index-page #about,
+.index-page #team,
+.index-page #partners {
+  border-top: 1px solid rgba(222, 236, 245, 0.12);
+  padding-top: 54px;
+}
+
+.index-page #hero,
+.index-page #about,
+.index-page #team {
+  padding-bottom: 54px;
+}
+
 .hero.hero--cadence {
   width: 100%;
   min-height: 100vh;
@@ -1364,11 +1377,23 @@ section,
   font-size: clamp(25px, 2vw, 30px);
 }
 
+/* Keep the home page team heading in step with the other Cadence section titles. */
+.index-page .team .section-title h2 {
+  margin: 0 auto 20px;
+  padding: 0;
+  font-size: clamp(32px, 4vw, 48px);
+}
+
 .team .section-title p {
   max-width: 1120px;
   margin: 0 auto;
   font-size: 14px;
   line-height: 1.4;
+}
+
+.index-page .team .section-title p {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .team .team-hierarchy {
@@ -1993,6 +2018,100 @@ section,
 .faq-2 .faq-container .faq-active .faq-toggle {
   transform: rotate(90deg);
   color: var(--faq-interactive-color);
+}
+
+/* The themes index carries the home page's Cadence backdrop through every
+   section, with readable translucent surfaces for the content on top. */
+.thematics-page {
+  background: var(--cadence-section-background);
+  background-attachment: fixed;
+}
+
+.thematics-page main {
+  --accent-color: #4cc4ea;
+  --default-color: #f3f7fa;
+  --heading-color: #f3f7fa;
+  --surface-color: rgba(13, 28, 57, 0.82);
+  --contrast-color: #ffffff;
+  color: var(--default-color);
+}
+
+.thematics-page main > section {
+  background: transparent;
+}
+
+.thematics-page .section-title h2 {
+  margin: 0 auto 20px;
+  padding: 0;
+  color: transparent;
+  background: linear-gradient(120deg, #f7f9fb 12%, #b6c7d1 58%, #4cc4ea 115%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  text-transform: none;
+}
+
+.thematics-page .section-title h2::before,
+.thematics-page .section-title h2::after {
+  content: none;
+}
+
+.thematics-page .section-title p {
+  color: #c9d5dd;
+}
+
+.thematics-page .work-process .steps-item,
+.thematics-page .faq-2 .faq-container .faq-item {
+  border: 1px solid rgba(222, 236, 245, 0.2);
+  background: rgba(13, 28, 57, 0.82);
+  box-shadow: 0 16px 38px rgba(3, 10, 26, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.thematics-page .work-process .steps-item {
+  overflow: hidden;
+}
+
+.thematics-page .work-process .steps-content h3 a,
+.thematics-page .work-process .steps-content h3 a:hover,
+.thematics-page .work-process .steps-content h3 a:focus-visible {
+  color: #8be2fb;
+}
+
+.thematics-page .work-process .steps-content h3 a:focus-visible,
+.thematics-page .faq-2 .faq-container .faq-item h3 .faq-question:focus-visible {
+  outline-color: #8be2fb;
+}
+
+.thematics-page .work-process .steps-content p,
+.thematics-page .work-process .steps-features .feature-item span,
+.thematics-page .faq-2 .faq-container .faq-item .faq-content p {
+  color: #c9d5dd;
+}
+
+.thematics-page .work-process .steps-features .feature-item i,
+.thematics-page .faq-2 .faq-container .faq-item .faq-icon,
+.thematics-page .faq-2 .faq-container .faq-item h3 .faq-question:hover,
+.thematics-page .faq-2 .faq-container .faq-item h3 .faq-question:focus-visible,
+.thematics-page .faq-2 .faq-container .faq-active h3,
+.thematics-page .faq-2 .faq-container .faq-active h3 .faq-question,
+.thematics-page .faq-2 .faq-container .faq-active .faq-toggle {
+  color: #8be2fb;
+}
+
+.thematics-page .survey-invitation {
+  border-top: 1px solid rgba(222, 236, 245, 0.12);
+  border-bottom: 1px solid rgba(222, 236, 245, 0.12);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .thematics-page {
+    background-attachment: scroll;
+  }
 }
 
 /*--------------------------------------------------------------
